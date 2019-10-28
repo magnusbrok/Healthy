@@ -36,11 +36,14 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (v == buttonUge){
+        if (v == buttonDag){
                 getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new Day()).commit();
              }
         if (v == buttonUge){
-            getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new Week()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Week()).commit();
+        }
+        if (v == buttonMåned){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Maened()).commit();
 
         }
         }
