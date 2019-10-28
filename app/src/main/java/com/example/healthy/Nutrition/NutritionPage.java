@@ -42,6 +42,10 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
         if (v == buttonUge){
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Week()).commit();
         }
+        if (v == buttonMåned){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Maened()).commit();
+
+        }
         }
 
     }
