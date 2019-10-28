@@ -1,17 +1,16 @@
-package com.example.healthy;
+package com.example.healthy.Reward;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.healthy.R;
+
+public class RewardPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        //hej
-        //hej fra hella
+        setContentView(R.layout.activity_reward_page);
     }
 }

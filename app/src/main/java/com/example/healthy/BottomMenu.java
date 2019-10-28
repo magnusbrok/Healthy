@@ -28,6 +28,7 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
     TabLayout tabmenu;
     TabItem activityTab, nutritionTab, homeTab, socialTab, rewardTab;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
