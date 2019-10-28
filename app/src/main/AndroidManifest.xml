@@ -9,19 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RewardPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ActivityPage" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".ActivityPage"></activity>
+        <activity android:name=".topMenu" />
+        <activity android:name=".ProfilePage" />
         <activity android:name=".SocialPage" />
         <activity android:name=".NutritionPage" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
