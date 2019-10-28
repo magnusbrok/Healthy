@@ -16,7 +16,14 @@
         <FrameLayout
             android:id="@+id/TopFrame"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/TimeFrame"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -25,14 +32,14 @@
         <FrameLayout
             android:id="@+id/FrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="482dp">
+            android:layout_height="468dp">
 
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/ButtomFrame"
             android:layout_width="match_parent"
-            android:layout_height="80dp">
+            android:layout_height="70dp">
 
         </FrameLayout>
     </LinearLayout>

@@ -17,6 +17,10 @@ public class ActivityPage extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.FrameLayout, new DayActivities())
                     .commit();
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.TimeFrame, new TimeMenu())
+                    .commit();
         }
     }
 }
