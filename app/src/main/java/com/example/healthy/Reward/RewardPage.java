@@ -15,7 +15,8 @@ public class RewardPage extends AppCompatActivity {
         setContentView(R.layout.activity_reward_page);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, new BottomMenu()).commit();
+            final BottomMenu fragment = new BottomMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
         }
     }
 }
