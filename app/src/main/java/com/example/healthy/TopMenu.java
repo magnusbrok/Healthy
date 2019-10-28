@@ -8,11 +8,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import android.os.Bundle;
 
-public class topMenu extends FragmentStatePagerAdapter {
+public class TopMenu extends FragmentStatePagerAdapter {
 
-    String [] tabarray = new String[] {"settings", "profile"};
+    String [] tabarray = new String[] {"Settings", "profile"};
 
-    public topMenu(FragmentManager fm) {
+    public TopMenu(FragmentManager fm) {
         super(fm);
     }
 

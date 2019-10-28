@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SocialPage extends AppCompatActivity {
+public class StartPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_social_page);
+        setContentView(R.layout.start_page);
+
+        //hej
+        //hej fra hella
     }
 }
