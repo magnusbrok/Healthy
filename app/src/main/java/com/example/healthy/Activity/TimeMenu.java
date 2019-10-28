@@ -22,7 +22,7 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_day_activities, container, false);
+        View root = inflater.inflate(R.layout.fragment_time_menu, container, false);
 
         // Inflate the layout for this fragment
         day = root.findViewById(R.id.day);
