@@ -15,7 +15,7 @@ public class ActivityPage extends AppCompatActivity {
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.frameLayout, new DayActivities())
+                    .add(R.id.FrameLayout, new DayActivities())
                     .commit();
         }
     }
