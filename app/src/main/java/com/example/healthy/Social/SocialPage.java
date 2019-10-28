@@ -10,6 +10,8 @@ import com.example.healthy.R;
 
 public class SocialPage extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

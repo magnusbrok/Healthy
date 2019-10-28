@@ -20,7 +20,8 @@
         android:focusable="true"
         android:onClick="onClick"
         app:layout_anchor="@+id/bottomAppBar"
-        app:layout_anchorGravity="center">
+        app:layout_anchorGravity="center"
+        app:tabMaxWidth="264dp">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabActivity"
@@ -52,11 +53,6 @@
             android:layout_height="wrap_content"
             android:text="Reward" />
     </com.google.android.material.tabs.TabLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
