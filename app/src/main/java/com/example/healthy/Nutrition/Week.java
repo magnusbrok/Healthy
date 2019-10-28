@@ -9,23 +9,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.healthy.R;
-public class Day extends Fragment {
 
-    ImageView dag;
-
+public class Week extends Fragment {
+    ImageView uge;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_day, container, false);
-        // Inflate the layout for this fragment
-        dag = root.findViewById(R.id.imageView3);
-        //
-        return root;
-    }
 
+        View view = inflater.inflate(R.layout.fragment_week, container, false);
+         uge = view.findViewById(R.id.imageView2);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_week, container, false);
+    }
 }
