@@ -1,6 +1,7 @@
 package com.example.healthy;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,22 +9,80 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+
+import com.example.healthy.Activity.ActivityPage;
+import com.example.healthy.Nutrition.NutritionPage;
+import com.example.healthy.Reward.RewardPage;
+import com.example.healthy.Social.SocialPage;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BottomMenu extends Fragment {
+public class BottomMenu extends Fragment implements View.OnClickListener {
 
 
     public BottomMenu() {
         // Required empty public constructor
     }
+
+    TabLayout tabmenu;
+    TabItem activityTab, nutritionTab, homeTab, socialTab, rewardTab;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_bottom_menu, container, false);
+
+        tabmenu = root.findViewById(R.id.tabMenu);
+        activityTab = root.findViewById(R.id.tabActivity);
+        nutritionTab = root.findViewById(R.id.tabNutrition);
+        homeTab = root.findViewById(R.id.tabHome);
+        socialTab = root.findViewById(R.id.tabSocial);
+        rewardTab = root.findViewById(R.id.tabReward);
+
+        tabmenu.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            public void onTabSelected(TabLayout.Tab tab){
+                if (tab.getPosition() == 0) {
+                    startActivity(new Intent (getActivity(), ActivityPage.class));
+                } else if (tab.getPosition() == 1) {
+                    startActivity(new Intent (getActivity(), NutritionPage.class));
+
+                } else if (tab.getPosition() == 2) {
+                    startActivity(new Intent(getActivity(), StartPage.class));
+
+                } else if (tab.getPosition() == 3) {
+                    startActivity(new Intent(getActivity(), SocialPage.class));
+
+                } else if (tab.getPosition() == 4) {
+                    startActivity(new Intent(getActivity(), RewardPage.class));
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                getActivity().finish();
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bottom_menu, container, false);
+        return root;
+
     }
 
+
+    @Override
+    public void onClick(View view) {
+
+    }
 }

@@ -13,5 +13,8 @@ public class StartPage extends AppCompatActivity {
 
         //hej
         //hej fra hella
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, new BottomMenu()).commit();
+        }
     }
 }
