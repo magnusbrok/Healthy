@@ -50,17 +50,22 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
             public void onTabSelected(TabLayout.Tab tab){
                 if (tab.getPosition() == 0) {
                     startActivity(new Intent (getActivity(), ActivityPage.class));
+                    tabMenu.getTabAt(0).select();
                 } else if (tab.getPosition() == 1) {
                     startActivity(new Intent (getActivity(), NutritionPage.class));
+                    tabMenu.getTabAt(1).select();
 
                 } else if (tab.getPosition() == 2) {
                     startActivity(new Intent(getActivity(), StartPage.class));
+                    tabMenu.getTabAt(2).select();
 
                 } else if (tab.getPosition() == 3) {
                     startActivity(new Intent(getActivity(), SocialPage.class));
+                    tabMenu.getTabAt(3).select();
 
                 } else if (tab.getPosition() == 4) {
                     startActivity(new Intent(getActivity(), RewardPage.class));
+                    tabMenu.getTabAt(4).select();
                 }
             }
 
