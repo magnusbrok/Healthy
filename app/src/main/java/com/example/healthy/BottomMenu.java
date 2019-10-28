@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 
+import com.example.healthy.Activity.ActivityPage;
+import com.example.healthy.Nutrition.NutritionPage;
+import com.example.healthy.Reward.RewardPage;
+import com.example.healthy.Social.SocialPage;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -50,7 +54,7 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
                     startActivity(new Intent (getActivity(), NutritionPage.class));
 
                 } else if (tab.getPosition() == 2) {
-                    startActivity(new Intent(getActivity(), MainActivity.class));
+                    startActivity(new Intent(getActivity(), StartPage.class));
 
                 } else if (tab.getPosition() == 3) {
                     startActivity(new Intent(getActivity(), SocialPage.class));
