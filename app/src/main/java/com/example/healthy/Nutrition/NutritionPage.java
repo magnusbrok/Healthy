@@ -13,4 +13,5 @@ public class NutritionPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_page);
     }
+
 }
