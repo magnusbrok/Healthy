@@ -29,7 +29,7 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
-    TabLayout tabmenu;
+    TabLayout tabMenu;
     TabItem activityTab, nutritionTab, homeTab, socialTab, rewardTab;
 
 
@@ -38,29 +38,34 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_bottom_menu, container, false);
 
-        tabmenu = root.findViewById(R.id.tabMenu);
+        tabMenu = root.findViewById(R.id.tabMenu);
         activityTab = root.findViewById(R.id.tabActivity);
         nutritionTab = root.findViewById(R.id.tabNutrition);
         homeTab = root.findViewById(R.id.tabHome);
         socialTab = root.findViewById(R.id.tabSocial);
         rewardTab = root.findViewById(R.id.tabReward);
 
-        tabmenu.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabMenu.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             public void onTabSelected(TabLayout.Tab tab){
                 if (tab.getPosition() == 0) {
                     startActivity(new Intent (getActivity(), ActivityPage.class));
+                    tabMenu.getTabAt(0).select();
                 } else if (tab.getPosition() == 1) {
                     startActivity(new Intent (getActivity(), NutritionPage.class));
+                    tabMenu.getTabAt(1).select();
 
                 } else if (tab.getPosition() == 2) {
                     startActivity(new Intent(getActivity(), StartPage.class));
+                    tabMenu.getTabAt(2).select();
 
                 } else if (tab.getPosition() == 3) {
                     startActivity(new Intent(getActivity(), SocialPage.class));
+                    tabMenu.getTabAt(3).select();
 
                 } else if (tab.getPosition() == 4) {
                     startActivity(new Intent(getActivity(), RewardPage.class));
+                    tabMenu.getTabAt(4).select();
                 }
             }
 
