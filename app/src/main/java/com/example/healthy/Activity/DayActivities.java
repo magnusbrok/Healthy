@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import com.example.healthy.R;
 
-public class DayActivities extends Fragment {
+public class DayActivities extends Fragment implements View.OnClickListener {
 
-    TextView text;
+    TextView day, week, month;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,11 +23,20 @@ public class DayActivities extends Fragment {
         View root = inflater.inflate(R.layout.fragment_day_activities, container, false);
 
         // Inflate the layout for this fragment
-        text = root.findViewById(R.id.AnnouncementText);
+        day = root.findViewById(R.id.day);
+        week = root.findViewById(R.id.week);
+        month = root.findViewById(R.id.month);
 
         //set
-        text.setText("Hello empty fragment!");
+        day.setOnClickListener(this);
+        week.setOnClickListener(this);
+        month.setOnClickListener(this);
 
         return root;
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }
