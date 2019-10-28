@@ -45,3 +45,4 @@ build/
 .navigation
 captures/
 output.json
+.idea/misc.xml
