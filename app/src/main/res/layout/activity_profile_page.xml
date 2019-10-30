@@ -19,12 +19,12 @@
 
     <ImageView
         android:id="@+id/imageView13"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="70dp"
         app:layout_constraintEnd_toEndOf="@+id/profileToolbar"
         app:layout_constraintTop_toTopOf="@id/profileToolbar"
-        app:srcCompat="@drawable/baseline_settings_applications_black_24dp" />
+        app:srcCompat="@drawable/settings_icon" />
 
     <TextView
         android:id="@+id/textView"
