@@ -2,6 +2,7 @@ package com.example.healthy.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,10 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Week()).commit();
         }
         if (v == buttonMåned){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Maened()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Month()).commit();
+        }
+        if (v==buttonPlus){
+            Intent i = new Intent(this, AddFood.class);
 
         }
         }

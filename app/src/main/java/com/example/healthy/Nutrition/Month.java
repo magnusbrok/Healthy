@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import com.example.healthy.R;
 
 
-public class Maened extends Fragment {
+public class Month extends Fragment {
     ImageView måned;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
