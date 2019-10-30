@@ -17,7 +17,7 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_page);
-        buttonDag = findViewById(R.id.button);
+        buttonDag = findViewById(R.id.button7);
         buttonDag.setOnClickListener(this);
         buttonUge = findViewById(R.id.button2);
         buttonUge.setOnClickListener(this);
@@ -48,7 +48,7 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
         }
         if (v==buttonPlus){
             Intent i = new Intent(this, AddFood.class);
-
+            startActivity(i);
         }
         }
 
