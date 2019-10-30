@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 
 public class RewardPage extends AppCompatActivity {
@@ -12,5 +13,10 @@ public class RewardPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reward_page);
+
+        if (savedInstanceState == null) {
+            final BottomMenu fragment = new BottomMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
+        }
     }
 }

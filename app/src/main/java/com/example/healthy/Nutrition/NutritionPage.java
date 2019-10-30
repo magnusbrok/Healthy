@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 
 public class NutritionPage extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +33,11 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
 
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new Day()).commit();
+        }
+
+        if (savedInstanceState == null) {
+            final BottomMenu fragment = new BottomMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
         }
     }
 

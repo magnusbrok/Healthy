@@ -1,6 +1,7 @@
 package com.example.healthy.Activity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,9 +14,16 @@ import android.widget.TextView;
 
 import com.example.healthy.R;
 
-public class DayActivities extends Fragment implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
 
-    TextView day, week, month;
+import lecho.lib.hellocharts.model.PieChartData;
+import lecho.lib.hellocharts.model.SliceValue;
+import lecho.lib.hellocharts.view.PieChartView;
+
+public class DayActivities extends Fragment{
+
+    PieChartView activityPie;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,20 +31,25 @@ public class DayActivities extends Fragment implements View.OnClickListener {
         View root = inflater.inflate(R.layout.fragment_day_activities, container, false);
 
         // Inflate the layout for this fragment
-        day = root.findViewById(R.id.day);
-        week = root.findViewById(R.id.week);
-        month = root.findViewById(R.id.month);
+        activityPie = root.findViewById(R.id.dayActivityPie);
 
         //set
-        day.setOnClickListener(this);
-        week.setOnClickListener(this);
-        month.setOnClickListener(this);
+        List<SliceValue> activityData = new ArrayList<>();
+        activityData.add(new SliceValue(50, Color.BLUE).setLabel("Gang: 50%"));
+        activityData.add(new SliceValue(25, Color.GREEN).setLabel("Etager: 25%"));
+        activityData.add(new SliceValue(25, Color.RED).setLabel("HI: 25%"));
+
+        PieChartData activityPieData = new PieChartData(activityData);
+
+        activityPie.setPieChartData(activityPieData);
+
+        activityPieData.setHasLabels(true);
+        activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
+
+        activityPie.setPieChartData(activityPieData);
+
+
 
         return root;
-    }
-
-    @Override
-    public void onClick(View v) {
-        
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 
 public class ActivityPage extends AppCompatActivity {
@@ -16,6 +17,14 @@ public class ActivityPage extends AppCompatActivity {
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.FrameLayout, new DayActivities())
+                    .commit();
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.TimeFrame, new TimeMenu())
+                    .commit();
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.ButtomFrame, new BottomMenu())
                     .commit();
         }
     }

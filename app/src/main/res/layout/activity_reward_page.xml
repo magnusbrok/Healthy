@@ -6,19 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Reward.RewardPage">
 
-    <Button
-        android:id="@+id/showRewardButton"
-        android:layout_width="162dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:text="@string/yourRewards"
-        android:textAllCaps="false"
-        android:textSize="18sp"
+    <FrameLayout
+        android:id="@+id/menuFragment"
+        android:layout_width="413dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Dine gevinster" />
+        app:layout_constraintStart_toStartOf="parent">
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/rewardPoints"
@@ -37,7 +34,7 @@
         android:layout_height="104dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="216dp"
         android:text="@string/yourRewards"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -45,13 +42,27 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Køb skrabelod" />
 
+    <Button
+        android:id="@+id/showRewardButton"
+        android:layout_width="162dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/yourRewards"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Dine gevinster" />
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="277dp"
         android:layout_height="128dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="412dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="360dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/aktuelle_praemier" />

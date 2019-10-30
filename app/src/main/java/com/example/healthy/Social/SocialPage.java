@@ -3,12 +3,13 @@ package com.example.healthy.Social;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.FrameLayout;
 
 import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 
 public class SocialPage extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,8 @@ public class SocialPage extends AppCompatActivity {
 
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, new BottomMenu()).commit();
+            final BottomMenu fragment = new BottomMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
         }
     }
 }
