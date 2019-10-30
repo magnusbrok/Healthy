@@ -1,34 +1,31 @@
 package com.example.healthy;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import android.os.Bundle;
 
-public class TopMenu extends FragmentStatePagerAdapter {
+import androidx.fragment.app.Fragment;
 
-    String [] tabarray = new String[] {"Settings", "profile"};
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-    public TopMenu(FragmentManager fm) {
-        super(fm);
+
+public class TopMenu extends Fragment implements View.OnClickListener {
+
+
+    public TopMenu() {
+        // Required empty public constructor
     }
 
-    @Nullable
+
     @Override
-    public CharSequence getPageTitle(int position) {
-        return tabarray[position];
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_top_menu, container, false);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
+    public void onClick(View v) {
     }
 }
