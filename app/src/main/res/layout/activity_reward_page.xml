@@ -8,8 +8,8 @@
 
     <FrameLayout
         android:id="@+id/topMenuFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:layout_marginBottom="33dp"
         app:layout_constraintBottom_toTopOf="@+id/rewardPoints"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,8 +20,8 @@
 
     <FrameLayout
         android:id="@+id/menuFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/rewardPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/rewardPoints"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/showRewardButton"
@@ -42,10 +42,11 @@
     <Button
         android:id="@+id/showRewardButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
         android:layout_marginBottom="37dp"
+        android:background="@drawable/rounded_button"
         android:text="@string/yourRewards"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -58,11 +59,12 @@
     <Button
         android:id="@+id/buyRewardButton"
         android:layout_width="0dp"
-        android:layout_height="104dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
+        android:background="@drawable/rounded_button"
         android:text="@string/yourRewards"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -73,18 +75,15 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="23dp"
+        android:layout_width="370dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="50dp"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/menuFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/showRewardButton"
+        app:layout_constraintTop_toBottomOf="@+id/buyRewardButton"
         app:srcCompat="@drawable/aktuelle_praemier" />
 
 
