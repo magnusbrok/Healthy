@@ -7,21 +7,32 @@
     tools:context=".Reward.RewardPage">
 
     <FrameLayout
+        android:id="@+id/topMenuFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="574dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/menuFragment"
-        android:layout_width="413dp"
-        android:layout_height="78dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </FrameLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topMenuFragment" />
 
     <TextView
         android:id="@+id/rewardPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="120dp"
         android:text="@string/rewardPoints"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,12 +40,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/showRewardButton"
+        android:layout_width="162dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/yourRewards"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Dine gevinster" />
+
+    <Button
         android:id="@+id/buyRewardButton"
         android:layout_width="162dp"
         android:layout_height="104dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="236dp"
         android:text="@string/yourRewards"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -44,34 +69,14 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="327dp"
-        android:layout_height="184dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toTopOf="@+id/menuFragment"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="277dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="360dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/aktuelle_praemier" />
-
-    <Button
-        android:id="@+id/showRewardButton"
-        android:layout_width="162dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/yourRewards"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Dine gevinster" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
