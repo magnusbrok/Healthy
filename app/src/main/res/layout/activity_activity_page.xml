@@ -6,12 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Activity.ActivityPage">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/menuFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="643dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="247dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <FrameLayout
             android:id="@+id/TopFrame"
@@ -36,11 +43,5 @@
 
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/ButtomFrame"
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
-
-        </FrameLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
