@@ -69,13 +69,13 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="277dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="360dp"
+        android:layout_width="325dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="320dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topMenuFragment"
         app:srcCompat="@drawable/aktuelle_praemier" />
 
 
