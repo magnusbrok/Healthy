@@ -11,8 +11,6 @@ public class StartPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_page);
 
-        //hej
-        //hej fra hella
         if (savedInstanceState == null) {
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
