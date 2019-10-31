@@ -44,29 +44,35 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
         homeTab = root.findViewById(R.id.tabHome);
         socialTab = root.findViewById(R.id.tabSocial);
         rewardTab = root.findViewById(R.id.tabReward);
-
+        tabMenu.getTabAt(2).select();
         tabMenu.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             public void onTabSelected(TabLayout.Tab tab){
-                if (tab.getPosition() == 0) {
-                    startActivity(new Intent (getActivity(), ActivityPage.class));
-                    tabMenu.getTabAt(0).select();
-                } else if (tab.getPosition() == 1) {
-                    startActivity(new Intent (getActivity(), NutritionPage.class));
-                    tabMenu.getTabAt(1).select();
 
-                } else if (tab.getPosition() == 2) {
-                    startActivity(new Intent(getActivity(), StartPage.class));
-                    tabMenu.getTabAt(2).select();
+                switch (tab.getPosition()){
+                    case 0:
+                        startActivity(new Intent (getActivity(), ActivityPage.class));
+                        tabMenu.getTabAt(0).select();
+                        break;
+                    case 1:
+                        startActivity(new Intent (getActivity(), NutritionPage.class));
+                        tabMenu.getTabAt(1).select();
+                        break;
+                    case 2:
+                        startActivity(new Intent(getActivity(), StartPage.class));
+                        tabMenu.getTabAt(2).select();
+                        break;
+                    case 3:
+                        startActivity(new Intent(getActivity(), SocialPage.class));
+                        tabMenu.getTabAt(3).select();
+                        break;
+                    case 4:
+                        startActivity(new Intent(getActivity(), RewardPage.class));
+                        tabMenu.getTabAt(4).select();
+                        break;
 
-                } else if (tab.getPosition() == 3) {
-                    startActivity(new Intent(getActivity(), SocialPage.class));
-                    tabMenu.getTabAt(3).select();
-
-                } else if (tab.getPosition() == 4) {
-                    startActivity(new Intent(getActivity(), RewardPage.class));
-                    tabMenu.getTabAt(4).select();
                 }
+
             }
 
             @Override
@@ -76,7 +82,6 @@ public class BottomMenu extends Fragment implements View.OnClickListener {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
