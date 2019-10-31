@@ -6,25 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ProfilePage">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profileToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="66dp"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorColor="#00FFFFFF">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/settingsTab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/settings_icon"
-            android:text="@string/settings"
-            />
-    </com.google.android.material.tabs.TabLayout>
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileToolbar"
+        app:layout_constraintTop_toTopOf="@id/profileToolbar"
+        app:srcCompat="@drawable/settings_icon" />
 
     <TextView
         android:id="@+id/textView"
@@ -36,48 +36,49 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/profileToolbar" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="94dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="233dp"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="235dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRedigerProfil"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/profile_icon" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/btnRedigerProfil"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/rounded_button"
         android:layout_marginStart="75dp"
         android:layout_marginEnd="75dp"
-        android:layout_marginBottom="12dp"
         android:text="@string/rediger_profil"
-        android:textSize="18sp"
         android:textColor="@color/colorBlack"
-        android:background="@drawable/rounded_button"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/btnTilfojForaldre"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="86dp"
         android:layout_marginStart="75dp"
         android:layout_marginEnd="75dp"
-        android:layout_marginBottom="87dp"
-        android:text="@string/tilfoj_foraldre_e_mail"
-        android:textSize="18sp"
-        android:textColor="@color/colorBlack"
         android:background="@drawable/rounded_button"
+        android:text="@string/tilfoj_foraldre_e_mail"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRedigerProfil" />
 </androidx.constraintlayout.widget.ConstraintLayout>
