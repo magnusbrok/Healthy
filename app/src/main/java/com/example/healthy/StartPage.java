@@ -15,10 +15,5 @@ public class StartPage extends AppCompatActivity {
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
         }
-
-        if (savedInstanceState == null) {
-            final TopMenu fragment = new TopMenu();
-            getSupportFragmentManager().beginTransaction().add(R.id.topMenuFragment, fragment).commit();
-        }
     }
 }
