@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
+import com.example.healthy.TopMenu;
 
 public class SocialPage extends AppCompatActivity {
 
@@ -21,5 +22,11 @@ public class SocialPage extends AppCompatActivity {
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
         }
+
+        if (savedInstanceState == null) {
+            final TopMenu fragment = new TopMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.topMenuFragment, fragment).commit();
+        }
+
     }
 }
