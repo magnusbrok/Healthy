@@ -8,9 +8,9 @@
 
     <FrameLayout
         android:id="@+id/topMenuFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="78dp"
         app:layout_constraintBottom_toTopOf="@+id/rewardPoints"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
 
     <FrameLayout
         android:id="@+id/menuFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/rewardPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/rewardPoints"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/showRewardButton"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="57dp"
         android:background="@drawable/rounded_button"
         android:text="@string/yourRewards"
         android:textAllCaps="false"
@@ -75,15 +75,18 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="370dp"
-        android:layout_height="300dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/menuFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buyRewardButton"
+        app:layout_constraintTop_toBottomOf="@+id/showRewardButton"
         app:srcCompat="@drawable/aktuelle_praemier" />
 
 
