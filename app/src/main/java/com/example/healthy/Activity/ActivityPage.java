@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
+import com.example.healthy.TopMenu;
 
 public class ActivityPage extends AppCompatActivity {
 
@@ -25,6 +26,11 @@ public class ActivityPage extends AppCompatActivity {
 
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
+
+            if (savedInstanceState == null) {
+                final TopMenu topFragment = new TopMenu();
+                getSupportFragmentManager().beginTransaction().add(R.id.TopFrame, topFragment).commit();
+            }
         }
     }
 }

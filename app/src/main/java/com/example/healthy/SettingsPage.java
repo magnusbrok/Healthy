@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class ProfilePage extends AppCompatActivity implements View.OnClickListener {
+public class SettingsPage extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView settingsTab;
+    ImageView profileTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_page);
+        setContentView(R.layout.activity_settings_page);
 
-        settingsTab = findViewById(R.id.settingsTab);
-        settingsTab.setOnClickListener(this);
+        profileTab = findViewById(R.id.profileTab);
+        profileTab.setOnClickListener(this);
 
         if (savedInstanceState == null) {
             final BottomMenu fragment = new BottomMenu();
@@ -27,8 +27,8 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v == settingsTab) {
-            Intent intent = new Intent(this, SettingsPage.class);
+        if (v == profileTab) {
+            Intent intent = new Intent(this, ProfilePage.class);
             startActivity(intent);
         }
     }
