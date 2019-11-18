@@ -17,14 +17,18 @@ import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
 public class ActivityPage extends AppCompatActivity implements SensorEventListener {
 
-    SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-    Sensor stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
+    SensorManager sensorManager;
+    Sensor stepCounter;
     AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_page);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
+        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
@@ -43,8 +47,6 @@ public class ActivityPage extends AppCompatActivity implements SensorEventListen
                 getSupportFragmentManager().beginTransaction().add(R.id.TopFrame, topFragment).commit();
             }
         }
-
-        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
