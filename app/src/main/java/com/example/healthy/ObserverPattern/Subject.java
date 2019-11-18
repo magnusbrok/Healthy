@@ -16,7 +16,7 @@ public abstract class Subject {
 
     final protected void notifyChangeToObservers(){
         for (Observer observer : observers){
-            observer.updateView(this);
+            observer.updateView();
         }
     }
 }

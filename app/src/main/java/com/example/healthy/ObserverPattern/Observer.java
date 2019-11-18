@@ -2,6 +2,6 @@ package com.example.healthy.ObserverPattern;
 
 public interface Observer {
 
-    void updateView(Subject subject);
+    void updateView();
 
 }
