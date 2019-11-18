@@ -43,33 +43,32 @@
             android:layout_height="96dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
+                android:background="@drawable/custom_buttons"
+                android:backgroundTint="@color/colorGrey"
+                app:srcCompat="@drawable/social_page_male_friend" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
+                android:background="@drawable/custom_buttons"
+                android:backgroundTint="@color/colorGrey"
+                app:srcCompat="@drawable/socail_page_female_friend" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
-
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
+                android:background="@drawable/custom_buttons"
+                android:backgroundTint="@color/colorGrey"
+                app:srcCompat="@drawable/social_page_male_friend" />
         </LinearLayout>
 
         <TextView
@@ -85,33 +84,33 @@
             android:layout_height="96dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
+                android:background="@drawable/custom_buttons"
+                android:backgroundTint="@color/colorGrey"
+                app:srcCompat="@drawable/social_page_male_friend" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
+                android:background="@drawable/custom_buttons"
+                android:backgroundTint="@color/colorGrey"
+                app:srcCompat="@drawable/socail_page_female_friend" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
+                android:background="@drawable/custom_buttons"
+                android:backgroundTint="@color/colorGrey"
+                app:srcCompat="@drawable/social_page_male_friend" />
 
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/profile_icon" />
         </LinearLayout>
 
     </LinearLayout>

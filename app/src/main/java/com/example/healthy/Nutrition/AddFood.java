@@ -2,6 +2,7 @@ package com.example.healthy.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint; //den fjerner fejlen, men ved ikke hvad en gør?
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.healthy.R;
 public class AddFood extends AppCompatActivity implements View.OnClickListener {
     Button button1, button2, button3, button4, button5,button6, button7,button8,button9;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
