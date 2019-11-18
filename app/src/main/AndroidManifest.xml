@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SettingsPage"></activity>
+        <activity android:name=".BottomMenuActivity"></activity>
+        <activity android:name=".SettingsPage" />
         <activity android:name=".Nutrition.FruitsVeggies" />
         <activity android:name=".Nutrition.AddFood" />
         <activity android:name=".StartPage">
