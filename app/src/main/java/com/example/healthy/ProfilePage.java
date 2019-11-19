@@ -19,10 +19,10 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         settingsTab = findViewById(R.id.settingsTab);
         settingsTab.setOnClickListener(this);
 
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
-        }
+        }*/
     }
 
     @Override

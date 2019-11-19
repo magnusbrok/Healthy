@@ -11,10 +11,10 @@ public class StartPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_page);
 
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
-        }
+        }*/
         if (savedInstanceState == null) {
             final TopMenu fragment = new TopMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.topMenuFragment, fragment).commit();

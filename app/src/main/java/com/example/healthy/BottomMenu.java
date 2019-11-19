@@ -28,13 +28,11 @@ public class BottomMenu extends AppCompatActivity {
 
 
     @Override
-    public View onCreate (Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView();
 
-        BottomNavigationView bottomMenu = root.findViewById(R.id.bottom_navigation);
 
-        BottomNavigationView.
-        return root;
+        //BottomNavigationView bottomMenu = root.findViewById(R.id.bottom_navigation);
+
     }
 }

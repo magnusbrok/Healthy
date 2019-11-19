@@ -24,8 +24,8 @@ public class ActivityPage extends AppCompatActivity {
                     .add(R.id.TimeFrame, new TimeMenu())
                     .commit();
 
-            final BottomMenu fragment = new BottomMenu();
-            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
+            /*final BottomMenu fragment = new BottomMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();*/
 
             if (savedInstanceState == null) {
                 final TopMenu topFragment = new TopMenu();
