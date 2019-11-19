@@ -2,18 +2,33 @@ package com.example.healthy.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 import com.example.healthy.TopMenu;
+import com.example.healthy.logic.AppLogic;
 
-public class ActivityPage extends AppCompatActivity {
+import static android.hardware.Sensor.TYPE_STEP_COUNTER;
+
+public class ActivityPage extends AppCompatActivity implements SensorEventListener {
+
+    SensorManager sensorManager;
+    Sensor stepCounter;
+    AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_page);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
+        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
@@ -32,5 +47,15 @@ public class ActivityPage extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().add(R.id.TopFrame, topFragment).commit();
             }
         }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        appLogic.setSteps((int) event.values[0]);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 }
