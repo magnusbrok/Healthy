@@ -27,57 +27,57 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="170dp"
+            android:layout_height="110dp"
             app:srcCompat="@drawable/profile_icon"
             android:layout_gravity="center"
             />
-        <TextView
+        <EditText
             android:id="@+id/redigerNavn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Navn:"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:textColorHint="@color/colorBlack"
             android:textStyle="italic"
             android:textSize="15dp"
             />
 
-        <TextView
+        <EditText
             android:id="@+id/redigerAlder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Alder:"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:textColorHint="@color/colorBlack"
             android:textStyle="italic"
             android:textSize="15dp"
             />
-        <TextView
+        <EditText
             android:id="@+id/redigerSkole"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Skole:"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:textColorHint="@color/colorBlack"
             android:textStyle="italic"
             android:textSize="15dp"
             />
-        <TextView
+        <EditText
             android:id="@+id/redigerArgang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Årgang:"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:textColorHint="@color/colorBlack"
             android:textStyle="italic"
             android:textSize="15dp"
             />
-        <TextView
+        <EditText
             android:id="@+id/redigerEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail:"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:textColorHint="@color/colorBlack"
             android:textStyle="italic"
             android:textSize="15dp"
@@ -91,7 +91,7 @@
             android:layout_marginRight="60dp"
             android:background="@drawable/rounded_button_white"
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             />
 
     </LinearLayout>
