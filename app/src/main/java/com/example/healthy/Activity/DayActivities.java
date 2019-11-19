@@ -38,8 +38,8 @@ public class DayActivities extends Fragment implements Observer {
         activityPie = root.findViewById(R.id.dayActivityPie);
         steps = root.findViewById(R.id.dayActivity_TextView_steps);
 
-        steps.setText("Steps: " + appLogic.getSteps());
         appLogic.attachObserverToActivityPoints(this);
+        steps.setText("Steps: " + appLogic.getSteps());
 
         //set
         List<SliceValue> activityData = new ArrayList<>();
