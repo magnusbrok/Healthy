@@ -114,7 +114,7 @@
 
     <ImageButton
         android:id="@+id/button7"
-        app:srcCompat="@drawable/nutrition_page_magertkød"
+        app:srcCompat="@drawable/nutrition_page_magertkoed"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
