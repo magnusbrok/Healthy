@@ -6,7 +6,7 @@ public class ActivityPoints extends Points {
     private int steps;
 
     public void computePoints(){
-        //code to compute points from steps
+        //TODO implement code to compute points from steps taken
     }
 
     //getters and setters

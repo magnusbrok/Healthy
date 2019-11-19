@@ -51,6 +51,7 @@ public class ActivityPage extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        //TODO implement code to set steps taken for current day
         appLogic.setSteps((int) event.values[0]);
     }
 
