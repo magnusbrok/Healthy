@@ -1,11 +1,15 @@
 package com.example.healthy;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,37 +19,36 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
     ImageView settingsTab;
     Button editProfile;
-    Dialog profileDialog;
+    public TextView name1, age1, school1, email1, year1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-        profileDialog = new Dialog (this);
-
         settingsTab = findViewById(R.id.settingsTab);
         settingsTab.setOnClickListener(this);
+
+        editProfile = findViewById(R.id.redigerProfil);
+
+        name1 = findViewById(R.id.textNavn);
+        age1 = findViewById(R.id.textAlder);
+        school1 = findViewById(R.id.textSkole);
+        year1 = findViewById(R.id.textArgang);
+        email1 = findViewById(R.id.textEmail);
 
         if (savedInstanceState == null) {
             final BottomMenu fragment = new BottomMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
         }
-    }
-    public void showPopUp (View v) {
-        TextView lukPopUp;
-        EditText redigerNavn, redigerEmail, redigerArgang, redigerAlder, redigerSkole;
-        Button gemRedigeringer;
-        profileDialog.setContentView(R.layout.activity_edit_profile_page);
-        lukPopUp = profileDialog.findViewById(R.id.lukPopUp);
-        gemRedigeringer = profileDialog.findViewById(R.id.gemRedigering);
-        lukPopUp.setOnClickListener(new View.OnClickListener() {
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            profileDialog.dismiss();
+                profileDialog dialog = new profileDialog();
+                dialog.show(getSupportFragmentManager(), "profileDialog");
             }
         });
-        profileDialog.show();
     }
 
     @Override
