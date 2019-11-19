@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.healthy">
-
     <!-- User permissions -->
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
@@ -14,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SettingsPage"></activity>
+        <activity android:name=".editProfilePage"></activity>
+        <activity android:name=".SettingsPage" />
         <activity android:name=".Nutrition.FruitsVeggies" />
         <activity android:name=".Nutrition.AddFood" />
         <activity android:name=".StartPage">
