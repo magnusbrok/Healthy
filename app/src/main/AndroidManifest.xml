@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Reward.YourPrizePage"></activity>
         <activity android:name=".SettingsPage" />
         <activity android:name=".Nutrition.FruitsVeggies" />
         <activity android:name=".Nutrition.AddFood" />
