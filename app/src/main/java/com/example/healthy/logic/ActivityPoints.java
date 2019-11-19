@@ -24,5 +24,6 @@ public class ActivityPoints extends Points {
 
     public void setSteps(int steps) {
         this.steps = steps;
+        notifyChangeToObservers();
     }
 }
