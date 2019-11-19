@@ -14,7 +14,6 @@ import android.widget.TextView;
 public class ProfilePage extends AppCompatActivity implements View.OnClickListener {
 
     ImageView settingsTab;
-    TextView
     Button editProfile;
     Dialog profileDialog;
 
