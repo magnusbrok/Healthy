@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +23,11 @@ import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class DayActivities extends Fragment{
+public class DayActivities extends Fragment implements Observer {
 
     PieChartView activityPie;
+    TextView steps;
+    AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +36,10 @@ public class DayActivities extends Fragment{
 
         // Inflate the layout for this fragment
         activityPie = root.findViewById(R.id.dayActivityPie);
+        steps = root.findViewById(R.id.dayActivity_TextView_steps);
+
+        appLogic.attachObserverToActivityPoints(this);
+        steps.setText("Steps: " + appLogic.getSteps());
 
         //set
         List<SliceValue> activityData = new ArrayList<>();
@@ -51,5 +59,10 @@ public class DayActivities extends Fragment{
 
 
         return root;
+    }
+
+    @Override
+    public void updateView() {
+        steps.setText("Steps: " + appLogic.getSteps());
     }
 }
