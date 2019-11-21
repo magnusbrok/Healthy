@@ -37,7 +37,6 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
         settingsTab = findViewById(R.id.settingsTab);
         settingsTab.setOnClickListener(this);
-
         editProfile = findViewById(R.id.redigerProfil);
 
         name1 = findViewById(R.id.textNavn);
@@ -54,11 +53,6 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
 
         email1 = findViewById(R.id.textEmail);
         email1.setText("E-mail: " + email);
-
-        if (savedInstanceState == null) {
-            final BottomMenu fragment = new BottomMenu();
-            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
-        }
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
