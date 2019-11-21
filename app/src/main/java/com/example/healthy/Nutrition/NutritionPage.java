@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 import com.example.healthy.TopMenu;
 
@@ -38,10 +37,7 @@ public class NutritionPage extends AppCompatActivity implements View.OnClickList
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, new Day()).commit();
         }
-        if (savedInstanceState == null) {
-            final BottomMenu fragment = new BottomMenu();
-            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
-        }
+
         if (savedInstanceState == null) {
             final TopMenu fragment = new TopMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.topMenuFragment, fragment).commit();
