@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class RewardPoints extends Points {
 
-    private int rewardPoints;
+    private int rewardPoints = 0;
     private Reward prize;
     private ArrayList<Object> rewards = new ArrayList<>();
 
@@ -21,7 +21,8 @@ public class RewardPoints extends Points {
     }
 
     public void computePoints(int activityPoints) {
-        rewardPoints = activityPoints;
+        int totalPoints = activityPoints;
+        setRewardPoints(totalPoints);
     }
 
     public Reward buyPrize() {
@@ -30,4 +31,12 @@ public class RewardPoints extends Points {
     }
 
 
+    public int getRewardPoints() {
+        return rewardPoints;
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+        notifyChangeToObservers();
+    }
 }

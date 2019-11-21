@@ -36,12 +36,12 @@ public class AppLogic {
             return activityPoints.getPoints();
     }
 
-    public void attachObserverToActivityPoints(Observer observer){
-            activityPoints.attachObserver(observer);
+    public int getRewardPoints() {
+        return rewardPoints.getRewardPoints();
     }
 
-    public void computeRewardPoint(){
-        rewardPoints.computePoints(activityPoints.getPoints());
+    public void attachObserverToActivityPoints(Observer observer){
+            activityPoints.attachObserver(observer);
     }
 
     public Reward buyPrize() {

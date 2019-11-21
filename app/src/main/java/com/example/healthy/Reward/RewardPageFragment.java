@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthy.BottomMenuActivity;
@@ -22,7 +23,8 @@ import com.example.healthy.logic.AppLogic;
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener {
     Button seGevinster, buyPrize;
-    AppLogic appLogic = AppLogic.getInstance();;
+    TextView rewardPoints;
+    AppLogic appLogic = AppLogic.getInstance();
 
 
     public RewardPageFragment() {
@@ -35,6 +37,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
+
+        rewardPoints = root.findViewById(R.id.rewardPoints);
+        rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
 
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
