@@ -11,14 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.healthy.BottomMenuActivity;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener {
-    Button seGevinster;
+    Button seGevinster, buyPrize;
+    AppLogic appLogic = AppLogic.getInstance();;
 
 
     public RewardPageFragment() {
@@ -34,6 +38,10 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
+
+        buyPrize = root.findViewById(R.id.buyRewardButton);
+        buyPrize.setOnClickListener(this);
+
         return root;
     }
 
@@ -45,6 +53,11 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             transaction.replace(R.id.fragmentView, yourPrizes);
             transaction.commit();
             }
+
+
+        if (v == buyPrize) {
+            Toast.makeText(getActivity(), "Du vandt: "+   appLogic.buyPrize().getName(), Toast.LENGTH_LONG).show();
+        }
     }
 
 }
