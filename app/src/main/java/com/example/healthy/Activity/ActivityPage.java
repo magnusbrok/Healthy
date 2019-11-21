@@ -8,7 +8,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 
-import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 import com.example.healthy.TopMenu;
 import com.example.healthy.logic.AppLogic;
@@ -39,8 +38,8 @@ public class ActivityPage extends AppCompatActivity implements SensorEventListen
                     .add(R.id.TimeFrame, new TimeMenu())
                     .commit();
 
-            final BottomMenu fragment = new BottomMenu();
-            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();
+            /*final BottomMenu fragment = new BottomMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.menuFragment, fragment).commit();*/
 
             if (savedInstanceState == null) {
                 final TopMenu topFragment = new TopMenu();
