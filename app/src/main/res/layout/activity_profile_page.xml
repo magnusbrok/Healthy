@@ -92,7 +92,6 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="15dp"
-        android:onClick="showPopUp"
         android:background="@drawable/rounded_button"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tilfojForaldre"
