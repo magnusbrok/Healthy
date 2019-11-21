@@ -1,5 +1,6 @@
 package com.example.healthy;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class profileDialog extends DialogFragment {
 
-
     private Button saveEdits;
-    private EditText name, age, email, school, year;
+    EditText name, age, email, school, year;
+
+    private static final String SHARED_PREFS = "shared_prefs";
+    private static final String AGE = "age";
+    private static final String EMAIL = "email";
+    private static final String YEAR = "year";
+    private static final String SCHOOL = "school";
+    private static final String NAME = "name";
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_edit_profile, container, false);
 
         saveEdits = view.findViewById(R.id.gemRedigering);
@@ -44,9 +53,21 @@ public class profileDialog extends DialogFragment {
                 ((ProfilePage)getActivity()).year1.setText("Årgang: " + årgang);
                 ((ProfilePage)getActivity()).school1.setText("Skole: " + skole);
 
+                saveProfileEdits();
                 getDialog().dismiss();
             }
         });
         return view;
+    }
+
+    public void saveProfileEdits() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences (SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(NAME, String.valueOf(name.getText()));
+        editor.putString(AGE, String.valueOf(age.getText()));
+        editor.putString(EMAIL, String.valueOf(email.getText()));
+        editor.putString(SCHOOL, String.valueOf(school.getText()));
+        editor.putString(YEAR, String.valueOf(year.getText()));
+        editor.apply();
     }
 }
