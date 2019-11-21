@@ -6,28 +6,30 @@
         android:id="@+id/activityPage"
         android:enabled="true"
         android:title="activity"
-        android:icon="@drawable/baseline_card_giftcard_black_24dp"
+        android:icon="@drawable/baseline_directions_run_black_24dp"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/nutriotionPage"
         android:enabled="true"
         android:title="nutrition"
-        android:icon="@drawable/baseline_emoji_events_black_24dp"
+        android:icon="@drawable/baseline_home_black_24dp"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/homePage"
         android:enabled="true"
         android:title="home"
-        android:icon="@drawable/baseline_directions_run_black_24dp"
+        android:icon="@drawable/baseline_home_black_24dp"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/socialPage"
         android:enabled="true"
-        android:title="activity"
+        android:title="social"
+        android:icon="@drawable/baseline_person_add_black_24dp"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/rewardPage"
         android:enabled="true"
         android:title="reward"
+        android:icon="@drawable/baseline_emoji_events_black_24dp"
         app:showAsAction="ifRoom" />
 </menu>

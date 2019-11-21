@@ -3,12 +3,14 @@ package com.example.healthy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.healthy.Activity.ActivityPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomMenuActivity extends AppCompatActivity {
@@ -27,6 +29,8 @@ public class BottomMenuActivity extends AppCompatActivity {
 
                     case R.id.activityPage:
                         Toast.makeText(BottomMenuActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(BottomMenuActivity.this, ActivityPage.class);
+                        startActivity(i);
                         break;
                     case R.id.nutriotionPage:
                         Toast.makeText(BottomMenuActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
