@@ -11,12 +11,24 @@ public class AppLogic {
             return instance;
         }
 
+        public void computePoints(){
+            activityPoints.computePoints();
+        }
+
         public int getSteps(){
             return activityPoints.getSteps();
         }
 
         public void setSteps(int steps){
             activityPoints.setSteps(steps);
+        }
+
+        public int getActivityPoints(){
+            return activityPoints.getPoints();
+        }
+
+        public void setActivityPoints(int points){
+            activityPoints.setPoints(points);
         }
 
         public void attachObserverToActivityPoints(Observer observer){

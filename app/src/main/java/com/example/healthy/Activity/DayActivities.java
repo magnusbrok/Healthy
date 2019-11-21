@@ -26,7 +26,7 @@ import lecho.lib.hellocharts.view.PieChartView;
 public class DayActivities extends Fragment implements Observer {
 
     PieChartView activityPie;
-    TextView steps;
+    TextView steps, points;
     AppLogic appLogic = AppLogic.getInstance();
 
     @Override
@@ -37,9 +37,11 @@ public class DayActivities extends Fragment implements Observer {
         // Inflate the layout for this fragment
         activityPie = root.findViewById(R.id.dayActivityPie);
         steps = root.findViewById(R.id.dayActivity_TextView_steps);
+        points = root.findViewById(R.id.dayActivity_TextView_points);
 
         appLogic.attachObserverToActivityPoints(this);
         steps.setText("Steps: " + appLogic.getSteps());
+        points.setText("Points: " + appLogic.getActivityPoints());
 
         //set
         List<SliceValue> activityData = new ArrayList<>();
@@ -64,5 +66,6 @@ public class DayActivities extends Fragment implements Observer {
     @Override
     public void updateView() {
         steps.setText("Steps: " + appLogic.getSteps());
+        points.setText("Points: " + appLogic.getActivityPoints());
     }
 }
