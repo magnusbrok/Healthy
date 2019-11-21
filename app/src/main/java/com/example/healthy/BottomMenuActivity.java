@@ -11,13 +11,14 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.healthy.Activity.ActivityPage;
+import com.example.healthy.Reward.RewardPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomMenuActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
@@ -29,8 +30,6 @@ public class BottomMenuActivity extends AppCompatActivity {
 
                     case R.id.activityPage:
                         Toast.makeText(BottomMenuActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(BottomMenuActivity.this, ActivityPage.class);
-                        startActivity(i);
                         break;
                     case R.id.nutriotionPage:
                         Toast.makeText(BottomMenuActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
@@ -43,6 +42,10 @@ public class BottomMenuActivity extends AppCompatActivity {
                         break;
                     case R.id.rewardPage:
                         Toast.makeText(BottomMenuActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
+                        if (savedInstanceState == null) {
+                            final RewardPageFragment fragment = new RewardPageFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).commit();
+                        }
                         break;
                 }
                 return true;

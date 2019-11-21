@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.healthy.BottomMenu;
 import com.example.healthy.R;
 import com.example.healthy.TopMenu;
 
