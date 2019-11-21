@@ -26,4 +26,6 @@ public class ActivityPoints extends Points {
         this.steps = steps;
         notifyChangeToObservers();
     }
+
+
 }

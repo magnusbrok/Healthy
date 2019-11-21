@@ -3,25 +3,40 @@ package com.example.healthy.logic;
 import com.example.healthy.ObserverPattern.Observer;
 
 public class AppLogic {
-        private ActivityPoints activityPoints = new ActivityPoints();
 
-        private static AppLogic instance = new AppLogic();
+    private ActivityPoints activityPoints = new ActivityPoints();
+    private NutritionPoints nutritionPoints = new NutritionPoints();
+    private RewardPoints rewardPoints = new RewardPoints();
 
-        public static AppLogic getInstance(){
+    private static AppLogic instance = new AppLogic();
+
+    public static AppLogic getInstance(){
             return instance;
         }
 
-        public int getSteps(){
+    public int getSteps(){
             return activityPoints.getSteps();
         }
 
-        public void setSteps(int steps){
+    public void setSteps(int steps){
             activityPoints.setSteps(steps);
         }
 
-        public void attachObserverToActivityPoints(Observer observer){
+    public int getActivityPoints() {
+            return activityPoints.getPoints();
+    }
+
+    public void attachObserverToActivityPoints(Observer observer){
             activityPoints.attachObserver(observer);
-        }
+    }
+
+    public void computeRewardPoint(){
+        rewardPoints.computePoints(activityPoints.getPoints());
+    }
+
+    public Reward buyPrize() {
+        return rewardPoints.buyPrize();
+    }
 
 
 }
