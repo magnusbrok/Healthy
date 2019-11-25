@@ -23,11 +23,8 @@ import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ActivityPageFragment extends Fragment implements SensorEventListener {
+public class ActivityPageFragment extends Fragment{
 
-    SensorManager sensorManager;
-    Sensor stepCounter;
-    AppLogic appLogic = AppLogic.getInstance();
     FragmentTransaction fragmentTransaction;
 
 
@@ -37,9 +34,6 @@ public class ActivityPageFragment extends Fragment implements SensorEventListene
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_activity_page, container, false);
-        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
-        stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
-        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
 
         if (savedInstanceState == null){
             fragmentTransaction = getFragmentManager().beginTransaction();
@@ -52,17 +46,4 @@ public class ActivityPageFragment extends Fragment implements SensorEventListene
         }
         return root;
     }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        //TODO implement code to set steps taken for current day
-        appLogic.setSteps((int) event.values[0]);
-        appLogic.computePoints();
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
-
 }
