@@ -40,9 +40,7 @@
     <TextView
         android:id="@+id/logoHealthyWhite"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginRight="82dp"
-        android:layout_marginLeft="82dp"
+        android:layout_height="45dp"
         android:text="Healthy"
         android:textColor="@color/colorWhite"
         android:textSize="30sp"
