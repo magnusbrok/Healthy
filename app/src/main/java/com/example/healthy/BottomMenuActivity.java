@@ -3,26 +3,40 @@ package com.example.healthy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.healthy.Activity.ActivityPage;
+import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
+import com.example.healthy.logic.AppLogic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BottomMenuActivity extends AppCompatActivity {
+import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
+public class BottomMenuActivity extends AppCompatActivity implements SensorEventListener {
+
+    SensorManager sensorManager;
+    Sensor stepCounter;
+    AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
+        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
 
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
@@ -38,6 +52,11 @@ public class BottomMenuActivity extends AppCompatActivity {
 
                     case R.id.activityPage:
                         Toast.makeText(BottomMenuActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().popBackStack();
+                        if (savedInstanceState == null) {
+                            final ActivityPageFragment fragment = new ActivityPageFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                        }
                         break;
                     case R.id.nutriotionPage:
                         Toast.makeText(BottomMenuActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
@@ -81,5 +100,17 @@ public class BottomMenuActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bottom_navigation_main, menu);
         return true;
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        //TODO implement code to set steps taken for current day
+        appLogic.setSteps((int) event.values[0]);
+        appLogic.computePoints();
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 }

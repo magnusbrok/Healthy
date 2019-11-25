@@ -46,9 +46,8 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
         buttonLog.setOnClickListener(this);
 
         if(savedInstanceState == null) {
-            Fragment day = new Day();
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout, day);
+            fragmentTransaction.replace(R.id.frameLayout,new Day());
             fragmentTransaction.commit();
         }
 
