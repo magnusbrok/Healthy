@@ -9,7 +9,7 @@
     <FrameLayout
         android:id="@+id/topMenuFragment"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -42,22 +42,26 @@
 
     <ImageView
         android:id="@+id/profileTab"
-        android:layout_width="62dp"
-        android:layout_height="59dp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="85dp"
         app:layout_constraintBottom_toBottomOf="@+id/topMenuFragment"
+        app:layout_constraintEnd_toStartOf="@+id/logoHealthyWhite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_icon" />
 
-    <ImageView
-        android:id="@+id/logoHealthy"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="60dp"
+    <TextView
+        android:id="@+id/logoHealthyWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Healthy"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/topMenuFragment"
-        app:layout_constraintEnd_toEndOf="@+id/topMenuFragment"
-        app:layout_constraintStart_toEndOf="@+id/profileTab"
-        app:layout_constraintTop_toTopOf="@+id/topMenuFragment"
-        app:srcCompat="@drawable/healthy_icon" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/topMenuFragment"
+        app:layout_constraintTop_toTopOf="@+id/topMenuFragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

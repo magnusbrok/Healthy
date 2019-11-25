@@ -13,6 +13,7 @@ public class ActivityPoints extends Points {
         }
     }
 
+    @Override
     public void computePoints(){
         //TODO implement code to compute points from steps taken
 
