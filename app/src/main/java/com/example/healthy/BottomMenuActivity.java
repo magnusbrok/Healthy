@@ -27,7 +27,9 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
 
     SensorManager sensorManager;
     Sensor stepCounter;
+    BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -111,6 +113,13 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    public void changeMenu(int itemId) {
+        bottomMenu = findViewById(R.id.bottom_navigation);
+        bottomMenu.setSelectedItemId(itemId);
+
 
     }
 }
