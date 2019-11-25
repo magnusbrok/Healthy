@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+
 public class SettingsPage extends AppCompatActivity implements View.OnClickListener {
 
     ImageView profileTab;
@@ -16,14 +17,13 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_settings_page);
 
         profileTab = findViewById(R.id.profileTab);
         profileTab.setOnClickListener(this);
         backToMain = findViewById(R.id.tilbageKnap2);
         backToMain.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -31,6 +31,8 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
         if (v == profileTab) {
             Intent intent = new Intent(this, ProfilePage.class);
             startActivity(intent);
+        } else if (v == backToMain) {
+
         }
     }
 }
