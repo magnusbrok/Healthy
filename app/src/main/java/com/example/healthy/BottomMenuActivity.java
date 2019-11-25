@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.healthy.Activity.ActivityPage;
+import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -40,6 +41,11 @@ public class BottomMenuActivity extends AppCompatActivity {
                         break;
                     case R.id.nutriotionPage:
                         Toast.makeText(BottomMenuActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().popBackStack();
+                        if (savedInstanceState == null) {
+                            final NutritionPageFragment fragment = new NutritionPageFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                        }
                         break;
                     case R.id.homePage:
                         Toast.makeText(BottomMenuActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
