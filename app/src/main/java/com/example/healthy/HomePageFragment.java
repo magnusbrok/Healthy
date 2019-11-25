@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.healthy.Activity.ActivityPageFragment;
+import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Reward.YourPrizePageFragment;
 import com.example.healthy.Social.SocialPageFragment;
@@ -45,32 +47,52 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        BottomMenuActivity bottomMenu = (BottomMenuActivity) getActivity();
 
         if (v == rewardButton) {
+
+            bottomMenu.changeMenu(R.id.rewardPage);
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.popBackStack();
 
-            Fragment rewardFragment = new RewardPageFragment();
+            Fragment fragment = new RewardPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, rewardFragment).addToBackStack(null);
+            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
             transaction.commit();
         }
 
         if (v == nutritionButton) {
-// nutrion fragment not finishrd yet
-        }
-
-        if (v == activityButton) {
-            // not made yet
-        }
-
-        if (v == socialButton) {
+            bottomMenu.changeMenu(R.id.nutriotionPage);
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.popBackStack();
 
-            Fragment socialFragment = new SocialPageFragment();
+            Fragment fragment = new NutritionPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, socialFragment).addToBackStack(null);
+            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
+            transaction.commit();
+
+        }
+
+        if (v == activityButton) {
+
+            bottomMenu.changeMenu(R.id.activityPage);
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.popBackStack();
+
+            Fragment fragment = new ActivityPageFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
+            transaction.commit();
+        }
+
+        if (v == socialButton) {
+            bottomMenu.changeMenu(R.id.socialPage);
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.popBackStack();
+
+            Fragment fragment = new SocialPageFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
             transaction.commit();
         }
 
