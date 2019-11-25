@@ -6,6 +6,97 @@
     android:layout_height="match_parent"
     tools:context=".Reward.RewardPage">
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="474dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="308dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:background="@color/colorGrey"
+                app:srcCompat="@drawable/reward_page_your_prize_basketball" />
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/reward_page_your_prize_peanut" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:background="@color/colorGrey"
+                app:srcCompat="@drawable/reward_page_prize_fruit" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/reward_page_prize_phone" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:background="@color/colorGrey"
+                app:srcCompat="@drawable/reward_page_prize_football" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/nutrition_mejeri" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/reward_page_your_prize_peanut" />
+
+            <ImageView
+                android:id="@+id/imageView21"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/reward_page_your_prize_peanut" />
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/reward_page_your_prize_peanut" />
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/reward_page_your_prize_peanut" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <FrameLayout
         android:id="@+id/topMenuFragment"
         android:layout_width="0dp"
@@ -34,14 +125,13 @@
         android:id="@+id/showRewardButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
-        android:layout_marginBottom="57dp"
         android:background="@drawable/rounded_button"
         android:text="@string/yourRewards"
         android:textAllCaps="false"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buyRewardButton"
         app:layout_constraintTop_toBottomOf="@+id/rewardPoints"
@@ -63,21 +153,6 @@
         app:layout_constraintEnd_toStartOf="@+id/showRewardButton"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Køb skrabelod" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/showRewardButton"
-        app:srcCompat="@drawable/aktuelle_praemier" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

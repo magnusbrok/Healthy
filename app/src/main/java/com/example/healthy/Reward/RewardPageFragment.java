@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -53,8 +54,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == seGevinster) {
+            getFragmentManager().popBackStack();
             Fragment yourPrizes = new YourPrizePageFragment();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction().addToBackStack(null);
             transaction.replace(R.id.fragmentView, yourPrizes);
             transaction.commit();
             }

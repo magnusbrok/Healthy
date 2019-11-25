@@ -4,6 +4,7 @@ package com.example.healthy;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -46,10 +47,12 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         if (v == rewardButton) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.popBackStack();
 
             Fragment rewardFragment = new RewardPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, rewardFragment);
+            transaction.replace(R.id.fragmentView, rewardFragment).addToBackStack(null);
             transaction.commit();
         }
 
@@ -62,9 +65,12 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         }
 
         if (v == socialButton) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.popBackStack();
+
             Fragment socialFragment = new SocialPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, socialFragment);
+            transaction.replace(R.id.fragmentView, socialFragment).addToBackStack(null);
             transaction.commit();
         }
 
