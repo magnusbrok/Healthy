@@ -28,6 +28,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="51dp"
         android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/prizeImage"
         app:layout_constraintStart_toStartOf="@+id/prizeImage"
         app:layout_constraintTop_toTopOf="parent"

@@ -11,7 +11,6 @@
         android:layout_width="80dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_buttons"
-        android:backgroundTint="@color/colorGrey"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.804"
+        android:backgroundTint="@color/colorTurkis"
         app:srcCompat="@drawable/nutrition_page_extra" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_marginTop="76dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        android:background="#40C2A5"
+        android:background="@color/colorTurkis"
         android:text="Søg "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

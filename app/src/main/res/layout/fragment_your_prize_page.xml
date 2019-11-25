@@ -9,8 +9,11 @@
 
     <ListView
         android:id="@+id/listviewYourPrize"
-        android:layout_width="407dp"
-        android:layout_height="540dp"
+        android:layout_width="297dp"
+        android:layout_height="441dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
