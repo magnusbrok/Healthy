@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.healthy.Activity.ActivityPageFragment;
@@ -27,9 +28,9 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
 
     SensorManager sensorManager;
     Sensor stepCounter;
+    FrameLayout topMenuView;
     BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
-
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -43,6 +44,11 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+        }
+
+        if (savedInstanceState ==  null) {
+            final TopMenu topMenu = new TopMenu();
+            getSupportFragmentManager().beginTransaction().add(R.id.TopMenuView, topMenu).commit();
         }
 
         final BottomNavigationView  bottomMenu = findViewById(R.id.bottom_navigation);
