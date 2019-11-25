@@ -1,6 +1,7 @@
 package com.example.healthy;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -69,6 +70,9 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         if (v == settingsTab) {
             Intent intent = new Intent(this, SettingsPage.class);
+            startActivity(intent);
+        } else if (v == backToMain) {
+            Intent intent = new Intent (this, BottomMenuActivity.class);
             startActivity(intent);
         }
     }
