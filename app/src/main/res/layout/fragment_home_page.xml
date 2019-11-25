@@ -7,7 +7,7 @@
     tools:context=".StartPage">
 
     <ImageButton
-        android:id="@+id/button15"
+        android:id="@+id/homepage_reward"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="36dp"
@@ -18,12 +18,12 @@
         android:text="Reward"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button17"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_activity"
         app:layout_constraintVertical_bias="0.05"
         app:srcCompat="@drawable/reward_page" />
 
     <ImageButton
-        android:id="@+id/button20"
+        android:id="@+id/homepage_social"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="35dp"
@@ -33,13 +33,13 @@
         android:backgroundTint="@color/colorGrey"
         android:text="Social"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button15"
-        app:layout_constraintTop_toBottomOf="@+id/button18"
+        app:layout_constraintStart_toEndOf="@+id/homepage_reward"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_nutrition"
         app:layout_constraintVertical_bias="0.05"
         app:srcCompat="@drawable/social_page" />
 
     <ImageButton
-        android:id="@+id/button18"
+        android:id="@+id/homepage_nutrition"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="35dp"
@@ -52,12 +52,12 @@
         android:text="Nutrition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button17"
+        app:layout_constraintStart_toEndOf="@+id/homepage_activity"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nutrition_page" />
 
     <ImageButton
-        android:id="@+id/button17"
+        android:id="@+id/homepage_activity"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="36dp"
