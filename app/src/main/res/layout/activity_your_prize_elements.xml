@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="100dp"
+    android:background="@color/colorMustard">
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/prizeImage"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorMustard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/reward_page_your_prize_pencil" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/prizeText"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
@@ -26,8 +28,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="51dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-        app:layout_constraintStart_toStartOf="@+id/imageView14"
+        app:layout_constraintBottom_toBottomOf="@+id/prizeImage"
+        app:layout_constraintStart_toStartOf="@+id/prizeImage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 

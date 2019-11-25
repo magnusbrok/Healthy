@@ -5,17 +5,24 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import com.example.healthy.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class YourPrizePageFragment extends Fragment {
-
+public class YourPrizePageFragment extends Fragment{
+    String [] namesOfPrizes= {"En blyant", "En fodbold", "Valgfrit frugt","En basketball"};
+    int [] picturesOFPrizes ={R.drawable.reward_page_your_prize_pencil,R.drawable.reward_page_prize_football,
+            R.drawable.reward_page_prize_fruit,R.drawable.reward_page_your_prize_basketball};
 
     public YourPrizePageFragment() {
         // Required empty public constructor
@@ -28,8 +35,10 @@ public class YourPrizePageFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_your_prize_page, container, false);
 
+
+        ListAdapter listAdapter = new CustomAdapter(getActivity(),namesOfPrizes);
+        ListView listView = root.findViewById(R.id.listviewYourPrize);
+        listView.setAdapter(listAdapter);
         return root;
-
     }
-
 }
