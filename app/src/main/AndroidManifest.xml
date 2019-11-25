@@ -25,12 +25,6 @@
         <activity android:name=".Nutrition.AddFood" />
         <activity android:name=".TopMenu" />
         <activity android:name=".ProfilePage" />
-        <activity android:name=".Activity.ActivityPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

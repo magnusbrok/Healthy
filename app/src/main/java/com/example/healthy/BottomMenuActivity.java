@@ -3,14 +3,13 @@ package com.example.healthy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.healthy.Activity.ActivityPage;
+import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
@@ -38,6 +37,11 @@ public class BottomMenuActivity extends AppCompatActivity {
 
                     case R.id.activityPage:
                         Toast.makeText(BottomMenuActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().popBackStack();
+                        if (savedInstanceState == null) {
+                            final ActivityPageFragment fragment = new ActivityPageFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                        }
                         break;
                     case R.id.nutriotionPage:
                         Toast.makeText(BottomMenuActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
