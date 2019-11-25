@@ -21,9 +21,6 @@ import com.example.healthy.R;
  */
 public class YourPrizePageFragment extends Fragment{
     String [] namesOfPrizes= {"En blyant", "En fodbold", "Valgfrit frugt","En basketball"};
-    int [] picturesOFPrizes ={R.drawable.reward_page_your_prize_pencil,R.drawable.reward_page_prize_football,
-            R.drawable.reward_page_prize_fruit,R.drawable.reward_page_your_prize_basketball};
-
     public YourPrizePageFragment() {
         // Required empty public constructor
     }
