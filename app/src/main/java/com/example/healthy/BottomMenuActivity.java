@@ -23,6 +23,11 @@ public class BottomMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
+        if (savedInstanceState == null) {
+            final HomePageFragment fragment = new HomePageFragment();
+            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+        }
+
         final BottomNavigationView  bottomMenu = findViewById(R.id.bottom_navigation);
         bottomMenu.setSelectedItemId(R.id.homePage);
         bottomMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,6 +43,11 @@ public class BottomMenuActivity extends AppCompatActivity {
                         break;
                     case R.id.homePage:
                         Toast.makeText(BottomMenuActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().popBackStack();
+                        if (savedInstanceState == null) {
+                            final HomePageFragment fragment = new HomePageFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                        }
                         break;
                     case R.id.socialPage:
                         Toast.makeText(BottomMenuActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
@@ -45,7 +55,6 @@ public class BottomMenuActivity extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
                             getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
-
                         }
                         break;
                     case R.id.rewardPage:
