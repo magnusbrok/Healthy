@@ -25,12 +25,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
 
     ImageButton activityButton, rewardButton, socialButton, nutritionButton;
 
-
-    public HomePageFragment() {
-        // Required empty public constructor
-    }
-
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

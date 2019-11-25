@@ -35,7 +35,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_buttons"
-                android:backgroundTint="@color/colorGrey"
+                android:backgroundTint="@color/colorLightPurple"
                 app:srcCompat="@drawable/social_page_male_friend" />
 
             <ImageButton
@@ -44,7 +44,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_buttons"
-                android:backgroundTint="@color/colorGrey"
+                android:backgroundTint="@color/colorLightPurple"
                 app:srcCompat="@drawable/socail_page_female_friend" />
 
             <ImageButton
@@ -53,7 +53,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_buttons"
-                android:backgroundTint="@color/colorGrey"
+                android:backgroundTint="@color/colorLightPurple"
                 app:srcCompat="@drawable/social_page_male_friend" />
         </LinearLayout>
 
@@ -76,7 +76,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_buttons"
-                android:backgroundTint="@color/colorGrey"
+                android:backgroundTint="@color/colorLightPurple"
                 app:srcCompat="@drawable/social_page_male_friend" />
 
             <ImageButton
@@ -85,7 +85,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_buttons"
-                android:backgroundTint="@color/colorGrey"
+                android:backgroundTint="@color/colorLightPurple"
                 app:srcCompat="@drawable/socail_page_female_friend" />
 
             <ImageButton
@@ -94,7 +94,7 @@
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_buttons"
-                android:backgroundTint="@color/colorGrey"
+                android:backgroundTint="@color/colorLightPurple"
                 app:srcCompat="@drawable/social_page_male_friend" />
 
         </LinearLayout>
