@@ -42,3 +42,21 @@ public class TopMenu extends Fragment implements View.OnClickListener {
         }
     }
 }
+
+/*
+
+Hvis vi skal gå tilbage til det grønne logo:
+
+ <ImageView
+ android:id="@+id/logoHealthy"
+ android:layout_width="120dp"
+ android:layout_height="50dp"
+ android:layout_marginEnd="82dp"
+ android:layout_marginRight="82dp"
+ android:src="@drawable/healthy_icon"
+ app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+ app:layout_constraintEnd_toStartOf="@+id/settingsTab"
+ app:layout_constraintStart_toEndOf="@+id/profileTab"
+ app:layout_constraintTop_toTopOf="parent" />
+
+ */
