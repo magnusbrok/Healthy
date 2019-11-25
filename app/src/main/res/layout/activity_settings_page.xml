@@ -6,28 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".SettingsPage">
 
-    <FrameLayout
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/topMenuFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        android:layout_marginTop="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/menuFragment"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </FrameLayout>
 
     <TextView
         android:id="@+id/textSettings"
@@ -63,5 +48,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/topMenuFragment"
         app:layout_constraintTop_toTopOf="@+id/topMenuFragment" />
+
+    <Button
+        android:id="@+id/tilbageKnap2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:text="Tilbage"
+        android:textSize="20sp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        app:layout_constraintTop_toBottomOf="@id/textSettings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.example.healthy;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 public class ProfilePage extends AppCompatActivity implements View.OnClickListener {
 
     ImageView settingsTab;
-    Button editProfile;
+    Button editProfile, backToMain, addEmail;
     public TextView name1, age1, school1, email1, year1;
     String name, age, email, year, school;
 
@@ -38,6 +37,9 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         settingsTab = findViewById(R.id.settingsTab);
         settingsTab.setOnClickListener(this);
         editProfile = findViewById(R.id.redigerProfil);
+        backToMain = findViewById(R.id.tilbageKnap);
+        backToMain.setOnClickListener(this);
+        addEmail = findViewById(R.id.tilfojForaldre);
 
         name1 = findViewById(R.id.textNavn);
         name1.setText("Navn: " + name);
