@@ -13,14 +13,29 @@
         app:menu="@menu/bottom_navigation_main"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white" />
+        app:itemTextColor="@android:color/white" >
 
-    <FrameLayout
-        android:id="@+id/fragmentView"
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="677dp">
+        android:layout_height="674dp"
+        android:orientation="vertical">
 
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/TopMenuView"
+            android:layout_width="match_parent"
+            android:layout_height="65dp">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fragmentView"
+            android:layout_width="match_parent"
+            android:layout_height="609dp">
+
+        </FrameLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
