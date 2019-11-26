@@ -29,5 +29,6 @@ public class FruitsVeggies extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         Toast.makeText(getApplicationContext(), "Der er nu tilføjet en madvare!", Toast.LENGTH_LONG).show();
+        finish();
     }
 }
