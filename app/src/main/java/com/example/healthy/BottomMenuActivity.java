@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -22,6 +23,8 @@ import com.example.healthy.Social.SocialPageFragment;
 import com.example.healthy.logic.AppLogic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Calendar;
+
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
 public class BottomMenuActivity extends AppCompatActivity implements SensorEventListener {
@@ -31,11 +34,35 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
     FrameLayout topMenuView;
     BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
+    Calendar calendar = Calendar.getInstance();
+
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String HAS_RUN = "has_run";
+    public static final String CALIBRATOR = "calibrator";
+    public static final String LAST_USEDATE = "last_usedate";
+    private boolean unCalibrated;
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferenceEditor;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
+
+
+        preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        preferenceEditor = preferences.edit();
+
+        if (!preferences.getBoolean(HAS_RUN,false)){
+            unCalibrated = true;
+            appLogic.setSteps(0);
+            preferenceEditor.putBoolean(HAS_RUN,true).apply();
+        }
+
+        if(preferences.getInt(LAST_USEDATE,0) == 0){
+            preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
+        }
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
@@ -114,7 +141,27 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
     @Override
     public void onSensorChanged(SensorEvent event) {
         //TODO implement code to set steps taken for current day
-        appLogic.setSteps((int) event.values[0]);
+
+        // Check if steps of the day are uncalibrated
+        // Checks if new day
+        if(preferences.getInt(LAST_USEDATE,0) != calendar.get(Calendar.DAY_OF_MONTH)){
+            unCalibrated = true;
+            preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
+        }
+        // Checks if phone has rebooted
+        else if ((int) event.values[0] < preferences.getInt(CALIBRATOR,0)){
+            unCalibrated = true;
+        }
+
+        //Calibration of steps of the day
+        if (unCalibrated){
+            preferenceEditor.putInt(CALIBRATOR, (int) event.values[0]).apply();
+            unCalibrated = false;
+        }
+
+        int currentSteps = ((int) event.values[0]) - preferences.getInt(CALIBRATOR,0);
+
+        appLogic.setSteps(currentSteps);
         appLogic.computePoints();
     }
 
