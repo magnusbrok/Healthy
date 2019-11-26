@@ -52,6 +52,7 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
         }
 
         final BottomNavigationView  bottomMenu = findViewById(R.id.bottom_navigation);
+        bottomMenu.setItemIconTintList(null);
         bottomMenu.setSelectedItemId(R.id.homePage);
         bottomMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
