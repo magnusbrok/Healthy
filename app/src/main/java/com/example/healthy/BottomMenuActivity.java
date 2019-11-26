@@ -141,11 +141,18 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
     public void onSensorChanged(SensorEvent event) {
         //TODO implement code to set steps taken for current day
 
+        // Check if steps of the day are uncalibrated
+        // Checks if new day
         if(preferences.getInt(LAST_USEDATE,0) != calendar.get(Calendar.DAY_OF_MONTH)){
             unCalibrated = true;
             preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
         }
+        // Checks if phone has rebooted
+        else if ((int) event.values[0] < preferences.getInt(CALIBRATOR,0)){
+            unCalibrated = true;
+        }
 
+        //Calibration of steps of the day
         if (unCalibrated){
             preferenceEditor.putInt(CALIBRATOR, (int) event.values[0]).apply();
             unCalibrated = false;
