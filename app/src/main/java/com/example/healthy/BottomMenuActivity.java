@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -31,12 +32,29 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
     FrameLayout topMenuView;
     AppLogic appLogic = AppLogic.getInstance();
 
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String HAS_RUN = "has_run";
+    public static final String CALIBRATOR = "calibrator";
+    private boolean unCalibrated;
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferenceEditor;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
         //topMenuView = findViewById(R.id.TopMenuView, )
+
+        preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        preferenceEditor = preferences.edit();
+
+        if (!preferences.getBoolean(HAS_RUN,false)){
+            unCalibrated = true;
+            appLogic.setSteps(0);
+            preferenceEditor.putBoolean(HAS_RUN,true).apply();
+        }
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
@@ -114,7 +132,14 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
     @Override
     public void onSensorChanged(SensorEvent event) {
         //TODO implement code to set steps taken for current day
-        appLogic.setSteps((int) event.values[0]);
+        if (unCalibrated){
+            preferenceEditor.putInt(CALIBRATOR, (int) event.values[0]).apply();
+            unCalibrated = false;
+        }
+
+        int currentSteps = ((int) event.values[0]) - preferences.getInt(CALIBRATOR,0);
+
+        appLogic.setSteps(currentSteps);
         appLogic.computePoints();
     }
 
