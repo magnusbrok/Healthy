@@ -8,8 +8,8 @@
 
     <ListView
         android:id="@+id/listviewYourPrize"
-        android:layout_width="410dp"
-        android:layout_height="491dp"
+        android:layout_width="289dp"
+        android:layout_height="448dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

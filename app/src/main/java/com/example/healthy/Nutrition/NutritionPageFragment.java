@@ -2,6 +2,7 @@ package com.example.healthy.Nutrition;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,16 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.healthy.R;
-import com.example.healthy.TopMenu;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class NutritionPageFragment extends Fragment implements View.OnClickListener {
 
-    Button buttonDag, buttonUge, buttonMåned, buttonMål, buttonLog;
+    TextView day, week, month, goal, log;
     ImageButton buttonPlus;
 
     FragmentTransaction fragmentTransaction;
@@ -31,43 +34,50 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_nutrition_page, container, false);
 
-
-        buttonDag = root.findViewById(R.id.button7);
-        buttonDag.setOnClickListener(this);
-        buttonUge = root.findViewById(R.id.button2);
-        buttonUge.setOnClickListener(this);
-        buttonMåned = root.findViewById(R.id.button3);
-        buttonMåned.setOnClickListener(this);
-        buttonMål = root.findViewById(R.id.button4);
-        buttonMål.setOnClickListener(this);
+        day = root.findViewById(R.id.buttonDag);
+        day.setOnClickListener(this);
+        week = root.findViewById(R.id.buttonUge);
+        week.setOnClickListener(this);
+        month = root.findViewById(R.id.buttonMåned);
+        month.setOnClickListener(this);
+        goal = root.findViewById(R.id.buttonMål);
+        goal.setOnClickListener(this);
         buttonPlus = root.findViewById(R.id.button5);
         buttonPlus.setOnClickListener(this);
-        buttonLog = root.findViewById(R.id.button6);
-        buttonLog.setOnClickListener(this);
+        log = root.findViewById(R.id.buttonLog);
+        log.setOnClickListener(this);
 
         if(savedInstanceState == null) {
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout,new Day());
+            fragmentTransaction.replace(R.id.frameLayoutNutrition,new Day());
             fragmentTransaction.commit();
         }
-
-
         return root;
     }
         public void onClick(View view) {
-            if (view == buttonDag){
+            if (view == day){
+                day.setTypeface(null, Typeface.BOLD);
+                week.setTypeface(null,Typeface.NORMAL);
+                month.setTypeface(null,Typeface.NORMAL);
                 fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout, new Day())
+                fragmentTransaction.replace(R.id.frameLayoutNutrition, new Day())
+                    .commit();
+
+            }
+            if (view == week){
+                day.setTypeface(null,Typeface.NORMAL);
+                week.setTypeface(null, Typeface.BOLD);
+                month.setTypeface(null,Typeface.NORMAL);
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayoutNutrition, new Week())
                     .commit();
             }
-            if (view == buttonUge){
+            if (view == month){
+                day.setTypeface(null,Typeface.NORMAL);
+                week.setTypeface(null, Typeface.NORMAL);
+                month.setTypeface(null,Typeface.BOLD);
                 fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout, new Week())
-                    .commit();
-            }
-            if (view == buttonMåned){
-                fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frameLayout, new Month())
+                fragmentTransaction.replace(R.id.frameLayoutNutrition, new Month())
                     .commit();
             }
             if (view == buttonPlus){
