@@ -35,7 +35,7 @@
         android:id="@+id/imageView"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/logoHealthyLife"
+        android:src="@drawable/logohealthylife"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toStartOf="@+id/settingsTab"
