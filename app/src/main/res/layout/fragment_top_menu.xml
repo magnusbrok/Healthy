@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,9 +20,6 @@
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:src="@drawable/profile_icon"
-        android:layout_marginRight="85dp"
-        app:layout_constraintBottom_toBottomOf="@+id/logoHealthyWhite"
-        app:layout_constraintEnd_toStartOf="@+id/logoHealthyWhite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,23 +28,18 @@
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:src="@drawable/settings_icon"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintBottom_toBottomOf="@+id/logoHealthyWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/logoHealthyWhite"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/logoHealthyWhite"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Healthy"
-        android:textColor="@color/colorWhite"
-        android:textSize="30sp"
-        android:textStyle="italic"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logoHealthyLife"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/settingsTab"
+        app:layout_constraintStart_toEndOf="@+id/profileTab"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
