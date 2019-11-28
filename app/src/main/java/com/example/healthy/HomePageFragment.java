@@ -11,11 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
+import com.example.healthy.logic.AppLogic;
 
 
 /**
@@ -23,7 +25,10 @@ import com.example.healthy.Social.SocialPageFragment;
  */
 public class HomePageFragment extends Fragment implements View.OnClickListener {
 
-    ImageButton activityButton, rewardButton, socialButton, nutritionButton;
+    private ImageButton activityButton, rewardButton, socialButton, nutritionButton;
+    private TextView activityPoints, rewardPoints, socialPoints, nutritionPoints;
+
+    AppLogic appLogic = AppLogic.getInstance();
 
     
     @Override
@@ -40,6 +45,15 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         socialButton.setOnClickListener(this);
         nutritionButton = root.findViewById(R.id.homepage_nutrition);
         nutritionButton.setOnClickListener(this);
+
+        activityPoints = root.findViewById(R.id.homepage_activity_points);
+        activityPoints.setText(""+appLogic.getActivityPoints());
+
+        rewardPoints = root.findViewById(R.id.homepage_reward_points);
+        rewardPoints.setText(""+appLogic.getRewardPoints());
+
+        // Implement nutrition and social later
+
         return root;
     }
 

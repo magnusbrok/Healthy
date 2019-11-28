@@ -7,6 +7,7 @@ public class RewardPoints extends Points {
 
     private int rewardPoints = 0;
     private Reward prize;
+    private final int prizePrice = 30;
     private ArrayList<Object> rewards = new ArrayList<>();
 
 
@@ -26,8 +27,13 @@ public class RewardPoints extends Points {
     }
 
     public Reward buyPrize() {
+        setRewardPoints(rewardPoints-prizePrice);
         prize = (Reward) rewards.get(new Random().nextInt(rewards.size()));
         return prize;
+    }
+
+    public int getPrizePrice() {
+        return prizePrice;
     }
 
 
