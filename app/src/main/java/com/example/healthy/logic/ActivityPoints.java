@@ -2,7 +2,7 @@ package com.example.healthy.logic;
 
 public class ActivityPoints extends Points {
 
-    private int points;
+    private int points = 1000;
     private int steps;
     private int[] stepGoals = new int[6];
 

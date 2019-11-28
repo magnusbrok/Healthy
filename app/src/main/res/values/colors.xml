@@ -8,5 +8,6 @@
     <color name="colorBlack">#000000</color>
     <color name="colorLightPurple">#DD5EFF</color>
     <color name="colorMustard">#FFA73E</color>
-    <color name="colorTurkis">#87EAB0</color>
+    <color name="colorTurkis">#48C081</color>
+    <color name="colorLightBlue">#2F80ED</color>
 </resources>

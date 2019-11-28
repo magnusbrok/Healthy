@@ -13,13 +13,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.Reward;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RewardPageFragment extends Fragment implements View.OnClickListener {
+public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
@@ -35,6 +37,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
+
+        appLogic.attachObserverToRewardPoints(this);
 
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
@@ -60,8 +64,17 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
 
         if (v == buyPrize) {
-            Toast.makeText(getActivity(), "Du vandt: "+   appLogic.buyPrize().getName(), Toast.LENGTH_LONG).show();
+
+            if (appLogic.canBuyPrize()) {
+                Reward prize = appLogic.buyPrize();
+                Toast.makeText(getActivity(), "Du vandt: "+   prize.getName(), Toast.LENGTH_LONG).show();
+            } else Toast.makeText(getActivity(), "Du har ikke nok point", Toast.LENGTH_LONG).show();
         }
     }
 
+    @Override
+    public void updateView() {
+        rewardPoints.setText("Bellønningspoint: " + appLogic.getRewardPoints());
+
+    }
 }

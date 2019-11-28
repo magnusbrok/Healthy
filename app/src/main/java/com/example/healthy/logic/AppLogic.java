@@ -1,6 +1,7 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
+import com.example.healthy.Reward.RewardPageFragment;
 
 public class AppLogic {
 
@@ -40,9 +41,21 @@ public class AppLogic {
         return rewardPoints.getRewardPoints();
     }
 
+    public boolean canBuyPrize() {
+        if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice()) {
+            return true;
+        } else return false;
+    }
+
     public void attachObserverToActivityPoints(Observer observer){
             activityPoints.attachObserver(observer);
     }
+
+    public void attachObserverToRewardPoints(Observer observer) {
+        rewardPoints.attachObserver(observer);
+    }
+
+
 
     public Reward buyPrize() {
         return rewardPoints.buyPrize();
