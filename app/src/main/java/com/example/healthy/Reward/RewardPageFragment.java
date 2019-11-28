@@ -44,7 +44,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
 
         appLogic.attachObserverToRewardPoints(this);
-        loadPoints();
+        //loadPoints();
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
 
@@ -80,10 +80,10 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void updateView() {
         rewardPoints.setText("Bellønningspoint: " + appLogic.getRewardPoints());
-        savePoints();
+        //savePoints();
 
     }
-
+/**
     public void savePoints() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -97,4 +97,5 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         return loadedPoints;
     }
+ **/
 }

@@ -2,14 +2,14 @@ package com.example.healthy.logic;
 
 public class ActivityPoints extends Points {
 
-    private int points = 1000;
+    private int points;
     private int steps;
-    private int[] stepGoals = new int[6];
+    private int[] stepGoals = new int[100];
 
     public ActivityPoints(){
         // Generate step milestones with intervals of 2500
         for (int i = 0; i < stepGoals.length; i++){
-            stepGoals[i] = 2500*(i+1);
+            stepGoals[i] = 25*(i+1);
         }
     }
 
