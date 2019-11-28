@@ -31,25 +31,20 @@
         android:id="@+id/settingsTab"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="85dp"
         android:src="@drawable/settings_icon"
         app:layout_constraintBottom_toBottomOf="@+id/topMenuFragment"
         app:layout_constraintEnd_toEndOf="@+id/topMenuFragment"
-        app:layout_constraintStart_toEndOf="@+id/logoHealthy"
         app:layout_constraintTop_toTopOf="@+id/topMenuFragment" />
 
-    <TextView
-        android:id="@+id/logoHealthy"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Healthy"
-        android:textColor="@color/colorWhite"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/topMenuFragment"
-        app:layout_constraintEnd_toEndOf="@+id/topMenuFragment"
-        app:layout_constraintStart_toStartOf="@+id/topMenuFragment"
-        app:layout_constraintTop_toTopOf="@+id/topMenuFragment" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/logo_healthy_life_white"
+        app:layout_constraintEnd_toEndOf="@id/topMenuFragment"
+        app:layout_constraintStart_toStartOf="@id/topMenuFragment"
+        app:layout_constraintTop_toTopOf="@id/topMenuFragment"
+        app:layout_constraintBottom_toBottomOf="@id/topMenuFragment"/>
 
     <TextView
         android:id="@+id/dinProfil"
