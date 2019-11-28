@@ -31,7 +31,7 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, ProfilePage.class);
             startActivity(intent);
         } else if (v == backToMain) {
-            Intent intent = new Intent (this, BottomMenuActivity.class);
+            Intent intent = new Intent (this, MainActivity.class);
             startActivity(intent);
         }
     }

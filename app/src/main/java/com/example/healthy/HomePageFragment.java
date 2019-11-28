@@ -10,13 +10,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
-import com.example.healthy.Reward.YourPrizePageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 
 
@@ -47,7 +45,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        BottomMenuActivity bottomMenu = (BottomMenuActivity) getActivity();
+        MainActivity bottomMenu = (MainActivity) getActivity();
 
         if (v == rewardButton) {
 
