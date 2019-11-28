@@ -27,7 +27,7 @@ import java.util.Calendar;
 
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
-public class BottomMenuActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     SensorManager sensorManager;
     Sensor stepCounter;
@@ -87,7 +87,7 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
                 switch (menuItem.getItemId()) {
 
                     case R.id.activityPage:
-                        Toast.makeText(BottomMenuActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final ActivityPageFragment fragment = new ActivityPageFragment();
@@ -95,7 +95,7 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
                         }
                         break;
                     case R.id.nutriotionPage:
-                        Toast.makeText(BottomMenuActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final NutritionPageFragment fragment = new NutritionPageFragment();
@@ -103,7 +103,7 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
                         }
                         break;
                     case R.id.homePage:
-                        Toast.makeText(BottomMenuActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final HomePageFragment fragment = new HomePageFragment();
@@ -111,7 +111,7 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
                         }
                         break;
                     case R.id.socialPage:
-                        Toast.makeText(BottomMenuActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
@@ -119,7 +119,7 @@ public class BottomMenuActivity extends AppCompatActivity implements SensorEvent
                         }
                         break;
                     case R.id.rewardPage:
-                        Toast.makeText(BottomMenuActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final RewardPageFragment fragment = new RewardPageFragment();
