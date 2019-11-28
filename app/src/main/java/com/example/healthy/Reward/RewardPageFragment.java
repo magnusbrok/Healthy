@@ -1,6 +1,7 @@
 package com.example.healthy.Reward;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -18,10 +19,14 @@ import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Reward;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.healthy.MainActivity.SHARED_PREFS;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
+    private static final String POINTS = "rewardPoints";
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
@@ -39,7 +44,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
 
         appLogic.attachObserverToRewardPoints(this);
-
+        loadPoints();
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
 
@@ -75,6 +80,21 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void updateView() {
         rewardPoints.setText("Bellønningspoint: " + appLogic.getRewardPoints());
+        savePoints();
 
+    }
+
+    public void savePoints() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(POINTS, appLogic.getRewardPoints());
+        editor.apply();
+    }
+
+    public int loadPoints() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        int loadedPoints = sharedPreferences.getInt(POINTS, 0);
+
+        return loadedPoints;
     }
 }
