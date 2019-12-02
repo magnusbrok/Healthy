@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Social.SocialPage">
+    tools:context=".Social.SocialPageFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="584dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical"
@@ -20,6 +20,7 @@
             android:id="@+id/socialTextClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="Klasse"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="30sp" />
@@ -33,6 +34,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/homepage_social_button"
                 android:backgroundTint="@color/colorLightPurple"
@@ -42,6 +44,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/homepage_social_button"
                 android:backgroundTint="@color/colorLightPurple"
@@ -51,6 +54,8 @@
                 android:id="@+id/imageView8"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/homepage_social_button"
                 android:backgroundTint="@color/colorLightPurple"
@@ -61,6 +66,7 @@
             android:id="@+id/socialTextRecent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="Nylige buddies"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="30sp" />
@@ -74,6 +80,8 @@
                 android:id="@+id/imageView9"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/homepage_social_button"
                 android:backgroundTint="@color/colorLightPurple"
@@ -92,6 +100,8 @@
                 android:id="@+id/imageView11"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/homepage_social_button"
                 android:backgroundTint="@color/colorLightPurple"
