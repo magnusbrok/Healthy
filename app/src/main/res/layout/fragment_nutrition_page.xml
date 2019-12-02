@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Nutrition.NutritionPage">
+    tools:context=".Nutrition.NutritionPageFragment">
 
     <FrameLayout
         android:id="@+id/frameLayoutNutrition"
-        android:layout_width="397dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
