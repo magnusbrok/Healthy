@@ -20,7 +20,7 @@ import com.example.healthy.R;
  * A simple {@link Fragment} subclass.
  */
 public class YourPrizePageFragment extends Fragment{
-    String [] namesOfPrizes= {"En blyant", "En fodbold", "Valgfrit frugt","En basketball"};
+    String [] namesOfPrizes= {"En blyant", "En fodbold", "Valgfrit frugt","En basketball", "..."};
     public YourPrizePageFragment() {
         // Required empty public constructor
     }
