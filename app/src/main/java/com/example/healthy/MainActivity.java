@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 switch (menuItem.getItemId()) {
 
                     case R.id.activityPage:
-                        Toast.makeText(MainActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final ActivityPageFragment fragment = new ActivityPageFragment();
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         }
                         break;
                     case R.id.nutriotionPage:
-                        Toast.makeText(MainActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final NutritionPageFragment fragment = new NutritionPageFragment();
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         }
                         break;
                     case R.id.homePage:
-                        Toast.makeText(MainActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final HomePageFragment fragment = new HomePageFragment();
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         }
                         break;
                     case R.id.socialPage:
-                        Toast.makeText(MainActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         }
                         break;
                     case R.id.rewardPage:
-                        Toast.makeText(MainActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final RewardPageFragment fragment = new RewardPageFragment();
