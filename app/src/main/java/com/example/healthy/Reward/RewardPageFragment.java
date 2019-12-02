@@ -1,11 +1,10 @@
 package com.example.healthy.Reward;
 
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -15,14 +14,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.healthy.BottomMenuActivity;
+import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.Reward;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.healthy.MainActivity.SHARED_PREFS;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RewardPageFragment extends Fragment implements View.OnClickListener {
+public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
+    private static final String POINTS = "rewardPoints";
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
@@ -39,6 +43,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
 
+        appLogic.attachObserverToRewardPoints(this);
+        //loadPoints();
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
 
@@ -63,8 +69,33 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
 
         if (v == buyPrize) {
-            Toast.makeText(getActivity(), "Du vandt: "+   appLogic.buyPrize().getName(), Toast.LENGTH_LONG).show();
+
+            if (appLogic.canBuyPrize()) {
+                Reward prize = appLogic.buyPrize();
+                Toast.makeText(getActivity(), "Du vandt: "+   prize.getName(), Toast.LENGTH_LONG).show();
+            } else Toast.makeText(getActivity(), "Du har ikke nok point", Toast.LENGTH_LONG).show();
         }
     }
 
+    @Override
+    public void updateView() {
+        rewardPoints.setText("Bellønningspoint: " + appLogic.getRewardPoints());
+        //savePoints();
+
+    }
+/**
+    public void savePoints() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(POINTS, appLogic.getRewardPoints());
+        editor.apply();
+    }
+
+    public int loadPoints() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        int loadedPoints = sharedPreferences.getInt(POINTS, 0);
+
+        return loadedPoints;
+    }
+ **/
 }
