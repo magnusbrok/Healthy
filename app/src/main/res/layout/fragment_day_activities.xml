@@ -21,17 +21,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/dayActivityPie"
+        app:layout_constraintBottom_toTopOf="@+id/dayActivity_TextView_points"
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
         app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
-        app:layout_constraintTop_toTopOf="@+id/dayActivityPie" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="DayFragment!"
-        app:layout_constraintBottom_toTopOf="@+id/dayActivity_TextView_steps"
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
         app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
         app:layout_constraintTop_toTopOf="@+id/dayActivityPie" />
@@ -40,11 +40,11 @@
         android:id="@+id/dayActivity_TextView_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/dayActivityPie"
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
-        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
-        app:layout_constraintTop_toBottomOf="@+id/dayActivity_TextView_steps" />
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
