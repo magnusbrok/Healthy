@@ -34,6 +34,8 @@ public class DayActivities extends Fragment implements Observer {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_day_activities, container, false);
 
+
+
         // Inflate the layout for this fragment
         activityPie = root.findViewById(R.id.dayActivityPie);
         steps = root.findViewById(R.id.dayActivity_TextView_steps);
