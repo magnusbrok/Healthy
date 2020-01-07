@@ -7,7 +7,7 @@
     tools:context=".Nutrition.AddFood">
 
     <ImageButton
-        android:id="@+id/button1"
+        android:id="@+id/frugtOgGrønt"
         app:srcCompat="@drawable/nutrition_fruitsandveggies"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/buttonUge"
+        android:id="@+id/Fisk"
         app:srcCompat="@drawable/nutritionpage_fish"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -32,13 +32,13 @@
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Fisk"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintBottom_toTopOf="@+id/Dråbe"
+        app:layout_constraintStart_toEndOf="@+id/frugtOgGrønt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
-        android:id="@+id/buttonMåned"
+        android:id="@+id/Fuldkorn"
         app:srcCompat="@drawable/nutrition_page_fuldkorn"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -49,15 +49,15 @@
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Fuldkorn"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLog"
+        app:layout_constraintBottom_toTopOf="@+id/Kop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonUge"
+        app:layout_constraintStart_toEndOf="@+id/Fisk"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.8" />
 
     <ImageButton
-        android:id="@+id/buttonMål"
+        android:id="@+id/Ost"
         app:srcCompat="@drawable/nutrition_mejeri"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -68,10 +68,10 @@
         android:backgroundTint="@color/colorTurkis"
         android:text="Mejeri"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintTop_toBottomOf="@+id/frugtOgGrønt" />
 
     <ImageButton
-        android:id="@+id/button5"
+        android:id="@+id/Dråbe"
         app:srcCompat="@drawable/nutrition_page_water"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -81,11 +81,11 @@
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Vand"
-        app:layout_constraintStart_toEndOf="@+id/buttonMål"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintStart_toEndOf="@+id/Ost"
+        app:layout_constraintTop_toBottomOf="@+id/frugtOgGrønt" />
 
     <ImageButton
-        android:id="@+id/buttonLog"
+        android:id="@+id/Kop"
         app:srcCompat="@drawable/nutrition_page_beverage"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -95,11 +95,11 @@
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Drikkevarer"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintStart_toEndOf="@+id/Dråbe"
+        app:layout_constraintTop_toBottomOf="@+id/frugtOgGrønt" />
 
     <ImageButton
-        android:id="@+id/button8"
+        android:id="@+id/Plus"
         app:srcCompat="@drawable/nutrition_page_extra"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -109,11 +109,11 @@
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/buttonLog"
-        app:layout_constraintTop_toTopOf="@+id/button1" />
+        app:layout_constraintStart_toEndOf="@+id/Kop"
+        app:layout_constraintTop_toTopOf="@+id/frugtOgGrønt" />
 
     <ImageButton
-        android:id="@+id/buttonDag"
+        android:id="@+id/MagertKød"
         app:srcCompat="@drawable/nutrition_page_magertkoed"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -125,7 +125,18 @@
         android:text="Magertkød"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintStart_toEndOf="@+id/buttonMåned"
+        app:layout_constraintStart_toEndOf="@+id/Fuldkorn"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:text="Færdig!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

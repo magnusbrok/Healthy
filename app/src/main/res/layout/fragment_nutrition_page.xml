@@ -15,13 +15,13 @@
         android:layout_marginBottom="213dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUge"
+        app:layout_constraintTop_toBottomOf="@+id/Fisk"
         app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
 
     <TextView
-        android:id="@+id/buttonDag"
+        android:id="@+id/MagertKød"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/buttonMåned"
+        android:id="@+id/Fuldkorn"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginEnd="48dp"
@@ -45,18 +45,18 @@
         tools:layout_editor_absoluteY="145dp" />
 
     <TextView
-        android:id="@+id/buttonUge"
+        android:id="@+id/Fisk"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:gravity="center"
         android:text="Uge"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonMåned"
-        app:layout_constraintStart_toEndOf="@+id/buttonDag"
+        app:layout_constraintEnd_toStartOf="@+id/Fuldkorn"
+        app:layout_constraintStart_toEndOf="@+id/MagertKød"
         tools:layout_editor_absoluteY="145dp" />
 
     <ImageButton
-        android:id="@+id/button5"
+        android:id="@+id/Dråbe"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -65,13 +65,13 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonLog"
-        app:layout_constraintStart_toEndOf="@id/buttonMål"
+        app:layout_constraintEnd_toStartOf="@+id/Kop"
+        app:layout_constraintStart_toEndOf="@id/Ost"
         app:layout_constraintTop_toBottomOf="@id/frameLayoutNutrition"
         app:srcCompat="@drawable/nutrition_page_extra" />
 
     <TextView
-        android:id="@+id/buttonMål"
+        android:id="@+id/Ost"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
 
     <TextView
-        android:id="@+id/buttonLog"
+        android:id="@+id/Kop"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginEnd="48dp"
