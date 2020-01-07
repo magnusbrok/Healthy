@@ -1,6 +1,7 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
+import com.example.healthy.Reward.RewardPageFragment;
 
 public class AppLogic {
 
@@ -16,11 +17,10 @@ public class AppLogic {
     }
 
     public void computePoints() {
-        int activityPointsIncrease = activityPoints.computePoints();
-        int nutritionPointIncrease = nutritionPoints.computePoints();
-        int socialPointIncrease = socialPoints.computePoints();
-
-        rewardPoints.addPoints(activityPointsIncrease);
+        activityPoints.computePoints();
+        nutritionPoints.computePoints();
+        socialPoints.computePoints();
+        rewardPoints.computePoints(activityPoints.getPoints());
 
     }
 
@@ -39,10 +39,6 @@ public class AppLogic {
 
     public int getRewardPoints() {
         return rewardPoints.getRewardPoints();
-    }
-
-    public int getStepPoints() {
-        return activityPoints.computeStepPoints();
     }
 
     public boolean canBuyPrize() {
