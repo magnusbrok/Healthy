@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
+        /*
         db = FirebaseFirestore.getInstance();
 
         // Add new contact to address book
@@ -68,17 +69,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         db.collection("AddressBook").document("1")
                 .set(newContact)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                          @Override
-                                          public void onSuccess(Void aVoid) {
-                                              Toast.makeText(MainActivity.this, "Added new contact", Toast.LENGTH_SHORT).show();
-                                          }
-                                      })
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(MainActivity.this, "Added new contact", Toast.LENGTH_SHORT).show();
+                    }
+                })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.d("Error", e.getMessage());
                     }
                 });
+
+         */
 
         preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         preferenceEditor = preferences.edit();
