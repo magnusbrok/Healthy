@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-
+        // Tilføjer en person til en Adressebog (bare for at se at databasen virker)
         db = FirebaseFirestore.getInstance();
 
         // Add new contact to address book
