@@ -25,6 +25,7 @@
         <activity android:name=".Nutrition.AddFood" />
         <activity android:name=".TopMenu" />
         <activity android:name=".ProfilePage" />
+        <service android:name = ".SensorService"/>
     </application>
 
 </manifest>
