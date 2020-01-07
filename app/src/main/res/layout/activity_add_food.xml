@@ -7,126 +7,207 @@
     tools:context=".Nutrition.AddFood">
 
     <ImageButton
+<<<<<<< HEAD
         android:id="@+id/frugtOgGrønt"
         app:srcCompat="@drawable/nutrition_fruitsandveggies"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="128dp"
-        android:background="@drawable/homepage_social_button"
-        android:backgroundTint="@color/colorTurkis"
-        android:text="Frugt/Grønt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/Fisk"
-        app:srcCompat="@drawable/nutritionpage_fish"
+=======
+        android:id="@+id/button1"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/homepage_social_button"
+        android:backgroundTint="@color/colorTurkis"
+        android:text="Frugt/Grønt"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMål"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_fruitsandveggies" />
+
+    <ImageButton
+<<<<<<< HEAD
+        android:id="@+id/Fisk"
+        app:srcCompat="@drawable/nutritionpage_fish"
+=======
+        android:id="@+id/buttonUge"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Fisk"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/Dråbe"
         app:layout_constraintStart_toEndOf="@+id/frugtOgGrønt"
+=======
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMåned"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:srcCompat="@drawable/nutritionpage_fish" />
 
     <ImageButton
+<<<<<<< HEAD
         android:id="@+id/Fuldkorn"
         app:srcCompat="@drawable/nutrition_page_fuldkorn"
+=======
+        android:id="@+id/buttonMåned"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Fuldkorn"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/Kop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Fisk"
+=======
+        app:layout_constraintBottom_toTopOf="@+id/buttonLog"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDag"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:srcCompat="@drawable/nutrition_page_fuldkorn" />
 
     <ImageButton
+<<<<<<< HEAD
         android:id="@+id/Ost"
         app:srcCompat="@drawable/nutrition_mejeri"
+=======
+        android:id="@+id/buttonMål"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="170dp"
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Mejeri"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/frugtOgGrønt" />
 
     <ImageButton
         android:id="@+id/Dråbe"
         app:srcCompat="@drawable/nutrition_page_water"
+=======
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_mejeri" />
+
+    <ImageButton
+        android:id="@+id/button5"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="170dp"
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Vand"
+<<<<<<< HEAD
         app:layout_constraintStart_toEndOf="@+id/Ost"
         app:layout_constraintTop_toBottomOf="@+id/frugtOgGrønt" />
 
     <ImageButton
         android:id="@+id/Kop"
         app:srcCompat="@drawable/nutrition_page_beverage"
+=======
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLog"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_page_water" />
+
+    <ImageButton
+        android:id="@+id/buttonLog"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="170dp"
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Drikkevarer"
+<<<<<<< HEAD
         app:layout_constraintStart_toEndOf="@+id/Dråbe"
         app:layout_constraintTop_toBottomOf="@+id/frugtOgGrønt" />
 
     <ImageButton
         android:id="@+id/Plus"
         app:srcCompat="@drawable/nutrition_page_extra"
+=======
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_page_beverage" />
+
+    <ImageButton
+        android:id="@+id/button8"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="170dp"
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="+"
+<<<<<<< HEAD
         app:layout_constraintStart_toEndOf="@+id/Kop"
         app:layout_constraintTop_toTopOf="@+id/frugtOgGrønt" />
 
     <ImageButton
         android:id="@+id/MagertKød"
         app:srcCompat="@drawable/nutrition_page_magertkoed"
+=======
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_page_extra" />
+
+    <ImageButton
+        android:id="@+id/buttonDag"
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/homepage_social_button"
         android:backgroundTint="@color/colorTurkis"
         android:text="Magertkød"
+        app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toEndOf="@+id/Fuldkorn"
         app:layout_constraintTop_toTopOf="parent" />
+=======
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_page_magertkoed" />
+>>>>>>> ec41fb62eab41cd5f83705a91c1b7f911cfd68fb
 
     <Button
         android:id="@+id/button"
