@@ -26,8 +26,10 @@ import lecho.lib.hellocharts.view.PieChartView;
 public class DayActivities extends Fragment implements Observer {
 
     PieChartView activityPie;
+    private SliceValue stepSlice, floorSlice;
     TextView steps, points;
     AppLogic appLogic = AppLogic.getInstance();
+    List<SliceValue> activityData = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,17 +45,30 @@ public class DayActivities extends Fragment implements Observer {
         steps.setText("Steps: " + appLogic.getSteps());
         points.setText("Points: " + appLogic.getActivityPoints());
 
+        if (appLogic.getActivityPoints() == 0) {
+            stepSlice = new SliceValue(1, Color.BLUE).setLabel("Skridt");
+            floorSlice = new SliceValue(1, Color.GREEN).setLabel("Etager");
+        } else {
+            stepSlice.setValue(appLogic.getStepPoints());
+            floorSlice.setValue((10));
+        }
+
         //set
-        List<SliceValue> activityData = new ArrayList<>();
-        activityData.add(new SliceValue(50, Color.BLUE).setLabel("Gang: 50%"));
-        activityData.add(new SliceValue(25, Color.GREEN).setLabel("Etager: 25%"));
-        activityData.add(new SliceValue(25, Color.RED).setLabel("HI: 25%"));
+
+        activityData.add(stepSlice);
+        activityData.add(floorSlice);
+
+
 
         PieChartData activityPieData = new PieChartData(activityData);
 
         activityPie.setPieChartData(activityPieData);
-
+        activityPie.setChartRotationEnabled(false);
         activityPieData.setHasLabels(true);
+        activityPieData.setValueLabelBackgroundEnabled(false);
+        activityPieData.setValueLabelsTextColor(Color.BLACK);
+
+
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
 
         activityPie.setPieChartData(activityPieData);
@@ -67,5 +82,17 @@ public class DayActivities extends Fragment implements Observer {
     public void updateView() {
         steps.setText("Steps: " + appLogic.getSteps());
         points.setText("Points: " + appLogic.getActivityPoints());
+        stepSlice.setValue(appLogic.getStepPoints());
+        floorSlice.setValue((10)); // change this later to be dynamic
+        activityData.clear();
+        activityData.add(stepSlice);
+        activityData.add(floorSlice);
+        PieChartData activityPieData = new PieChartData(activityData);
+        activityPieData.setHasLabels(true);
+        activityPieData.setValueLabelBackgroundEnabled(false);
+        activityPieData.setValueLabelsTextColor(Color.BLACK);
+        activityPie.setPieChartData(activityPieData);
+
+
     }
 }

@@ -41,6 +41,10 @@ public class AppLogic {
         return rewardPoints.getRewardPoints();
     }
 
+    public int getStepPoints() {
+        return activityPoints.computeStepPoints();
+    }
+
     public boolean canBuyPrize() {
         if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice()) {
             return true;
