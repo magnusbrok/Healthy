@@ -8,11 +8,13 @@ public class ActivityPoints extends Points {
 
     private int pointIncrementer = 50;
 
+    private int stepGoal = 25;
+
     private int[] stepGoals = new int[100];
     public ActivityPoints(){
         // Generate step milestones with intervals of 2500
         for (int i = 0; i < stepGoals.length; i++){
-            stepGoals[i] = 25*(i+1);
+            stepGoals[i] = stepGoal*(i+1);
         }
     }
 
@@ -73,6 +75,15 @@ public class ActivityPoints extends Points {
         return points;
 
     }
+
+    public int getStepGoal() {
+        return stepGoal;
+    }
+
+    public void setStepGoal(int stepGoal) {
+        this.stepGoal = stepGoal;
+    }
+
 
 
 }

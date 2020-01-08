@@ -1,5 +1,6 @@
 package com.example.healthy.Activity;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class DayActivities extends Fragment implements Observer {
         points = root.findViewById(R.id.dayActivity_TextView_points);
         stepProgress = root.findViewById(R.id.activity_day_step_Progress);
         stepProgress.getProgressDrawable().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+
 
         appLogic.attachObserverToActivityPoints(this);
         steps.setText("Steps: " + appLogic.getSteps());
@@ -99,9 +101,7 @@ public class DayActivities extends Fragment implements Observer {
         activityPie.setPieChartData(activityPieData);
 
         // Progressbar
-        stepProgress.setMax(25);
-        stepProgress.setProgress(appLogic.getSteps()%25);
-
-
+        stepProgress.setMax(appLogic.getStepGoal());
+        stepProgress.setProgress(appLogic.getSteps()%appLogic.getStepGoal());
     }
 }

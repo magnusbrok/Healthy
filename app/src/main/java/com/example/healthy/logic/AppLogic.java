@@ -65,5 +65,9 @@ public class AppLogic {
         return rewardPoints.buyPrize();
     }
 
+    public int getStepGoal() {
+        return activityPoints.getStepGoal();
+    }
+
 
 }
