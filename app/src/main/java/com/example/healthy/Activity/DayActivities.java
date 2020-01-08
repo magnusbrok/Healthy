@@ -108,5 +108,9 @@ public class DayActivities extends Fragment implements Observer {
         // Progressbar
         stepProgress.setMax(appLogic.getStepGoal());
         stepProgress.setProgress(appLogic.getSteps()%appLogic.getStepGoal());
+        highIntensityProgress.setMax(appLogic.getHighIntensityGoal());
+        highIntensityProgress.setProgress((appLogic.getSteps()/100)%appLogic.getStepGoal());
+        floorProgress.setMax(appLogic.getFloorGoal());
+        floorProgress.setProgress((appLogic.getSteps()/75)%appLogic.getFloorGoal());
     }
 }

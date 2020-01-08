@@ -10,6 +10,8 @@ public class ActivityPoints extends Points {
     private int floorPointIncrementer = 100;
     private int highIntensityIncrementer = 40;
 
+
+
     private int stepGoal = 25;
     private int floorGoal = 5;
     private int highIntensityGoal = 60;
@@ -123,6 +125,38 @@ public class ActivityPoints extends Points {
 
     public void setStepGoal(int stepGoal) {
         this.stepGoal = stepGoal;
+    }
+
+    public int getFloorPointIncrementer() {
+        return floorPointIncrementer;
+    }
+
+    public void setFloorPointIncrementer(int floorPointIncrementer) {
+        this.floorPointIncrementer = floorPointIncrementer;
+    }
+
+    public int getHighIntensityIncrementer() {
+        return highIntensityIncrementer;
+    }
+
+    public void setHighIntensityIncrementer(int highIntensityIncrementer) {
+        this.highIntensityIncrementer = highIntensityIncrementer;
+    }
+
+    public int getFloorGoal() {
+        return floorGoal;
+    }
+
+    public void setFloorGoal(int floorGoal) {
+        this.floorGoal = floorGoal;
+    }
+
+    public int getHighIntensityGoal() {
+        return highIntensityGoal;
+    }
+
+    public void setHighIntensityGoal(int highIntensityGoal) {
+        this.highIntensityGoal = highIntensityGoal;
     }
 
 

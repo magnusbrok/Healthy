@@ -45,6 +45,14 @@ public class AppLogic {
         return activityPoints.computeStepPoints();
     }
 
+    public int getFloorPoints() {
+        return activityPoints.computeFloorPoints();
+    }
+
+    public int getHighIntensityPoints() {
+        return activityPoints.computeHighIntensityPoints();
+    }
+
     public boolean canBuyPrize() {
         if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice()) {
             return true;
@@ -67,6 +75,14 @@ public class AppLogic {
 
     public int getStepGoal() {
         return activityPoints.getStepGoal();
+    }
+
+    public int getHighIntensityGoal() {
+        return activityPoints.getHighIntensityGoal();
+    }
+
+    public int getFloorGoal() {
+        return activityPoints.getFloorGoal();
     }
 
 
