@@ -39,7 +39,7 @@
         <FrameLayout
             android:id="@+id/FrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="354dp">
+            android:layout_height="500dp">
 
         </FrameLayout>
 

@@ -31,7 +31,7 @@ public class DayActivities extends Fragment implements Observer{
     TextView steps, points, altitude;
     AppLogic appLogic = AppLogic.getInstance();
     List<SliceValue> activityData = new ArrayList<>();
-    ProgressBar stepProgress;
+    ProgressBar stepProgress, floorProgress, highIntensityProgress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +46,11 @@ public class DayActivities extends Fragment implements Observer{
         stepProgress.getProgressDrawable().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
+        highIntensityProgress = root.findViewById(R.id.activity_day_highIntensity_progress);
+        highIntensityProgress.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        floorProgress = root.findViewById(R.id.activity_day_floor_progress);
+        floorProgress.getProgressDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
+
 
 
         appLogic.attachObserverToActivityPoints(this);
