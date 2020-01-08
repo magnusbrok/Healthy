@@ -8,11 +8,13 @@ public class ActivityPoints extends Points {
 
     private int stepPointIncrementer = 50;
     private int floorPointIncrementer = 100;
-    private int highIntensityIncrementer = 40;
+    private int highIntensityIncrementer = 75;
+
+
 
     private int stepGoal = 25;
     private int floorGoal = 5;
-    private int highIntensityGoal = 60;
+    private int highIntensityGoal = 10;
 
     private int[] stepGoals = new int[100];
     private int[] floorGoals = new int[5];
@@ -93,7 +95,7 @@ public class ActivityPoints extends Points {
     public int computeHighIntensityPoints() {
         int points = 0;
 
-        int min = steps/100;
+        int min = steps/5;
 
         for (int i = 0; i < highIntensityGoals.length; i++){
             if (highIntensityGoals[i] < min){
@@ -106,7 +108,7 @@ public class ActivityPoints extends Points {
     public int computeFloorPoints() {
         int points = 0;
 
-        int floors = steps/75;
+        int floors = steps/7;
 
         for (int i = 0; i < floorGoals.length; i++){
             if (floorGoals[i] < floors){
@@ -123,6 +125,38 @@ public class ActivityPoints extends Points {
 
     public void setStepGoal(int stepGoal) {
         this.stepGoal = stepGoal;
+    }
+
+    public int getFloorPointIncrementer() {
+        return floorPointIncrementer;
+    }
+
+    public void setFloorPointIncrementer(int floorPointIncrementer) {
+        this.floorPointIncrementer = floorPointIncrementer;
+    }
+
+    public int getHighIntensityIncrementer() {
+        return highIntensityIncrementer;
+    }
+
+    public void setHighIntensityIncrementer(int highIntensityIncrementer) {
+        this.highIntensityIncrementer = highIntensityIncrementer;
+    }
+
+    public int getFloorGoal() {
+        return floorGoal;
+    }
+
+    public void setFloorGoal(int floorGoal) {
+        this.floorGoal = floorGoal;
+    }
+
+    public int getHighIntensityGoal() {
+        return highIntensityGoal;
+    }
+
+    public void setHighIntensityGoal(int highIntensityGoal) {
+        this.highIntensityGoal = highIntensityGoal;
     }
 
 
