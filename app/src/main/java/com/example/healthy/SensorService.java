@@ -37,6 +37,11 @@ public class SensorService extends Service implements SensorEventListener {
     }
 
 
+    /**
+     * @Origin https://androidwave.com/foreground-service-android-example/
+     *
+     * @Edited_by Siff s173998
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -97,6 +102,11 @@ public class SensorService extends Service implements SensorEventListener {
 
     }
 
+    /**
+     * @Origin https://androidwave.com/foreground-service-android-example/
+     *
+     * @Edited_by Siff s173998
+     */
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
