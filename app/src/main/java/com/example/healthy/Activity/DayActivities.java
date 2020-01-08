@@ -1,8 +1,7 @@
 package com.example.healthy.Activity;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.healthy.ObserverPattern.Observer;
@@ -30,6 +30,7 @@ public class DayActivities extends Fragment implements Observer {
     TextView steps, points;
     AppLogic appLogic = AppLogic.getInstance();
     List<SliceValue> activityData = new ArrayList<>();
+    ProgressBar stepProgress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,15 +41,18 @@ public class DayActivities extends Fragment implements Observer {
         activityPie = root.findViewById(R.id.dayActivityPie);
         steps = root.findViewById(R.id.dayActivity_TextView_steps);
         points = root.findViewById(R.id.dayActivity_TextView_points);
+        stepProgress = root.findViewById(R.id.activity_day_step_Progress);
+        stepProgress.getProgressDrawable().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
 
         appLogic.attachObserverToActivityPoints(this);
         steps.setText("Steps: " + appLogic.getSteps());
         points.setText("Points: " + appLogic.getActivityPoints());
 
-        if (appLogic.getActivityPoints() == 0) {
-            stepSlice = new SliceValue(1, Color.BLUE).setLabel("Skridt");
-            floorSlice = new SliceValue(1, Color.GREEN).setLabel("Etager");
-        } else {
+
+        stepSlice = new SliceValue(1, Color.BLUE).setLabel("Skridt");
+        floorSlice = new SliceValue(1, Color.GREEN).setLabel("Etager");
+
+        if (appLogic.getSteps() > 0){
             stepSlice.setValue(appLogic.getStepPoints());
             floorSlice.setValue((10));
         }
@@ -91,7 +95,12 @@ public class DayActivities extends Fragment implements Observer {
         activityPieData.setHasLabels(true);
         activityPieData.setValueLabelBackgroundEnabled(false);
         activityPieData.setValueLabelsTextColor(Color.BLACK);
+        activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         activityPie.setPieChartData(activityPieData);
+
+        // Progressbar
+        stepProgress.setMax(25);
+        stepProgress.setProgress(appLogic.getSteps()%25);
 
 
     }

@@ -7,34 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".Activity.DayActivities">
 
+    <ProgressBar
+        android:id="@+id/activity_day_step_Progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="249dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
+        app:layout_constraintTop_toBottomOf="@+id/dayActivityPie" />
+
     <lecho.lib.hellocharts.view.PieChartView
         android:id="@+id/dayActivityPie"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dayActivity_TextView_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/dayActivity_TextView_points"
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
-        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="DayFragment!"
-        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
-        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
-        app:layout_constraintTop_toTopOf="@+id/dayActivityPie" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie" />
 
     <TextView
         android:id="@+id/dayActivity_TextView_points"
@@ -46,22 +48,4 @@
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
         app:layout_constraintStart_toStartOf="@+id/dayActivityPie" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
