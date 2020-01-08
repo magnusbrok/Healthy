@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
         lm = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
 
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, this);
+        //lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, this);
 
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
