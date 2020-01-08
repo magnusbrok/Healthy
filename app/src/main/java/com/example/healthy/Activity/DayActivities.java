@@ -1,10 +1,12 @@
 package com.example.healthy.Activity;
 
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -27,8 +29,8 @@ import lecho.lib.hellocharts.view.PieChartView;
 public class DayActivities extends Fragment implements Observer{
 
     PieChartView activityPie;
-    private SliceValue stepSlice, floorSlice;
-    TextView steps, points, altitude;
+    private SliceValue HISlice ,stepSlice, floorSlice;
+    TextView steps, points, altitude, tvStepProgress, tvHIProgress, tvFloorProgress;
     AppLogic appLogic = AppLogic.getInstance();
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
@@ -42,49 +44,59 @@ public class DayActivities extends Fragment implements Observer{
         activityPie = root.findViewById(R.id.dayActivityPie);
         steps = root.findViewById(R.id.dayActivity_TextView_steps);
         points = root.findViewById(R.id.dayActivity_TextView_points);
-        stepProgress = root.findViewById(R.id.activity_day_step_Progress);
-        stepProgress.getProgressDrawable().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+        tvStepProgress = root.findViewById(R.id.dayActivity_TextView_stepProgress);
+        tvHIProgress = root.findViewById(R.id.dayActivity_TextView_highIntensity_progress);
+        tvFloorProgress = root.findViewById(R.id.dayActivity_TextView_floor_progress);
+
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
-        highIntensityProgress = root.findViewById(R.id.activity_day_highIntensity_progress);
-        highIntensityProgress.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-        floorProgress = root.findViewById(R.id.activity_day_floor_progress);
-        floorProgress.getProgressDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
 
+        stepProgress = root.findViewById(R.id.activity_day_step_Progress);
+        highIntensityProgress = root.findViewById(R.id.activity_day_highIntensity_progress);
+        floorProgress = root.findViewById(R.id.activity_day_floor_progress);
+
+
+        stepProgress.getProgressDrawable().setColorFilter(
+                ContextCompat.getColor(getContext(), R.color.colorStep), android.graphics.PorterDuff.Mode.SRC_IN);
+        highIntensityProgress.getProgressDrawable().setColorFilter(
+                ContextCompat.getColor(getContext(), R.color.colorHighIntensity), android.graphics.PorterDuff.Mode.SRC_IN);
+        floorProgress.getProgressDrawable().setColorFilter(
+                ContextCompat.getColor(getContext(), R.color.colorFloors), android.graphics.PorterDuff.Mode.SRC_IN);
 
 
         appLogic.attachObserverToActivityPoints(this);
         steps.setText("Steps: " + appLogic.getSteps());
         points.setText("Points: " + appLogic.getActivityPoints());
 
+        stepSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorStep));
+        floorSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorFloors));
+        HISlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorHighIntensity));
 
-        stepSlice = new SliceValue(1, Color.BLUE).setLabel("Skridt");
-        floorSlice = new SliceValue(1, Color.GREEN).setLabel("Etager");
+
 
         if (appLogic.getSteps() > 0){
             stepSlice.setValue(appLogic.getStepPoints());
-            floorSlice.setValue((10));
+            floorSlice.setValue((appLogic.getFloorPoints()));
+            HISlice.setValue(appLogic.getHighIntensityPoints());
         }
 
         //set
 
         activityData.add(stepSlice);
         activityData.add(floorSlice);
+        activityData.add(HISlice);
 
 
 
         PieChartData activityPieData = new PieChartData(activityData);
 
         activityPie.setPieChartData(activityPieData);
-        activityPie.setChartRotationEnabled(false);
-        activityPieData.setHasLabels(true);
-        activityPieData.setValueLabelBackgroundEnabled(false);
-        activityPieData.setValueLabelsTextColor(Color.BLACK);
-
 
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
 
         activityPie.setPieChartData(activityPieData);
+
+        updateView();
 
 
 
@@ -95,15 +107,23 @@ public class DayActivities extends Fragment implements Observer{
     public void updateView() {
         steps.setText("Steps: " + appLogic.getSteps());
         points.setText("Points: " + appLogic.getActivityPoints());
+
         stepSlice.setValue(appLogic.getStepPoints());
-        floorSlice.setValue((10)); // change this later to be dynamic
+        floorSlice.setValue((appLogic.getFloorPoints()));
+        HISlice.setValue(appLogic.getHighIntensityPoints());
+
+        if (appLogic.getActivityPoints() == 0) {
+            stepSlice.setValue(1);
+            floorSlice.setValue(1);
+            HISlice.setValue(1);
+        }
         activityData.clear();
         activityData.add(stepSlice);
         activityData.add(floorSlice);
+        activityData.add(HISlice);
+
         PieChartData activityPieData = new PieChartData(activityData);
-        activityPieData.setHasLabels(true);
-        activityPieData.setValueLabelBackgroundEnabled(false);
-        activityPieData.setValueLabelsTextColor(Color.BLACK);
+        activityPieData.setHasLabels(false);
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         activityPie.setPieChartData(activityPieData);
 
@@ -111,8 +131,14 @@ public class DayActivities extends Fragment implements Observer{
         stepProgress.setMax(appLogic.getStepGoal());
         stepProgress.setProgress(appLogic.getSteps()%appLogic.getStepGoal());
         highIntensityProgress.setMax(appLogic.getHighIntensityGoal());
-        highIntensityProgress.setProgress((appLogic.getSteps()/100)%appLogic.getStepGoal());
+        highIntensityProgress.setProgress((appLogic.getSteps()/10)%appLogic.getHighIntensityGoal());
         floorProgress.setMax(appLogic.getFloorGoal());
-        floorProgress.setProgress((appLogic.getSteps()/75)%appLogic.getFloorGoal());
+        floorProgress.setProgress((appLogic.getSteps()/7)%appLogic.getFloorGoal());
+        // progressbar textviews
+        tvStepProgress.setText(appLogic.getSteps()%appLogic.getStepGoal()+" / "+appLogic.getStepGoal()+" Skridt");
+        tvHIProgress.setText(appLogic.getSteps()/10%appLogic.getHighIntensityGoal()+" / "+appLogic.getHighIntensityGoal()+" Minuters HighIntesity");
+        tvFloorProgress.setText(appLogic.getSteps()/7%appLogic.getFloorGoal()+" / "+appLogic.getFloorGoal()+" Etager");
+
+
     }
 }
