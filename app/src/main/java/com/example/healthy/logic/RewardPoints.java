@@ -1,11 +1,9 @@
 package com.example.healthy.logic;
 
-import com.example.healthy.ObserverPattern.Subject;
-
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RewardPoints extends Subject {
+public class RewardPoints extends Points {
 
     private int rewardPoints = 0;
     private Reward prize;
@@ -23,8 +21,8 @@ public class RewardPoints extends Subject {
         rewards.add(new Reward("iPhone"));
     }
 
-    public void addPoints(int activityPoints) {
-        int totalPoints = rewardPoints+activityPoints;
+    public void computePoints(int activityPoints) {
+        int totalPoints = activityPoints;
         setRewardPoints(totalPoints);
     }
 
