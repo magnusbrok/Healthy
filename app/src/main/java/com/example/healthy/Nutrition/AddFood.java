@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -59,118 +60,59 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == fruitsAndVeggies){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
             String fruitsAndVeggies = "Frugt og grønt udløser: " + points + " point";
-            addFood.add(fruitsAndVeggies);
-
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
+            saveInPrefs(fruitsAndVeggies, addFood);
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Frugt og Grønt (20 point)!", Toast.LENGTH_LONG).show();
         }
         else if (v == fish){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
 
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
-
-            String fish = "fish udløser: " + points +" point" ;
-            addFood.add(fish);
-
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet fish (20 point)!", Toast.LENGTH_LONG).show();
+            String fish = "Fisk udløser: " + points +" point" ;
+            saveInPrefs(fish,addFood);
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Fisk (20 point)!", Toast.LENGTH_LONG).show();
 
         }
         else if (v == wholemeal){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
-
-            String wholemeal = "wholemeal udløser: " + points +" point" ;
-            addFood.add(wholemeal);
-
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet wholemeal (20 point)!", Toast.LENGTH_LONG).show();
+            String wholemeal = "Fuldkorn udløser: " + points +" point" ;
+            saveInPrefs(wholemeal,addFood);
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Fuldkorn (20 point)!", Toast.LENGTH_LONG).show();
         }
         else if (v== dairy){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
 
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
-
-            String dairy = "dairy udløser: " + points +" point";
-            addFood.add(dairy);
-
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet dairy (20 point)!", Toast.LENGTH_LONG).show();
+            String dairy = "Mejeri udløser: " + points +" point";
+            saveInPrefs(dairy,addFood);
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Mejeri (20 point)!", Toast.LENGTH_LONG).show();
         }
         else if (v == water){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
 
             String water ="Vand udløser: " + points +" point";
-            addFood.add(water);
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
+            saveInPrefs(water,addFood);
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Vand (20 point)!", Toast.LENGTH_LONG).show();
         }
         else if (v == beverages){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
-
             String drikkevarer ="Drikkevarer udløser: " + points +" point";
-            addFood.add(drikkevarer);
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
+            saveInPrefs(drikkevarer,addFood);
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Drikkevarer (20 point)!", Toast.LENGTH_LONG).show();
         }
         else if (v == meat){
-            sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
-
             String meat ="Magert kød udløser: " + points +" point";
-            addFood.add(meat);
-            editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-            editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet meat (20 point)!", Toast.LENGTH_LONG).show();
+            saveInPrefs(meat,addFood);
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Magert kød (20 point)!", Toast.LENGTH_LONG).show();
         }
-        
         else if (v == done){
             finish();
         }
     }
 
+    private void saveInPrefs(String string, ArrayList addFood){
+        sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
+
+        if (!nutritionHistory.equals("null")){
+            addFood = gson.fromJson(nutritionHistory,history);
+        }
+        addFood.add(string);
+        editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
+        editor.apply();
+    }
 }
