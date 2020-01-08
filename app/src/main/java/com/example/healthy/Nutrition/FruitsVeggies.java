@@ -23,7 +23,6 @@ public class FruitsVeggies extends AppCompatActivity implements View.OnClickList
     Button doneButton;
     ArrayList<String> foodAddedArray = new ArrayList<>();
     ArrayAdapter arrayAdapter;
-    String points = "  (20 point)";
     Gson gson = new Gson();
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
@@ -54,7 +53,9 @@ public class FruitsVeggies extends AppCompatActivity implements View.OnClickList
 
         arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,foodAddedArray);
         listView.setAdapter(arrayAdapter);
-
+        if(foodAddedArray.size()>10){
+            foodAddedArray.remove(1);
+        }
         arrayAdapter.notifyDataSetChanged();
     }
 

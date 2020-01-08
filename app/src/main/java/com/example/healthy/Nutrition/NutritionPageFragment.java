@@ -31,17 +31,17 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_nutrition_page, container, false);
 
-        day = root.findViewById(R.id.MagertKød);
+        day = root.findViewById(R.id.meat);
         day.setOnClickListener(this);
-        week = root.findViewById(R.id.Fisk);
+        week = root.findViewById(R.id.fish);
         week.setOnClickListener(this);
-        month = root.findViewById(R.id.Fuldkorn);
+        month = root.findViewById(R.id.wholeMeal);
         month.setOnClickListener(this);
-        goal = root.findViewById(R.id.Ost);
+        goal = root.findViewById(R.id.dairy);
         goal.setOnClickListener(this);
-        buttonPlus = root.findViewById(R.id.Dråbe);
+        buttonPlus = root.findViewById(R.id.water);
         buttonPlus.setOnClickListener(this);
-        log = root.findViewById(R.id.Kop);
+        log = root.findViewById(R.id.beverages);
         log.setOnClickListener(this);
 
         if(savedInstanceState == null) {

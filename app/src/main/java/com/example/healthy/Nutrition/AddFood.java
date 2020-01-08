@@ -2,7 +2,6 @@ package com.example.healthy.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -21,8 +20,8 @@ import static com.example.healthy.Nutrition.FruitsVeggies.NUTRITION_HISTORY;
 
 
 public class AddFood extends AppCompatActivity implements View.OnClickListener {
-    ImageButton frugtOgGrønt, fisk, fuldkorn, ost, dråbe,kop, magertkød,plus,button9;
-    Button færdigKnap;
+    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus,button9;
+    Button done;
     ArrayList<String> addFood = new ArrayList<>();
     int points = 20;
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
@@ -34,29 +33,32 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
-        frugtOgGrønt = findViewById(R.id.frugtOgGrønt);
-        frugtOgGrønt.setOnClickListener(this);
-        fisk = findViewById(R.id.Fisk);
-        fisk.setOnClickListener(this);
-        fuldkorn = findViewById(R.id.Fuldkorn);
-        fuldkorn.setOnClickListener(this);
-        ost = findViewById(R.id.Ost);
-        ost.setOnClickListener(this);
-        dråbe = findViewById(R.id.Dråbe);
-        dråbe.setOnClickListener(this);
-        kop = findViewById(R.id.Kop);
-        kop.setOnClickListener(this);
-        magertkød = findViewById(R.id.MagertKød);
-        magertkød.setOnClickListener(this);
-        plus = findViewById(R.id.Plus);
+        fruitsAndVeggies = findViewById(R.id.fruitsAndVeggies);
+        fruitsAndVeggies.setOnClickListener(this);
+        fish = findViewById(R.id.fish);
+        fish.setOnClickListener(this);
+        wholemeal = findViewById(R.id.wholeMeal);
+        wholemeal.setOnClickListener(this);
+        dairy = findViewById(R.id.dairy);
+        dairy.setOnClickListener(this);
+        water = findViewById(R.id.water);
+        water.setOnClickListener(this);
+        beverages = findViewById(R.id.beverages);
+        beverages.setOnClickListener(this);
+        meat = findViewById(R.id.meat);
+        meat.setOnClickListener(this);
+        plus = findViewById(R.id.extra);
         plus.setOnClickListener(this);
-        færdigKnap = findViewById(R.id.button);
-        færdigKnap.setOnClickListener(this);
+        done = findViewById(R.id.done);
+        done.setOnClickListener(this);
+        if (addFood.size()> 11){
+            addFood.remove(0);
+        }
     }
 
     @Override
     public void onClick(View v) {
-        if (v == frugtOgGrønt){
+        if (v == fruitsAndVeggies){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -71,7 +73,7 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
             editor.apply();
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Frugt og Grønt (20 point)!", Toast.LENGTH_LONG).show();
         }
-        else if (v == fisk){
+        else if (v == fish){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -80,15 +82,15 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
                 addFood = gson.fromJson(nutritionHistory,history);
             }
 
-            String fisk = "Fisk udløser: " + points +" point" ;
-            addFood.add(fisk);
+            String fish = "fish udløser: " + points +" point" ;
+            addFood.add(fish);
 
             editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
             editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Fisk (20 point)!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet fish (20 point)!", Toast.LENGTH_LONG).show();
 
         }
-        else if (v == fuldkorn){
+        else if (v == wholemeal){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -97,14 +99,14 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
                 addFood = gson.fromJson(nutritionHistory,history);
             }
 
-            String fuldkorn = "Fuldkorn udløser: " + points +" point" ;
-            addFood.add(fuldkorn);
+            String wholemeal = "wholemeal udløser: " + points +" point" ;
+            addFood.add(wholemeal);
 
             editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
             editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Fuldkorn (20 point)!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet wholemeal (20 point)!", Toast.LENGTH_LONG).show();
         }
-        else if (v== ost){
+        else if (v== dairy){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -113,14 +115,14 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
                 addFood = gson.fromJson(nutritionHistory,history);
             }
 
-            String ost = "Ost udløser: " + points +" point";
-            addFood.add(ost);
+            String dairy = "dairy udløser: " + points +" point";
+            addFood.add(dairy);
 
             editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
             editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Ost (20 point)!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet dairy (20 point)!", Toast.LENGTH_LONG).show();
         }
-        else if (v == dråbe){
+        else if (v == water){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -129,13 +131,13 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
                 addFood = gson.fromJson(nutritionHistory,history);
             }
 
-            String dråbe ="Vand udløser: " + points +" point";
-            addFood.add(dråbe);
+            String water ="Vand udløser: " + points +" point";
+            addFood.add(water);
             editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
             editor.apply();
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Vand (20 point)!", Toast.LENGTH_LONG).show();
         }
-        else if (v == kop){
+        else if (v == beverages){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -150,7 +152,7 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
             editor.apply();
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Drikkevarer (20 point)!", Toast.LENGTH_LONG).show();
         }
-        else if (v == magertkød){
+        else if (v == meat){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -159,14 +161,14 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
                 addFood = gson.fromJson(nutritionHistory,history);
             }
 
-            String magertkød ="Magert kød udløser: " + points +" point";
-            addFood.add(magertkød);
+            String meat ="Magert kød udløser: " + points +" point";
+            addFood.add(meat);
             editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
             editor.apply();
-            Toast.makeText(getApplicationContext(), "Der er nu tilføjet Magertkød (20 point)!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Der er nu tilføjet meat (20 point)!", Toast.LENGTH_LONG).show();
         }
         
-        else if (v == færdigKnap){
+        else if (v == done){
             finish();
         }
     }

@@ -25,10 +25,11 @@
         android:layout_marginTop="76dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="28dp"
-        android:background="@color/colorTurkis"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Historik "
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

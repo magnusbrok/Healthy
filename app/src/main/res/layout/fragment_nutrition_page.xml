@@ -15,13 +15,13 @@
         android:layout_marginBottom="213dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fisk"
+        app:layout_constraintTop_toBottomOf="@+id/fish"
         app:layout_constraintVertical_bias="0.0">
 
     </FrameLayout>
 
     <TextView
-        android:id="@+id/MagertKød"
+        android:id="@+id/meat"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/Fuldkorn"
+        android:id="@+id/wholeMeal"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginEnd="48dp"
@@ -45,18 +45,18 @@
         tools:layout_editor_absoluteY="145dp" />
 
     <TextView
-        android:id="@+id/Fisk"
+        android:id="@+id/fish"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:gravity="center"
         android:text="Uge"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/Fuldkorn"
-        app:layout_constraintStart_toEndOf="@+id/MagertKød"
+        app:layout_constraintEnd_toStartOf="@+id/wholeMeal"
+        app:layout_constraintStart_toEndOf="@+id/meat"
         tools:layout_editor_absoluteY="145dp" />
 
     <ImageButton
-        android:id="@+id/Dråbe"
+        android:id="@+id/water"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -65,13 +65,13 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/Kop"
-        app:layout_constraintStart_toEndOf="@id/Ost"
+        app:layout_constraintEnd_toStartOf="@+id/beverages"
+        app:layout_constraintStart_toEndOf="@id/dairy"
         app:layout_constraintTop_toBottomOf="@id/frameLayoutNutrition"
         app:srcCompat="@drawable/nutrition_page_extra" />
 
     <TextView
-        android:id="@+id/Ost"
+        android:id="@+id/dairy"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
 
     <TextView
-        android:id="@+id/Kop"
+        android:id="@+id/beverages"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginEnd="48dp"
