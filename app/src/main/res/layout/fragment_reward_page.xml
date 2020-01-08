@@ -8,14 +8,13 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="404dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="308dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:background="@color/colorMustard"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494">
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -100,10 +99,8 @@
 
     <FrameLayout
         android:id="@+id/topMenuFragment"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginBottom="78dp"
-        app:layout_constraintBottom_toTopOf="@+id/rewardPoints"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -114,50 +111,55 @@
         android:id="@+id/rewardPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
         android:text="@string/rewardPoints"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/showRewardButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topMenuFragment" />
 
     <Button
         android:id="@+id/showRewardButton"
-        android:layout_width="0dp"
+        android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+
+
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorMustard"
-
-
         android:text="@string/yourRewards"
         android:textAllCaps="false"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buyRewardButton"
         app:layout_constraintTop_toBottomOf="@+id/rewardPoints"
         tools:text="Dine gevinster" />
 
     <Button
         android:id="@+id/buyRewardButton"
-        android:layout_width="0dp"
+        android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorMustard"
         android:text="@string/buyReward"
         android:textAllCaps="false"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/showRewardButton"
-        app:layout_constraintEnd_toStartOf="@+id/showRewardButton"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rewardPoints"
         tools:text="Køb skrabelod" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
