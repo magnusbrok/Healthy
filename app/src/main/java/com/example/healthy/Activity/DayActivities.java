@@ -1,5 +1,7 @@
 package com.example.healthy.Activity;
 
+import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -12,19 +14,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
+import com.example.healthy.MainActivity;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class DayActivities extends Fragment implements Observer{
+public class DayActivities extends Fragment implements Observer, View.OnClickListener, TimePickerDialog.OnTimeSetListener {
 
     PieChartView activityPie;
     private SliceValue stepSlice, floorSlice;
@@ -32,6 +39,7 @@ public class DayActivities extends Fragment implements Observer{
     AppLogic appLogic = AppLogic.getInstance();
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
+    FloatingActionButton addHi;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +54,8 @@ public class DayActivities extends Fragment implements Observer{
         stepProgress.getProgressDrawable().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
+        addHi = root.findViewById(R.id.addHi);
+        addHi.setOnClickListener(this);
         highIntensityProgress = root.findViewById(R.id.activity_day_highIntensity_progress);
         highIntensityProgress.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
         floorProgress = root.findViewById(R.id.activity_day_floor_progress);
@@ -110,5 +120,23 @@ public class DayActivities extends Fragment implements Observer{
         // Progressbar
         stepProgress.setMax(appLogic.getStepGoal());
         stepProgress.setProgress(appLogic.getSteps()%appLogic.getStepGoal());
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == addHi) {
+            Calendar mCurrentTime = Calendar.getInstance();
+            int hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
+            int minute = mCurrentTime.get(Calendar.MINUTE);
+            TimePickerDialog mTimePicker;
+            mTimePicker = new TimePickerDialog(getActivity(), this, hour, minute, true);
+            mTimePicker.setTitle("Indtast høj intensitet");
+            mTimePicker.show();
+        }
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int selectedHour, int selectedMinute) {
+
     }
 }
