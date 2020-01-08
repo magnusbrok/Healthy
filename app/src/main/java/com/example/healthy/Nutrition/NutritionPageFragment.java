@@ -11,13 +11,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.healthy.R;
-
-import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,17 +31,17 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_nutrition_page, container, false);
 
-        day = root.findViewById(R.id.buttonDag);
+        day = root.findViewById(R.id.meat);
         day.setOnClickListener(this);
-        week = root.findViewById(R.id.buttonUge);
+        week = root.findViewById(R.id.fish);
         week.setOnClickListener(this);
-        month = root.findViewById(R.id.buttonMåned);
+        month = root.findViewById(R.id.wholeMeal);
         month.setOnClickListener(this);
-        goal = root.findViewById(R.id.buttonMål);
+        goal = root.findViewById(R.id.dairy);
         goal.setOnClickListener(this);
-        buttonPlus = root.findViewById(R.id.button5);
+        buttonPlus = root.findViewById(R.id.water);
         buttonPlus.setOnClickListener(this);
-        log = root.findViewById(R.id.buttonLog);
+        log = root.findViewById(R.id.beverages);
         log.setOnClickListener(this);
 
         if(savedInstanceState == null) {
@@ -83,6 +80,11 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
             if (view == buttonPlus){
                 Intent i = new Intent(getActivity(), AddFood.class);
                 startActivity(i);
+            }
+            if (view == log){
+                Intent i = new Intent(getActivity(), FruitsVeggies.class);
+                startActivity(i);
+
             }
         }
 
