@@ -2,13 +2,21 @@ package com.example.healthy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,7 +36,7 @@ import java.util.Calendar;
 
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
+public class MainActivity extends AppCompatActivity implements SensorEventListener, LocationListener {
 
     SensorManager sensorManager;
     Sensor stepCounter;
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public static final String CALIBRATOR = "calibrator";
     public static final String LAST_USEDATE = "last_usedate";
     private boolean unCalibrated;
+    private LocationManager lm;
 
     SharedPreferences preferences;
     SharedPreferences.Editor preferenceEditor;
@@ -68,6 +77,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
         sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.LOCATION_HARDWARE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+        }
+        lm = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
+
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, this);
 
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
@@ -175,6 +191,28 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         bottomMenu = findViewById(R.id.bottom_navigation);
         bottomMenu.setSelectedItemId(itemId);
 
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        double altitude = location.getAltitude();
+        appLogic.setAltitude(altitude);
+        System.out.println("........................."+altitude);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
 
     }
 }

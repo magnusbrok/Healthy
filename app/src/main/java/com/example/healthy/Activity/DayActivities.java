@@ -24,11 +24,11 @@ import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class DayActivities extends Fragment implements Observer {
+public class DayActivities extends Fragment implements Observer{
 
     PieChartView activityPie;
     private SliceValue stepSlice, floorSlice;
-    TextView steps, points;
+    TextView steps, points, altitude;
     AppLogic appLogic = AppLogic.getInstance();
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress;
@@ -44,6 +44,8 @@ public class DayActivities extends Fragment implements Observer {
         points = root.findViewById(R.id.dayActivity_TextView_points);
         stepProgress = root.findViewById(R.id.activity_day_step_Progress);
         stepProgress.getProgressDrawable().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
+        altitude = root.findViewById(R.id.altitude);
+        altitude.setText(""+appLogic.getAltitude());
 
 
         appLogic.attachObserverToActivityPoints(this);
