@@ -8,90 +8,111 @@
 
     <FrameLayout
         android:id="@+id/frameLayoutNutrition"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="213dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fisk"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
     </FrameLayout>
 
     <TextView
-        android:id="@+id/MagertKød"
+        android:id="@+id/buttonDag"
         android:layout_width="78dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="45dp"
         android:gravity="center"
         android:text="Dag"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonUge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/Fuldkorn"
+        android:id="@+id/buttonMåned"
         android:layout_width="78dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginBottom="45dp"
         android:gravity="center"
         android:text="Måned"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="145dp" />
+        app:layout_constraintStart_toEndOf="@+id/buttonUge"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <TextView
-        android:id="@+id/Fisk"
+        android:id="@+id/buttonUge"
         android:layout_width="78dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="45dp"
         android:gravity="center"
         android:text="Uge"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/Fuldkorn"
-        app:layout_constraintStart_toEndOf="@+id/MagertKød"
-        tools:layout_editor_absoluteY="145dp" />
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <ImageButton
-        android:id="@+id/Dråbe"
+        android:id="@+id/button5"
         android:layout_width="78dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
         android:background="@drawable/rounded_button"
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/Kop"
-        app:layout_constraintStart_toEndOf="@id/Ost"
-        app:layout_constraintTop_toBottomOf="@id/frameLayoutNutrition"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition"
         app:srcCompat="@drawable/nutrition_page_extra" />
 
     <TextView
-        android:id="@+id/Ost"
+        android:id="@+id/buttonMål"
         android:layout_width="78dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:gravity="center"
         android:text="Mål"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
 
     <TextView
-        android:id="@+id/Kop"
+        android:id="@+id/buttonLog"
         android:layout_width="78dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
         android:gravity="center"
         android:text="Log"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

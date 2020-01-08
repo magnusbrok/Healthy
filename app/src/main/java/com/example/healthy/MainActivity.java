@@ -10,7 +10,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,20 +21,15 @@ import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 import com.example.healthy.logic.AppLogic;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
-    FirebaseFirestore db;
     SensorManager sensorManager;
     Sensor stepCounter;
     FrameLayout topMenuView;
@@ -56,31 +50,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
-
-        // Tilføjer en person til en Adressebog (bare for at se at databasen virker)
-        db = FirebaseFirestore.getInstance();
-
-        // Add new contact to address book
-        Map<String, Object> newContact = new HashMap<>();
-        newContact.put("name", "EddyDN");
-        newContact.put("email", "eddydn@gmail.com");
-        newContact.put("phone", "888-888-8888");
-
-        db.collection("AddressBook").document()
-                .set(newContact)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(MainActivity.this, "Added new contact", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Firebase Error", e.getMessage());
-                    }
-                });
-
 
 
         preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
