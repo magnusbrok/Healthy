@@ -9,6 +9,8 @@ public class AppLogic {
     private SocialPoints socialPoints = new SocialPoints();
     private RewardPoints rewardPoints = new RewardPoints();
 
+    private double altitude;
+
     private static AppLogic instance = new AppLogic();
 
     public static AppLogic getInstance(){
@@ -86,4 +88,11 @@ public class AppLogic {
     }
 
 
+    public double getAltitude() {
+        return altitude;
+    }
+
+    public void setAltitude(double altitude) {
+        this.altitude = altitude;
+    }
 }
