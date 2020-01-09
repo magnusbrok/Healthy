@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 import com.example.healthy.MainActivity;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
@@ -27,7 +30,7 @@ import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class DayActivities extends Fragment implements Observer, View.OnClickListener, TimePickerDialog.OnTimeSetListener {
+public class DayActivities extends Fragment implements Observer, View.OnClickListener, NumberPicker.OnValueChangeListener {
 
     PieChartView activityPie;
     private SliceValue HISlice ,stepSlice, floorSlice;
@@ -36,6 +39,7 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
     FloatingActionButton addHi;
+    NumberPicker np;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +56,9 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
+
+        np = root.findViewById(R.id.numberPicker);
+        np.setVisibility(View.GONE);
         addHi = root.findViewById(R.id.addHi);
         addHi.setOnClickListener(this);
         stepProgress = root.findViewById(R.id.activity_day_step_Progress);
@@ -148,18 +155,27 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v == addHi) {
-            Calendar mCurrentTime = Calendar.getInstance();
-            int hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
-            int minute = mCurrentTime.get(Calendar.MINUTE);
-            TimePickerDialog mTimePicker;
-            mTimePicker = new TimePickerDialog(getActivity(), this, hour, minute, true);
-            mTimePicker.setTitle("Indtast høj intensitet");
-            mTimePicker.show();
+            showNumberPicker();
+
         }
     }
 
-    @Override
-    public void onTimeSet(TimePicker view, int selectedHour, int selectedMinute) {
+    /*NumberPicker.OnValueChangeListener onValueChangeListener = new NumberPicker.OnValueChangeListener() {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            Toast.makeText(getActivity(), "selected number:" + picker.getValue(), Toast.LENGTH_SHORT);
+        }
+    };*/
 
+
+    @Override
+    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+
+    }
+
+    public void showNumberPicker(){
+        NumberPickerDialog newFragment = new NumberPickerDialog();
+        newFragment.setValueChangeListener(this);
+        newFragment.show(getActivity().getSupportFragmentManager(), "time picker");
     }
 }
