@@ -4,15 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,7 +15,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.healthy.Activity.ActivityPageFragment;
@@ -34,57 +27,28 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener, LocationListener {
+public class MainActivity extends AppCompatActivity implements LocationListener {
 
-    SensorManager sensorManager;
-    Sensor stepCounter;
-    FrameLayout topMenuView;
     BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
-    Calendar calendar = Calendar.getInstance();
 
     public static final String SHARED_PREFS = "shared_prefs";
-    public static final String HAS_RUN = "has_run";
-    public static final String CALIBRATOR = "calibrator";
-    public static final String LAST_USEDATE = "last_usedate";
-    private boolean unCalibrated;
+
     private LocationManager lm;
 
     FirebaseFirestore db;
-    SharedPreferences preferences;
-    SharedPreferences.Editor preferenceEditor;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-        preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        preferenceEditor = preferences.edit();
+        startService(new Intent(this, SensorService.class));
 
-        if (!preferences.getBoolean(HAS_RUN,false)){
-            unCalibrated = true;
-            appLogic.setSteps(0);
-            preferenceEditor.putBoolean(HAS_RUN,true).apply();
-        }
-
-        if(preferences.getInt(LAST_USEDATE,0) == 0){
-            preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
-        }
-
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
-        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.LOCATION_HARDWARE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-        }
         lm = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
 
         //lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, this);
@@ -157,38 +121,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bottom_navigation_main, menu);
         return true;
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        //TODO implement code to set steps taken for current day
-
-        // Check if steps of the day are uncalibrated
-        // Checks if new day
-        if(preferences.getInt(LAST_USEDATE,0) != calendar.get(Calendar.DAY_OF_MONTH)){
-            unCalibrated = true;
-            preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
-        }
-        // Checks if phone has rebooted
-        else if ((int) event.values[0] < preferences.getInt(CALIBRATOR,0)){
-            unCalibrated = true;
-        }
-
-        //Calibration of steps of the day
-        if (unCalibrated){
-            preferenceEditor.putInt(CALIBRATOR, (int) event.values[0]).apply();
-            unCalibrated = false;
-        }
-
-        int currentSteps = ((int) event.values[0]) - preferences.getInt(CALIBRATOR,0);
-
-        appLogic.setSteps(currentSteps);
-        appLogic.computePoints();
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
 
     public void changeMenu(int itemId) {
