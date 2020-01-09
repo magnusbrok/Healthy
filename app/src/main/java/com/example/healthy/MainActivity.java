@@ -2,10 +2,10 @@ package com.example.healthy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -39,7 +39,7 @@ import java.util.Map;
 
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener, LocationListener {
+public class MainActivity extends AppCompatActivity implements LocationListener {
 
     SensorManager sensorManager;
     Sensor stepCounter;
@@ -64,26 +64,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-        preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        preferenceEditor = preferences.edit();
+        startService(new Intent(this, SensorService.class));
 
-        if (!preferences.getBoolean(HAS_RUN,false)){
-            unCalibrated = true;
-            appLogic.setSteps(0);
-            preferenceEditor.putBoolean(HAS_RUN,true).apply();
-        }
-
-        if(preferences.getInt(LAST_USEDATE,0) == 0){
-            preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
-        }
-
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
-        sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.LOCATION_HARDWARE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-        }
         lm = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
 
         //lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, this);
@@ -156,38 +138,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bottom_navigation_main, menu);
         return true;
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        //TODO implement code to set steps taken for current day
-
-        // Check if steps of the day are uncalibrated
-        // Checks if new day
-        if(preferences.getInt(LAST_USEDATE,0) != calendar.get(Calendar.DAY_OF_MONTH)){
-            unCalibrated = true;
-            preferenceEditor.putInt(LAST_USEDATE,calendar.get(Calendar.DAY_OF_MONTH)).apply();
-        }
-        // Checks if phone has rebooted
-        else if ((int) event.values[0] < preferences.getInt(CALIBRATOR,0)){
-            unCalibrated = true;
-        }
-
-        //Calibration of steps of the day
-        if (unCalibrated){
-            preferenceEditor.putInt(CALIBRATOR, (int) event.values[0]).apply();
-            unCalibrated = false;
-        }
-
-        int currentSteps = ((int) event.values[0]) - preferences.getInt(CALIBRATOR,0);
-
-        appLogic.setSteps(currentSteps);
-        appLogic.computePoints();
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
 
     public void changeMenu(int itemId) {
