@@ -31,17 +31,13 @@ public class SensorService extends Service implements SensorEventListener {
 
     AppLogic appLogic = AppLogic.getInstance();
 
+    public static final String CHANNEL_ID = "ForegroundServiceChannel";
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
 
-
-    /**
-     * @Origin https://androidwave.com/foreground-service-android-example/
-     *
-     * @Edited_by Siff s173998
-     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -49,18 +45,9 @@ public class SensorService extends Service implements SensorEventListener {
         stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
         sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
 
-        createNotificationChannel();
+        createNotificationChannel(CHANNEL_ID);
 
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                0, notificationIntent, 0);
-        Notification notification = new NotificationCompat.Builder(this, "ForegroundServiceChannel")
-                .setContentTitle("Foreground Service")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentIntent(pendingIntent)
-                .build();
-        startForeground(1, notification);
-
+        createPersistentNotification(CHANNEL_ID);
 
         return START_STICKY;
     }
@@ -98,17 +85,39 @@ public class SensorService extends Service implements SensorEventListener {
     /**
      * @Origin https://androidwave.com/foreground-service-android-example/
      *
-     * @Edited_by Siff s173998
+     * @Modifications Siff s173998
      */
-    private void createNotificationChannel() {
+    private void createNotificationChannel(String channelID) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
-                    "ForegroundServiceChannel",
+                    channelID,
                     "Foreground Service Channel",
                     NotificationManager.IMPORTANCE_DEFAULT
             );
+
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(serviceChannel);
         }
+    }
+
+    /**
+     * @Origin https://androidwave.com/foreground-service-android-example/
+     *
+     * @Modifications Siff s173998
+     */
+    private void createPersistentNotification(String channelID) {
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                0, notificationIntent, 0);
+
+        Notification notification = new NotificationCompat.Builder(this, channelID)
+                .setContentTitle("Activity")
+                .setContentText("Motion sensors running in background")
+                .setSmallIcon(R.mipmap.ic_launcher_foreground)
+                .setContentIntent(pendingIntent)
+                .build();
+
+        startForeground(1, notification);
+
     }
 }
