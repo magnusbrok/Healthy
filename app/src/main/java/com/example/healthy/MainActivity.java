@@ -2,16 +2,11 @@ package com.example.healthy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,7 +15,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.healthy.Activity.ActivityPageFragment;
@@ -33,31 +27,20 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
 
-    SensorManager sensorManager;
-    Sensor stepCounter;
-    FrameLayout topMenuView;
     BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
-    Calendar calendar = Calendar.getInstance();
 
     public static final String SHARED_PREFS = "shared_prefs";
-    public static final String HAS_RUN = "has_run";
-    public static final String CALIBRATOR = "calibrator";
-    public static final String LAST_USEDATE = "last_usedate";
-    private boolean unCalibrated;
+
     private LocationManager lm;
 
     FirebaseFirestore db;
-    SharedPreferences preferences;
-    SharedPreferences.Editor preferenceEditor;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
