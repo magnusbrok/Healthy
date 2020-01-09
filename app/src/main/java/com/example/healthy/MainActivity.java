@@ -225,11 +225,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Add new user with points
         Map<String, Object> newUser = new HashMap<>();
         newUser.put ("Name", "Magnus");
-        newUser.put ("ActivityPoints", 50);
-        newUser.put ("RewardPoints", 70);
+        newUser.put ("ActivityPoints", appLogic.getActivityPoints());
+        newUser.put ("RewardPoints", appLogic.getRewardPoints());
         newUser.put ("NutritionPoints", 100);
 
-        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+        db.collection("Brugere med point").document() // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
                 .set(newUser)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
