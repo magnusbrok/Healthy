@@ -6,6 +6,8 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +20,13 @@ import com.example.healthy.MainActivity;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,6 +44,8 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
     FloatingActionButton addHi;
+    TextView textview;
+    FirebaseFirestore db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +59,11 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         tvStepProgress = root.findViewById(R.id.dayActivity_TextView_stepProgress);
         tvHIProgress = root.findViewById(R.id.dayActivity_TextView_highIntensity_progress);
         tvFloorProgress = root.findViewById(R.id.dayActivity_TextView_floor_progress);
+
+        textview = root.findViewById(R.id.textViewTest);
+        textview.setText(appLogic.getActivityPoints());
+
+
 
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
@@ -104,6 +119,25 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
 
         return root;
+    }
+
+    private void readUser () {
+        DocumentReference user = db.collection("Brugere med point").document("1");
+        user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    DocumentSnapshot doc = task.getResult();
+                    StringBuilder data = new StringBuilder("");
+                    data.append("Name: ").append(doc.getString("Name"));
+                    data.append("\nActivityPoints: ").append(doc.getString("Email"));
+                    data.append("\nNutritionPoints: ").append(doc.getString("Email"));
+                    data.append("\nRewardPoints: ").append(doc.getString("Email"));
+                    textview.setText(data.toString());
+                }
+            }
+        });
+
     }
 
     @Override
