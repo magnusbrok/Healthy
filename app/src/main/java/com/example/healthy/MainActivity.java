@@ -2,11 +2,9 @@ package com.example.healthy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -18,6 +16,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,10 +28,14 @@ import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 import com.example.healthy.logic.AppLogic;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private boolean unCalibrated;
     private LocationManager lm;
 
+    FirebaseFirestore db;
     SharedPreferences preferences;
     SharedPreferences.Editor preferenceEditor;
 
@@ -60,6 +64,31 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
+        /*
+        db = FirebaseFirestore.getInstance();
+
+        // Add new user with points
+        Map<String, Object> newUser = new HashMap<>();
+        newUser.put ("Name", "Magnus");
+        newUser.put ("ActivityPoints", 50);
+        newUser.put ("RewardPoints", 70);
+        newUser.put ("NutritionPoints", 100);
+
+        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+                .set(newUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(MainActivity.this, "Ny bruger er tilføjet", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - brugeren blev ikke tilføjet", e.getMessage());
+                    }
+                });
+         */
 
         preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         preferenceEditor = preferences.edit();
