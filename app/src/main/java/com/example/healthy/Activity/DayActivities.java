@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.healthy.MainActivity;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.ActivityPoints;
 import com.example.healthy.logic.AppLogic;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.text.DateFormat;
@@ -39,7 +40,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
     FloatingActionButton addHi;
-    NumberPicker np;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,9 +56,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
-
-        np = root.findViewById(R.id.numberPicker);
-        np.setVisibility(View.GONE);
         addHi = root.findViewById(R.id.addHi);
         addHi.setOnClickListener(this);
         stepProgress = root.findViewById(R.id.activity_day_step_Progress);
@@ -141,7 +138,7 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         stepProgress.setMax(appLogic.getStepGoal());
         stepProgress.setProgress(appLogic.getSteps()%appLogic.getStepGoal());
         highIntensityProgress.setMax(appLogic.getHighIntensityGoal());
-        highIntensityProgress.setProgress((appLogic.getSteps()/10)%appLogic.getHighIntensityGoal());
+        highIntensityProgress.setProgress((appLogic.getHighIntensity())%appLogic.getHighIntensityGoal());
         floorProgress.setMax(appLogic.getFloorGoal());
         floorProgress.setProgress((appLogic.getSteps()/7)%appLogic.getFloorGoal());
         // progressbar textviews
@@ -156,16 +153,8 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
     public void onClick(View v) {
         if (v == addHi) {
             showNumberPicker();
-
         }
     }
-
-    /*NumberPicker.OnValueChangeListener onValueChangeListener = new NumberPicker.OnValueChangeListener() {
-        @Override
-        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-            Toast.makeText(getActivity(), "selected number:" + picker.getValue(), Toast.LENGTH_SHORT);
-        }
-    };*/
 
 
     @Override

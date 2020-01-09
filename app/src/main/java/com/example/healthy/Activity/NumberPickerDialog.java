@@ -8,8 +8,11 @@ import android.widget.NumberPicker;
 
 import androidx.fragment.app.DialogFragment;
 
+import com.example.healthy.logic.AppLogic;
+
 public class NumberPickerDialog extends DialogFragment {
     private NumberPicker.OnValueChangeListener valueChangeListener;
+    AppLogic logic = new AppLogic();
 
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -26,6 +29,8 @@ public class NumberPickerDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 valueChangeListener.onValueChange(numberPicker, numberPicker.getValue(), numberPicker.getValue());
+                logic.addToHighIntensity(numberPicker.getValue());
+                logic.computePoints();
             }
         });
 

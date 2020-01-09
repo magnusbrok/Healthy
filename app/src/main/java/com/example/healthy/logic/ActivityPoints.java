@@ -4,6 +4,7 @@ public class ActivityPoints extends Points {
 
     private int points;
     private int steps;
+    private int highIntensity;
 
 
     private int stepPointIncrementer = 50;
@@ -95,7 +96,7 @@ public class ActivityPoints extends Points {
     public int computeHighIntensityPoints() {
         int points = 0;
 
-        int min = steps/5;
+        int min = highIntensity;
 
         for (int i = 0; i < highIntensityGoals.length; i++){
             if (highIntensityGoals[i] < min){
@@ -160,5 +161,12 @@ public class ActivityPoints extends Points {
     }
 
 
+    public void addToHighIntensity(int minutes) {
+        highIntensity += minutes;
+        notifyChangeToObservers();
+    }
 
+    public int getHighIntensity() {
+        return highIntensity;
+    }
 }

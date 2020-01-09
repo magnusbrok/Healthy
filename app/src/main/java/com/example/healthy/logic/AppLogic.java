@@ -87,7 +87,6 @@ public class AppLogic {
         return activityPoints.getFloorGoal();
     }
 
-
     public double getAltitude() {
         return altitude;
     }
@@ -95,4 +94,10 @@ public class AppLogic {
     public void setAltitude(double altitude) {
         this.altitude = altitude;
     }
+
+    public void addToHighIntensity(int minutes) {
+        activityPoints.addToHighIntensity(minutes);
+    }
+
+    public int getHighIntensity() { return activityPoints.getHighIntensity();}
 }
