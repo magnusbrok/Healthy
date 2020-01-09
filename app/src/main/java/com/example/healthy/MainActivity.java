@@ -64,32 +64,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-        /*
-        db = FirebaseFirestore.getInstance();
-
-        // Add new user with points
-        Map<String, Object> newUser = new HashMap<>();
-        newUser.put ("Name", "Magnus");
-        newUser.put ("ActivityPoints", 50);
-        newUser.put ("RewardPoints", 70);
-        newUser.put ("NutritionPoints", 100);
-
-        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
-                .set(newUser)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(MainActivity.this, "Ny bruger er tilføjet", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("FEJL - brugeren blev ikke tilføjet", e.getMessage());
-                    }
-                });
-         */
-
         preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         preferenceEditor = preferences.edit();
 
@@ -243,5 +217,31 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onProviderDisabled(String provider) {
 
+    }
+
+    public void updateDatabase() {
+        db = FirebaseFirestore.getInstance();
+
+        // Add new user with points
+        Map<String, Object> newUser = new HashMap<>();
+        newUser.put ("Name", "Magnus");
+        newUser.put ("ActivityPoints", 50);
+        newUser.put ("RewardPoints", 70);
+        newUser.put ("NutritionPoints", 100);
+
+        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+                .set(newUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(MainActivity.this, "Ny bruger er tilføjet", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - brugeren blev ikke tilføjet", e.getMessage());
+                    }
+                });
     }
 }
