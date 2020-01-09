@@ -45,8 +45,6 @@ public class SensorService extends Service implements SensorEventListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        Toast.makeText(this, "Service started by user.", Toast.LENGTH_LONG).show();
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         stepCounter = sensorManager.getDefaultSensor(TYPE_STEP_COUNTER);
         sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_NORMAL);
@@ -81,15 +79,10 @@ public class SensorService extends Service implements SensorEventListener {
 
         Log.d("stop", "sevice destroyed");
 
-        sendBroadcast(new Intent("RestartService"));
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
-        Toast.makeText(this, "onSensorChanged", Toast.LENGTH_LONG).show();
-
-        Log.d("stepcont", "onSensorChanged");
 
         int currentSteps = ((int) event.values[0]);
 
