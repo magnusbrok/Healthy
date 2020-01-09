@@ -23,8 +23,8 @@ public class RewardPoints extends Subject {
         rewards.add(new Reward("iPhone"));
     }
 
-    public void addPoints(int activityPoints) {
-        int totalPoints = rewardPoints+activityPoints;
+    public void addPoints(int activityPoints, int nutritionPoints) {
+        int totalPoints = rewardPoints+activityPoints+nutritionPoints;
         setRewardPoints(totalPoints);
     }
 
