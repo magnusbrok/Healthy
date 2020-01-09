@@ -44,7 +44,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
     FloatingActionButton addHi;
-    TextView textview;
     FirebaseFirestore db;
 
     @Override
@@ -59,11 +58,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         tvStepProgress = root.findViewById(R.id.dayActivity_TextView_stepProgress);
         tvHIProgress = root.findViewById(R.id.dayActivity_TextView_highIntensity_progress);
         tvFloorProgress = root.findViewById(R.id.dayActivity_TextView_floor_progress);
-
-        textview = root.findViewById(R.id.textViewTest);
-        textview.setText(appLogic.getActivityPoints());
-
-
 
         altitude = root.findViewById(R.id.altitude);
         altitude.setText(""+appLogic.getAltitude());
@@ -121,23 +115,26 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         return root;
     }
 
+    // Method to read data from FireStore (DON'T DELETE)
     private void readUser () {
+        db = FirebaseFirestore.getInstance();
         DocumentReference user = db.collection("Brugere med point").document("1");
         user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()) {
+                if(task.isSuccessful())
+                {
                     DocumentSnapshot doc = task.getResult();
-                    StringBuilder data = new StringBuilder("");
-                    data.append("Name: ").append(doc.getString("Name"));
-                    data.append("\nActivityPoints: ").append(doc.getString("Email"));
-                    data.append("\nNutritionPoints: ").append(doc.getString("Email"));
-                    data.append("\nRewardPoints: ").append(doc.getString("Email"));
-                    textview.setText(data.toString());
+                    StringBuilder data = new StringBuilder();
+                    //data.append("Name: ").append(doc.getString("Name"));
+                    data.append("\nPoints: ").append(doc.get("ActivityPoints"));
+                    //data.append("\nPoints: ").append(doc.get("NutritionPoints"));
+                    //data.append("\nPoints: ").append(doc.get("RewardPoints"));
+                    points.setText(data.toString());
+                    //textview.setText(data.toString());
                 }
             }
         });
-
     }
 
     @Override
