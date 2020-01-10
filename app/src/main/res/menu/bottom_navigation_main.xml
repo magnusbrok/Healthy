@@ -18,7 +18,7 @@
         android:id="@+id/homePage"
         android:enabled="true"
         android:title="home"
-        android:icon="@drawable/baseline_home_black_24dp"
+        android:icon="@drawable/baseline_home_white_18dp"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/socialPage"
