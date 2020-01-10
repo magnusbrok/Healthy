@@ -50,6 +50,12 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
             fragmentTransaction.replace(R.id.FrameLayout ,new Day());
             fragmentTransaction.commit();
 
+            Bundle bundle = new Bundle();
+            bundle.putString("Page", "NP");
+
+            Fragment fragment = new TimeMenu();
+            fragment.setArguments(bundle);
+
             fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.TimeFrame, new TimeMenu())
                     .commit();

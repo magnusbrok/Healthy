@@ -40,8 +40,14 @@ public class ActivityPageFragment extends Fragment{
             fragmentTransaction.replace(R.id.FrameLayout, new DayActivities())
                     .commit();
 
+            Bundle bundle = new Bundle();
+            bundle.putString("Page", "AP");
+
+            Fragment fragment = new TimeMenu();
+            fragment.setArguments(bundle);
+
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.TimeFrame, new TimeMenu())
+            fragmentTransaction.replace(R.id.TimeFrame, fragment)
                     .commit();
         }
         return root;
