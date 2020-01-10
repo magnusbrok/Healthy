@@ -3,6 +3,7 @@ package com.example.healthy.Reward;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -21,6 +22,10 @@ import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Reward;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +47,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     PieChartView rewardPie;
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
     List<SliceValue> rewardData = new ArrayList<>();
+    ArrayList<String> rewardAmount = new ArrayList<>();
+    TextView amountTV1;
 
 
     public RewardPageFragment() {
@@ -60,6 +67,26 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
+        amountTV1 = root.findViewById(R.id.amountTV1);
+
+        new AsyncTask() {
+
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try {
+                    getAmountFromSheet("123");
+                    return "Mængderne blev hentet korrekt";
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "Mængderne blev ikke hentet korrekt";
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                amountTV1.setText(rewardAmount.get(0));
+            }
+        }.execute(100);
 
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
@@ -138,6 +165,36 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         //savePoints();
 
+    }
+    //From Galgelogik made by Jacob Nordfalk
+    public static String getUrl(String url) throws IOException {
+        System.out.println("Henter data fra " + url);
+        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+        StringBuilder sb = new StringBuilder();
+        String linje = br.readLine();
+        while (linje != null) {
+            sb.append(linje + "\n");
+            linje = br.readLine();
+        }
+        return sb.toString();
+    }
+
+    public void getAmountFromSheet (String i) throws Exception {
+        String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
+        int lineNr = 0;
+
+        for (String line : data.split("\n")) {
+            if (lineNr < 20) System.out.println("line: " + line);
+            if (lineNr++ <1) continue;
+            String[] spaces = line.split(",", -1);
+            String index = spaces[0].trim();
+            String amount = spaces[1].trim();
+            if (amount.isEmpty()) continue;
+            if (!i.contains(index)) continue;
+            rewardAmount.add(amount);
+            System.out.println(rewardAmount);
+
+        }
     }
 /**
     public void savePoints() {
