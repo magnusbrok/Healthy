@@ -31,6 +31,7 @@
         android:id="@+id/settingsTab"
         android:layout_width="70dp"
         android:layout_height="50dp"
+        android:tint="@color/colorWhite"
         android:src="@drawable/settings_icon"
         app:layout_constraintBottom_toBottomOf="@+id/topMenuFragment"
         app:layout_constraintEnd_toEndOf="@+id/topMenuFragment"

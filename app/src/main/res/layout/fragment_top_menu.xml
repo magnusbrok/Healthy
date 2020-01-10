@@ -19,6 +19,7 @@
         android:id="@+id/profileTab"
         android:layout_width="70dp"
         android:layout_height="50dp"
+        android:tint="@color/colorWhite"
         android:src="@drawable/profile_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/toolbar"
@@ -30,7 +31,7 @@
         android:layout_height="50dp"
         android:src="@drawable/settings_icon"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:tint="@color/colorWhite"
         app:layout_constraintTop_toTopOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="@id/toolbar"/>
 
