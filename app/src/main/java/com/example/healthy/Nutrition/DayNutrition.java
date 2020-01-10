@@ -18,14 +18,14 @@ import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class Day extends Fragment {
+public class DayNutrition extends Fragment {
 
     PieChartView dag;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_day, container, false);
+        View root = inflater.inflate(R.layout.fragment_day_nutrition, container, false);
         // Snuppet fra activity
         dag = root.findViewById(R.id.day_pie);
         //set

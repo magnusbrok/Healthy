@@ -1,8 +1,6 @@
 package com.example.healthy.Activity;
 
-import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.healthy.Nutrition.*;
-import com.example.healthy.Nutrition.Week;
+import com.example.healthy.Nutrition.WeekNutrition;
 import com.example.healthy.R;
 
 public class TimeMenu extends Fragment implements View.OnClickListener {
@@ -52,7 +50,7 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new Day())
+                        .replace(R.id.FrameLayout, new DayNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.BOLD);
@@ -67,7 +65,7 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new Week())
+                        .replace(R.id.FrameLayout, new WeekNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.NORMAL);
@@ -82,7 +80,7 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new Month())
+                        .replace(R.id.FrameLayout, new MonthNutrition())
                         .commit();
             }
 

@@ -1,8 +1,6 @@
 package com.example.healthy.Nutrition;
 
 
-import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,8 +9,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.example.healthy.Activity.TimeMenu;
 import com.example.healthy.R;
@@ -47,7 +43,7 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
 
         if(savedInstanceState == null) {
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.FrameLayout ,new Day());
+            fragmentTransaction.replace(R.id.FrameLayout ,new DayNutrition());
             fragmentTransaction.commit();
 
             Bundle bundle = new Bundle();
