@@ -1,11 +1,6 @@
 package com.example.healthy.Activity;
 
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.healthy.R;
-import com.example.healthy.logic.AppLogic;
-
-import static android.hardware.Sensor.TYPE_STEP_COUNTER;
+import com.example.healthy.TimeMenu;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,8 +33,14 @@ public class ActivityPageFragment extends Fragment{
             fragmentTransaction.replace(R.id.FrameLayout, new DayActivities())
                     .commit();
 
+            Bundle bundle = new Bundle();
+            bundle.putString("Page", "AP");
+
+            Fragment fragment = new TimeMenu();
+            fragment.setArguments(bundle);
+
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.TimeFrame, new TimeMenu())
+            fragmentTransaction.replace(R.id.TimeFrame, fragment)
                     .commit();
         }
         return root;
