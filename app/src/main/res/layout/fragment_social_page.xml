@@ -6,12 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".Social.SocialPageFragment">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Andre venner"
+        android:layout_marginBottom="5dp"
+        android:textSize="25sp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toTopOf="@+id/vennerScrollView"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <lecho.lib.hellocharts.view.PieChartView
         android:id="@+id/socialPie"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/textKlasse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSocial" />
@@ -20,8 +30,8 @@
         android:id="@+id/textSocial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="Social"
+        android:layout_marginTop="10dp"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Social points"
-        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/socialPie"
         app:layout_constraintEnd_toEndOf="@+id/socialPie"
-        app:layout_constraintStart_toStartOf="@+id/socialPie" />
+        app:layout_constraintStart_toStartOf="@+id/socialPie"
+        app:layout_constraintTop_toTopOf="@+id/socialPie" />
 
     <TextView
         android:id="@+id/textKlasse"
@@ -43,17 +53,17 @@
         android:layout_height="wrap_content"
         android:text="Klasse"
         android:textColor="@color/colorBlack"
-        android:textSize="30sp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView2"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/klasseScrollView"
         app:layout_constraintStart_toStartOf="parent" />
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView2"
+        android:id="@+id/klasseScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="130dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -68,9 +78,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/social_page_male_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton11"
@@ -78,9 +88,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/socail_page_female_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton10"
@@ -88,9 +98,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/social_page_male_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton9"
@@ -98,9 +108,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/socail_page_female_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton8"
@@ -108,9 +118,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/social_page_male_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
@@ -118,9 +128,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/socail_page_female_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
@@ -128,9 +138,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/social_page_male_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
@@ -138,9 +148,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/socail_page_female_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
@@ -148,9 +158,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/social_page_male_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
@@ -158,9 +168,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/socail_page_female_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -168,9 +178,9 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/social_page_male_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
 
             <ImageButton
                 android:id="@+id/imageButton"
@@ -178,9 +188,145 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/homepage_social_button"
-                android:backgroundTint="@color/colorPurpleFigma"
-                app:srcCompat="@drawable/socail_page_female_friend" />
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/vennerScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton13"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton14"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton15"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton16"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton17"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton18"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton19"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton20"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton21"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton22"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton23"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
+
+            <ImageButton
+                android:id="@+id/imageButton24"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/socialpagewhitebackground"
+                android:tint="@color/colorPurpleFigma"
+                app:srcCompat="@drawable/buddy" />
         </LinearLayout>
     </HorizontalScrollView>
 
