@@ -25,7 +25,7 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
 
     TextView day, week, month, goal, log, points;
     ImageButton buttonPlus;
-    AppLogic appLogic = new AppLogic();
+    AppLogic appLogic = AppLogic.getInstance();
     int nutritionPoints;
 
     FragmentTransaction fragmentTransaction;
