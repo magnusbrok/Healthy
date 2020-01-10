@@ -90,7 +90,7 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
                 startActivity(i);
             }
             if (view == log){
-                Intent i = new Intent(getActivity(), FruitsVeggies.class);
+                Intent i = new Intent(getActivity(), LogHistory.class);
                 startActivity(i);
 
             }

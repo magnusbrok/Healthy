@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import static com.example.healthy.Nutrition.FruitsVeggies.NUTRITION_HISTORY;
+import static com.example.healthy.Nutrition.LogHistory.NUTRITION_HISTORY;
 
 
 public class AddFood extends AppCompatActivity implements View.OnClickListener {

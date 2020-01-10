@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class FruitsVeggies extends AppCompatActivity implements View.OnClickListener {
+public class LogHistory extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
     Button doneButton;
     ArrayList<String> foodAddedArray = new ArrayList<>();
