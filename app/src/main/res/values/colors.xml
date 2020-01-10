@@ -13,5 +13,8 @@
     <color name="colorStep">#2F80ED</color>
     <color name="colorHighIntensity">#67A2F1</color>
     <color name="colorFloors">#45BDDC</color>
+    <color name="nutritionPrimary">#94FBAB</color>
+    <color name="nutritionSecondary">#A7EFC5</color>
+    <color name="nutritionTertiary">#ADFFB1</color>
 
 </resources>

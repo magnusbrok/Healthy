@@ -1,16 +1,14 @@
 package com.example.healthy.Nutrition;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.healthy.R;
@@ -26,6 +24,7 @@ import lecho.lib.hellocharts.view.PieChartView;
 public class DayNutrition extends Fragment implements View.OnClickListener {
 
     PieChartView nutritionPie;
+    List<SliceValue> nutritionData = new ArrayList<>();
     TextView goals, history;
     FloatingActionButton addFood;
 
@@ -44,19 +43,15 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
         addFood.setOnClickListener(this);
 
         //set
-        List<SliceValue> activityData = new ArrayList<>();
-        activityData.add(new SliceValue(50, Color.GREEN).setLabel("XXX"));
-        activityData.add(new SliceValue(25, Color.BLUE).setLabel("XXX"));
-        activityData.add(new SliceValue(25, Color.YELLOW).setLabel("XXX"));
+        nutritionData.add(new SliceValue(50, ContextCompat.getColor(getContext(), R.color.nutritionPrimary)));
+        nutritionData.add(new SliceValue(35, ContextCompat.getColor(getContext(), R.color.nutritionSecondary)));
+        nutritionData.add(new SliceValue(15, ContextCompat.getColor(getContext(), R.color.nutritionTertiary)));
 
-        PieChartData activityPieData = new PieChartData(activityData);
-
-        nutritionPie.setPieChartData(activityPieData);
-
-        activityPieData.setHasLabels(true);
+        PieChartData activityPieData = new PieChartData(nutritionData);
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
 
         nutritionPie.setPieChartData(activityPieData);
+
         return root;
     }
 
