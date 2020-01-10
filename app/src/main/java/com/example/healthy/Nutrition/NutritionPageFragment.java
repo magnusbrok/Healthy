@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.profileDialog;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,10 +86,16 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
                 fragmentTransaction.replace(R.id.frameLayoutNutrition, new Month())
                     .commit();
             }
-            if (view == buttonPlus){
-                Intent i = new Intent(getActivity(), AddFood.class);
-                startActivity(i);
-            }
+
+
+                buttonPlus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
+                        addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
+                    }
+                });
+
             if (view == log){
                 Intent i = new Intent(getActivity(), LogHistory.class);
                 startActivity(i);
