@@ -124,12 +124,12 @@
         android:id="@+id/rewardPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
         android:text="@string/rewardPoints"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topMenuFragment" />
+        app:layout_constraintBottom_toBottomOf="@+id/rewardPagePie"
+        app:layout_constraintEnd_toEndOf="@+id/rewardPagePie"
+        app:layout_constraintStart_toStartOf="@+id/rewardPagePie"
+        app:layout_constraintTop_toTopOf="@+id/rewardPagePie" />
 
     <Button
         android:id="@+id/buyRewardButton"
