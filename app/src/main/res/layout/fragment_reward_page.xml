@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Reward.RewardPageFragment">
 
+    <lecho.lib.hellocharts.view.PieChartView
+        android:id="@+id/rewardPagePie"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="132dp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
@@ -111,7 +121,7 @@
         android:id="@+id/rewardPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="144dp"
         android:text="@string/rewardPoints"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,29 +129,11 @@
         app:layout_constraintTop_toBottomOf="@+id/topMenuFragment" />
 
     <Button
-        android:id="@+id/showRewardButton"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-
-
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/colorMustard"
-        android:text="@string/yourRewards"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rewardPoints"
-        tools:text="Dine gevinster" />
-
-    <Button
         android:id="@+id/buyRewardButton"
         android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorMustard"
         android:text="@string/buyReward"
@@ -149,8 +141,24 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rewardPoints"
         tools:text="Køb skrabelod" />
+
+    <Button
+        android:id="@+id/showRewardButton"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+
+
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/colorMustard"
+        android:text="@string/yourRewards"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Dine gevinster" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"

@@ -2,8 +2,10 @@ package com.example.healthy.Reward;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -19,6 +21,13 @@ import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Reward;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lecho.lib.hellocharts.model.PieChartData;
+import lecho.lib.hellocharts.model.SliceValue;
+import lecho.lib.hellocharts.view.PieChartView;
+
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.healthy.MainActivity.SHARED_PREFS;
 
@@ -30,6 +39,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
+    PieChartView rewardPie;
+    private SliceValue activitySlice, nutritionSlice, soicalSlice;
+    List<SliceValue> rewardData = new ArrayList<>();
 
 
     public RewardPageFragment() {
@@ -45,6 +57,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         appLogic.attachObserverToRewardPoints(this);
         //loadPoints();
+        rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
 
@@ -53,6 +66,27 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         buyPrize = root.findViewById(R.id.buyRewardButton);
         buyPrize.setOnClickListener(this);
+
+        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorLightBlue));
+        nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.colorAccent));
+        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorLightPurple));
+
+        activitySlice.setValue(appLogic.getActivityPoints());
+        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
+        nutritionSlice.setValue(appLogic.getStepPoints());
+        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
+        soicalSlice.setValue(appLogic.getHighIntensityPoints());
+
+
+        rewardData.add(activitySlice);
+        rewardData.add(nutritionSlice);
+        rewardData.add(soicalSlice);
+
+        PieChartData rewardPieData = new PieChartData(rewardData);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
+        rewardPie.setPieChartData(rewardPieData);
+
+        updateView();
 
         return root;
     }
@@ -80,6 +114,28 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void updateView() {
         rewardPoints.setText("Bellønningspoint: " + appLogic.getRewardPoints());
+
+        activitySlice.setValue(appLogic.getActivityPoints());
+        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
+        nutritionSlice.setValue(appLogic.getStepPoints());
+        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
+        soicalSlice.setValue(appLogic.getHighIntensityPoints());
+
+        if (appLogic.getRewardPoints() == 0) {
+            activitySlice.setValue(1);
+            nutritionSlice.setValue(1);
+            soicalSlice.setValue(1);
+        }
+
+        rewardData.clear();
+        rewardData.add(activitySlice);
+        rewardData.add(nutritionSlice);
+        rewardData.add(soicalSlice);
+
+        PieChartData rewardPieData = new PieChartData(rewardData);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
+        rewardPie.setPieChartData(rewardPieData);
+
         //savePoints();
 
     }
