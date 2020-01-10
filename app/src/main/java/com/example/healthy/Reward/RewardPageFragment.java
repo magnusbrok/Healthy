@@ -72,6 +72,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV3 = root.findViewById(R.id.amountTV3);
         amountTV4 = root.findViewById(R.id.amountTV4);
 
+        //TODO: add a loading animation (that stops when amount is recieved)
         new AsyncTask() {
 
             @Override
