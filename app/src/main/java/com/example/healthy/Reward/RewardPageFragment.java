@@ -90,7 +90,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                 amountTV1.setText(rewardAmount.get(0));
                 amountTV2.setText(rewardAmount.get(1));
                 amountTV3.setText(rewardAmount.get(2));
-                //amountTV4.setText(rewardAmount.get(3));
+                amountTV4.setText(rewardAmount.get(3));
             }
         }.execute(100);
 
