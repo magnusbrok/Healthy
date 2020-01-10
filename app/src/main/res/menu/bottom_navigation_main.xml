@@ -24,7 +24,7 @@
         android:id="@+id/socialPage"
         android:enabled="true"
         android:title="social"
-        android:icon="@drawable/social_page"
+        android:icon="@drawable/socialvector"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/rewardPage"
