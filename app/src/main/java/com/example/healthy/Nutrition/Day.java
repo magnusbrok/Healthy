@@ -27,7 +27,7 @@ public class Day extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_day_nutrition, container, false);
         // Snuppet fra activity
-        dag = root.findViewById(R.id.day_pie);
+        dag = root.findViewById(R.id.pieChartView_nutritionDay);
         //set
         List<SliceValue> activityData = new ArrayList<>();
         activityData.add(new SliceValue(50, Color.GREEN).setLabel("XXX"));

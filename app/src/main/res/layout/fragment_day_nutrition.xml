@@ -8,13 +8,44 @@
     tools:context=".Nutrition.Day">
 
     <lecho.lib.hellocharts.view.PieChartView
-        android:id="@+id/day_pie"
+        android:id="@+id/pieChartView_nutritionDay"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_nutritionDay_addFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/nutrition_page_extra"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pieChartView_nutritionDay"
+        app:layout_constraintStart_toStartOf="@+id/pieChartView_nutritionDay"
+        app:layout_constraintTop_toBottomOf="@+id/pieChartView_nutritionDay" />
+
+    <TextView
+        android:id="@+id/textView_nutritionDay_goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mål"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton_nutritionDay_addFood"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_nutritionDay_addFood"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/floatingActionButton_nutritionDay_addFood" />
+
+    <TextView
+        android:id="@+id/textView_nutritionDay_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton_nutritionDay_addFood"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton_nutritionDay_addFood"
+        app:layout_constraintTop_toTopOf="@+id/floatingActionButton_nutritionDay_addFood" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
                 startActivity(i);
             }
             if (v == history){
-                Intent i = new Intent(getActivity(), FruitsVeggies.class);
+                Intent i = new Intent(getActivity(), LogHistory.class);
                 startActivity(i);
 
             }

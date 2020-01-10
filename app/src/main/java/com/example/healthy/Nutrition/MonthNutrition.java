@@ -17,10 +17,10 @@ public class MonthNutrition extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_maened, container, false);
+        View view = inflater.inflate(R.layout.fragment_month_nutrition, container, false);
         //måned = view.findViewById(R.id.imageView4);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_month_nutrition, container, false);
+        return view;
     }
 
 }
