@@ -15,13 +15,25 @@
         android:layout_marginBottom="213dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fish"
+        app:layout_constraintTop_toBottomOf="@+id/week"
         app:layout_constraintVertical_bias="0.0">
+
 
     </FrameLayout>
 
     <TextView
-        android:id="@+id/meat"
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayoutNutrition"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <TextView
+        android:id="@+id/day"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -33,30 +45,32 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/wholeMeal"
+        android:id="@+id/month"
         android:layout_width="78dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:gravity="center"
         android:text="Måned"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="145dp" />
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/fish"
+        android:id="@+id/week"
         android:layout_width="78dp"
         android:layout_height="48dp"
+        android:layout_marginTop="76dp"
         android:gravity="center"
         android:text="Uge"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/wholeMeal"
-        app:layout_constraintStart_toEndOf="@+id/meat"
-        tools:layout_editor_absoluteY="145dp" />
+        app:layout_constraintEnd_toStartOf="@+id/month"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toEndOf="@+id/day"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/water"
+        android:id="@+id/plus"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -65,13 +79,13 @@
         android:gravity="center"
         android:text="+"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/beverages"
-        app:layout_constraintStart_toEndOf="@id/dairy"
+        app:layout_constraintEnd_toStartOf="@+id/log"
+        app:layout_constraintStart_toEndOf="@id/goal"
         app:layout_constraintTop_toBottomOf="@id/frameLayoutNutrition"
         app:srcCompat="@drawable/nutrition_page_extra" />
 
     <TextView
-        android:id="@+id/dairy"
+        android:id="@+id/goal"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginStart="48dp"
@@ -83,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
 
     <TextView
-        android:id="@+id/beverages"
+        android:id="@+id/log"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:layout_marginEnd="48dp"

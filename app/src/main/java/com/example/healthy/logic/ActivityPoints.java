@@ -21,13 +21,11 @@ public class ActivityPoints extends Points {
     @Override
     public int computePoints(){
         //TODO implement code to compute points from steps taken
-
         int currentPoints = points;
 
         int points = computeStepPoints();
 
         //Increments local points if steps taken are exceeds an milestone
-
 
         setPoints(points);
 
@@ -71,9 +69,7 @@ public class ActivityPoints extends Points {
                 points += pointIncrementer;
             }
         }
-
         return points;
-
     }
 
     public int getStepGoal() {
@@ -83,7 +79,4 @@ public class ActivityPoints extends Points {
     public void setStepGoal(int stepGoal) {
         this.stepGoal = stepGoal;
     }
-
-
-
 }
