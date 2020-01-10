@@ -9,6 +9,8 @@ public class AppLogic {
     private SocialPoints socialPoints = new SocialPoints();
     private RewardPoints rewardPoints = new RewardPoints();
 
+    private double altitude;
+
     private static AppLogic instance = new AppLogic();
 
     public static AppLogic getInstance(){
@@ -45,6 +47,14 @@ public class AppLogic {
         return activityPoints.computeStepPoints();
     }
 
+    public int getFloorPoints() {
+        return activityPoints.computeFloorPoints();
+    }
+
+    public int getHighIntensityPoints() {
+        return activityPoints.computeHighIntensityPoints();
+    }
+
     public boolean canBuyPrize() {
         if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice()) {
             return true;
@@ -69,5 +79,25 @@ public class AppLogic {
         return activityPoints.getStepGoal();
     }
 
+    public int getHighIntensityGoal() {
+        return activityPoints.getHighIntensityGoal();
+    }
 
+    public int getFloorGoal() {
+        return activityPoints.getFloorGoal();
+    }
+
+    public double getAltitude() {
+        return altitude;
+    }
+
+    public void setAltitude(double altitude) {
+        this.altitude = altitude;
+    }
+
+    public void addToHighIntensity(int minutes) {
+        activityPoints.addToHighIntensity(minutes);
+    }
+
+    public int getHighIntensity() { return activityPoints.getHighIntensity();}
 }

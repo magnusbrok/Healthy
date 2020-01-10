@@ -10,4 +10,9 @@
     <color name="colorMustard">#FFA73E</color>
     <color name="colorTurkis">#8BC34A</color>
     <color name="colorLightBlue">#2F80ED</color>
+    <color name="colorStep">#2F80ED</color>
+    <color name="colorHighIntensity">#67A2F1</color>
+    <color name="colorFloors">#45BDDC</color>
+    <color name="colorPurpleFigma">#D079F0</color>
+
 </resources>

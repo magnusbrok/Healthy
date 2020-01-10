@@ -8,12 +8,11 @@
     tools:context=".Activity.DayActivities">
 
 
-
     <lecho.lib.hellocharts.view.PieChartView
         android:id="@+id/dayActivityPie"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +43,7 @@
         android:id="@+id/activity_day_step_Progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="249dp"
-        android:layout_height="20dp"
+        android:layout_height="10dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
         app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
@@ -55,7 +54,7 @@
         android:id="@+id/dayActivity_TextView_stepProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="5dp"
         android:text="100/2500 skridt"
         app:layout_constraintBottom_toTopOf="@+id/activity_day_step_Progress"
         app:layout_constraintRight_toRightOf="@id/activity_day_step_Progress" />
@@ -64,7 +63,7 @@
         android:id="@+id/activity_day_highIntensity_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="249dp"
-        android:layout_height="20dp"
+        android:layout_height="10dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/activity_day_step_Progress"
         app:layout_constraintStart_toStartOf="@+id/activity_day_step_Progress"
@@ -74,7 +73,7 @@
         android:id="@+id/dayActivity_TextView_highIntensity_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:text="100/2500 skri"
         app:layout_constraintBottom_toTopOf="@+id/activity_day_highIntensity_progress"
         app:layout_constraintRight_toRightOf="@id/activity_day_highIntensity_progress" />
@@ -83,7 +82,7 @@
         android:id="@+id/activity_day_floor_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="249dp"
-        android:layout_height="20dp"
+        android:layout_height="10dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/activity_day_highIntensity_progress"
         app:layout_constraintStart_toStartOf="@+id/activity_day_highIntensity_progress"
@@ -93,10 +92,32 @@
         android:id="@+id/dayActivity_TextView_floor_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:text="100/2500 skridt"
         app:layout_constraintBottom_toTopOf="@+id/activity_day_floor_progress"
-        app:layout_constraintRight_toRightOf="@id/activity_day_floor_progress"/>
+        app:layout_constraintRight_toRightOf="@id/activity_day_floor_progress" />
 
+    <TextView
+        android:id="@+id/altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayActivityPie" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addHi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:clickable="true"
+        android:src="@drawable/nutrition_page_extra"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

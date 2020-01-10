@@ -4,17 +4,34 @@ public class ActivityPoints extends Points {
 
     private int points;
     private int steps;
+    private int highIntensity;
 
 
-    private int pointIncrementer = 50;
+    private int stepPointIncrementer = 50;
+    private int floorPointIncrementer = 100;
+    private int highIntensityIncrementer = 75;
+
+
 
     private int stepGoal = 25;
+    private int floorGoal = 5;
+    private int highIntensityGoal = 10;
 
     private int[] stepGoals = new int[100];
+    private int[] floorGoals = new int[5];
+    private int[] highIntensityGoals = new int[6];
+
+
     public ActivityPoints(){
         // Generate step milestones with intervals of 2500
         for (int i = 0; i < stepGoals.length; i++){
             stepGoals[i] = stepGoal*(i+1);
+        }
+        for (int i = 0; i < floorGoals.length; i++){
+            floorGoals[i] = floorGoal*(i+1);
+        }
+        for (int i = 0; i < highIntensityGoals.length; i++){
+            highIntensityGoals[i] = highIntensityGoal*(i+1);
         }
     }
 
@@ -24,7 +41,7 @@ public class ActivityPoints extends Points {
 
         int currentPoints = points;
 
-        int points = computeStepPoints();
+        int points = computeStepPoints() + computeHighIntensityPoints() + computeFloorPoints();
 
         //Increments local points if steps taken are exceeds an milestone
 
@@ -41,6 +58,7 @@ public class ActivityPoints extends Points {
     public int getPoints() {
         return points;
     }
+
     public void setPoints(int points) {
         this.points = points;
         notifyChangeToObservers();
@@ -55,12 +73,12 @@ public class ActivityPoints extends Points {
         notifyChangeToObservers();
     }
 
-    public int getPointIncrementer() {
-        return pointIncrementer;
+    public int getStepPointIncrementer() {
+        return stepPointIncrementer;
     }
 
-    public void setPointIncrementer(int pointIncrementer) {
-        this.pointIncrementer = pointIncrementer;
+    public void setStepPointIncrementer(int stepPointIncrementer) {
+        this.stepPointIncrementer = stepPointIncrementer;
     }
 
     public int computeStepPoints() {
@@ -68,10 +86,36 @@ public class ActivityPoints extends Points {
 
         for (int i = 0; i < stepGoals.length; i++){
             if (stepGoals[i] < steps){
-                points += pointIncrementer;
+                points += stepPointIncrementer;
             }
         }
 
+        return points;
+    }
+
+    public int computeHighIntensityPoints() {
+        int points = 0;
+
+        int min = highIntensity;
+
+        for (int i = 0; i < highIntensityGoals.length; i++){
+            if (highIntensityGoals[i] < min){
+                points += highIntensityIncrementer;
+            }
+        }
+        return points;
+    }
+
+    public int computeFloorPoints() {
+        int points = 0;
+
+        int floors = steps/7;
+
+        for (int i = 0; i < floorGoals.length; i++){
+            if (floorGoals[i] < floors){
+                points += floorPointIncrementer;
+            }
+        }
         return points;
 
     }
@@ -84,6 +128,45 @@ public class ActivityPoints extends Points {
         this.stepGoal = stepGoal;
     }
 
+    public int getFloorPointIncrementer() {
+        return floorPointIncrementer;
+    }
+
+    public void setFloorPointIncrementer(int floorPointIncrementer) {
+        this.floorPointIncrementer = floorPointIncrementer;
+    }
+
+    public int getHighIntensityIncrementer() {
+        return highIntensityIncrementer;
+    }
+
+    public void setHighIntensityIncrementer(int highIntensityIncrementer) {
+        this.highIntensityIncrementer = highIntensityIncrementer;
+    }
+
+    public int getFloorGoal() {
+        return floorGoal;
+    }
+
+    public void setFloorGoal(int floorGoal) {
+        this.floorGoal = floorGoal;
+    }
+
+    public int getHighIntensityGoal() {
+        return highIntensityGoal;
+    }
+
+    public void setHighIntensityGoal(int highIntensityGoal) {
+        this.highIntensityGoal = highIntensityGoal;
+    }
 
 
+    public void addToHighIntensity(int minutes) {
+        highIntensity += minutes;
+        notifyChangeToObservers();
+    }
+
+    public int getHighIntensity() {
+        return highIntensity;
+    }
 }
