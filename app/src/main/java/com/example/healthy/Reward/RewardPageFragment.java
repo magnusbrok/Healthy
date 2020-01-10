@@ -48,7 +48,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
     List<SliceValue> rewardData = new ArrayList<>();
     ArrayList<String> rewardAmount = new ArrayList<>();
-    TextView amountTV1;
+    TextView amountTV1, amountTV2, amountTV3, amountTV4;
 
 
     public RewardPageFragment() {
@@ -68,6 +68,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
         amountTV1 = root.findViewById(R.id.amountTV1);
+        amountTV2 = root.findViewById(R.id.amountTV2);
+        amountTV3 = root.findViewById(R.id.amountTV3);
+        amountTV4 = root.findViewById(R.id.amountTV4);
 
         new AsyncTask() {
 
@@ -85,6 +88,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected void onPostExecute(Object o) {
                 amountTV1.setText(rewardAmount.get(0));
+                amountTV2.setText(rewardAmount.get(1));
+                amountTV3.setText(rewardAmount.get(2));
+                //amountTV4.setText(rewardAmount.get(3));
             }
         }.execute(100);
 
