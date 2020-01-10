@@ -16,10 +16,7 @@ import com.example.healthy.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NutritionPageFragment extends Fragment implements View.OnClickListener {
-
-//    TextView day, week, month, goal, log;
-//    ImageButton buttonPlus;
+public class NutritionPageFragment extends Fragment{
 
     FragmentTransaction fragmentTransaction;
     @Override
@@ -27,19 +24,6 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_activity_page, container, false);
-
-//        day = root.findViewById(R.id.meat);
-//        day.setOnClickListener(this);
-//        week = root.findViewById(R.id.fish);
-//        week.setOnClickListener(this);
-//        month = root.findViewById(R.id.wholeMeal);
-//        month.setOnClickListener(this);
-//        goal = root.findViewById(R.id.dairy);
-//        goal.setOnClickListener(this);
-//        buttonPlus = root.findViewById(R.id.water);
-//        buttonPlus.setOnClickListener(this);
-//        log = root.findViewById(R.id.beverages);
-//        log.setOnClickListener(this);
 
         if(savedInstanceState == null) {
             fragmentTransaction = getFragmentManager().beginTransaction();
@@ -58,17 +42,4 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
         }
         return root;
     }
-        public void onClick(View view) {
-
-//            if (view == buttonPlus){
-//                Intent i = new Intent(getActivity(), AddFood.class);
-//                startActivity(i);
-//            }
-//            if (view == log){
-//                Intent i = new Intent(getActivity(), FruitsVeggies.class);
-//                startActivity(i);
-//
-//            }
-        }
-
 }
