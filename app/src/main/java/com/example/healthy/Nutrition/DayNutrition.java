@@ -59,6 +59,8 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
+            // TODO open dialog box
+
             if (v == addFood){
                 Intent i = new Intent(getActivity(), AddFood.class);
                 startActivity(i);
