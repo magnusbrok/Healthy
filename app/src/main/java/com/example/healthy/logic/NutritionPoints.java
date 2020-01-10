@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class NutritionPoints extends Points {
 
     private int points;
-    private ArrayList<String> foodList;
+    private ArrayList<String> foodList = new ArrayList<>();
     private int pointIncrementer = 5;
 
     SharedPreferences.Editor editor;
