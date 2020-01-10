@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.healthy.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
 
     PieChartView nutritionPie;
     TextView goals, history;
-    ImageButton addFood;
+    FloatingActionButton addFood;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +37,7 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
         nutritionPie = root.findViewById(R.id.pieChartView_nutritionDay);
         goals = root.findViewById(R.id.textView_nutritionDay_goals);
         history = root.findViewById(R.id.textView_nutritionDay_log);
-        addFood = root.findViewById(R.id.buttonView_nutritionDay_addFood);
+        addFood = root.findViewById(R.id.floatingActionButton_nutritionDay_addFood);
 
         goals.setOnClickListener(this);
         history.setOnClickListener(this);
