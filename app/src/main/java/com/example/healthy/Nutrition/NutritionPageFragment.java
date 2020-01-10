@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.healthy.Activity.TimeMenu;
+import com.example.healthy.TimeMenu;
 import com.example.healthy.R;
 
 /**
@@ -53,7 +53,7 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
             fragment.setArguments(bundle);
 
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.TimeFrame, new TimeMenu())
+            fragmentTransaction.replace(R.id.TimeFrame, fragment)
                     .commit();
         }
         return root;

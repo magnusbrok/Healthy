@@ -1,4 +1,4 @@
-package com.example.healthy.Activity;
+package com.example.healthy;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.healthy.Activity.DayActivities;
+import com.example.healthy.Activity.MonthActivities;
+import com.example.healthy.Activity.WeekActivities;
 import com.example.healthy.Nutrition.*;
 import com.example.healthy.Nutrition.WeekNutrition;
 import com.example.healthy.R;
