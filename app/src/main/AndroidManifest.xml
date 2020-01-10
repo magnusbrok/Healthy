@@ -25,7 +25,7 @@
         </intent-filter>
         </activity>
         <activity android:name=".SettingsPage" />
-        <activity android:name=".Nutrition.FruitsVeggies" />
+        <activity android:name=".Nutrition.LogHistory" />
         <activity android:name=".Nutrition.AddFood" />
         <activity android:name=".TopMenu" />
         <activity android:name=".ProfilePage" />

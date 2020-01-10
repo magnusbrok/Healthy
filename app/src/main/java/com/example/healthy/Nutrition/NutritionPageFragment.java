@@ -14,15 +14,20 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
+import com.example.healthy.profileDialog;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NutritionPageFragment extends Fragment implements View.OnClickListener {
+public class NutritionPageFragment extends Fragment implements View.OnClickListener, Observer {
 
-    TextView day, week, month, goal, log;
+    TextView day, week, month, goal, log, points;
     ImageButton buttonPlus;
+    AppLogic appLogic = AppLogic.getInstance();
+    int nutritionPoints;
 
     FragmentTransaction fragmentTransaction;
     @Override
@@ -31,18 +36,22 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_nutrition_page, container, false);
 
-        day = root.findViewById(R.id.meat);
+        day = root.findViewById(R.id.day);
         day.setOnClickListener(this);
-        week = root.findViewById(R.id.fish);
+        week = root.findViewById(R.id.week);
         week.setOnClickListener(this);
-        month = root.findViewById(R.id.wholeMeal);
+        month = root.findViewById(R.id.month);
         month.setOnClickListener(this);
-        goal = root.findViewById(R.id.dairy);
+        goal = root.findViewById(R.id.goal);
         goal.setOnClickListener(this);
-        buttonPlus = root.findViewById(R.id.water);
+        buttonPlus = root.findViewById(R.id.plus);
         buttonPlus.setOnClickListener(this);
-        log = root.findViewById(R.id.beverages);
+        log = root.findViewById(R.id.log);
         log.setOnClickListener(this);
+        points = root.findViewById(R.id.points);
+
+        nutritionPoints = appLogic.getNutritionPoints();
+        points.setText("Points: " + nutritionPoints );
 
         if(savedInstanceState == null) {
             fragmentTransaction = getFragmentManager().beginTransaction();
@@ -77,15 +86,25 @@ public class NutritionPageFragment extends Fragment implements View.OnClickListe
                 fragmentTransaction.replace(R.id.frameLayoutNutrition, new Month())
                     .commit();
             }
-            if (view == buttonPlus){
-                Intent i = new Intent(getActivity(), AddFood.class);
-                startActivity(i);
-            }
+
+
+                buttonPlus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
+                        addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
+                    }
+                });
+
             if (view == log){
-                Intent i = new Intent(getActivity(), FruitsVeggies.class);
+                Intent i = new Intent(getActivity(), LogHistory.class);
                 startActivity(i);
 
             }
         }
 
+    @Override
+    public void updateView() {
+        points.setText("Points: " + appLogic.getNutritionPoints() );
+    }
 }

@@ -25,7 +25,7 @@ public class Day extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_day, container, false);
+        View root = inflater.inflate(R.layout.fragment_day_nutrition, container, false);
         // Snuppet fra activity
         dag = root.findViewById(R.id.day_pie);
         //set

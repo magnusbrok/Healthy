@@ -2,6 +2,8 @@ package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
 
+import java.util.ArrayList;
+
 public class AppLogic {
 
     private ActivityPoints activityPoints = new ActivityPoints();
@@ -22,8 +24,7 @@ public class AppLogic {
         int nutritionPointIncrease = nutritionPoints.computePoints();
         int socialPointIncrease = socialPoints.computePoints();
 
-        rewardPoints.addPoints(activityPointsIncrease);
-
+        rewardPoints.addPoints(activityPointsIncrease, nutritionPointIncrease);
     }
 
 
@@ -41,6 +42,10 @@ public class AppLogic {
 
     public int getRewardPoints() {
         return rewardPoints.getRewardPoints();
+    }
+    public int getNutritionPoints() {
+        return nutritionPoints.getPoints();
+
     }
 
     public int getStepPoints() {
@@ -68,7 +73,6 @@ public class AppLogic {
     public void attachObserverToRewardPoints(Observer observer) {
         rewardPoints.attachObserver(observer);
     }
-
 
 
     public Reward buyPrize() {
@@ -100,4 +104,9 @@ public class AppLogic {
     }
 
     public int getHighIntensity() { return activityPoints.getHighIntensity();}
+    public void setFoodList(ArrayList<String> addFood) {
+        nutritionPoints.setFoodList(addFood);
+    }
+
+
 }
