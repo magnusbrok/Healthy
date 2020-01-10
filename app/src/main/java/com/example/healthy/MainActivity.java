@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         newUser.put ("RewardPoints", appLogic.getRewardPoints());
         newUser.put ("NutritionPoints", 100);
 
-        db.collection("Brugere med point").document() // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
                 .set(newUser)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
