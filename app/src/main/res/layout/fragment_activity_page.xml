@@ -7,41 +7,19 @@
     tools:context=".Activity.ActivityPage">
 
     <FrameLayout
-        android:id="@+id/menuFragment"
+        android:id="@+id/FrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="500dp"
+        app:layout_constraintTop_toBottomOf="@+id/TimeFrame">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/TimeFrame"
         android:layout_width="match_parent"
-        android:layout_height="643dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
-            android:id="@+id/TopFrame"
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
+    </FrameLayout>
 
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/TimeFrame"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/FrameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="500dp">
-
-        </FrameLayout>
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
