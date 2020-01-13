@@ -12,7 +12,7 @@ import com.example.healthy.logic.AppLogic;
 
 public class NumberPickerDialog extends DialogFragment {
     private NumberPicker.OnValueChangeListener valueChangeListener;
-    AppLogic logic = new AppLogic();
+    AppLogic logic = AppLogic.getInstance();
 
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {

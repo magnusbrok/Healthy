@@ -108,5 +108,17 @@ public class AppLogic {
         nutritionPoints.setFoodList(addFood);
     }
 
+    public int getEndStepGoal() {
+        return activityPoints.getEndStepGoal();
+    }
+
+    public int getEndFloorGoal() {
+        return activityPoints.getEndFloorGoal();
+    }
+
+    public int getEndHighIntensityGoal() {
+        return activityPoints.getEndHighIntensityGoal();
+    }
+
 
 }
