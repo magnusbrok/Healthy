@@ -1,10 +1,12 @@
 package com.example.healthy.Nutrition;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,10 +14,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.healthy.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LogHistory extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
@@ -27,6 +34,9 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
     SharedPreferences sharedPreferences;
     public static final String NUTRITION_HISTORY = "nutritionHistory";
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
+
+    FirebaseFirestore db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,5 +76,28 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
             if (doneButton==v){
                 finish();
             }
+    }
+
+    public void updateDatabase() {
+        db = FirebaseFirestore.getInstance();
+
+        // Updating user's food
+        Map<String, Object> updateUser = new HashMap<>();
+        updateUser.put("FoodLog", foodAddedArray);
+
+        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+                .set(updateUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Toast.(ProfilePage.class, "Din mad er blevet tilføjet", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage());
+                    }
+                });
     }
 }
