@@ -62,10 +62,9 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    // Method to read data from FireStore (DON'T DELETE)
     private void readUser () {
         db = FirebaseFirestore.getInstance();
-        DocumentReference user = db.collection("Brugere med point").document("1");
+        DocumentReference user = db.collection("Brugere med point").document("1").collection("Rediger profil").document("1");
         user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

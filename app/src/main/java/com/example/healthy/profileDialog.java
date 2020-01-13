@@ -77,7 +77,7 @@ public class profileDialog extends DialogFragment {
         updateUser.put("Year", updatedYear);
         updateUser.put("School", updatedSchool);
 
-        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+        db.collection("Brugere med point").document("1").collection("Rediger profil").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
                 .set(updateUser)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
