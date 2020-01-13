@@ -36,8 +36,7 @@ import static com.example.healthy.Nutrition.LogHistory.NUTRITION_HISTORY;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus;
-    FloatingActionButton done;
+    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus, doneButton;
     ArrayList<String> addFood = new ArrayList<>();
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
     Gson gson = new Gson();
@@ -75,8 +74,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         meat.setOnClickListener(this);
         plus = v.findViewById(R.id.extra);
         plus.setOnClickListener(this);
-        done = v.findViewById(R.id.doneButton);
-        done.setOnClickListener(this);
+        doneButton = v.findViewById(R.id.doneButton);
+        doneButton.setOnClickListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         
         return v;
@@ -124,7 +123,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_LONG).show();
         }
 
-        else if (v == done){
+        else if (v == doneButton){
             sharedPreferences = getActivity().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
