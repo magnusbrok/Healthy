@@ -69,34 +69,8 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-            editor.putString(NUTRITION_HISTORY, gson.toJson(foodAddedArray, history));
-            editor.apply();
-            finish();
-
             if (doneButton==v){
                 finish();
             }
-    }
-
-    public void updateDatabase() {
-        db = FirebaseFirestore.getInstance();
-
-        Map<String, Object> updateUser = new HashMap<>();
-        updateUser.put("Food added", foodAddedArray);
-
-        db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
-                .set(updateUser)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        //Toast.(ProfilePage.class, "Din mad er blevet tilføjet", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage());
-                    }
-                });
     }
 }
