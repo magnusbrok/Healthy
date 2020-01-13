@@ -114,9 +114,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         buyPrize = root.findViewById(R.id.buyRewardButton);
         buyPrize.setOnClickListener(this);
 
-        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorLightBlue));
-        nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.colorAccent));
-        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorLightPurple));
+        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorStep));
+        nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.nutritionPrimary));
+        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.socialSecondary));
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
@@ -162,8 +162,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints());
 
         activitySlice.setValue(appLogic.getActivityPoints());
-        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
-        nutritionSlice.setValue(appLogic.getStepPoints());
+        nutritionSlice.setValue(appLogic.getNutritionPoints());
         //TODO: change this to appLogic.getSocialPoints() when it's implemented.
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
 

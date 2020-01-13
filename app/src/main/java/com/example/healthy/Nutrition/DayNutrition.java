@@ -32,7 +32,6 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
     TextView goals, history, day_points;
     FloatingActionButton addFood;
     AppLogic appLogic = AppLogic.getInstance();
-    int nutritionPoints;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,8 +43,7 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         history = root.findViewById(R.id.textView_nutritionDay_log);
         addFood = root.findViewById(R.id.floatingActionButton_nutritionDay_addFood);
         day_points = root.findViewById(R.id.dayNutrition_TextView_points);
-        nutritionPoints = appLogic.getNutritionPoints();
-        day_points.setText("" + nutritionPoints);
+        day_points.setText("" + appLogic.getNutritionPoints());
         goals.setOnClickListener(this);
         history.setOnClickListener(this);
         addFood.setOnClickListener(this);
@@ -68,7 +66,6 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
     @Override
     public void onClick(View v) {
 
-            // TODO open dialog box
             if (v == addFood){
                         AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
                         addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
@@ -82,6 +79,6 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
 
     @Override
     public void updateView() {
-        day_points.setText("" + nutritionPoints);
+        day_points.setText("" + appLogic.getNutritionPoints());
     }
 }
