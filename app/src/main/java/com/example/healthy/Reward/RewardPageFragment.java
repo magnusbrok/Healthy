@@ -1,6 +1,5 @@
 package com.example.healthy.Reward;
 
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -75,10 +74,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV9 = root.findViewById(R.id.amountTV9);
         amountTV10 = root.findViewById(R.id.amountTV10);
         loading = root.findViewById(R.id.loadingAnimation);
+        loading.bringToFront();
 
-        loading.playAnimation();
-
-        //TODO: add a loading animation (that stops when amount is recieved)
         //TODO håndter hvis der ikke er netforbindelse;
         new AsyncTask() {
 
@@ -106,7 +103,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                 amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
                 amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
                 loading.cancelAnimation();
-                loading.setSpeed(100);
                 loading.setVisibility(View.GONE);
 
             }
@@ -123,8 +119,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorLightPurple));
 
         activitySlice.setValue(appLogic.getActivityPoints());
-        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
-        nutritionSlice.setValue(appLogic.getStepPoints());
+        nutritionSlice.setValue(appLogic.getNutritionPoints());
         //TODO: change this to appLogic.getSocialPoints() when it's implemented.
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
 
@@ -164,7 +159,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void updateView() {
-        rewardPoints.setText("Bellønningspoint: " + appLogic.getRewardPoints());
+        rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints());
 
         activitySlice.setValue(appLogic.getActivityPoints());
         //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
