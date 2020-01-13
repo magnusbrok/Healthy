@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
@@ -44,6 +45,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     List<SliceValue> rewardData = new ArrayList<>();
     ArrayList<String> rewardAmount = new ArrayList<>();
     TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
+    LottieAnimationView loading;
 
 
     public RewardPageFragment() {
@@ -72,6 +74,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV8 = root.findViewById(R.id.amountTV8);
         amountTV9 = root.findViewById(R.id.amountTV9);
         amountTV10 = root.findViewById(R.id.amountTV10);
+        loading = root.findViewById(R.id.loadingAnimation);
+
+        loading.playAnimation();
 
         //TODO: add a loading animation (that stops when amount is recieved)
         //TODO håndter hvis der ikke er netforbindelse;
@@ -100,6 +105,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                 amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
                 amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
                 amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
+                loading.cancelAnimation();
+                loading.setSpeed(100);
+                loading.setVisibility(View.GONE);
 
             }
         }.execute(100);
