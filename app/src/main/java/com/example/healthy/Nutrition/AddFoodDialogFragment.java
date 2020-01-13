@@ -64,12 +64,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         dairy.setOnClickListener(this);
         water = v.findViewById(R.id.water);
         water.setOnClickListener(this);
-        beverages = v.findViewById(R.id.beverages);
-        beverages.setOnClickListener(this);
         meat = v.findViewById(R.id.meat);
         meat.setOnClickListener(this);
-        plus = v.findViewById(R.id.extra);
-        plus.setOnClickListener(this);
         doneButton = v.findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));

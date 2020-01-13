@@ -22,8 +22,8 @@ public class NumberPickerDialog extends DialogFragment {
         numberPicker.setMaxValue(60);
 
         AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("indtast træning");
-        builder.setMessage("vælg antal minutter");
+        builder.setTitle("Indtast træning");
+        builder.setMessage("Vælg antal minutter");
 
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override

@@ -43,7 +43,7 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
     PieChartView activityPie;
     private SliceValue HISlice ,stepSlice, floorSlice;
-    TextView steps, points, altitude, tvStepProgress, tvHIProgress, tvFloorProgress;
+    TextView points, tvStepProgress, tvHIProgress, tvFloorProgress;
     AppLogic appLogic = AppLogic.getInstance();
     List<SliceValue> activityData = new ArrayList<>();
     ProgressBar stepProgress, floorProgress, highIntensityProgress;
@@ -57,7 +57,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
         // Inflate the layout for this fragment
         activityPie = root.findViewById(R.id.dayActivityPie);
-        steps = root.findViewById(R.id.dayActivity_TextView_steps);
         points = root.findViewById(R.id.dayActivity_TextView_points);
         tvStepProgress = root.findViewById(R.id.dayActivity_TextView_stepProgress);
         tvHIProgress = root.findViewById(R.id.dayActivity_TextView_highIntensity_progress);
@@ -79,7 +78,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
 
         appLogic.attachObserverToActivityPoints(this);
-        steps.setText("Steps: " + appLogic.getSteps());
         points.setText("Points: " + appLogic.getActivityPoints());
 
         stepSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorStep));
@@ -112,8 +110,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
         updateView();
 
-
-
         return root;
     }
 
@@ -141,8 +137,15 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
     @Override
     public void updateView() {
-        steps.setText("Steps: " + appLogic.getSteps());
-        points.setText("Points: " + appLogic.getActivityPoints());
+        points.setText(""+appLogic.getActivityPoints());
+
+        updatePieChart();
+
+        updateProgressBars();
+
+    }
+
+    public void updatePieChart() {
 
         stepSlice.setValue(appLogic.getStepPoints());
         floorSlice.setValue((appLogic.getFloorPoints()));
@@ -162,7 +165,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         activityPieData.setHasLabels(false);
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         activityPie.setPieChartData(activityPieData);
-        updateProgressBars();
 
     }
 
