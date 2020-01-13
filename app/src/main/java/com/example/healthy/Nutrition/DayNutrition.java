@@ -12,22 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class DayNutrition extends Fragment implements View.OnClickListener {
+public class DayNutrition extends Fragment implements View.OnClickListener, Observer {
 
     PieChartView nutritionPie;
     List<SliceValue> nutritionData = new ArrayList<>();
-    TextView goals, history;
+    TextView goals, history, day_points;
     FloatingActionButton addFood;
+    AppLogic appLogic = AppLogic.getInstance();
+    int nutritionPoints;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,7 +43,9 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
         goals = root.findViewById(R.id.textView_nutritionDay_goals);
         history = root.findViewById(R.id.textView_nutritionDay_log);
         addFood = root.findViewById(R.id.floatingActionButton_nutritionDay_addFood);
-
+        day_points = root.findViewById(R.id.dayNutrition_TextView_points);
+        nutritionPoints = appLogic.getNutritionPoints();
+        day_points.setText("Points: " + nutritionPoints);
         goals.setOnClickListener(this);
         history.setOnClickListener(this);
         addFood.setOnClickListener(this);
@@ -69,5 +76,10 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
                 startActivity(i);
 
             }
+    }
+
+    @Override
+    public void updateView() {
+        day_points.setText("Points: " + appLogic.getNutritionPoints() );
     }
 }
