@@ -19,6 +19,8 @@ public class NutritionPoints extends Points {
 
         points = foodList.size()*pointIncrementer;
 
+        setPoints(points);
+
         int diff = points - currentPoints;
         return (diff);
     }
@@ -30,6 +32,7 @@ public class NutritionPoints extends Points {
 
     public void setPoints(int points) {
         this.points = points;
+        notifyChangeToObservers();
     }
 
     public ArrayList<String> getFoodList() {

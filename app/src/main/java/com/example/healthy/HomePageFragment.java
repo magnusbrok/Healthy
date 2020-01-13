@@ -49,12 +49,14 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         appLogic.attachObserverToActivityPoints(this);
         appLogic.attachObserverToRewardPoints(this);
+        appLogic.attachObserverToNutritionPoints(this);
+
 
         activityPoints = root.findViewById(R.id.homepage_activity_points);
-        activityPoints.setText(""+appLogic.getActivityPoints());
-
         rewardPoints = root.findViewById(R.id.homepage_reward_points);
-        rewardPoints.setText(""+appLogic.getRewardPoints());
+        nutritionPoints = root.findViewById(R.id.homepage_nutrition_points);
+
+        updateView();
 
         // Implement nutrition and social later
 
@@ -118,5 +120,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     public void updateView() {
         rewardPoints.setText(""+appLogic.getRewardPoints());
         activityPoints.setText(""+appLogic.getActivityPoints());
+        nutritionPoints.setText(""+appLogic.getNutritionPoints());
     }
 }
