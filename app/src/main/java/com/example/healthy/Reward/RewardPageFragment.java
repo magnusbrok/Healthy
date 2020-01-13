@@ -1,8 +1,6 @@
 package com.example.healthy.Reward;
 
 
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -33,9 +31,6 @@ import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.healthy.MainActivity.SHARED_PREFS;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -48,7 +43,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
     List<SliceValue> rewardData = new ArrayList<>();
     ArrayList<String> rewardAmount = new ArrayList<>();
-    TextView amountTV1, amountTV2, amountTV3, amountTV4;
+    TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
 
 
     public RewardPageFragment() {
@@ -71,6 +66,12 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV2 = root.findViewById(R.id.amountTV2);
         amountTV3 = root.findViewById(R.id.amountTV3);
         amountTV4 = root.findViewById(R.id.amountTV4);
+        amountTV5 = root.findViewById(R.id.amountTV5);
+        amountTV6 = root.findViewById(R.id.amountTV6);
+        amountTV7 = root.findViewById(R.id.amountTV7);
+        amountTV8 = root.findViewById(R.id.amountTV8);
+        amountTV9 = root.findViewById(R.id.amountTV9);
+        amountTV10 = root.findViewById(R.id.amountTV10);
 
         //TODO: add a loading animation (that stops when amount is recieved)
         //TODO håndter hvis der ikke er netforbindelse;
@@ -79,7 +80,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
-                    getAmountFromSheet("123");
+                    getAmountFromSheet("12345678910");
                     return "Mængderne blev hentet korrekt";
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -89,10 +90,17 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
             @Override
             protected void onPostExecute(Object o) {
-                amountTV1.setText(rewardAmount.get(0));
-                amountTV2.setText(rewardAmount.get(1));
-                amountTV3.setText(rewardAmount.get(2));
-                amountTV4.setText(rewardAmount.get(3));
+                amountTV1.setText(rewardAmount.get(1) + "/" + rewardAmount.get(0));
+                amountTV2.setText(rewardAmount.get(2) + "/" + rewardAmount.get(0));
+                amountTV3.setText(rewardAmount.get(3) + "/" + rewardAmount.get(0));
+                amountTV4.setText(rewardAmount.get(4) + "/" + rewardAmount.get(0));
+                amountTV5.setText(rewardAmount.get(5) + "/" + rewardAmount.get(0));
+                amountTV6.setText(rewardAmount.get(6) + "/" + rewardAmount.get(0));
+                amountTV7.setText(rewardAmount.get(7) + "/" + rewardAmount.get(0));
+                amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
+                amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
+                amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
+
             }
         }.execute(100);
 
@@ -174,7 +182,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         //savePoints();
 
     }
-    //From Galgelogik made by Jacob Nordfalk
+    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
     public static String getUrl(String url) throws IOException {
         System.out.println("Henter data fra " + url);
         BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
@@ -186,13 +194,13 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         }
         return sb.toString();
     }
-
+    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit  our project)
     public void getAmountFromSheet (String i) throws Exception {
         String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
         int lineNr = 0;
 
         for (String line : data.split("\n")) {
-            if (lineNr < 20) System.out.println("line: " + line);
+            if (lineNr < 30) System.out.println("line: " + line);
             if (lineNr++ <1) continue;
             String[] spaces = line.split(",", -1);
             String index = spaces[0].trim();

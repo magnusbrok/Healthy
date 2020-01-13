@@ -67,11 +67,15 @@ public class AppLogic {
     }
 
     public void attachObserverToActivityPoints(Observer observer){
-            activityPoints.attachObserver(observer);
+        activityPoints.attachObserver(observer);
     }
 
     public void attachObserverToRewardPoints(Observer observer) {
         rewardPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToNutritionPoints(Observer observer) {
+        nutritionPoints.attachObserver(observer);
     }
 
 

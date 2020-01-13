@@ -60,6 +60,8 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
 
         nutritionPie.setPieChartData(activityPieData);
 
+        appLogic.attachObserverToNutritionPoints(this);
+
         return root;
     }
 

@@ -19,33 +19,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/dayActivity_TextView_steps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/dayActivity_TextView_points"
-        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/dayActivityPie" />
-
-    <TextView
         android:id="@+id/dayActivity_TextView_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
         android:text="TextView"
+        android:textSize="36sp"
+        android:textColor="@color/colorStep"
         app:layout_constraintBottom_toBottomOf="@+id/dayActivityPie"
         app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
-        app:layout_constraintStart_toStartOf="@+id/dayActivityPie" />
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
+        app:layout_constraintTop_toTopOf="@+id/dayActivityPie" />
 
     <ProgressBar
         android:id="@+id/activity_day_step_Progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="249dp"
         android:layout_height="10dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
         app:layout_constraintTop_toBottomOf="@+id/dayActivityPie" />
 
@@ -101,13 +91,22 @@
         android:id="@+id/addHi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
         android:clickable="true"
         android:src="@drawable/nutrition_page_extra"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintStart_toEndOf="@+id/activity_day_highIntensity_progress"
+        app:layout_constraintTop_toBottomOf="@+id/activity_day_step_Progress"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/dayActivity_TextView_Goal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="Mål:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
+        app:layout_constraintTop_toBottomOf="@+id/dayActivityPie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
