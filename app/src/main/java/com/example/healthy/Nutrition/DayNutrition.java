@@ -45,7 +45,7 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         addFood = root.findViewById(R.id.floatingActionButton_nutritionDay_addFood);
         day_points = root.findViewById(R.id.dayNutrition_TextView_points);
         nutritionPoints = appLogic.getNutritionPoints();
-        day_points.setText("Points: " + nutritionPoints);
+        day_points.setText("" + nutritionPoints);
         goals.setOnClickListener(this);
         history.setOnClickListener(this);
         addFood.setOnClickListener(this);
@@ -59,6 +59,8 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
 
         nutritionPie.setPieChartData(activityPieData);
+
+        appLogic.attachObserverToNutritionPoints(this);
 
         return root;
     }
@@ -80,6 +82,6 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
 
     @Override
     public void updateView() {
-        day_points.setText("Points: " + appLogic.getNutritionPoints() );
+        day_points.setText("" + nutritionPoints);
     }
 }
