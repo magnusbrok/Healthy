@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,7 +61,7 @@ public class profileDialog extends DialogFragment {
                 updatedSchool = school.getText().toString();
 
                 updateDatabase();
-                getDialog().dismiss();
+
             }
         });
         return view;
@@ -77,18 +78,22 @@ public class profileDialog extends DialogFragment {
         updateUser.put("Year", updatedYear);
         updateUser.put("School", updatedSchool);
 
-        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+        db.collection("Brugere med point").document("1").collection("Rediger profil").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
                 .set(updateUser)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //Toast.(ProfilePage.class, "Dine redigeringer er blevet gemt", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Dine redigeringer er blevet gemt", Toast.LENGTH_LONG).show();
+                        getDialog().dismiss();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage());
+                        e.printStackTrace();
+                        Toast.makeText(getActivity(), "FEJL - redigeringerne blev ikke gemt: "+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        getDialog().dismiss();
                     }
                 });
     }

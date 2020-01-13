@@ -48,4 +48,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/floatingActionButton_nutritionDay_addFood"
         app:layout_constraintTop_toTopOf="@+id/floatingActionButton_nutritionDay_addFood" />
+
+    <TextView
+        android:id="@+id/dayNutrition_TextView_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/pieChartView_nutritionDay"
+        app:layout_constraintEnd_toEndOf="@+id/pieChartView_nutritionDay"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/pieChartView_nutritionDay" />
 </androidx.constraintlayout.widget.ConstraintLayout>

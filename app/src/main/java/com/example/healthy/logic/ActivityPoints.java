@@ -8,18 +8,24 @@ public class ActivityPoints extends Points {
 
 
     private int stepPointIncrementer = 50;
-    private int floorPointIncrementer = 100;
+    private int floorPointIncrementer = 200;
     private int highIntensityIncrementer = 75;
 
 
 
     private int stepGoal = 25;
-    private int floorGoal = 5;
+    private int floorGoal = 1;
     private int highIntensityGoal = 10;
 
     private int[] stepGoals = new int[100];
     private int[] floorGoals = new int[5];
     private int[] highIntensityGoals = new int[6];
+
+    private int endStepGoal;
+    private int endHighIntensityGoal;
+    private int endFloorGoal;
+
+
 
 
     public ActivityPoints(){
@@ -27,12 +33,17 @@ public class ActivityPoints extends Points {
         for (int i = 0; i < stepGoals.length; i++){
             stepGoals[i] = stepGoal*(i+1);
         }
+        endStepGoal = stepGoals[stepGoals.length-1];
+
         for (int i = 0; i < floorGoals.length; i++){
             floorGoals[i] = floorGoal*(i+1);
         }
+        endFloorGoal = floorGoals[floorGoals.length-1];
+
         for (int i = 0; i < highIntensityGoals.length; i++){
             highIntensityGoals[i] = highIntensityGoal*(i+1);
         }
+        endHighIntensityGoal = highIntensityGoals[highIntensityGoals.length-1];
     }
 
     @Override
@@ -109,7 +120,7 @@ public class ActivityPoints extends Points {
     public int computeFloorPoints() {
         int points = 0;
 
-        int floors = steps/7;
+        int floors = steps/100;
 
         for (int i = 0; i < floorGoals.length; i++){
             if (floorGoals[i] < floors){
@@ -169,4 +180,30 @@ public class ActivityPoints extends Points {
     public int getHighIntensity() {
         return highIntensity;
     }
+
+
+    public int getEndStepGoal() {
+        return endStepGoal;
+    }
+
+    public void setEndStepGoal(int endStepGoal) {
+        this.endStepGoal = endStepGoal;
+    }
+
+    public int getEndHighIntensityGoal() {
+        return endHighIntensityGoal;
+    }
+
+    public void setEndHighIntensityGoal(int endHighIntensityGoal) {
+        this.endHighIntensityGoal = endHighIntensityGoal;
+    }
+
+    public int getEndFloorGoal() {
+        return endFloorGoal;
+    }
+
+    public void setEndFloorGoal(int endFloorGoal) {
+        this.endFloorGoal = endFloorGoal;
+    }
+
 }

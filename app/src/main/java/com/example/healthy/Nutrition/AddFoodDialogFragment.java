@@ -36,8 +36,7 @@ import static com.example.healthy.Nutrition.LogHistory.NUTRITION_HISTORY;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus;
-    FloatingActionButton done;
+    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus, doneButton;
     ArrayList<String> addFood = new ArrayList<>();
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
     Gson gson = new Gson();
@@ -45,6 +44,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
     SharedPreferences.Editor editor;
 
     AppLogic appLogic = AppLogic.getInstance();
+
+    FirebaseFirestore db;
 
 
     @Override
@@ -75,8 +76,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         meat.setOnClickListener(this);
         plus = v.findViewById(R.id.extra);
         plus.setOnClickListener(this);
-        done = v.findViewById(R.id.doneButton);
-        done.setOnClickListener(this);
+        doneButton = v.findViewById(R.id.doneButton);
+        doneButton.setOnClickListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         
         return v;
@@ -124,7 +125,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_LONG).show();
         }
 
-        else if (v == done){
+        else if (v == doneButton){
             sharedPreferences = getActivity().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
@@ -134,9 +135,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             }
 
             appLogic.setFoodList(addFood);
-
             appLogic.computePoints();
-
             getDialog().dismiss();
         }
     }
@@ -154,5 +153,24 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         editor.apply();
     }
 
+    public void updateDatabase() {
+        db = FirebaseFirestore.getInstance();
 
+        Map<String, Object> updateUser = new HashMap<>();
+        updateUser.put("Food added", addFood);
+
+        db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+                .set(updateUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage());
+                    }
+                });
+    }
     }

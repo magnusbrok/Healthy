@@ -144,22 +144,20 @@
             app:srcCompat="@drawable/nutrition_page_magertkoed"
             tools:layout_editor_absoluteY="128dp" />
 
-
     </GridLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+    <ImageButton
         android:id="@+id/doneButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="@color/colorTurkis"
-        android:clickable="true"
         app:layout_constraintEnd_toEndOf="@+id/gridLayout"
         app:layout_constraintStart_toStartOf="@+id/gridLayout"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:srcCompat="@drawable/nutrition_checkmark"
+        android:background="@drawable/homepage_social_button"
+        android:backgroundTint="@color/colorTurkis"/>
 
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
