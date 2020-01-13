@@ -17,5 +17,10 @@
     <color name="nutritionPrimary">#94FBAB</color>
     <color name="nutritionSecondary">#A7EFC5</color>
     <color name="nutritionTertiary">#ADFFB1</color>
+    <color name="socialPrimary">#E9AFFE</color>
+    <color name="socialSecondary">#A541C8</color>
+    <color name="socialTertiary">#D766FF</color>
+
+
 
 </resources>
