@@ -112,8 +112,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
         updateView();
 
-
-
         return root;
     }
 

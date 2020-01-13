@@ -21,8 +21,7 @@ import static com.example.healthy.Nutrition.LogHistory.NUTRITION_HISTORY;
 
 
 public class AddFood extends AppCompatActivity implements View.OnClickListener {
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus,button9;
-    Button done;
+    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus,doneButton;
     ArrayList<String> addFood = new ArrayList<>();
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
     Gson gson = new Gson();
@@ -45,14 +44,14 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
         dairy.setOnClickListener(this);
         water = findViewById(R.id.water);
         water.setOnClickListener(this);
-        beverages = findViewById(R.id.beverages);
+        //beverages = findViewById(R.id.beverages);
         beverages.setOnClickListener(this);
         meat = findViewById(R.id.meat);
         meat.setOnClickListener(this);
-        plus = findViewById(R.id.extra);
+        //plus = findViewById(R.id.extra);
         plus.setOnClickListener(this);
-        done = findViewById(R.id.doneButton);
-        done.setOnClickListener(this);
+        doneButton = findViewById(R.id.doneButton);
+        doneButton.setOnClickListener(this);
 
     }
 
@@ -98,7 +97,7 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_LONG).show();
         }
 
-        else if (v == done){
+        else if (v == doneButton){
             sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
