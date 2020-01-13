@@ -14,14 +14,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.healthy.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LogHistory extends AppCompatActivity implements View.OnClickListener {
@@ -46,17 +53,24 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
         doneButton = findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
 
+        readLog();
 
         //Listview
         ListView listView = findViewById(R.id.addedFoodList);
 
+        /*
         sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         editor = sharedPreferences.edit();
         String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
 
+         */
+
+        /*
         if (!nutritionHistory.equals("null")){
             foodAddedArray = gson.fromJson(nutritionHistory,history);
         }
+
+         */
 
 
         arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,foodAddedArray);
@@ -72,5 +86,22 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
             if (doneButton==v){
                 finish();
             }
+    }
+
+    private void readLog () {
+        db = FirebaseFirestore.getInstance();
+        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
+        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot doc = task.getResult();
+                    ArrayList<String> group = (ArrayList<String>) doc.get("Food added");
+                    foodAddedArray.addAll(group);
+                    arrayAdapter.notifyDataSetChanged();
+                }
+            }
+        });
     }
 }

@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +19,6 @@ import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -30,9 +27,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.healthy.Nutrition.LogHistory.NUTRITION_HISTORY;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
@@ -87,59 +81,72 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
     public void onClick(View v) {
         if (v == fruitsAndVeggies) {
             String fruitsAndVeggies = "Frugt og grønt";
-            saveInPrefs(fruitsAndVeggies, addFood);
+            //saveInPrefs(fruitsAndVeggies, addFood);
+
+            addFood.add(fruitsAndVeggies);
+            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_LONG).show();
         }
         else if (v == fish){
 
             String fish = "Fisk" ;
-            saveInPrefs(fish,addFood);
+            //saveInPrefs(fish,addFood);
+
+            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_LONG).show();
 
         }
         else if (v == wholemeal){
             String wholemeal = "Fuldkorn" ;
-            saveInPrefs(wholemeal,addFood);
+            //saveInPrefs(wholemeal,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_LONG).show();
         }
         else if (v== dairy){
 
             String dairy = "Mejeri";
-            saveInPrefs(dairy,addFood);
+            //saveInPrefs(dairy,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_LONG).show();
         }
         else if (v == water){
 
             String water ="Vand";
-            saveInPrefs(water,addFood);
+            //saveInPrefs(water,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_LONG).show();
         }
         else if (v == beverages){
             String drikkevarer ="Drikkevarer";
-            saveInPrefs(drikkevarer,addFood);
+            //saveInPrefs(drikkevarer,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_LONG).show();
         }
         else if (v == meat){
             String meat ="Magert kød";
-            saveInPrefs(meat,addFood);
+            //saveInPrefs(meat,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_LONG).show();
         }
 
         else if (v == doneButton){
+            /*
             sharedPreferences = getActivity().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
             editor = sharedPreferences.edit();
             String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
 
+             */
+
+            /*
             if (!nutritionHistory.equals("null")){
                 addFood = gson.fromJson(nutritionHistory,history);
             }
 
+             */
+
             appLogic.setFoodList(addFood);
             appLogic.computePoints();
+            updateDatabase();
             getDialog().dismiss();
         }
     }
 
+    /*
     private void saveInPrefs(String string, ArrayList addFood){
         sharedPreferences = getActivity().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -152,6 +159,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
         editor.apply();
     }
+
+     */
 
     public void updateDatabase() {
         db = FirebaseFirestore.getInstance();
