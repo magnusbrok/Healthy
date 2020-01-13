@@ -28,6 +28,7 @@ public class ActivityPageFragment extends Fragment{
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_activity_page, container, false);
 
+
         if (savedInstanceState == null){
             fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.FrameLayout, new DayActivities())
