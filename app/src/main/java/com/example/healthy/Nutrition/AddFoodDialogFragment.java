@@ -32,7 +32,6 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
     ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus;
     Button done;
     ArrayList<String> addFood = new ArrayList<>();
-    int points = 20;
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
     Gson gson = new Gson();
     SharedPreferences sharedPreferences;
@@ -69,7 +68,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         meat.setOnClickListener(this);
         plus = v.findViewById(R.id.extra);
         plus.setOnClickListener(this);
-        done = v.findViewById(R.id.done);
+        done = v.findViewById(R.id.doneButton);
         done.setOnClickListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         
@@ -79,41 +78,41 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v == fruitsAndVeggies) {
-            String fruitsAndVeggies = "Frugt og grønt udløser: " + points + " point";
+            String fruitsAndVeggies = "Frugt og grønt";
             saveInPrefs(fruitsAndVeggies, addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_LONG).show();
         }
         else if (v == fish){
 
-            String fish = "Fisk udløser: " + points +" point" ;
+            String fish = "Fisk" ;
             saveInPrefs(fish,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_LONG).show();
 
         }
         else if (v == wholemeal){
-            String wholemeal = "Fuldkorn udløser: " + points +" point" ;
+            String wholemeal = "Fuldkorn" ;
             saveInPrefs(wholemeal,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_LONG).show();
         }
         else if (v== dairy){
 
-            String dairy = "Mejeri udløser: " + points +" point";
+            String dairy = "Mejeri";
             saveInPrefs(dairy,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_LONG).show();
         }
         else if (v == water){
 
-            String water ="Vand udløser: " + points +" point";
+            String water ="Vand";
             saveInPrefs(water,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_LONG).show();
         }
         else if (v == beverages){
-            String drikkevarer ="Drikkevarer udløser: " + points +" point";
+            String drikkevarer ="Drikkevarer";
             saveInPrefs(drikkevarer,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_LONG).show();
         }
         else if (v == meat){
-            String meat ="Magert kød udløser: " + points +" point";
+            String meat ="Magert kød";
             saveInPrefs(meat,addFood);
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_LONG).show();
         }
