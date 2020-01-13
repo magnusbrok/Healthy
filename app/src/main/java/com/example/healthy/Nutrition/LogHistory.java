@@ -81,11 +81,10 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
     public void updateDatabase() {
         db = FirebaseFirestore.getInstance();
 
-        // Updating user's food
         Map<String, Object> updateUser = new HashMap<>();
-        updateUser.put("FoodLog", foodAddedArray);
+        updateUser.put("Food added", foodAddedArray);
 
-        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+        db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
                 .set(updateUser)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

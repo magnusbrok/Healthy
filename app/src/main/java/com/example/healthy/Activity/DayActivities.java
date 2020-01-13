@@ -63,8 +63,6 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         tvHIProgress = root.findViewById(R.id.dayActivity_TextView_highIntensity_progress);
         tvFloorProgress = root.findViewById(R.id.dayActivity_TextView_floor_progress);
 
-        altitude = root.findViewById(R.id.altitude);
-        altitude.setText(""+appLogic.getAltitude());
         addHi = root.findViewById(R.id.addHi);
         addHi.setOnClickListener(this);
         stepProgress = root.findViewById(R.id.activity_day_step_Progress);
@@ -164,19 +162,26 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
         activityPieData.setHasLabels(false);
         activityPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         activityPie.setPieChartData(activityPieData);
+        updateProgressBars();
+
+    }
+
+    public void updateProgressBars() {
 
         // Progressbar
-        stepProgress.setMax(appLogic.getStepGoal());
-        stepProgress.setProgress(appLogic.getSteps()%appLogic.getStepGoal());
-        highIntensityProgress.setMax(appLogic.getHighIntensityGoal());
-        highIntensityProgress.setProgress((appLogic.getHighIntensity())%appLogic.getHighIntensityGoal());
-        floorProgress.setMax(appLogic.getFloorGoal());
-        floorProgress.setProgress((appLogic.getSteps()/7)%appLogic.getFloorGoal());
-        // progressbar textviews
-        tvStepProgress.setText(appLogic.getSteps()%appLogic.getStepGoal()+" / "+appLogic.getStepGoal()+" Skridt");
-        tvHIProgress.setText(appLogic.getSteps()/10%appLogic.getHighIntensityGoal()+" / "+appLogic.getHighIntensityGoal()+" Minuters HighIntesity");
-        tvFloorProgress.setText(appLogic.getSteps()/7%appLogic.getFloorGoal()+" / "+appLogic.getFloorGoal()+" Etager");
+        stepProgress.setMax(appLogic.getEndStepGoal());
+        stepProgress.setProgress(appLogic.getSteps());
 
+        highIntensityProgress.setMax(appLogic.getEndHighIntensityGoal());
+        highIntensityProgress.setProgress(appLogic.getHighIntensity());
+
+        floorProgress.setMax(appLogic.getEndFloorGoal()); // these 100 motifiers are just to simulate storage progression.
+        floorProgress.setProgress(appLogic.getSteps()/100);
+
+        // progressbar textviews
+        tvStepProgress.setText(appLogic.getSteps()+" / "+appLogic.getEndStepGoal()+" Skridt");
+        tvHIProgress.setText(appLogic.getHighIntensity()+" / "+appLogic.getEndHighIntensityGoal()+" Minuters HighIntesity");
+        tvFloorProgress.setText(appLogic.getSteps()/100+" / "+appLogic.getEndFloorGoal()+" Etager");
 
     }
 
