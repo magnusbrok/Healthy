@@ -51,7 +51,7 @@ public class AddFood extends AppCompatActivity implements View.OnClickListener {
         meat.setOnClickListener(this);
         plus = findViewById(R.id.extra);
         plus.setOnClickListener(this);
-        done = findViewById(R.id.done);
+        done = findViewById(R.id.doneButton);
         done.setOnClickListener(this);
 
     }

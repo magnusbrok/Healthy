@@ -18,6 +18,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -30,7 +31,7 @@ import static com.example.healthy.Nutrition.LogHistory.NUTRITION_HISTORY;
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
     ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus;
-    Button done;
+    FloatingActionButton done;
     ArrayList<String> addFood = new ArrayList<>();
     Type history = new TypeToken<ArrayList<String>>(){}.getType();
     Gson gson = new Gson();

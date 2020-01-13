@@ -61,10 +61,13 @@ public class DayNutrition extends Fragment implements View.OnClickListener {
 
             // TODO open dialog box
 
-            if (v == addFood){
-                Intent i = new Intent(getActivity(), AddFood.class);
-                startActivity(i);
-            }
+                addFood.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
+                        addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
+                    }
+                });
             if (v == history){
                 Intent i = new Intent(getActivity(), LogHistory.class);
                 startActivity(i);
