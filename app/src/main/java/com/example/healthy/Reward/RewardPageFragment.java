@@ -109,7 +109,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         activitySlice.setValue(appLogic.getActivityPoints());
         //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
         nutritionSlice.setValue(appLogic.getStepPoints());
-        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
+        //TODO: change this to appLogic.getSocialPoints() when it's implemented.
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
 
 
@@ -153,7 +153,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         activitySlice.setValue(appLogic.getActivityPoints());
         //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
         nutritionSlice.setValue(appLogic.getStepPoints());
-        //TODO: change this to appLogic.getNutritionPoints() when it's implemented.
+        //TODO: change this to appLogic.getSocialPoints() when it's implemented.
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
 
         if (appLogic.getRewardPoints() == 0) {
