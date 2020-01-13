@@ -45,6 +45,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
 
     AppLogic appLogic = AppLogic.getInstance();
 
+    FirebaseFirestore db;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -133,9 +135,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             }
 
             appLogic.setFoodList(addFood);
-
             appLogic.computePoints();
-
             getDialog().dismiss();
         }
     }
@@ -153,5 +153,24 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         editor.apply();
     }
 
+    public void updateDatabase() {
+        db = FirebaseFirestore.getInstance();
 
+        Map<String, Object> updateUser = new HashMap<>();
+        updateUser.put("Food added", addFood);
+
+        db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+                .set(updateUser)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage());
+                    }
+                });
+    }
     }
