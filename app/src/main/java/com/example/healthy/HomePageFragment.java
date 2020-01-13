@@ -47,6 +47,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         nutritionButton = root.findViewById(R.id.homepage_nutrition);
         nutritionButton.setOnClickListener(this);
 
+
+
         appLogic.attachObserverToActivityPoints(this);
         appLogic.attachObserverToRewardPoints(this);
         appLogic.attachObserverToNutritionPoints(this);
