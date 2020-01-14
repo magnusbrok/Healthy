@@ -44,7 +44,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     List<SliceValue> rewardData = new ArrayList<>();
     ArrayList<String> rewardAmount = new ArrayList<>();
     TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
-    LottieAnimationView loading;
+   LottieAnimationView loading;
 
 
     public RewardPageFragment() {
@@ -62,7 +62,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         //loadPoints();
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
-        rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints()+"");
+        rewardPoints.setText("" + appLogic.getRewardPoints());
         amountTV1 = root.findViewById(R.id.amountTV1);
         amountTV2 = root.findViewById(R.id.amountTV2);
         amountTV3 = root.findViewById(R.id.amountTV3);
@@ -73,8 +73,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV8 = root.findViewById(R.id.amountTV8);
         amountTV9 = root.findViewById(R.id.amountTV9);
         amountTV10 = root.findViewById(R.id.amountTV10);
-        loading = root.findViewById(R.id.loadingAnimation);
-        loading.bringToFront();
+        //loading = root.findViewById(R.id.loadingAnimation);
+        //loading.bringToFront();
 
         //TODO håndter hvis der ikke er netforbindelse;
         new AsyncTask() {
@@ -102,8 +102,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                 amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
                 amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
                 amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
-                loading.cancelAnimation();
-                loading.setVisibility(View.GONE);
+                //loading.cancelAnimation();
+                //loading.setVisibility(View.GONE);
 
             }
         }.execute(100);
@@ -114,9 +114,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         buyPrize = root.findViewById(R.id.buyRewardButton);
         buyPrize.setOnClickListener(this);
 
-        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorStep));
+        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.socialPrimary));
         nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.nutritionPrimary));
-        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.socialSecondary));
+        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorStep));
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
@@ -129,7 +129,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardData.add(soicalSlice);
 
         PieChartData rewardPieData = new PieChartData(rewardData);
-        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.1f);
         rewardPie.setPieChartData(rewardPieData);
 
         updateView();
@@ -159,7 +159,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void updateView() {
-        rewardPoints.setText("Belønningspoint: " + appLogic.getRewardPoints());
+        rewardPoints.setText(""+ appLogic.getRewardPoints());
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
@@ -178,7 +178,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardData.add(soicalSlice);
 
         PieChartData rewardPieData = new PieChartData(rewardData);
-        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.9f);
         rewardPie.setPieChartData(rewardPieData);
 
         //savePoints();

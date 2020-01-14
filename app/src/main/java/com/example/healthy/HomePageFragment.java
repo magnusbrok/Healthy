@@ -3,6 +3,7 @@ package com.example.healthy;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +20,13 @@ import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 import com.example.healthy.logic.AppLogic;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 
 /**
@@ -59,6 +67,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         nutritionPoints = root.findViewById(R.id.homepage_nutrition_points);
 
         updateView();
+        readLog();
 
         // Implement nutrition and social later
 
@@ -124,4 +133,23 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         activityPoints.setText(""+appLogic.getActivityPoints());
         nutritionPoints.setText(""+appLogic.getNutritionPoints());
     }
+
+
+    private void readLog () {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
+        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
+        {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot doc = task.getResult();
+                    appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
+                    appLogic.computePoints();
+                }
+            }
+        });
+    }
+
 }

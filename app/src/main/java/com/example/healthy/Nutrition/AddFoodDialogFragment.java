@@ -63,65 +63,43 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
     public void onClick(View v) {
         if (v == fruitsAndVeggies) {
             String fruitsAndVeggies = "Frugt og grønt";
-
             addFood.add(fruitsAndVeggies);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_SHORT).show();
         }
         else if (v == fish){
-
             String fish = "Fisk" ;
-
             addFood.add(fish);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_SHORT).show();
 
         }
         else if (v == wholemeal){
             String wholemeal = "Fuldkorn" ;
-
             addFood.add(wholemeal);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_SHORT).show();
         }
         else if (v== dairy){
-
             String dairy = "Mejeri";
-
             addFood.add(dairy);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_SHORT).show();
         }
         else if (v == water){
-
             String water ="Vand";
-
             addFood.add(water);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_SHORT).show();
         }
         else if (v == beverages){
             String drikkevarer ="Drikkevarer";
-
             addFood.add(drikkevarer);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_SHORT).show();
         }
         else if (v == meat){
             String meat ="Magert kød";
-
             addFood.add(meat);
-            updateDatabase();
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_SHORT).show();
         }
 
         else if (v == doneButton){
-
-            // En af nedenstående 3 metodekald opdaterer points i NutriotionPage
-            appLogic.setFoodList(addFood);
-            appLogic.computePoints();
-            appLogic.getNutritionPoints();
-
+            appLogic.addFoodToList(addFood);
             updateDatabase();
             getDialog().dismiss();
         }
@@ -131,7 +109,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         db = FirebaseFirestore.getInstance();
 
         Map<String, Object> updateUser = new HashMap<>();
-        updateUser.put("Food added", addFood);
+        updateUser.put("Food added", appLogic.getFoodList());
 
         db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
                 .set(updateUser)
