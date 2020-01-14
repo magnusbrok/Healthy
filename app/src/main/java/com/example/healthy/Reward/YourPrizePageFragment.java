@@ -13,6 +13,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.healthy.R;
 
@@ -30,10 +31,8 @@ public class YourPrizePageFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_your_prize_page, container, false);
-
-
-        ListAdapter listAdapter = new CustomAdapter(getActivity(),namesOfPrizes);
+        View root = inflater.inflate(R.layout.activity_your_prize_page, container, false);
+        ListAdapter listAdapter = new CustomAdapter(getActivity(), namesOfPrizes);
         ListView listView = root.findViewById(R.id.listviewYourPrize);
         listView.setAdapter(listAdapter);
         return root;
