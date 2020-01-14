@@ -1,6 +1,5 @@
 package com.example.healthy.Nutrition;
 
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -20,40 +19,27 @@ import com.example.healthy.logic.AppLogic;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat,plus, doneButton;
+    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat, doneButton;
     ArrayList<String> addFood = new ArrayList<>();
-    Type history = new TypeToken<ArrayList<String>>(){}.getType();
-    Gson gson = new Gson();
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-
     AppLogic appLogic = AppLogic.getInstance();
-
     FirebaseFirestore db;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.activity_add_food,container,false);
+
         fruitsAndVeggies = v.findViewById(R.id.fruitsAndVeggies);
         fruitsAndVeggies.setOnClickListener(this);
         fish = v.findViewById(R.id.fish);
@@ -77,86 +63,69 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
     public void onClick(View v) {
         if (v == fruitsAndVeggies) {
             String fruitsAndVeggies = "Frugt og grønt";
-            //saveInPrefs(fruitsAndVeggies, addFood);
 
             addFood.add(fruitsAndVeggies);
             updateDatabase();
-            Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_SHORT).show();
         }
         else if (v == fish){
 
             String fish = "Fisk" ;
-            //saveInPrefs(fish,addFood);
 
+            addFood.add(fish);
             updateDatabase();
-            Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_SHORT).show();
 
         }
         else if (v == wholemeal){
             String wholemeal = "Fuldkorn" ;
-            //saveInPrefs(wholemeal,addFood);
-            Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_LONG).show();
+
+            addFood.add(wholemeal);
+            updateDatabase();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_SHORT).show();
         }
         else if (v== dairy){
 
             String dairy = "Mejeri";
-            //saveInPrefs(dairy,addFood);
-            Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_LONG).show();
+
+            addFood.add(dairy);
+            updateDatabase();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_SHORT).show();
         }
         else if (v == water){
 
             String water ="Vand";
-            //saveInPrefs(water,addFood);
-            Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_LONG).show();
+
+            addFood.add(water);
+            updateDatabase();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_SHORT).show();
         }
         else if (v == beverages){
             String drikkevarer ="Drikkevarer";
-            //saveInPrefs(drikkevarer,addFood);
-            Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_LONG).show();
+
+            addFood.add(drikkevarer);
+            updateDatabase();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_SHORT).show();
         }
         else if (v == meat){
             String meat ="Magert kød";
-            //saveInPrefs(meat,addFood);
-            Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_LONG).show();
+
+            addFood.add(meat);
+            updateDatabase();
+            Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_SHORT).show();
         }
 
         else if (v == doneButton){
-            /*
-            sharedPreferences = getActivity().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
 
-             */
-
-            /*
-            if (!nutritionHistory.equals("null")){
-                addFood = gson.fromJson(nutritionHistory,history);
-            }
-
-             */
-
+            // En af nedenstående 3 metodekald opdaterer points i NutriotionPage
             appLogic.setFoodList(addFood);
             appLogic.computePoints();
+            appLogic.getNutritionPoints();
+
             updateDatabase();
             getDialog().dismiss();
         }
     }
-
-    /*
-    private void saveInPrefs(String string, ArrayList addFood){
-        sharedPreferences = getActivity().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-        if (!nutritionHistory.equals("null")){
-            addFood = gson.fromJson(nutritionHistory,history);
-        }
-        addFood.add(string);
-        editor.putString(NUTRITION_HISTORY, gson.toJson(addFood, history));
-        editor.apply();
-    }
-
-     */
 
     public void updateDatabase() {
         db = FirebaseFirestore.getInstance();

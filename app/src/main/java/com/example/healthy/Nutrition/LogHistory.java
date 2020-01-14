@@ -2,11 +2,7 @@ package com.example.healthy.Nutrition;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,33 +10,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class LogHistory extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
     Button doneButton;
     ArrayList<String> foodAddedArray = new ArrayList<>();
     ArrayAdapter arrayAdapter;
-    Gson gson = new Gson();
-    SharedPreferences.Editor editor;
-    SharedPreferences sharedPreferences;
-    public static final String NUTRITION_HISTORY = "nutritionHistory";
-    Type history = new TypeToken<ArrayList<String>>(){}.getType();
+    AppLogic appLogic = AppLogic.getInstance();
 
     FirebaseFirestore db;
 
@@ -55,23 +38,7 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
 
         readLog();
 
-        //Listview
         ListView listView = findViewById(R.id.addedFoodList);
-
-        /*
-        sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        String nutritionHistory = sharedPreferences.getString(NUTRITION_HISTORY,"null");
-
-         */
-
-        /*
-        if (!nutritionHistory.equals("null")){
-            foodAddedArray = gson.fromJson(nutritionHistory,history);
-        }
-
-         */
-
 
         arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,foodAddedArray);
         listView.setAdapter(arrayAdapter);
@@ -84,6 +51,7 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
             if (doneButton==v){
+
                 finish();
             }
     }
