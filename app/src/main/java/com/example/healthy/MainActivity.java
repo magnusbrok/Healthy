@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
@@ -30,6 +32,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
@@ -47,7 +51,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
-        
+
+        //configureCrashReporting();
+
 
         startService(new Intent(this, SensorService.class));
 
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             final TopMenu topMenu = new TopMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.TopMenuView, topMenu).commit();
         }
+        
 
         final BottomNavigationView  bottomMenu = findViewById(R.id.bottom_navigation);
         bottomMenu.setItemIconTintList(null);
@@ -157,6 +164,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onProviderDisabled(String provider) {
 
     }
+
+    /*private void configureCrashReporting() {
+        CrashlyticsCore crashlyticsCore = new CrashlyticsCore.Builder()
+                .disabled(Build.PRODUCT.contains("sdk"))
+                .build();
+        Fabric.with(this, new Crashlytics.Builder().core(crashlyticsCore).build());
+    }*/
 
     public void updateDatabase() {
         db = FirebaseFirestore.getInstance();
