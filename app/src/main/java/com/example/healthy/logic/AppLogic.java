@@ -108,8 +108,13 @@ public class AppLogic {
     }
 
     public int getHighIntensity() { return activityPoints.getHighIntensity();}
+
     public void setFoodList(ArrayList<String> addFood) {
         nutritionPoints.setFoodList(addFood);
+    }
+
+    public ArrayList<String> getFoodList() {
+        return nutritionPoints.getFoodList();
     }
 
     public int getEndStepGoal() {

@@ -2,19 +2,13 @@ package com.example.healthy.Nutrition;
 
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.TimeMenu;
 import com.example.healthy.R;
-import com.example.healthy.logic.AppLogic;
-import com.example.healthy.profileDialog;
 
 /**
  * A simple {@link Fragment} subclass.

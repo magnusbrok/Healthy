@@ -3,10 +3,9 @@ package com.example.healthy.Nutrition;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,15 @@ import android.widget.TextView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
@@ -32,6 +35,7 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
     TextView goals, history, day_points;
     FloatingActionButton addFood;
     AppLogic appLogic = AppLogic.getInstance();
+    FirebaseFirestore db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,25 +64,42 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
 
         appLogic.attachObserverToNutritionPoints(this);
 
+        readLog();
+
         return root;
     }
 
     @Override
     public void onClick(View v) {
 
-            if (v == addFood){
-                        AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
-                        addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
-                }
-            if (v == history){
-                Intent i = new Intent(getActivity(), LogHistory.class);
-                startActivity(i);
+        if (v == addFood) {
+            AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
+            addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
+        }
+        if (v == history) {
+            Intent i = new Intent(getActivity(), LogHistory.class);
+            startActivity(i);
 
-            }
+        }
     }
 
     @Override
     public void updateView() {
         day_points.setText("" + appLogic.getNutritionPoints());
+    }
+
+    private void readLog() {
+        db = FirebaseFirestore.getInstance();
+        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
+        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot doc = task.getResult();
+                    appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
+                    appLogic.computePoints();
+                }
+            }
+        });
     }
 }
