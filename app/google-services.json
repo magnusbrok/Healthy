@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1011919805708",
+    "firebase_url": "https://healthy-b8.firebaseio.com",
+    "project_id": "healthy-b8",
+    "storage_bucket": "healthy-b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011919805708:android:0f1ffabdd2601e7f677d29",
+        "android_client_info": {
+          "package_name": "com.example.healthy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011919805708-k1crnevsse0k5icid48aub2jro11qdn6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthy",
+            "certificate_hash": "a42451143d0b2af564ae4e6db83915e3a4fba0dc"
+          }
+        },
+        {
+          "client_id": "1011919805708-jnt7kaiqtrn47ka61ksaomfqqvulq297.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXKlPydt-MrG0hL4_2wbKuRNPstVZ4zx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011919805708-jnt7kaiqtrn47ka61ksaomfqqvulq297.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

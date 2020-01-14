@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInActivity">
+
+    <ImageView
+        android:id="@+id/imageView_login_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/healthy_login" />
+
+    <ImageView
+        android:id="@+id/imageView_login_healthyLogo"
+        android:layout_width="272dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView_login_background"
+        app:layout_constraintVertical_bias="0.026"
+        app:srcCompat="@drawable/logo_healthy_life_white" />
+
+    <EditText
+        android:id="@+id/editText_login_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#57FFFFFF"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Brugernavn"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_login_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_login_healthyLogo"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <EditText
+        android:id="@+id/editText_login_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#57FFFFFF"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Adgangskode"
+        android:inputType="textPassword"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_login_background"
+        app:layout_constraintEnd_toEndOf="@+id/editText_login_username"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_login_username"
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_username"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <Button
+        android:id="@+id/button_login_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E900BDA7"
+        android:text="Log ind"
+        android:textColor="#EEE6E6"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_login_background"
+        app:layout_constraintEnd_toEndOf="@+id/editText_login_username"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/editText_login_username"
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_username"
+        app:layout_constraintVertical_bias="0.363" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

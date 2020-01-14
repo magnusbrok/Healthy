@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilePage"
+    android:background="@color/colorGrey">
+
+        <EditText
+            android:id="@+id/redigerNavn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/navn"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/colorBlack"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/redigerAlder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alder:"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/colorBlack"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            />
+        <EditText
+            android:id="@+id/redigerSkole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Skole:"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/colorBlack"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            />
+        <EditText
+            android:id="@+id/redigerArgang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Årgang:"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/colorBlack"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            />
+        <EditText
+            android:id="@+id/redigerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-mail:"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/colorBlack"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            />
+
+        <Button
+            android:id="@+id/gemRedigering"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button_white"
+            android:text="Gem og luk"
+            android:textSize="20sp" />
+
+</LinearLayout>

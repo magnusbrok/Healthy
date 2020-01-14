@@ -4,26 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menuFragment"
     android:layout_width="match_parent"
-    android:layout_height="482dp"
+    android:layout_height="match_parent"
     tools:context=".Activity.DayActivities">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:text="DayFragment!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <lecho.lib.hellocharts.view.PieChartView
         android:id="@+id/dayActivityPie"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dayActivity_TextView_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="36sp"
+        android:textColor="@color/colorStep"
+        app:layout_constraintBottom_toBottomOf="@+id/dayActivityPie"
+        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
+        app:layout_constraintTop_toTopOf="@+id/dayActivityPie" />
+
+    <ProgressBar
+        android:id="@+id/activity_day_step_Progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="249dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
+        app:layout_constraintTop_toBottomOf="@+id/dayActivityPie" />
+
+
+    <TextView
+        android:id="@+id/dayActivity_TextView_stepProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="100/2500 skridt"
+        app:layout_constraintBottom_toTopOf="@+id/activity_day_step_Progress"
+        app:layout_constraintRight_toRightOf="@id/activity_day_step_Progress" />
+
+    <ProgressBar
+        android:id="@+id/activity_day_highIntensity_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="249dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/activity_day_step_Progress"
+        app:layout_constraintStart_toStartOf="@+id/activity_day_step_Progress"
+        app:layout_constraintTop_toBottomOf="@+id/activity_day_step_Progress" />
+
+    <TextView
+        android:id="@+id/dayActivity_TextView_highIntensity_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="100/2500 skri"
+        app:layout_constraintBottom_toTopOf="@+id/activity_day_highIntensity_progress"
+        app:layout_constraintRight_toRightOf="@id/activity_day_highIntensity_progress" />
+
+    <ProgressBar
+        android:id="@+id/activity_day_floor_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="249dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/activity_day_highIntensity_progress"
+        app:layout_constraintStart_toStartOf="@+id/activity_day_highIntensity_progress"
+        app:layout_constraintTop_toBottomOf="@+id/activity_day_highIntensity_progress" />
+
+    <TextView
+        android:id="@+id/dayActivity_TextView_floor_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="100/2500 skridt"
+        app:layout_constraintBottom_toTopOf="@+id/activity_day_floor_progress"
+        app:layout_constraintRight_toRightOf="@id/activity_day_floor_progress" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addHi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:src="@drawable/nutrition_page_extra"
+        app:layout_constraintStart_toEndOf="@+id/activity_day_highIntensity_progress"
+        app:layout_constraintTop_toBottomOf="@+id/activity_day_step_Progress"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/dayActivity_TextView_Goal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:text="Mål:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="@+id/dayActivityPie"
+        app:layout_constraintStart_toStartOf="@+id/dayActivityPie"
+        app:layout_constraintTop_toBottomOf="@+id/dayActivityPie" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

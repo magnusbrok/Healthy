@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Healthy</string>
+    <string name="app_name">B8 Healthy</string>
     <string name="rewardPoints">Belønnignspoint : 9999</string>
     <string name="yourRewards">Dine gevinster</string>
     <string name="buyReward">Køb skrabelod</string>
@@ -14,4 +14,8 @@
     <string name="rediger_profil">Rediger profil</string>
     <string name="tilfoj_foraldre_e_mail">Tilfoj foraldre E-mail</string>
     <string name="din_profil">Din profil</string>
+    <string name="navn">Navn:</string>
+    <string name="alder">Alder:</string>
+    <string name="skole">Skole:</string>
+    <string name="rgang">Årgang:</string>
 </resources>

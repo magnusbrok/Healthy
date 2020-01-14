@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageFragment">
+
+
+    <ImageButton
+        android:id="@+id/homepage_social"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/homepage_social_button"
+        app:layout_constraintEnd_toEndOf="@+id/homepage_nutrition"
+        app:layout_constraintStart_toStartOf="@+id/homepage_nutrition"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_nutrition"
+        app:srcCompat="@drawable/socialvector" />
+
+    <TextView
+        android:id="@+id/homepage_reward_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:text="9999999"
+        android:textColor="@color/colorMustard"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/homepage_reward"
+        app:layout_constraintStart_toStartOf="@+id/homepage_reward"
+        app:layout_constraintTop_toTopOf="@+id/homepage_reward" />
+
+
+    <ImageButton
+        android:id="@+id/homepage_activity"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/homepage_activity_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/activity_guy_final" />
+
+    <TextView
+        android:id="@+id/homepage_activity_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:text="9999999"
+        android:textColor="@color/colorLightBlue"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/homepage_activity"
+        app:layout_constraintStart_toStartOf="@+id/homepage_activity"
+        app:layout_constraintTop_toTopOf="@+id/homepage_activity" />
+
+
+    <ImageButton
+        android:id="@+id/homepage_reward"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/homepage_reward_button"
+        app:layout_constraintEnd_toEndOf="@+id/homepage_activity"
+        app:layout_constraintStart_toStartOf="@+id/homepage_activity"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_activity"
+        app:srcCompat="@drawable/reward_page" />
+
+    <TextView
+        android:id="@+id/homepage_nutrition_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:text="9999999"
+        android:textColor="@color/colorTurkis"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/homepage_nutrition"
+        app:layout_constraintStart_toStartOf="@+id/homepage_nutrition"
+        app:layout_constraintTop_toTopOf="@+id/homepage_nutrition" />
+
+
+    <ImageButton
+        android:id="@+id/homepage_nutrition"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/homepage_nutrition_button"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nutrition_page" />
+
+    <TextView
+        android:id="@+id/homepage_social_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:text="null"
+        android:textColor="@color/colorLightPurple"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/homepage_social"
+        app:layout_constraintStart_toStartOf="@+id/homepage_social"
+        app:layout_constraintTop_toTopOf="@+id/homepage_social" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

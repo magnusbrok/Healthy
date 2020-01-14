@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nutrition.NutritionPageFragment">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutNutrition"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="213dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/week"
+        app:layout_constraintVertical_bias="0.0">
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayoutNutrition"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_width="78dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:gravity="center"
+        android:text="Dag"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="78dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:gravity="center"
+        android:text="Måned"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/week"
+        android:layout_width="78dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="Uge"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/month"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toEndOf="@+id/day"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/plus"
+        android:layout_width="78dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:text="+"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/log"
+        app:layout_constraintStart_toEndOf="@id/goal"
+        app:layout_constraintTop_toBottomOf="@id/frameLayoutNutrition"
+        app:srcCompat="@drawable/nutrition_page_extra" />
+
+    <TextView
+        android:id="@+id/goal"
+        android:layout_width="78dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:gravity="center"
+        android:text="Mål"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="78dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:gravity="center"
+        android:text="Log"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

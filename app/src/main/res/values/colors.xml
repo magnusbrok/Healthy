@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#006355</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrey">#B9B9B9</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorLightPurple">#DD5EFF</color>
+    <color name="colorPrimaryReward">#FCB830</color>
+    <color name="colorMustard">#FFA73E</color>
+    <color name="colorYellow">#FFFFEB3B</color>
+    <color name="colorOrange">#FFFC8830</color>
+    <color name="colorTurkis">#8BC34A</color>
+    <color name="colorLightBlue">#2F80ED</color>
+    <color name="colorStep">#2F80ED</color>
+    <color name="colorHighIntensity">#67A2F1</color>
+    <color name="colorFloors">#45BDDC</color>
+    <color name="colorPurpleFigma">#D079F0</color>
+    <color name="nutritionPrimary">#94FBAB</color>
+    <color name="nutritionSecondary">#A7EFC5</color>
+    <color name="nutritionTertiary">#ADFFB1</color>
+    <color name="socialPrimary">#E9AFFE</color>
+    <color name="socialSecondary">#A541C8</color>
+    <color name="socialTertiary">#D766FF</color>
+
 </resources>
