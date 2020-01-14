@@ -74,7 +74,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV9 = root.findViewById(R.id.amountTV9);
         amountTV10 = root.findViewById(R.id.amountTV10);
         //loading = root.findViewById(R.id.loadingAnimation);
-        loading.bringToFront();
+        //loading.bringToFront();
 
         //TODO håndter hvis der ikke er netforbindelse;
         new AsyncTask() {
@@ -196,6 +196,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         }
         return sb.toString();
     }
+
     //From Galgelogik made by Jacob Nordfalk (It has been altered to fit  our project)
     public void getAmountFromSheet (String i) throws Exception {
         String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
