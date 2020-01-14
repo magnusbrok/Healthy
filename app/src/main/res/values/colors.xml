@@ -7,7 +7,10 @@
     <color name="colorGrey">#B9B9B9</color>
     <color name="colorBlack">#000000</color>
     <color name="colorLightPurple">#DD5EFF</color>
+    <color name="colorPrimaryReward">#FCB830</color>
     <color name="colorMustard">#FFA73E</color>
+    <color name="colorYellow">#FFFFEB3B</color>
+    <color name="colorOrange">#FFFC8830</color>
     <color name="colorTurkis">#8BC34A</color>
     <color name="colorLightBlue">#2F80ED</color>
     <color name="colorStep">#2F80ED</color>
@@ -20,7 +23,5 @@
     <color name="socialPrimary">#E9AFFE</color>
     <color name="socialSecondary">#A541C8</color>
     <color name="socialTertiary">#D766FF</color>
-
-
 
 </resources>

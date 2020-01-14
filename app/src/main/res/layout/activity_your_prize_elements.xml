@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout3"
     android:layout_width="307dp"
-    android:layout_height="100dp"
-    android:background="@color/colorMustard">
-
+    android:layout_height="100dp">
     <ImageView
         android:id="@+id/prizeImage"
         android:layout_width="58dp"
@@ -14,7 +12,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:background="@color/colorMustard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/reward_page_your_prize_pencil" />
