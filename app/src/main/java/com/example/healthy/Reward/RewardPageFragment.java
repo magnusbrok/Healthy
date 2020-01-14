@@ -74,7 +74,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV9 = root.findViewById(R.id.amountTV9);
         amountTV10 = root.findViewById(R.id.amountTV10);
         //loading = root.findViewById(R.id.loadingAnimation);
-        loading.bringToFront();
+        //loading.bringToFront();
 
         //TODO håndter hvis der ikke er netforbindelse;
         new AsyncTask() {
