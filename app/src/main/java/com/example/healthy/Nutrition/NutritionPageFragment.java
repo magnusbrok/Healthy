@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.healthy.TimeMenu;
 import com.example.healthy.R;
-import com.example.healthy.logic.AppLogic;
 
 /**
  * A simple {@link Fragment} subclass.

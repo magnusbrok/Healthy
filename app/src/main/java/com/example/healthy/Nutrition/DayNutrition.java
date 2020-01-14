@@ -6,8 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
@@ -75,15 +72,15 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
     @Override
     public void onClick(View v) {
 
-            if (v == addFood){
-                        AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
-                        addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
-                }
-            if (v == history){
-                Intent i = new Intent(getActivity(), LogHistory.class);
-                startActivity(i);
+        if (v == addFood) {
+            AddFoodDialogFragment addFoodDialogFragment = new AddFoodDialogFragment();
+            addFoodDialogFragment.show(getFragmentManager(), "activity_add_food");
+        }
+        if (v == history) {
+            Intent i = new Intent(getActivity(), LogHistory.class);
+            startActivity(i);
 
-            }
+        }
     }
 
     @Override
@@ -91,15 +88,13 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         day_points.setText("" + appLogic.getNutritionPoints());
     }
 
-    private void readLog () {
+    private void readLog() {
         db = FirebaseFirestore.getInstance();
         DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
-        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
-        {
+        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful())
-                {
+                if (task.isSuccessful()) {
                     DocumentSnapshot doc = task.getResult();
                     appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
                     appLogic.computePoints();
@@ -107,28 +102,4 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
             }
         });
     }
-
-
-    /*
-    private ArrayList <String> readLog2 () {
-        final ArrayList<String>[] group = new ArrayList[]{new ArrayList<String>()};
-        db = FirebaseFirestore.getInstance();
-        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
-        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
-        {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful())
-                {
-                    DocumentSnapshot doc = task.getResult();
-                    group[0] = (ArrayList<String>) doc.get("Food added");
-                    appLogic.setFoodList(group[0]);
-                }
-            }
-        });
-        return group[0];
-    }
-
-     */
-
 }

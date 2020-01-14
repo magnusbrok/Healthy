@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.healthy.R;
-import com.example.healthy.logic.AppLogic;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -23,7 +22,6 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
     Button doneButton;
     ArrayList<String> foodAddedArray = new ArrayList<>();
     ArrayAdapter arrayAdapter;
-    AppLogic appLogic = AppLogic.getInstance();
 
     FirebaseFirestore db;
 
