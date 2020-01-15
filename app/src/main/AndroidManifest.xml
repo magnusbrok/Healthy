@@ -34,6 +34,9 @@
         <activity android:name=".ProfilePage" />
 
         <service android:name=".SensorService" />
+
+        <meta-data android:name="firebase_crashlytics_collection_enabled"
+            android:value="false"/>
     </application>
 
 </manifest>

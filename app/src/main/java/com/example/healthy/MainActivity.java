@@ -52,9 +52,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-        //configureCrashReporting();
-
-
+        if(!Build.PRODUCT.contains("sdk") || !Build.MODEL.contains("Emulator")) {
+            Fabric.with(getApplication(), new Crashlytics());
+        }
+        
         startService(new Intent(this, SensorService.class));
 
         lm = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             final TopMenu topMenu = new TopMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.TopMenuView, topMenu).commit();
         }
-        
+
 
         final BottomNavigationView  bottomMenu = findViewById(R.id.bottom_navigation);
         bottomMenu.setItemIconTintList(null);
@@ -165,12 +166,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     }
 
-    /*private void configureCrashReporting() {
-        CrashlyticsCore crashlyticsCore = new CrashlyticsCore.Builder()
-                .disabled(Build.PRODUCT.contains("sdk"))
-                .build();
-        Fabric.with(this, new Crashlytics.Builder().core(crashlyticsCore).build());
-    }*/
 
     public void updateDatabase() {
         db = FirebaseFirestore.getInstance();
