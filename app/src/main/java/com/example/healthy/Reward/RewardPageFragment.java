@@ -59,7 +59,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
 
         appLogic.attachObserverToRewardPoints(this);
-        loadPoints();
+        //loadPoints();
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("" + appLogic.getRewardPoints());
@@ -102,8 +102,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                 amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
                 amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
                 amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
-                //loading.cancelAnimation();
-                //loading.setVisibility(View.GONE);
+                loading.cancelAnimation();
+                loading.setVisibility(View.GONE);
 
             }
         }.execute(100);
@@ -181,7 +181,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.9f);
         rewardPie.setPieChartData(rewardPieData);
 
-        savePoints();
+        //savePoints();
 
     }
     //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)

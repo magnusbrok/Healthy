@@ -25,6 +25,12 @@ public class NutritionPoints extends Points {
         return (diff);
     }
 
+    public void addToFoodLogHistory(ArrayList<String> addedFood) {
+        foodList.addAll(addedFood);
+
+
+    }
+
 
     public int getPoints() {
         return  points;

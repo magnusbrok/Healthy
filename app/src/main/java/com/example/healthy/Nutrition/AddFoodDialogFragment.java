@@ -99,12 +99,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         }
 
         else if (v == doneButton){
-
-            ArrayList<String> addMe;
-            addMe = appLogic.getFoodList();
-            addMe.addAll(addFood);
-            appLogic.setFoodList(addMe);
-            appLogic.computePoints();
+            appLogic.addFoodToList(addFood);
             updateDatabase();
             getDialog().dismiss();
         }

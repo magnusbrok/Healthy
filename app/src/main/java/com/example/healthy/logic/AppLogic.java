@@ -48,6 +48,11 @@ public class AppLogic {
 
     }
 
+    public void addFoodToList(ArrayList<String> addedFood) {
+        nutritionPoints.addToFoodLogHistory(addedFood);
+        computePoints();
+    }
+
     public int getStepPoints() {
         return activityPoints.computeStepPoints();
     }
