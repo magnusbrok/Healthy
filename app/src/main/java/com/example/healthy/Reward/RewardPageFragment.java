@@ -73,8 +73,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         amountTV8 = root.findViewById(R.id.amountTV8);
         amountTV9 = root.findViewById(R.id.amountTV9);
         amountTV10 = root.findViewById(R.id.amountTV10);
-        //loading = root.findViewById(R.id.loadingAnimation);
-        //loading.bringToFront();
+        loading = root.findViewById(R.id.loadingAnimation);
+        loading.bringToFront();
 
         //TODO håndter hvis der ikke er netforbindelse;
         new AsyncTask() {
@@ -102,8 +102,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                 amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
                 amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
                 amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
-                //loading.cancelAnimation();
-                //loading.setVisibility(View.GONE);
+                loading.cancelAnimation();
+                loading.setVisibility(View.GONE);
 
             }
         }.execute(100);
