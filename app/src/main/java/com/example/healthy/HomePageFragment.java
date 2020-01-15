@@ -20,6 +20,7 @@ import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
+import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.google.android.gms.dynamic.SupportFragmentWrapper;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,6 +41,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     private TextView activityPoints, rewardPoints, socialPoints, nutritionPoints;
 
     AppLogic appLogic = AppLogic.getInstance();
+    AppDAO appDAO = AppDAO.getInstance();
 
     
     @Override
@@ -68,8 +70,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         rewardPoints = root.findViewById(R.id.homepage_reward_points);
         nutritionPoints = root.findViewById(R.id.homepage_nutrition_points);
 
+        appDAO.getFoodLog();
         updateView();
-        readLog();
 
         // Implement nutrition and social later
 
@@ -135,23 +137,4 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         activityPoints.setText(""+appLogic.getActivityPoints());
         nutritionPoints.setText(""+appLogic.getNutritionPoints());
     }
-
-
-    private void readLog () {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
-        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
-        {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful())
-                {
-                    DocumentSnapshot doc = task.getResult();
-                    appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
-                    appLogic.computePoints();
-                }
-            }
-        });
-    }
-
 }

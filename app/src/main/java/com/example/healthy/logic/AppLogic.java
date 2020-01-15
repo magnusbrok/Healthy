@@ -10,6 +10,7 @@ public class AppLogic {
     private NutritionPoints nutritionPoints = new NutritionPoints();
     private SocialPoints socialPoints = new SocialPoints();
     private RewardPoints rewardPoints = new RewardPoints();
+    private User user = new User();
 
     private double altitude;
 
@@ -83,6 +84,10 @@ public class AppLogic {
         nutritionPoints.attachObserver(observer);
     }
 
+    public void attachObserverToUser(Observer observer) {
+        user.attachObserver(observer);
+    }
+
 
     public Reward buyPrize() {
         return rewardPoints.buyPrize();
@@ -134,5 +139,11 @@ public class AppLogic {
         return activityPoints.getEndHighIntensityGoal();
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
