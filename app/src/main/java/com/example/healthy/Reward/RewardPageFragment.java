@@ -114,9 +114,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         buyPrize = root.findViewById(R.id.buyRewardButton);
         buyPrize.setOnClickListener(this);
 
-        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.socialPrimary));
+        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorStep));
         nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.nutritionPrimary));
-        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorStep));
+        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.socialPrimary));
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
@@ -164,7 +164,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
         //TODO: change this to appLogic.getSocialPoints() when it's implemented.
-        soicalSlice.setValue(appLogic.getHighIntensityPoints());
+        soicalSlice.setValue(appLogic.getHighIntensityPoints()/2);
 
         if (appLogic.getRewardPoints() == 0) {
             activitySlice.setValue(1);
@@ -178,7 +178,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardData.add(soicalSlice);
 
         PieChartData rewardPieData = new PieChartData(rewardData);
-        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.9f);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
 
         //savePoints();

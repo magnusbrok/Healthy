@@ -96,7 +96,7 @@ public class ActivityPoints extends Points {
         int points = 0;
 
         for (int i = 0; i < stepGoals.length; i++){
-            if (stepGoals[i] < steps){
+            if (stepGoals[i] <= steps){
                 points += stepPointIncrementer;
             }
         }
@@ -110,7 +110,7 @@ public class ActivityPoints extends Points {
         int min = highIntensity;
 
         for (int i = 0; i < highIntensityGoals.length; i++){
-            if (highIntensityGoals[i] < min){
+            if (highIntensityGoals[i] <= min){
                 points += highIntensityIncrementer;
             }
         }
@@ -123,7 +123,7 @@ public class ActivityPoints extends Points {
         int floors = steps/100;
 
         for (int i = 0; i < floorGoals.length; i++){
-            if (floorGoals[i] < floors){
+            if (floorGoals[i] <= floors){
                 points += floorPointIncrementer;
             }
         }
