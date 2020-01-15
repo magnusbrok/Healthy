@@ -9,7 +9,7 @@ public class RewardPoints extends Subject {
 
     private int rewardPoints = 0;
     private Reward prize;
-    private final int prizePrice = 30;
+    private final int prizePrice = 150;
     private ArrayList<Object> rewards = new ArrayList<>();
 
 
