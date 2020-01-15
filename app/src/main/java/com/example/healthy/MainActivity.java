@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -83,42 +86,37 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
                     case R.id.activityPage:
                         //Toast.makeText(MainActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final ActivityPageFragment fragment = new ActivityPageFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.nutriotionPage:
                         //Toast.makeText(MainActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final NutritionPageFragment fragment = new NutritionPageFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.homePage:
                         //Toast.makeText(MainActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final HomePageFragment fragment = new HomePageFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.socialPage:
                         //Toast.makeText(MainActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.rewardPage:
                         //Toast.makeText(MainActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().popBackStack();
                         if (savedInstanceState == null) {
                             final RewardPageFragment fragment = new RewardPageFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                 }
