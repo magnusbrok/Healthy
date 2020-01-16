@@ -109,14 +109,12 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                     loading.cancelAnimation();
                     loading.setVisibility(View.GONE);
                 } catch (Exception e) {
-                    internetConnection = false;
+                    Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
 
             }
         }.execute(100);
-        if (!internetConnection){
-        Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();}
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
 
