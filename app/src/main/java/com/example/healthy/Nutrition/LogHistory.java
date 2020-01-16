@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.healthy.R;
+import com.example.healthy.logic.AppLogic;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,8 +23,7 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
     Button doneButton;
     ArrayList<String> foodAddedArray = new ArrayList<>();
     ArrayAdapter arrayAdapter;
-
-    FirebaseFirestore db;
+    AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
         doneButton = findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
 
-        readLog();
+        foodAddedArray = appLogic.getFoodList();
 
         ListView listView = findViewById(R.id.addedFoodList);
 
@@ -51,22 +51,5 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
             if (doneButton==v){
                 finish();
             }
-    }
-
-    private void readLog () {
-        db = FirebaseFirestore.getInstance();
-        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
-        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful())
-                {
-                    DocumentSnapshot doc = task.getResult();
-                    ArrayList<String> group = (ArrayList<String>) doc.get("Food added");
-                    foodAddedArray.addAll(group);
-                    arrayAdapter.notifyDataSetChanged();
-                }
-            }
-        });
     }
 }

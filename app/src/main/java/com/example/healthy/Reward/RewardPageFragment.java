@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -43,6 +44,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
     List<SliceValue> rewardData = new ArrayList<>();
     ArrayList<String> rewardAmount = new ArrayList<>();
+    ArrayList<String> rewardName = new ArrayList<>();
     TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
    LottieAnimationView loading;
 
@@ -57,7 +59,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
-
         appLogic.attachObserverToRewardPoints(this);
         //loadPoints();
         rewardPie = root.findViewById(R.id.rewardPagePie);
@@ -114,9 +115,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         buyPrize = root.findViewById(R.id.buyRewardButton);
         buyPrize.setOnClickListener(this);
 
-        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.socialPrimary));
+        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorStep));
         nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.nutritionPrimary));
-        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorStep));
+        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.socialPrimary));
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
@@ -164,7 +165,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
         //TODO: change this to appLogic.getSocialPoints() when it's implemented.
-        soicalSlice.setValue(appLogic.getHighIntensityPoints());
+        soicalSlice.setValue(appLogic.getHighIntensityPoints()/2);
 
         if (appLogic.getRewardPoints() == 0) {
             activitySlice.setValue(1);
@@ -178,7 +179,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardData.add(soicalSlice);
 
         PieChartData rewardPieData = new PieChartData(rewardData);
-        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.9f);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
 
         //savePoints();
@@ -207,12 +208,16 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             String[] spaces = line.split(",", -1);
             String index = spaces[0].trim();
             String amount = spaces[1].trim();
+            String name = spaces[2].trim();
             if (amount.isEmpty()) continue;
             if (!i.contains(index)) continue;
             rewardAmount.add(amount);
+            rewardName.add(name);
             System.out.println(rewardAmount);
-
+            System.out.println(rewardName);
         }
+
+        //TODO: make a arraylist of reward object and save in aplogic   
     }
 /**
     public void savePoints() {

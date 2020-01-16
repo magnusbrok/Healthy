@@ -33,12 +33,11 @@ import lecho.lib.hellocharts.view.PieChartView;
 
 public class DayNutrition extends Fragment implements View.OnClickListener, Observer {
 
-    PieChartView nutritionPie;
-    List<SliceValue> nutritionData = new ArrayList<>();
-    TextView goals, history, day_points;
-    FloatingActionButton addFood;
-    AppLogic appLogic = AppLogic.getInstance();
-    FirebaseFirestore db;
+    private PieChartView nutritionPie;
+    private List<SliceValue> nutritionData = new ArrayList<>();
+    private TextView goals, history, day_points;
+    private FloatingActionButton addFood;
+    private AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,8 +65,6 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         nutritionPie.setPieChartData(activityPieData);
 
         appLogic.attachObserverToNutritionPoints(this);
-
-        readLog();
 
         return root;
     }
@@ -97,18 +94,4 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         day_points.setText("" + appLogic.getNutritionPoints());
     }
 
-    private void readLog() {
-        db = FirebaseFirestore.getInstance();
-        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
-        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot doc = task.getResult();
-                    appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
-                    appLogic.computePoints();
-                }
-            }
-        });
-    }
 }

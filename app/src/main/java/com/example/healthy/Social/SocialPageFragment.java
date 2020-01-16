@@ -46,11 +46,13 @@ public class SocialPageFragment extends Fragment {
         socialPageData.add(new SliceValue(15, ContextCompat.getColor(getContext(), R.color.socialTertiary)));
 
         PieChartData socialPieData = new PieChartData(socialPageData);
-        socialPieData.setHasCenterCircle(true).setCenterCircleScale(0.9f);
+        socialPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
 
         socialPieChart.setPieChartData(socialPieData);
 
         return root;
+
+
     }
 
 }
