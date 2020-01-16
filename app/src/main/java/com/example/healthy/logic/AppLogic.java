@@ -1,6 +1,7 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
+import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 import com.example.healthy.logic.Points.ActivityPoints;
 import com.example.healthy.logic.Points.NutritionPoints;
@@ -152,11 +153,11 @@ public class AppLogic {
         this.user = user;
     }
 
-    public void setRewards(ArrayList<Reward> rewards) {
+    public void setRewards(ArrayList<Item> rewards) {
         rewardPoints.setRewards(rewards);
     }
 
-    public ArrayList<Reward> getRewards() {
+    public ArrayList<Item> getRewards() {
         return rewardPoints.getRewards();
     }
 }
