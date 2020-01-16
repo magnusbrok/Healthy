@@ -1,6 +1,7 @@
 package com.example.healthy.logic.Points;
 
 import com.example.healthy.ObserverPattern.Subject;
+import com.example.healthy.R;
 import com.example.healthy.logic.Items.Reward;
 
 import java.util.ArrayList;
@@ -12,17 +13,6 @@ public class RewardPoints extends Subject {
     private Reward prize;
     private final int prizePrice = 150;
     private ArrayList<Reward> rewards = new ArrayList<>();
-
-
-    /**
-     * Constructor to set up the possible rewards
-     */
-    RewardPoints() {
-        rewards.add(new Reward("Æble"));
-        rewards.add(new Reward("Cykel"));
-        rewards.add(new Reward("Basketball"));
-        rewards.add(new Reward("iPhone"));
-    }
 
     public void addPoints(int activityPoints, int nutritionPoints) {
         int totalPoints = rewardPoints+activityPoints+nutritionPoints;
