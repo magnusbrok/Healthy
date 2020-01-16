@@ -1,6 +1,7 @@
-package com.example.healthy.logic;
+package com.example.healthy.logic.Points;
 
 import com.example.healthy.ObserverPattern.Subject;
+import com.example.healthy.logic.Items.Reward;
 
 import java.util.ArrayList;
 import java.util.Random;
