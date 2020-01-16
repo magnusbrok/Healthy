@@ -125,14 +125,15 @@
             android:textSize="16dp" />
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/goalsDoneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
-        android:text="Button"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/check_mark_history" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

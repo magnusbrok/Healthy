@@ -2,14 +2,16 @@ package com.example.healthy.Nutrition;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.healthy.R;
 
 public class GoalsNutrition extends AppCompatActivity implements View.OnClickListener {
-    Button goalsDone;
+    ImageButton goalsDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

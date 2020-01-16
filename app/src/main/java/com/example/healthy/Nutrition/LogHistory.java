@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 public class LogHistory extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
-    Button doneButton;
+    ImageButton doneButton;
     ArrayList<String> foodAddedArray = new ArrayList<>();
     ArrayAdapter arrayAdapter;
     AppLogic appLogic = AppLogic.getInstance();

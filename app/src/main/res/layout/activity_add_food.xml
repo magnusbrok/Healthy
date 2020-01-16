@@ -26,7 +26,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/homepage_social_button"
-            android:backgroundTint="@color/colorTurkis"
+            android:backgroundTint="@color/nutritionPrimary"
             android:text="Frugt/Grønt"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/nutrition_fruitsandveggies"
@@ -42,7 +42,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/homepage_social_button"
-            android:backgroundTint="@color/colorTurkis"
+            android:backgroundTint="@color/nutritionPrimary"
             android:text="Fisk"
             app:srcCompat="@drawable/nutritionpage_fish"
             tools:layout_editor_absoluteX="116dp"
@@ -58,7 +58,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/colorTurkis"
+            android:backgroundTint="@color/nutritionPrimary"
             android:text="Fuldkorn"
             app:srcCompat="@drawable/nutrition_page_fuldkorn"
             tools:layout_editor_absoluteX="212dp"
@@ -74,7 +74,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/homepage_social_button"
-            android:backgroundTint="@color/colorTurkis"
+            android:backgroundTint="@color/nutritionPrimary"
             android:text="Mejeri"
             app:srcCompat="@drawable/nutrition_mejeri"
             tools:layout_editor_absoluteX="16dp"
@@ -90,7 +90,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/homepage_social_button"
-            android:backgroundTint="@color/colorTurkis"
+            android:backgroundTint="@color/nutritionPrimary"
             android:text="Vand"
             app:srcCompat="@drawable/water_nutrition"
             tools:layout_editor_absoluteX="116dp"
@@ -106,7 +106,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/homepage_social_button"
-            android:backgroundTint="@color/colorTurkis"
+            android:backgroundTint="@color/nutritionPrimary"
             android:text="Magertkød"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/nutrition_page_magertkoed"
@@ -117,15 +117,14 @@
 
     <ImageButton
         android:id="@+id/doneButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/homepage_social_button"
-        android:backgroundTint="@color/colorTurkis"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/gridLayout"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/gridLayout"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-        app:srcCompat="@drawable/nutrition_checkmark" />
+        app:srcCompat="@drawable/check_mark_history" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
