@@ -33,12 +33,14 @@
             android:id="@+id/goalsText2"
             android:layout_width="match_parent"
             android:layout_height="53dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             android:lineSpacingExtra="@dimen/default_gap"
-            android:text="Det er vigtigt for dig at spise sundt! Her er de kostråd som anbefales: "
+            android:text="Det er vigtigt for dig at spise sundt! \n Her er de kostråd som anbefales: "
             android:textAlignment="center"
             android:textSize="18sp" />
 
@@ -46,8 +48,9 @@
             android:id="@+id/adviceNumberOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
             android:lineSpacingExtra="@dimen/default_gap"
             android:text="1. Det anbefales at spise 6 frugter eller grøntsager om dagen. "
             android:textSize="16dp" />
@@ -56,7 +59,7 @@
             android:id="@+id/adviceNumberTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="2. Spis fisk mindst to gange om ugen."
             android:textSize="16dp" />
@@ -65,7 +68,7 @@
             android:id="@+id/adviceNumberThree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="3. Spist mindst 75 gram fuldkorn om dagen. "
             android:textSize="16dp" />
@@ -74,7 +77,7 @@
             android:id="@+id/adviceNumberFour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="4. Spist magert kød og kødpålæg. "
             android:textSize="16dp" />
@@ -83,7 +86,7 @@
             android:id="@+id/adviceNumberFive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="5. Vælg magre mejeriprodukter"
             android:textSize="16dp" />
@@ -92,7 +95,7 @@
             android:id="@+id/adviceNumberSix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="6. Spis mindre mættet fedt"
             android:textSize="16dp" />
@@ -101,7 +104,7 @@
             android:id="@+id/adviceNumberSeven"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="7. Spis mad med mindre salt. "
             android:textSize="16dp" />
@@ -110,7 +113,7 @@
             android:id="@+id/adviceNumberEight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="8. Spis mindre sukker."
             android:textSize="16dp" />
@@ -119,7 +122,7 @@
             android:id="@+id/adviceNumberNine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="9. Drik vand. "
             android:textSize="16dp" />
