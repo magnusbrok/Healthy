@@ -80,7 +80,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         loading = root.findViewById(R.id.loadingAnimation);
         loading.bringToFront();
 
-        //TODO håndter hvis der ikke er netforbindelse;
 
         new AsyncTask() {
 
