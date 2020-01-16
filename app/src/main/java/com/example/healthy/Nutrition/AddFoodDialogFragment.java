@@ -17,6 +17,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.Items.Food;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,6 +29,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
 
     ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat, doneButton;
     ArrayList<String> addFood = new ArrayList<>();
+    ArrayList<Food> addedFoodItems = new ArrayList<>();
     AppLogic appLogic = AppLogic.getInstance();
     AppDAO appDAO = AppDAO.getInstance();
 
@@ -64,45 +66,55 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        String itemName;
+
         if (v == fruitsAndVeggies) {
-            String fruitsAndVeggies = "Frugt og grønt";
-            addFood.add(fruitsAndVeggies);
+            itemName = "Frugt og grønt";
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_fruitsandveggies));
             Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_SHORT).show();
         }
         else if (v == fish){
-            String fish = "Fisk" ;
-            addFood.add(fish);
+            itemName = "Fisk" ;
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutritionpage_fish));
             Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_SHORT).show();
 
         }
         else if (v == wholemeal){
-            String wholemeal = "Fuldkorn" ;
-            addFood.add(wholemeal);
+            itemName = "Fuldkorn" ;
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_fuldkorn));
             Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_SHORT).show();
         }
         else if (v== dairy){
-            String dairy = "Mejeri";
-            addFood.add(dairy);
+            itemName = "Mejeri";
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_mejeri));
             Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_SHORT).show();
         }
         else if (v == water){
-            String water ="Vand";
-            addFood.add(water);
+            itemName ="Vand";
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_water));
             Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_SHORT).show();
         }
         else if (v == beverages){
-            String drikkevarer ="Drikkevarer";
-            addFood.add(drikkevarer);
+            itemName ="Drikkevarer";
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_beverage));
             Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_SHORT).show();
         }
         else if (v == meat){
-            String meat ="Magert kød";
-            addFood.add(meat);
+            itemName ="Magert kød";
+            addFood.add(itemName);
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_magertkoed));
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_SHORT).show();
         }
 
         else if (v == doneButton){
             appLogic.addFoodToList(addFood);
+            appLogic.addFoodToItemList(addedFoodItems);
             appDAO.addFoodToLog();
             getDialog().dismiss();
         }
