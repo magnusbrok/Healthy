@@ -119,6 +119,7 @@ public class AppDAO {
                 });
     }
 
+    /*
     public void saveRewards() {
         Map<String, Object> saveRewards = new HashMap<>();
         saveRewards.put("JsonString", appLogic.hej);
@@ -138,7 +139,10 @@ public class AppDAO {
                     }
                 });
     }
+    
+     */
 
+    /*
     public void updateRewards() {
         Reward rewards = appLogic.getRewards();
         // Updating rewardList
@@ -161,4 +165,6 @@ public class AppDAO {
                     }
                 });
     }
+
+     */
 }
