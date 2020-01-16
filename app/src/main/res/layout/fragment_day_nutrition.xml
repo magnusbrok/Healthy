@@ -23,6 +23,7 @@
         android:clickable="true"
         android:src="@drawable/nutrition_page_extra"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/nutritionPrimary"
         app:layout_constraintEnd_toEndOf="@+id/pieChartView_nutritionDay"
         app:layout_constraintStart_toStartOf="@+id/pieChartView_nutritionDay"
         app:layout_constraintTop_toBottomOf="@+id/pieChartView_nutritionDay" />

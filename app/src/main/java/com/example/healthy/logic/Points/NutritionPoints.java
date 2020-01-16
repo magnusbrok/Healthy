@@ -1,4 +1,4 @@
-package com.example.healthy.logic;
+package com.example.healthy.logic.Points;
 
 import android.content.SharedPreferences;
 
