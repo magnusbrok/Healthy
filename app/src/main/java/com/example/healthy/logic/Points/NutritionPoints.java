@@ -2,7 +2,7 @@ package com.example.healthy.logic.Points;
 
 import android.content.SharedPreferences;
 
-import com.example.healthy.logic.Items.Food;
+import com.example.healthy.logic.Items.*;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public class NutritionPoints extends Points {
 
     private int points;
     private ArrayList<String> foodList = new ArrayList<>();
-    private ArrayList<Food> foodItemList = new ArrayList<>();
+    private ArrayList<Item> foodItemList = new ArrayList<>();
     private int pointIncrementer = 5;
 
     @Override
@@ -50,7 +50,7 @@ public class NutritionPoints extends Points {
         this.foodList = foodList;
     }
 
-    public ArrayList<Food> getFoodItemList() {
+    public ArrayList<Item> getFoodItemList() {
         return foodItemList;
     }
 

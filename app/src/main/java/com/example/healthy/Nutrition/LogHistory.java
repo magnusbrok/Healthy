@@ -11,7 +11,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.healthy.R;
+import com.example.healthy.Reward.CustomAdapter;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.Items.Food;
+import com.example.healthy.logic.Items.*;
+import com.google.android.gms.actions.ItemListIntents;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -39,11 +43,10 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
 
         ListView listView = findViewById(R.id.addedFoodList);
 
-        arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,foodAddedArray);
+        ArrayList<Item> foodItemList = appLogic.getFoodItemList();
+        arrayAdapter = new CustomAdapter(this, foodItemList);
         listView.setAdapter(arrayAdapter);
-        if(foodAddedArray.size()>10){
-            foodAddedArray.remove(1);
-        }
+
         arrayAdapter.notifyDataSetChanged();
     }
 
