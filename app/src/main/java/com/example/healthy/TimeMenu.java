@@ -63,12 +63,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         }else if (v == week){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new WeekActivities())
+                        .replace(R.id.FrameLayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new WeekNutrition())
+                        .replace(R.id.FrameLayout, new DayNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.NORMAL);
@@ -78,12 +78,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         }else if (v == month){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new MonthActivities())
+                        .replace(R.id.FrameLayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new MonthNutrition())
+                        .replace(R.id.FrameLayout, new DayNutrition())
                         .commit();
             }
 
