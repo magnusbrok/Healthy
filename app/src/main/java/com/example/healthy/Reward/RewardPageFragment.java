@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -19,11 +18,13 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
-import com.example.healthy.logic.Reward;
+import com.example.healthy.logic.Items.Reward;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     ArrayList<String> rewardName = new ArrayList<>();
     TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
    LottieAnimationView loading;
+   private boolean internetConnection;
 
 
     public RewardPageFragment() {
@@ -77,7 +79,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         loading = root.findViewById(R.id.loadingAnimation);
         loading.bringToFront();
 
-        //TODO håndter hvis der ikke er netforbindelse;
+
         new AsyncTask() {
 
             @Override
@@ -93,22 +95,28 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
             @Override
             protected void onPostExecute(Object o) {
-                amountTV1.setText(rewardAmount.get(1) + "/" + rewardAmount.get(0));
-                amountTV2.setText(rewardAmount.get(2) + "/" + rewardAmount.get(0));
-                amountTV3.setText(rewardAmount.get(3) + "/" + rewardAmount.get(0));
-                amountTV4.setText(rewardAmount.get(4) + "/" + rewardAmount.get(0));
-                amountTV5.setText(rewardAmount.get(5) + "/" + rewardAmount.get(0));
-                amountTV6.setText(rewardAmount.get(6) + "/" + rewardAmount.get(0));
-                amountTV7.setText(rewardAmount.get(7) + "/" + rewardAmount.get(0));
-                amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
-                amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
-                amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
-                loading.cancelAnimation();
-                loading.setVisibility(View.GONE);
+                try {
+                    amountTV1.setText(rewardAmount.get(1) + "/" + rewardAmount.get(0));
+                    amountTV2.setText(rewardAmount.get(2) + "/" + rewardAmount.get(0));
+                    amountTV3.setText(rewardAmount.get(3) + "/" + rewardAmount.get(0));
+                    amountTV4.setText(rewardAmount.get(4) + "/" + rewardAmount.get(0));
+                    amountTV5.setText(rewardAmount.get(5) + "/" + rewardAmount.get(0));
+                    amountTV6.setText(rewardAmount.get(6) + "/" + rewardAmount.get(0));
+                    amountTV7.setText(rewardAmount.get(7) + "/" + rewardAmount.get(0));
+                    amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
+                    amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
+                    amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
+                    loading.cancelAnimation();
+                    loading.setVisibility(View.GONE);
+                } catch (Exception e) {
+                    internetConnection = false;
+                    e.printStackTrace();
+                }
 
             }
         }.execute(100);
-
+        if (!internetConnection){
+        Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();}
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
 
@@ -219,6 +227,8 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         //TODO: make a arraylist of reward object and save in aplogic   
     }
+
+
 /**
     public void savePoints() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);

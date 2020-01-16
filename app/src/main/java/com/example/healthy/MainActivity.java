@@ -3,9 +3,6 @@ package com.example.healthy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.content.Intent;
@@ -22,7 +19,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.core.CrashlyticsCore;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
@@ -39,14 +35,13 @@ import java.util.Map;
 import io.fabric.sdk.android.Fabric;
 
 
-public class MainActivity extends AppCompatActivity implements LocationListener {
+public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
 
     public static final String SHARED_PREFS = "shared_prefs";
 
-    private LocationManager lm;
 
     FirebaseFirestore db;
 
@@ -60,10 +55,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
         
         startService(new Intent(this, SensorService.class));
-
-        lm = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
-
-        //lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 1, this);
 
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
@@ -137,33 +128,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
     }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1234);
-            return;
-        }
-        double altitude = location.getAltitude();
-        appLogic.setAltitude(altitude);
-        System.out.println("........................."+altitude);
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
-
 
     public void updateDatabase() {
         db = FirebaseFirestore.getInstance();
