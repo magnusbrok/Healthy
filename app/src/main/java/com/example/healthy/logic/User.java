@@ -1,6 +1,9 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Subject;
+import com.example.healthy.logic.Items.Item;
+
+import java.util.ArrayList;
 
 public class User extends Subject {
 
@@ -9,10 +12,16 @@ public class User extends Subject {
     private String mail;
     private String year;
     private String age;
+    private ArrayList<Item> rewardsWon = new ArrayList<>();
 
 
+    public ArrayList<Item> getRewardsWon() {
+        return rewardsWon;
+    }
 
-
+    public void setRewardsWon(ArrayList<Item> rewardsWon) {
+        this.rewardsWon = rewardsWon;
+    }
 
     public String getName() {
         return name;

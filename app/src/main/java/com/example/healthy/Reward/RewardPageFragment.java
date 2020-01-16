@@ -6,15 +6,19 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.parser.IntegerParser;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
@@ -42,34 +46,26 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
     PieChartView rewardPie;
+
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
     List<SliceValue> rewardData = new ArrayList<>();
     ArrayList<String> rewardAmount = new ArrayList<>();
     ArrayList<String> rewardName = new ArrayList<>();
-    TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
-   LottieAnimationView loading;
+    LottieAnimationView loading;
+    RecyclerView rewardView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
+        final View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
         appLogic.attachObserverToRewardPoints(this);
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("" + appLogic.getRewardPoints());
-        amountTV1 = root.findViewById(R.id.amountTV1);
-        amountTV2 = root.findViewById(R.id.amountTV2);
-        amountTV3 = root.findViewById(R.id.amountTV3);
-        amountTV4 = root.findViewById(R.id.amountTV4);
-        amountTV5 = root.findViewById(R.id.amountTV5);
-        amountTV6 = root.findViewById(R.id.amountTV6);
-        amountTV7 = root.findViewById(R.id.amountTV7);
-        amountTV8 = root.findViewById(R.id.amountTV8);
-        amountTV9 = root.findViewById(R.id.amountTV9);
-        amountTV10 = root.findViewById(R.id.amountTV10);
         loading = root.findViewById(R.id.loadingAnimation);
         loading.bringToFront();
+        rewardView = root.findViewById(R.id.fragment_rewardpage_reward_list);
 
 
         new AsyncTask() {
@@ -88,18 +84,18 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected void onPostExecute(Object o) {
                 try {
-                    amountTV1.setText(rewardAmount.get(1) + "/" + rewardAmount.get(0));
-                    amountTV2.setText(rewardAmount.get(2) + "/" + rewardAmount.get(0));
-                    amountTV3.setText(rewardAmount.get(3) + "/" + rewardAmount.get(0));
-                    amountTV4.setText(rewardAmount.get(4) + "/" + rewardAmount.get(0));
-                    amountTV5.setText(rewardAmount.get(5) + "/" + rewardAmount.get(0));
-                    amountTV6.setText(rewardAmount.get(6) + "/" + rewardAmount.get(0));
-                    amountTV7.setText(rewardAmount.get(7) + "/" + rewardAmount.get(0));
-                    amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
-                    amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
-                    amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
+                    appLogic.setTotalPrizes(Integer.parseInt(rewardAmount.get(0)));
                     loading.cancelAnimation();
                     loading.setVisibility(View.GONE);
+
+
+                    CustomHorizontalRewardAdapter adapter = new CustomHorizontalRewardAdapter(getActivity(),appLogic.getRewards());
+
+                    RecyclerView recyclerView = root.findViewById(R.id.fragment_rewardpage_reward_list);
+                    recyclerView.setAdapter(adapter);
+
+
+
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
@@ -107,6 +103,9 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
             }
         }.execute(100);
+
+
+
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
 
@@ -209,22 +208,22 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             if (!i.contains(index)) continue;
             rewardAmount.add(amount);
             rewardName.add(name);
-            System.out.println(rewardAmount);
-            System.out.println(rewardName);
-
-            ArrayList<Item> rewards = new ArrayList<>();
-
-            for (int j = 1; j < rewardName.size(); j++) {
-                Reward reward = new Reward(rewardName.get(j));
-                reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
-                rewards.add(reward);
-
-            }
-            appLogic.setRewards(rewards);
-            System.out.println("REWARDS"+appLogic.getRewards().toString());
-
+           // System.out.println(rewardAmount);
+            //System.out.println(rewardName);
         }
 
-        //TODO: make a arraylist of reward object and save in aplogic   
+        System.out.println("NAVNE"+rewardName);
+        System.out.println("MÆNGDER"+rewardAmount);
+
+
+        ArrayList<Item> rewards = new ArrayList<>();
+        for (int j = 1; j < rewardName.size(); j++) {
+            Reward reward = new Reward(rewardName.get(j));
+            reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
+            rewards.add(reward);
+
+        }
+        appLogic.setRewards(rewards);
+        System.out.println("REWARDS"+appLogic.getRewards().toString());
     }
 }
