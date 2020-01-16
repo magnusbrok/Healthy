@@ -17,8 +17,8 @@ public class AppLogic {
     private SocialPoints socialPoints = new SocialPoints();
     private RewardPoints rewardPoints = new RewardPoints();
     private User user = new User();
+    private int totalPrizes;
 
-    private double altitude;
 
     private static AppLogic instance = new AppLogic();
 
@@ -111,14 +111,6 @@ public class AppLogic {
         return activityPoints.getFloorGoal();
     }
 
-    public double getAltitude() {
-        return altitude;
-    }
-
-    public void setAltitude(double altitude) {
-        this.altitude = altitude;
-    }
-
     public void addToHighIntensity(int minutes) {
         activityPoints.addToHighIntensity(minutes);
     }
@@ -159,5 +151,13 @@ public class AppLogic {
 
     public ArrayList<Item> getRewards() {
         return rewardPoints.getRewards();
+    }
+
+    public int getTotalPrizes() {
+        return totalPrizes;
+    }
+
+    public void setTotalPrizes(int totalPrizes) {
+        this.totalPrizes = totalPrizes;
     }
 }
