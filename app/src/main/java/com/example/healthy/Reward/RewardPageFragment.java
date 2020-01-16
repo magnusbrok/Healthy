@@ -42,7 +42,6 @@ import lecho.lib.hellocharts.view.PieChartView;
  * A simple {@link Fragment} subclass.
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
-    private static final String POINTS = "rewardPoints";
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
@@ -74,7 +73,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
-                    getAmountFromSheet("12345678910");
+                    getAmountFromSheet("123456789101112131415161718192021222324252627282930");
                     return "Mængderne blev hentet korrekt";
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -179,8 +178,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         PieChartData rewardPieData = new PieChartData(rewardData);
         rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
-
-        //savePoints();
 
     }
     //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)

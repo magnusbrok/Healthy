@@ -1,6 +1,7 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
+import com.example.healthy.logic.Items.Food;
 import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 import com.example.healthy.logic.Points.ActivityPoints;
@@ -159,5 +160,13 @@ public class AppLogic {
 
     public void setTotalPrizes(int totalPrizes) {
         this.totalPrizes = totalPrizes;
+    }
+
+    public void addFoodToItemList(ArrayList<Food> addedFoodItems) {
+        nutritionPoints.addToFoodItemList(addedFoodItems);
+    }
+
+    public ArrayList<Item> getFoodItemList() {
+        return nutritionPoints.getFoodItemList();
     }
 }

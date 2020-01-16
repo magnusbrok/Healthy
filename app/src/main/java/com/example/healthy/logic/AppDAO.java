@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.healthy.logic.Items.Reward;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,6 +47,7 @@ public class AppDAO {
 
     public void addFoodToLog() {
         Map<String, Object> updateUser = new HashMap<>();
+        // TODO use appLogic.getFoodItemList()
         updateUser.put("Food added", appLogic.getFoodList());
 
         db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
@@ -102,7 +104,7 @@ public class AppDAO {
         updateUser.put("Year", user.getYear());
         updateUser.put("School", user.getSchool());
 
-        db.collection("Brugere med point").document("1").collection("Rediger profil").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+        db.collection("Brugere med point").document("1").collection("Rediger profil").document("1")
                 .set(updateUser)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -118,4 +120,52 @@ public class AppDAO {
                 });
     }
 
+    /*
+    public void saveRewards() {
+        Map<String, Object> saveRewards = new HashMap<>();
+        saveRewards.put("JsonString", appLogic.hej);
+
+        db.collection("Brugere med point").document("1").collection("Rewards").document("1")
+                .set(saveRewards)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - rewardlisten blev ikke gemt", e.getMessage());
+                        e.printStackTrace();
+                    }
+                });
+    }
+    
+     */
+
+    /*
+    public void updateRewards() {
+        Reward rewards = appLogic.getRewards();
+        // Updating rewardList
+        Map<String, Object> updateRewards = new HashMap<>();
+        updateRewards.put("JsonString", rewards.getList());
+
+
+        db.collection("Brugere med point").document("1").collection("Rewards").document("1")
+                .set(updateRewards)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("FEJL - rewardlisten blev ikke hentet", e.getMessage());
+                        e.printStackTrace();
+                    }
+                });
+    }
+
+     */
 }

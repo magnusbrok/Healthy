@@ -85,10 +85,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         if (v == rewardButton) {
 
             bottomMenu.changeMenu(R.id.rewardPage);
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.popBackStack();
 
-            Fragment fragment = new RewardPageFragment();
+            final RewardPageFragment fragment = new RewardPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
             transaction.commit();
@@ -96,10 +94,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         if (v == nutritionButton) {
             bottomMenu.changeMenu(R.id.nutriotionPage);
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.popBackStack();
 
-            Fragment fragment = new NutritionPageFragment();
+            final NutritionPageFragment fragment = new NutritionPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
             transaction.commit();
@@ -107,12 +103,9 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         }
 
         if (v == activityButton) {
-
             bottomMenu.changeMenu(R.id.activityPage);
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.popBackStack();
 
-            Fragment fragment = new ActivityPageFragment();
+            final ActivityPageFragment fragment = new ActivityPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
             transaction.commit();
@@ -120,10 +113,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         if (v == socialButton) {
             bottomMenu.changeMenu(R.id.socialPage);
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.popBackStack();
 
-            Fragment fragment = new SocialPageFragment();
+            final ActivityPageFragment fragment = new ActivityPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
             transaction.commit();
