@@ -2,15 +2,16 @@ package com.example.healthy.logic.Points;
 
 import android.content.SharedPreferences;
 
+import com.example.healthy.logic.Items.Food;
+
 import java.util.ArrayList;
 
 public class NutritionPoints extends Points {
 
     private int points;
     private ArrayList<String> foodList = new ArrayList<>();
+    private ArrayList<Food> foodItemList = new ArrayList<>();
     private int pointIncrementer = 5;
-
-    SharedPreferences.Editor editor;
 
     @Override
     public int computePoints(){
@@ -47,5 +48,13 @@ public class NutritionPoints extends Points {
 
     public void setFoodList(ArrayList<String> foodList) {
         this.foodList = foodList;
+    }
+
+    public ArrayList<Food> getFoodItemList() {
+        return foodItemList;
+    }
+
+    public void addToFoodItemList(ArrayList<Food> addedFoodItems){
+        foodItemList.addAll(0, addedFoodItems);
     }
 }
