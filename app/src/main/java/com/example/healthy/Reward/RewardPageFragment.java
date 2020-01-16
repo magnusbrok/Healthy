@@ -18,6 +18,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 
 import java.io.BufferedReader;
@@ -47,13 +48,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     ArrayList<String> rewardName = new ArrayList<>();
     TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
    LottieAnimationView loading;
-   private boolean internetConnection;
-
-
-    public RewardPageFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,14 +101,12 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                     loading.cancelAnimation();
                     loading.setVisibility(View.GONE);
                 } catch (Exception e) {
-                    internetConnection = false;
+                    Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
 
             }
         }.execute(100);
-        if (!internetConnection){
-        Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();}
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
 
@@ -220,7 +212,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             System.out.println(rewardAmount);
             System.out.println(rewardName);
 
-            ArrayList<Reward> rewards = new ArrayList<>();
+            ArrayList<Item> rewards = new ArrayList<>();
 
             for (int j = 1; j < rewardName.size(); j++) {
                 Reward reward = new Reward(rewardName.get(j));

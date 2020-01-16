@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-        if(!Build.PRODUCT.contains("sdk") || !Build.MODEL.contains("Emulator")) {
+        /*if(!Build.PRODUCT.contains("sdk") || !Build.MODEL.contains("Emulator")) {
             Fabric.with(getApplication(), new Crashlytics());
-        }
+        }*/
         
         startService(new Intent(this, SensorService.class));
 
@@ -76,35 +76,30 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
 
                     case R.id.activityPage:
-                        //Toast.makeText(MainActivity.this, "ActivityPage picked", Toast.LENGTH_SHORT).show();
                         if (savedInstanceState == null) {
                             final ActivityPageFragment fragment = new ActivityPageFragment();
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.nutriotionPage:
-                        //Toast.makeText(MainActivity.this, "Nutrition picked", Toast.LENGTH_SHORT).show();
                         if (savedInstanceState == null) {
                             final NutritionPageFragment fragment = new NutritionPageFragment();
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.homePage:
-                        //Toast.makeText(MainActivity.this, "HomePage picked", Toast.LENGTH_SHORT).show();
                         if (savedInstanceState == null) {
                             final HomePageFragment fragment = new HomePageFragment();
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.socialPage:
-                        //Toast.makeText(MainActivity.this, "SocialPage picked", Toast.LENGTH_SHORT).show();
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.rewardPage:
-                        //Toast.makeText(MainActivity.this, "RewardPage picked", Toast.LENGTH_SHORT).show();
                         if (savedInstanceState == null) {
                             final RewardPageFragment fragment = new RewardPageFragment();
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
