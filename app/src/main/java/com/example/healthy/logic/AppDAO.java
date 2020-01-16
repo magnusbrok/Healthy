@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -13,7 +14,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +27,8 @@ public class AppDAO {
     private static AppLogic appLogic = AppLogic.getInstance();
     private static AppDAO instance = new AppDAO();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Gson gson = new Gson();
+
 
     public static AppDAO getInstance() {
         return instance;
@@ -38,20 +44,35 @@ public class AppDAO {
                 if(task.isSuccessful())
                 {
                     DocumentSnapshot doc = task.getResult();
-                    appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
-                    appLogic.computePoints();
+                    StringBuilder foods = new StringBuilder();
+                    foods.append(doc.get("Food added"));
+                    String gsonString = foods.toString();
+
+                    Type type = new TypeToken<ArrayList<Item>>(){}.getType();
+                    if (!gsonString.equals("")) {
+
+                        ArrayList<Item> loadedFood = gson.fromJson(gsonString, type);
+                        appLogic.setFoodItemList(loadedFood);
+                        System.out.println(loadedFood);
+                        appLogic.computePoints();
+                    }
                 }
             }
         });
     }
 
     public void addFoodToLog() {
-        Map<String, Object> updateUser = new HashMap<>();
+        Map<String, Object> updateFoodLog = new HashMap<>();
         // TODO use appLogic.getFoodItemList()
-        updateUser.put("Food added", appLogic.getFoodList());
+        ArrayList<Item> newFoodList = appLogic.getFoodItemList();
+        String gsonString = gson.toJson(newFoodList);
+        if (!gsonString.equals("")) {
+
+            updateFoodLog.put("Food added", gsonString);
+        }
 
         db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
-                .set(updateUser)
+                .set(updateFoodLog)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

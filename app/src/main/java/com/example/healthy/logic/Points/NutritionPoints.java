@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class NutritionPoints extends Points {
 
     private int points;
-    private ArrayList<String> foodList = new ArrayList<>();
     private ArrayList<Item> foodItemList = new ArrayList<>();
     private int pointIncrementer = 5;
 
@@ -18,18 +17,14 @@ public class NutritionPoints extends Points {
 
         int currentPoints = points;
 
-        points = foodList.size()*pointIncrementer;
+
+
+            points = foodItemList.size()*pointIncrementer;
 
         setPoints(points);
 
         int diff = points - currentPoints;
         return (diff);
-    }
-
-    public void addToFoodLogHistory(ArrayList<String> addedFood) {
-        foodList.addAll(addedFood);
-
-
     }
 
 
@@ -42,19 +37,19 @@ public class NutritionPoints extends Points {
         notifyChangeToObservers();
     }
 
-    public ArrayList<String> getFoodList() {
-        return foodList;
-    }
-
-    public void setFoodList(ArrayList<String> foodList) {
-        this.foodList = foodList;
+    public void setFoodItemList(ArrayList<Item> foodItemList) {
+        this.foodItemList = foodItemList;
     }
 
     public ArrayList<Item> getFoodItemList() {
         return foodItemList;
     }
 
-    public void addToFoodItemList(ArrayList<Food> addedFoodItems){
-        foodItemList.addAll(0, addedFoodItems);
+    public void addToFoodItemList(ArrayList<Item> addedFoodItems){
+        if (foodItemList == null) {
+            setFoodItemList(addedFoodItems);
+        } else {
+            foodItemList.addAll(0,addedFoodItems);
+        }
     }
 }

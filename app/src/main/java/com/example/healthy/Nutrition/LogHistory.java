@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class LogHistory extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
     ImageButton doneButton;
-    ArrayList<String> foodAddedArray = new ArrayList<>();
     ArrayAdapter arrayAdapter;
     AppLogic appLogic = AppLogic.getInstance();
 
@@ -31,7 +30,6 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
         doneButton = findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
 
-        foodAddedArray = appLogic.getFoodList();
 
         ListView listView = findViewById(R.id.addedFoodList);
 

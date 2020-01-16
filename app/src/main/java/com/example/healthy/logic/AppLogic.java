@@ -56,11 +56,6 @@ public class AppLogic {
 
     }
 
-    public void addFoodToList(ArrayList<String> addedFood) {
-        nutritionPoints.addToFoodLogHistory(addedFood);
-        computePoints();
-    }
-
     public int getStepPoints() {
         return activityPoints.computeStepPoints();
     }
@@ -118,14 +113,6 @@ public class AppLogic {
 
     public int getHighIntensity() { return activityPoints.getHighIntensity();}
 
-    public void setFoodList(ArrayList<String> addFood) {
-        nutritionPoints.setFoodList(addFood);
-    }
-
-    public ArrayList<String> getFoodList() {
-        return nutritionPoints.getFoodList();
-    }
-
     public int getEndStepGoal() {
         return activityPoints.getEndStepGoal();
     }
@@ -162,11 +149,15 @@ public class AppLogic {
         this.totalPrizes = totalPrizes;
     }
 
-    public void addFoodToItemList(ArrayList<Food> addedFoodItems) {
+    public void addFoodToItemList(ArrayList<Item> addedFoodItems) {
         nutritionPoints.addToFoodItemList(addedFoodItems);
     }
 
     public ArrayList<Item> getFoodItemList() {
         return nutritionPoints.getFoodItemList();
+    }
+
+    public void setFoodItemList(ArrayList<Item> newFoodList) {
+        nutritionPoints.setFoodItemList(newFoodList);
     }
 }
