@@ -77,7 +77,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
-                    getAmountFromSheet("12345678910");
+                    getAmountFromSheet("123456789101112131415161718192021222324252627282930");
                     return "Mængderne blev hentet korrekt";
                 } catch (Exception e) {
                     e.printStackTrace();
