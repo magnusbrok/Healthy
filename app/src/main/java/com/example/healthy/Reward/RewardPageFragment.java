@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -19,7 +18,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
-import com.example.healthy.logic.Reward;
+import com.example.healthy.logic.Items.Reward;
 
 import java.io.BufferedReader;
 import java.io.IOException;
