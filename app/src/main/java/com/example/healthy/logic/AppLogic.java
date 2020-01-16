@@ -146,4 +146,12 @@ public class AppLogic {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setRewards(ArrayList<Reward> rewards) {
+        rewardPoints.setRewards(rewards);
+    }
+
+    public ArrayList<Reward> getRewards() {
+        return rewardPoints.getRewards();
+    }
 }

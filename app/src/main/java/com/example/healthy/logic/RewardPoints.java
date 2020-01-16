@@ -10,7 +10,7 @@ public class RewardPoints extends Subject {
     private int rewardPoints = 0;
     private Reward prize;
     private final int prizePrice = 150;
-    private ArrayList<Object> rewards = new ArrayList<>();
+    private ArrayList<Reward> rewards = new ArrayList<>();
 
 
     /**
@@ -46,5 +46,22 @@ public class RewardPoints extends Subject {
     public void setRewardPoints(int rewardPoints) {
         this.rewardPoints = rewardPoints;
         notifyChangeToObservers();
+    }
+
+
+    public Reward getPrize() {
+        return prize;
+    }
+
+    public void setPrize(Reward prize) {
+        this.prize = prize;
+    }
+
+    public ArrayList<Reward> getRewards() {
+        return rewards;
+    }
+
+    public void setRewards(ArrayList<Reward> rewards) {
+        this.rewards = rewards;
     }
 }

@@ -1,10 +1,14 @@
 package com.example.healthy.logic;
 
 public class Reward {
-    private String name;
-    private int price;
+    public String name;
+    public int price;
+    public int amount;
 
-    Reward(String name) {
+
+    public int resourceID;
+
+    public Reward(String name) {
         this.name = name;
     }
 
@@ -22,5 +26,21 @@ public class Reward {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getResourceID() {
+        return resourceID;
+    }
+
+    public void setResourceID(int resourceID) {
+        this.resourceID = resourceID;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

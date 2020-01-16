@@ -215,6 +215,18 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             rewardName.add(name);
             System.out.println(rewardAmount);
             System.out.println(rewardName);
+
+            ArrayList<Reward> rewards = new ArrayList<>();
+
+            for (int j = 1; j < rewardName.size(); j++) {
+                Reward reward = new Reward(rewardName.get(j));
+                reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
+                rewards.add(reward);
+
+            }
+            appLogic.setRewards(rewards);
+            System.out.println("REWARDS"+appLogic.getRewards().toString());
+
         }
 
         //TODO: make a arraylist of reward object and save in aplogic   
