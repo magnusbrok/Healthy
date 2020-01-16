@@ -36,7 +36,6 @@ import lecho.lib.hellocharts.view.PieChartView;
  * A simple {@link Fragment} subclass.
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
-    private static final String POINTS = "rewardPoints";
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
@@ -46,7 +45,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     ArrayList<String> rewardAmount = new ArrayList<>();
     ArrayList<String> rewardName = new ArrayList<>();
     TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
-   LottieAnimationView loading;
+    LottieAnimationView loading;
 
 
     public RewardPageFragment() {
@@ -60,7 +59,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
         appLogic.attachObserverToRewardPoints(this);
-        //loadPoints();
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("" + appLogic.getRewardPoints());
@@ -182,8 +180,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
 
-        //savePoints();
-
     }
     //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
     public static String getUrl(String url) throws IOException {
@@ -219,19 +215,4 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         //TODO: make a arraylist of reward object and save in aplogic   
     }
-/**
-    public void savePoints() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(POINTS, appLogic.getRewardPoints());
-        editor.apply();
-    }
-
-    public int loadPoints() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        int loadedPoints = sharedPreferences.getInt(POINTS, 0);
-
-        return loadedPoints;
-    }
- **/
 }
