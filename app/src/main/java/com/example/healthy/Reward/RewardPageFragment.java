@@ -213,39 +213,22 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             if (!i.contains(index)) continue;
             rewardAmount.add(amount);
             rewardName.add(name);
-            System.out.println(rewardAmount);
-            System.out.println(rewardName);
-
-            ArrayList<Item> rewards = new ArrayList<>();
-
-            for (int j = 1; j < rewardName.size(); j++) {
-                Reward reward = new Reward(rewardName.get(j));
-                reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
-                rewards.add(reward);
-
-            }
-            appLogic.setRewards(rewards);
-            System.out.println("REWARDS"+appLogic.getRewards().toString());
-
+           // System.out.println(rewardAmount);
+            //System.out.println(rewardName);
         }
 
-        //TODO: make a arraylist of reward object and save in aplogic   
+        System.out.println("NAVNE"+rewardName);
+        System.out.println("MÆNGDER"+rewardAmount);
+
+
+        ArrayList<Item> rewards = new ArrayList<>();
+        for (int j = 1; j < rewardName.size(); j++) {
+            Reward reward = new Reward(rewardName.get(j));
+            reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
+            rewards.add(reward);
+
+        }
+        appLogic.setRewards(rewards);
+        System.out.println("REWARDS"+appLogic.getRewards().toString());
     }
-
-
-/**
-    public void savePoints() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(POINTS, appLogic.getRewardPoints());
-        editor.apply();
-    }
-
-    public int loadPoints() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        int loadedPoints = sharedPreferences.getInt(POINTS, 0);
-
-        return loadedPoints;
-    }
- **/
 }
