@@ -18,8 +18,7 @@ public class NutritionPoints extends Points {
         int currentPoints = points;
 
 
-
-            points = foodItemList.size()*pointIncrementer;
+        points = foodItemList.size()*pointIncrementer;
 
         setPoints(points);
 
@@ -48,8 +47,10 @@ public class NutritionPoints extends Points {
     public void addToFoodItemList(ArrayList<Item> addedFoodItems){
         if (foodItemList == null) {
             setFoodItemList(addedFoodItems);
+            computePoints();
         } else {
             foodItemList.addAll(0,addedFoodItems);
+            computePoints();
         }
     }
 }
