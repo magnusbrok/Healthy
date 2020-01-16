@@ -18,6 +18,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 
 import java.io.BufferedReader;
@@ -215,7 +216,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             System.out.println(rewardAmount);
             System.out.println(rewardName);
 
-            ArrayList<Reward> rewards = new ArrayList<>();
+            ArrayList<Item> rewards = new ArrayList<>();
 
             for (int j = 1; j < rewardName.size(); j++) {
                 Reward reward = new Reward(rewardName.get(j));

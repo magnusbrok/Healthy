@@ -11,16 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.healthy.R;
+import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 
 import java.util.ArrayList;
 
 
-public class CustomAdapter extends ArrayAdapter<Reward> {
+public class CustomAdapter extends ArrayAdapter<Item> {
 
 
-    public CustomAdapter(@NonNull Context context, ArrayList<Reward> rewards) {
-        super(context, R.layout.fragment_your_prize_page, rewards);
+    public CustomAdapter(@NonNull Context context, ArrayList<Item> items) {
+        super(context, R.layout.fragment_your_prize_page, items);
     }
     @NonNull
     @Override
@@ -32,7 +33,7 @@ public class CustomAdapter extends ArrayAdapter<Reward> {
         TextView singlePrizeText =customPrize.findViewById(R.id.List_prizeText);
         ImageView singleImage = customPrize.findViewById(R.id.list_image);
         singlePrizeText.setText(prizeText);
-        singleImage.setImageResource(R.drawable.activity_guy_final);
+        singleImage.setImageResource(getItem(position).getResID());
         return customPrize;
     }
 }
