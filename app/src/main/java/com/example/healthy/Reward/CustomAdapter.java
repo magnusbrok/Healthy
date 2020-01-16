@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.healthy.R;
-import com.example.healthy.logic.Reward;
+import com.example.healthy.logic.Items.Reward;
 
 import java.util.ArrayList;
 
