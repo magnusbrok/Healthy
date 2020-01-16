@@ -48,7 +48,6 @@ public class ActivityPoints extends Points {
 
     @Override
     public int computePoints(){
-        //TODO implement code to compute points from steps taken
 
         int currentPoints = points;
 

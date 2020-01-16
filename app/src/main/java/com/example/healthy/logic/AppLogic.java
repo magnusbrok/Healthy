@@ -165,4 +165,8 @@ public class AppLogic {
     public void addFoodToItemList(ArrayList<Food> addedFoodItems) {
         nutritionPoints.addToFoodItemList(addedFoodItems);
     }
+
+    public ArrayList<Item> getFoodItemList() {
+        return nutritionPoints.getFoodItemList();
+    }
 }

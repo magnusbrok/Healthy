@@ -27,14 +27,14 @@ public class CustomAdapter extends ArrayAdapter<Item> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater lf = LayoutInflater.from(getContext());
-        View customPrize = lf.inflate(R.layout.custom_list_item, parent,false);
+        View customView = lf.inflate(R.layout.custom_list_item, parent,false);
 
         String prizeText = getItem(position).getName();
-        TextView singlePrizeText =customPrize.findViewById(R.id.List_prizeText);
-        ImageView singleImage = customPrize.findViewById(R.id.list_image);
+        TextView singlePrizeText =customView.findViewById(R.id.List_prizeText);
+        ImageView singleImage = customView.findViewById(R.id.list_image);
         singlePrizeText.setText(prizeText);
         singleImage.setImageResource(getItem(position).getResID());
-        return customPrize;
+        return customView;
     }
 }
 
