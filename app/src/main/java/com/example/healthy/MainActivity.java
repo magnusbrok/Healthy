@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_menu);
 
-        if(!Build.PRODUCT.contains("sdk") || !Build.MODEL.contains("Emulator")) {
+        /*if(!Build.PRODUCT.contains("sdk") || !Build.MODEL.contains("Emulator")) {
             Fabric.with(getApplication(), new Crashlytics());
-        }
+        }*/
         
         startService(new Intent(this, SensorService.class));
 
