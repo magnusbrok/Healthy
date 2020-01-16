@@ -17,7 +17,7 @@ public class WeekActivities extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_week_activities, container, false);
+        View root = inflater.inflate(R.layout.fragment_day_activities, container, false);
 
         // Inflate the layout for this fragment
 
