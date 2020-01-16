@@ -28,7 +28,6 @@ import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
 public class SensorService extends Service implements SensorEventListener {
 
-    // TODO implement this
     public static final String SHARED_PREFS = "shared_prefs";
     public static final String HAS_RUN = "has_run";
     public static final String CALIBRATOR = "calibrator";

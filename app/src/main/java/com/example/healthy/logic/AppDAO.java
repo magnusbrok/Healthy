@@ -47,6 +47,7 @@ public class AppDAO {
 
     public void addFoodToLog() {
         Map<String, Object> updateUser = new HashMap<>();
+        // TODO use appLogic.getFoodItemList()
         updateUser.put("Food added", appLogic.getFoodList());
 
         db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
