@@ -5,9 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.NumberPicker;
-
 import androidx.fragment.app.DialogFragment;
-
 import com.example.healthy.logic.AppLogic;
 
 public class NumberPickerDialog extends DialogFragment {
@@ -52,5 +50,4 @@ public class NumberPickerDialog extends DialogFragment {
     public void  setValueChangeListener(NumberPicker.OnValueChangeListener valueChangeListener) {
         this.valueChangeListener = valueChangeListener;
     }
-
 }

@@ -1,7 +1,6 @@
 package com.example.healthy.logic.Points;
 
 import com.example.healthy.ObserverPattern.Subject;
-import com.example.healthy.R;
 import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 

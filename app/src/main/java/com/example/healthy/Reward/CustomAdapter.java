@@ -7,15 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-
 import com.example.healthy.R;
 import com.example.healthy.logic.Items.Item;
-import com.example.healthy.logic.Items.Reward;
-
 import java.util.ArrayList;
-
 
 public class CustomAdapter extends ArrayAdapter<Item> {
 

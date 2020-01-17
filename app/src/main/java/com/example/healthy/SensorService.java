@@ -15,14 +15,9 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Toast;
-
 import androidx.core.app.NotificationCompat;
-
 import com.example.healthy.logic.AppLogic;
-
 import java.util.Calendar;
-
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
 
@@ -42,7 +37,6 @@ public class SensorService extends Service implements SensorEventListener {
     Calendar calendar = Calendar.getInstance();
 
     AppLogic appLogic = AppLogic.getInstance();
-
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -156,6 +150,5 @@ public class SensorService extends Service implements SensorEventListener {
                 .build();
 
         startForeground(1, notification);
-
     }
 }

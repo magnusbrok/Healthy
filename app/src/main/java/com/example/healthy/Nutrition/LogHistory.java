@@ -7,12 +7,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.healthy.R;
 import com.example.healthy.Reward.CustomAdapter;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Items.*;
-
 import java.util.ArrayList;
 
 public class LogHistory extends AppCompatActivity implements View.OnClickListener {
@@ -29,7 +27,6 @@ public class LogHistory extends AppCompatActivity implements View.OnClickListene
         textView.setOnClickListener(this);
         doneButton = findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
-
 
         ListView listView = findViewById(R.id.addedFoodList);
 

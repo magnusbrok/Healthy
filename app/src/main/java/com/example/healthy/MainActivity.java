@@ -5,31 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
-
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
-import com.example.healthy.logic.AppLogic;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomMenu;
-    AppLogic appLogic = AppLogic.getInstance();
-    FirebaseFirestore db;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -51,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
             final TopMenu topMenu = new TopMenu();
             getSupportFragmentManager().beginTransaction().add(R.id.TopMenuView, topMenu).commit();
         }
-
 
         final BottomNavigationView  bottomMenu = findViewById(R.id.bottom_navigation);
         bottomMenu.setItemIconTintList(null);
@@ -106,7 +93,5 @@ public class MainActivity extends AppCompatActivity {
     public void changeMenu(int itemId) {
         bottomMenu = findViewById(R.id.bottom_navigation);
         bottomMenu.setSelectedItemId(itemId);
-
-
     }
 }
