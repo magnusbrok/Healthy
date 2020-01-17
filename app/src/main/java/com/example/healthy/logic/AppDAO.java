@@ -28,8 +28,6 @@ public class AppDAO {
     private static AppDAO instance = new AppDAO();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Gson gson = new Gson();
-    ArrayList<String> rewardAmount = new ArrayList<>();
-    ArrayList<String> rewardName = new ArrayList<>();
 
 
     public static AppDAO getInstance() {
@@ -209,6 +207,8 @@ public class AppDAO {
     public void getAmountFromSheet (String i) throws Exception {
         String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
         int lineNr = 0;
+        ArrayList<String> rewardAmount = new ArrayList<>();
+        ArrayList<String> rewardName = new ArrayList<>();
 
         for (String line : data.split("\n")) {
             if (lineNr < 30) System.out.println("line: " + line);
