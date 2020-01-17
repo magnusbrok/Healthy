@@ -148,13 +148,18 @@ public class AppDAO {
                 });
     }
 
-    /*
-    public void saveRewards() {
-        Map<String, Object> saveRewards = new HashMap<>();
-        saveRewards.put("JsonString", appLogic.hej);
+    public void updateRewardsWon() {
+        Map<String, Object> updateRewardsWon = new HashMap<>();
+        // TODO use appLogic.getFoodItemList()
+        ArrayList<Item> rewardsWon = appLogic.getUser().getRewardsWon();
+        String gsonString = gson.toJson(rewardsWon);
+        if (!gsonString.equals("")) {
 
-        db.collection("Brugere med point").document("1").collection("Rewards").document("1")
-                .set(saveRewards)
+            updateRewardsWon.put("Rewards Won", gsonString);
+        }
+
+        db.collection("Brugere med point").document("1").collection("Rewards won").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
+                .set(updateRewardsWon)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -163,39 +168,34 @@ public class AppDAO {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.d("FEJL - rewardlisten blev ikke gemt", e.getMessage());
-                        e.printStackTrace();
-                    }
-                });
-    }
-    
-     */
-
-    /*
-    public void updateRewards() {
-        Reward rewards = appLogic.getRewards();
-        // Updating rewardList
-        Map<String, Object> updateRewards = new HashMap<>();
-        updateRewards.put("JsonString", rewards.getList());
-
-
-        db.collection("Brugere med point").document("1").collection("Rewards").document("1")
-                .set(updateRewards)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("FEJL - rewardlisten blev ikke hentet", e.getMessage());
-                        e.printStackTrace();
-                    }
+                        Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage()); }
                 });
     }
 
-     */
+    public void loadRewardsWon () {
+        DocumentReference userRewards = db.collection("Brugere med point").document("1").collection("Rewards won").document("1");
+        userRewards.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
+        {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot doc = task.getResult();
+                    StringBuilder rewardsWon = new StringBuilder();
+                    rewardsWon.append(doc.get("Rewards Won"));
+                    String gsonString = rewardsWon.toString();
+
+                    Type type = new TypeToken<ArrayList<Item>>(){}.getType();
+                    if (!gsonString.equals("")) {
+
+                        ArrayList<Item> pricesWon = gson.fromJson(gsonString, type);
+                        appLogic.getUser().setRewardsWon(pricesWon);
+                        System.out.println(pricesWon);
+                    }
+                }
+            }
+        });
+    }
 
     //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
     public static String getUrl(String url) throws IOException {

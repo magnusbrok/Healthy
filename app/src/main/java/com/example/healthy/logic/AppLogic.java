@@ -91,7 +91,7 @@ public class AppLogic {
     }
 
 
-    public Reward buyPrize() {
+    public Item buyPrize() {
         return rewardPoints.buyPrize();
     }
 

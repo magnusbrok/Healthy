@@ -47,10 +47,9 @@ public class NutritionPoints extends Points {
     public void addToFoodItemList(ArrayList<Item> addedFoodItems){
         if (foodItemList == null) {
             setFoodItemList(addedFoodItems);
-            computePoints();
         } else {
             foodItemList.addAll(0,addedFoodItems);
-            computePoints();
+            
         }
     }
 }

@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="36sp"
-        android:text=""
+        android:textColor="@color/colorMustard"
         app:layout_constraintBottom_toBottomOf="@+id/rewardPagePie"
         app:layout_constraintEnd_toEndOf="@+id/rewardPagePie"
         app:layout_constraintStart_toStartOf="@+id/rewardPagePie"

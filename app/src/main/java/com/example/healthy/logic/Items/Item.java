@@ -24,4 +24,8 @@ public class Item {
     public int getResID() {
         return resID;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
