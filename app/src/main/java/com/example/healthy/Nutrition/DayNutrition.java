@@ -2,31 +2,18 @@ package com.example.healthy.Nutrition;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.internal.InternalTokenProvider;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
@@ -84,14 +71,11 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         if (v==goals){
             Intent i = new Intent(getActivity(), GoalsNutrition.class);
             startActivity(i);
-
         }
-
     }
 
     @Override
     public void updateView() {
         day_points.setText("" + appLogic.getNutritionPoints());
     }
-
 }

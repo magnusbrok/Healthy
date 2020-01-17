@@ -1,17 +1,14 @@
 package com.example.healthy;
 
-
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
+import com.crashlytics.android.Crashlytics;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
@@ -19,19 +16,17 @@ import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomePageFragment extends Fragment implements View.OnClickListener, Observer {
 
     private ImageButton activityButton, rewardButton, socialButton, nutritionButton;
-    private TextView activityPoints, rewardPoints, socialPoints, nutritionPoints;
+    private TextView activityPoints, rewardPoints, nutritionPoints;
 
     AppLogic appLogic = AppLogic.getInstance();
     AppDAO appDAO = AppDAO.getInstance();
 
-    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,12 +42,9 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         nutritionButton = root.findViewById(R.id.homepage_nutrition);
         nutritionButton.setOnClickListener(this);
 
-
-
         appLogic.attachObserverToActivityPoints(this);
         appLogic.attachObserverToRewardPoints(this);
         appLogic.attachObserverToNutritionPoints(this);
-
 
         activityPoints = root.findViewById(R.id.homepage_activity_points);
         rewardPoints = root.findViewById(R.id.homepage_reward_points);
@@ -107,7 +99,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             transaction.replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null);
             transaction.commit();
         }
-
     }
 
     @Override

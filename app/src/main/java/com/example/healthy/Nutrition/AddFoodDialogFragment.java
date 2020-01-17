@@ -3,32 +3,23 @@ package com.example.healthy.Nutrition;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-
 import com.example.healthy.R;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Items.Food;
 import com.example.healthy.logic.Items.Item;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat, doneButton;
+    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water, meat, doneButton;
     ArrayList<Item> addedFoodItems = new ArrayList<>();
     AppLogic appLogic = AppLogic.getInstance();
     AppDAO appDAO = AppDAO.getInstance();
@@ -58,11 +49,8 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         doneButton = v.findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        
         return v;
     }
-
-
 
     @Override
     public void onClick(View v) {
@@ -108,6 +96,4 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             getDialog().dismiss();
         }
     }
-
-
 }

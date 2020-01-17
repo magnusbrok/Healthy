@@ -1,24 +1,16 @@
 package com.example.healthy;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfilePage extends AppCompatActivity implements View.OnClickListener, Observer {
 
@@ -28,7 +20,6 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
     Button editProfile, backToMain, addEmail;
     public TextView name, age, school, email, year;
     User user = appLogic.getUser();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

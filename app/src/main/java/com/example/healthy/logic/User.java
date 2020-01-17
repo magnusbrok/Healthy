@@ -2,11 +2,9 @@ package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Subject;
 import com.example.healthy.logic.Items.Item;
-
 import java.util.ArrayList;
 
 public class User extends Subject {
-
     private String name;
     private String school;
     private String mail;

@@ -3,10 +3,15 @@ package com.example.healthy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,6 +22,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+
+        boolean EMULATOR = Build.PRODUCT.contains("sdk") || Build.MODEL.contains("Android SDK");
+        System.out.println(Build.PRODUCT);
+        System.out.println(Build.MODEL);
+        System.out.println(EMULATOR);
+            if (!EMULATOR){Fabric.with(getApplication(), new Crashlytics());}
+
 
         userNameEditText = findViewById(R.id.editText_login_username);
         passwordEditText = findViewById(R.id.editText_login_password);
