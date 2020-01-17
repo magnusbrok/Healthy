@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
@@ -40,13 +41,11 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     Button seGevinster, buyPrize;
     TextView rewardPoints;
     AppLogic appLogic = AppLogic.getInstance();
+    AppDAO appDAO = AppDAO.getInstance();
     PieChartView rewardPie;
 
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
     List<SliceValue> rewardData = new ArrayList<>();
-    ArrayList<String> rewardAmount = new ArrayList<>();
-    ArrayList<String> rewardName = new ArrayList<>();
-    ArrayList<String> rewardsWon = new ArrayList<>();
     LottieAnimationView loading;
     RecyclerView rewardView;
 
@@ -58,7 +57,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         appLogic.attachObserverToRewardPoints(this);
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
-        rewardPoints.setText("" + appLogic.getRewardPoints());
+        rewardPoints.setText(""+appLogic.getRewardPoints());
         loading = root.findViewById(R.id.loadingAnimation);
         loading.bringToFront();
         rewardView = root.findViewById(R.id.fragment_rewardpage_reward_list);
@@ -69,7 +68,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
-                    getAmountFromSheet("123456789101112131415161718192021222324252627282930");
+                    appDAO.getAmountFromSheet("123456789101112131415161718192021222324252627282930");
                     return "Mængderne blev hentet korrekt";
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -80,7 +79,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             @Override
             protected void onPostExecute(Object o) {
                 try {
-                    appLogic.setTotalPrizes(Integer.parseInt(rewardAmount.get(0)));
                     loading.cancelAnimation();
                     loading.setVisibility(View.GONE);
 
@@ -89,9 +87,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
                     RecyclerView recyclerView = root.findViewById(R.id.fragment_rewardpage_reward_list);
                     recyclerView.setAdapter(adapter);
-
-
-
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
@@ -180,51 +175,5 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
 
-    }
-    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
-    public static String getUrl(String url) throws IOException {
-        System.out.println("Henter data fra " + url);
-        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
-        StringBuilder sb = new StringBuilder();
-        String linje = br.readLine();
-        while (linje != null) {
-            sb.append(linje + "\n");
-            linje = br.readLine();
-        }
-        return sb.toString();
-    }
-    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit  our project)
-    public void getAmountFromSheet (String i) throws Exception {
-        String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
-        int lineNr = 0;
-
-        for (String line : data.split("\n")) {
-            if (lineNr < 30) System.out.println("line: " + line);
-            if (lineNr++ <1) continue;
-            String[] spaces = line.split(",", -1);
-            String index = spaces[0].trim();
-            String amount = spaces[1].trim();
-            String name = spaces[2].trim();
-            if (amount.isEmpty()) continue;
-            if (!i.contains(index)) continue;
-            rewardAmount.add(amount);
-            rewardName.add(name);
-           // System.out.println(rewardAmount);
-            //System.out.println(rewardName);
-        }
-
-        System.out.println("NAVNE"+rewardName);
-        System.out.println("MÆNGDER"+rewardAmount);
-
-
-        ArrayList<Item> rewards = new ArrayList<>();
-        for (int j = 1; j < rewardName.size(); j++) {
-            Reward reward = new Reward(rewardName.get(j));
-            reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
-            rewards.add(reward);
-
-        }
-        appLogic.setRewards(rewards);
-        System.out.println("REWARDS"+appLogic.getRewards().toString());
     }
 }

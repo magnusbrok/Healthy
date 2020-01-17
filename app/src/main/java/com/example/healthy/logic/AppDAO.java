@@ -17,7 +17,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +32,9 @@ public class AppDAO {
     private static AppDAO instance = new AppDAO();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Gson gson = new Gson();
+    ArrayList<String> rewardAmount = new ArrayList<>();
+    ArrayList<String> rewardName = new ArrayList<>();
+    ArrayList<String> rewardsWon = new ArrayList<>();
 
 
     public static AppDAO getInstance() {
@@ -189,4 +196,54 @@ public class AppDAO {
     }
 
      */
+
+    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
+    public static String getUrl(String url) throws IOException {
+        System.out.println("Henter data fra " + url);
+        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+        StringBuilder sb = new StringBuilder();
+        String linje = br.readLine();
+        while (linje != null) {
+            sb.append(linje + "\n");
+            linje = br.readLine();
+        }
+        return sb.toString();
+    }
+
+    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit  our project)
+    public void getAmountFromSheet (String i) throws Exception {
+        String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
+        int lineNr = 0;
+
+        for (String line : data.split("\n")) {
+            if (lineNr < 30) System.out.println("line: " + line);
+            if (lineNr++ <1) continue;
+            String[] spaces = line.split(",", -1);
+            String index = spaces[0].trim();
+            String amount = spaces[1].trim();
+            String name = spaces[2].trim();
+            if (amount.isEmpty()) continue;
+            if (!i.contains(index)) continue;
+            rewardAmount.add(amount);
+            rewardName.add(name);
+            // System.out.println(rewardAmount);
+            //System.out.println(rewardName);
+        }
+
+        System.out.println("NAVNE"+rewardName);
+        System.out.println("MÆNGDER"+rewardAmount);
+
+        appLogic.setTotalPrizes(Integer.parseInt(rewardAmount.get(0)));
+
+
+        ArrayList<Item> rewards = new ArrayList<>();
+        for (int j = 1; j < rewardName.size(); j++) {
+            Reward reward = new Reward(rewardName.get(j));
+            reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
+            rewards.add(reward);
+
+        }
+        appLogic.setRewards(rewards);
+        System.out.println("REWARDS"+appLogic.getRewards().toString());
+    }
 }
