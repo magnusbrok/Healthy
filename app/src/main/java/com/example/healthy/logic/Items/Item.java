@@ -1,5 +1,7 @@
 package com.example.healthy.logic.Items;
 
+import androidx.annotation.NonNull;
+
 public class Item {
 
     private String name;
@@ -27,5 +29,11 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name;
     }
 }
