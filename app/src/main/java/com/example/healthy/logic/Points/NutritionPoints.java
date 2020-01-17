@@ -43,9 +43,4 @@ public class NutritionPoints extends Points {
 
         }
     }
-
-    public int getPointIncrementer() {
-        return pointIncrementer;
-    }
-
 }
