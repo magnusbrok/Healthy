@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
@@ -37,6 +38,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_home_page, container, false);
+
 
         rewardButton = root.findViewById(R.id.homepage_reward);
         rewardButton.setOnClickListener(this);
