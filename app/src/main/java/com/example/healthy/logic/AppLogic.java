@@ -6,7 +6,6 @@ import com.example.healthy.logic.Points.ActivityPoints;
 import com.example.healthy.logic.Points.NutritionPoints;
 import com.example.healthy.logic.Points.RewardPoints;
 import com.example.healthy.logic.Points.SocialPoints;
-
 import java.util.ArrayList;
 
 public class AppLogic {
