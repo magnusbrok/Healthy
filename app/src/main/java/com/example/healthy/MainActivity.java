@@ -2,15 +2,8 @@ package com.example.healthy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.Reward.RewardPageFragment;
@@ -31,8 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -58,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.fragmentView, fragment).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
         }
 
         if (savedInstanceState ==  null) {
@@ -78,31 +68,31 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.activityPage:
                         if (savedInstanceState == null) {
                             final ActivityPageFragment fragment = new ActivityPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.nutriotionPage:
                         if (savedInstanceState == null) {
                             final NutritionPageFragment fragment = new NutritionPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.homePage:
                         if (savedInstanceState == null) {
                             final HomePageFragment fragment = new HomePageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.socialPage:
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
                         }
                         break;
                     case R.id.rewardPage:
                         if (savedInstanceState == null) {
                             final RewardPageFragment fragment = new RewardPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentView, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
                         }
                         break;
                 }

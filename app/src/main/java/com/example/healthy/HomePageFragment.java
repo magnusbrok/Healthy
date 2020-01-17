@@ -3,10 +3,7 @@ package com.example.healthy;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentController;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -19,17 +16,8 @@ import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.Reward.RewardPageFragment;
-import com.example.healthy.Social.SocialPageFragment;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
-import com.google.android.gms.dynamic.SupportFragmentWrapper;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
 
 
 /**
@@ -88,7 +76,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             final RewardPageFragment fragment = new RewardPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
+            transaction.replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null);
             transaction.commit();
         }
 
@@ -97,7 +85,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             final NutritionPageFragment fragment = new NutritionPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
+            transaction.replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null);
             transaction.commit();
 
         }
@@ -107,7 +95,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             final ActivityPageFragment fragment = new ActivityPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
+            transaction.replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null);
             transaction.commit();
         }
 
@@ -116,7 +104,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             final ActivityPageFragment fragment = new ActivityPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragmentView, fragment).addToBackStack(null);
+            transaction.replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null);
             transaction.commit();
         }
 

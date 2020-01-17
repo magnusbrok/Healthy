@@ -15,7 +15,7 @@ import com.example.healthy.R;
  */
 public class NutritionPageFragment extends Fragment{
 
-    FragmentTransaction fragmentTransaction;
+    private FragmentTransaction fragmentTransaction;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class NutritionPageFragment extends Fragment{
 
         if(savedInstanceState == null) {
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.FrameLayout ,new DayNutrition());
+            fragmentTransaction.replace(R.id.day_activty_framelayout,new DayNutrition());
             fragmentTransaction.commit();
 
             Bundle bundle = new Bundle();

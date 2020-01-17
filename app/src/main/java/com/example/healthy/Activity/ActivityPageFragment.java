@@ -31,7 +31,7 @@ public class ActivityPageFragment extends Fragment{
 
         if (savedInstanceState == null){
             fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.FrameLayout, new DayActivities())
+            fragmentTransaction.replace(R.id.day_activty_framelayout, new DayActivities())
                     .commit();
 
             Bundle bundle = new Bundle();

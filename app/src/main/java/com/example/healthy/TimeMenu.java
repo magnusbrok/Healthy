@@ -11,11 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.healthy.Activity.DayActivities;
-import com.example.healthy.Activity.MonthActivities;
-import com.example.healthy.Activity.WeekActivities;
 import com.example.healthy.Nutrition.*;
-import com.example.healthy.Nutrition.WeekNutrition;
-import com.example.healthy.R;
 
 public class TimeMenu extends Fragment implements View.OnClickListener {
 
@@ -48,12 +44,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         if (v == day){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayActivities())
+                        .replace(R.id.day_activty_framelayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayNutrition())
+                        .replace(R.id.day_activty_framelayout, new DayNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.BOLD);
@@ -63,12 +59,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         }else if (v == week){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayActivities())
+                        .replace(R.id.day_activty_framelayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayNutrition())
+                        .replace(R.id.day_activty_framelayout, new DayNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.NORMAL);
@@ -78,12 +74,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         }else if (v == month){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayActivities())
+                        .replace(R.id.day_activty_framelayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayNutrition())
+                        .replace(R.id.day_activty_framelayout, new DayNutrition())
                         .commit();
             }
 

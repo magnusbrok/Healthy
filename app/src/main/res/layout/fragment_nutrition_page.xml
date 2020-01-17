@@ -7,7 +7,7 @@
     tools:context=".Nutrition.NutritionPageFragment">
 
     <FrameLayout
-        android:id="@+id/frameLayoutNutrition"
+        android:id="@+id/nutrition_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/frameLayoutNutrition"
+        app:layout_constraintEnd_toEndOf="@+id/nutrition_frame_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
@@ -41,7 +41,7 @@
         android:gravity="center"
         android:text="Dag"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
+        app:layout_constraintBottom_toTopOf="@+id/nutrition_frame_layout"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -53,7 +53,7 @@
         android:gravity="center"
         android:text="Måned"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayoutNutrition"
+        app:layout_constraintBottom_toTopOf="@+id/nutrition_frame_layout"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -81,7 +81,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/log"
         app:layout_constraintStart_toEndOf="@id/goal"
-        app:layout_constraintTop_toBottomOf="@id/frameLayoutNutrition"
+        app:layout_constraintTop_toBottomOf="@id/nutrition_frame_layout"
         app:srcCompat="@drawable/nutrition_page_extra" />
 
     <TextView
@@ -94,7 +94,7 @@
         android:text="Mål"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
+        app:layout_constraintTop_toBottomOf="@+id/nutrition_frame_layout" />
 
     <TextView
         android:id="@+id/log"
@@ -106,6 +106,6 @@
         android:text="Log"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutNutrition" />
+        app:layout_constraintTop_toBottomOf="@+id/nutrition_frame_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@ import com.example.healthy.logic.AppLogic;
  */
 public class YourPrizePageFragment extends Fragment{
     AppLogic appLogic =  AppLogic.getInstance();
-    String [] namesOfPrizes= {"En blyant", "En fodbold", "Valgfrit frugt","En basketball", "..."};
+
     public YourPrizePageFragment() {
         // Required empty public constructor
     }
@@ -34,9 +34,12 @@ public class YourPrizePageFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.activity_your_prize_page, container, false);
-        ListAdapter listAdapter = new CustomAdapter(getActivity(), appLogic.getRewards() );
+
+        ListAdapter listAdapter = new CustomAdapter(getActivity(), appLogic.getUser().getRewardsWon());
         ListView listView = root.findViewById(R.id.listviewYourPrize);
         listView.setAdapter(listAdapter);
-        return root;
+
+
+    return root;
     }
 }
