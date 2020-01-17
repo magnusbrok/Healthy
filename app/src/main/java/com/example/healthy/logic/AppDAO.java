@@ -1,10 +1,7 @@
 package com.example.healthy.logic;
 
 import android.util.Log;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,7 +13,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,9 +28,6 @@ public class AppDAO {
     private static AppDAO instance = new AppDAO();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Gson gson = new Gson();
-    ArrayList<String> rewardAmount = new ArrayList<>();
-    ArrayList<String> rewardName = new ArrayList<>();
-    ArrayList<String> rewardsWon = new ArrayList<>();
 
 
     public static AppDAO getInstance() {
@@ -214,6 +207,8 @@ public class AppDAO {
     public void getAmountFromSheet (String i) throws Exception {
         String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
         int lineNr = 0;
+        ArrayList<String> rewardAmount = new ArrayList<>();
+        ArrayList<String> rewardName = new ArrayList<>();
 
         for (String line : data.split("\n")) {
             if (lineNr < 30) System.out.println("line: " + line);

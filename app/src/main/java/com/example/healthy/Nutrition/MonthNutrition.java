@@ -1,16 +1,12 @@
 package com.example.healthy.Nutrition;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.example.healthy.R;
-
 
 public class MonthNutrition extends Fragment {
     ImageView måned;
@@ -22,5 +18,4 @@ public class MonthNutrition extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
-
 }

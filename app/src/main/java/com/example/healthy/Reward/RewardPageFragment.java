@@ -2,34 +2,24 @@ package com.example.healthy.Reward;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Items.Item;
-import com.example.healthy.logic.Items.Reward;
 import com.example.healthy.logic.User;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
@@ -65,8 +55,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardView = root.findViewById(R.id.fragment_rewardpage_reward_list);
         appDAO.loadRewardsWon();
 
-
-
         new AsyncTask() {
 
             @Override
@@ -99,8 +87,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             }
         }.execute(100);
 
-
-
         seGevinster = root.findViewById(R.id.showRewardButton);
         seGevinster.setOnClickListener(this);
 
@@ -115,7 +101,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         nutritionSlice.setValue(appLogic.getNutritionPoints());
         //TODO: change this to appLogic.getSocialPoints() when it's implemented.
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
-
 
         rewardData.add(activitySlice);
         rewardData.add(nutritionSlice);
@@ -137,17 +122,13 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             getFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, yourPrizes).addToBackStack(null).commit();
             }
 
-
         if (v == buyPrize) {
 
             if (appLogic.canBuyPrize()) {
                 Item prize = appLogic.buyPrize();
-
                 User user = appLogic.getUser();
-
                 ArrayList<Item> addedRewards = new ArrayList<>();
                 addedRewards.add(prize);
-
 
                 if (user.getRewardsWon() != null) {
                     user.getRewardsWon().addAll(0,addedRewards);
@@ -166,7 +147,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void updateView() {
         rewardPoints.setText(""+ appLogic.getRewardPoints());
-
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
         //TODO: change this to appLogic.getSocialPoints() when it's implemented.
@@ -186,6 +166,5 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         PieChartData rewardPieData = new PieChartData(rewardData);
         rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
-
     }
 }

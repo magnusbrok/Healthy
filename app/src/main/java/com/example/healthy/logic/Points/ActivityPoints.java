@@ -6,12 +6,9 @@ public class ActivityPoints extends Points {
     private int steps;
     private int highIntensity;
 
-
     private int stepPointIncrementer = 50;
     private int floorPointIncrementer = 200;
     private int highIntensityIncrementer = 75;
-
-
 
     private int stepGoal = 25;
     private int floorGoal = 1;
@@ -24,9 +21,6 @@ public class ActivityPoints extends Points {
     private int endStepGoal;
     private int endHighIntensityGoal;
     private int endFloorGoal;
-
-
-
 
     public ActivityPoints(){
         // Generate step milestones with intervals of 2500
@@ -54,8 +48,6 @@ public class ActivityPoints extends Points {
         int points = computeStepPoints() + computeHighIntensityPoints() + computeFloorPoints();
 
         //Increments local points if steps taken are exceeds an milestone
-
-
         setPoints(points);
 
         int difference = points - currentPoints;
@@ -99,13 +91,11 @@ public class ActivityPoints extends Points {
                 points += stepPointIncrementer;
             }
         }
-
         return points;
     }
 
     public int computeHighIntensityPoints() {
         int points = 0;
-
         int min = highIntensity;
 
         for (int i = 0; i < highIntensityGoals.length; i++){
@@ -128,6 +118,11 @@ public class ActivityPoints extends Points {
         }
         return points;
 
+    }
+
+    public void addToHighIntensity(int minutes) {
+        highIntensity += minutes;
+        notifyChangeToObservers();
     }
 
     public int getStepGoal() {
@@ -170,16 +165,9 @@ public class ActivityPoints extends Points {
         this.highIntensityGoal = highIntensityGoal;
     }
 
-
-    public void addToHighIntensity(int minutes) {
-        highIntensity += minutes;
-        notifyChangeToObservers();
-    }
-
     public int getHighIntensity() {
         return highIntensity;
     }
-
 
     public int getEndStepGoal() {
         return endStepGoal;
@@ -204,5 +192,4 @@ public class ActivityPoints extends Points {
     public void setEndFloorGoal(int endFloorGoal) {
         this.endFloorGoal = endFloorGoal;
     }
-
 }

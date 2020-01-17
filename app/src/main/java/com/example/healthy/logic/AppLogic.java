@@ -1,14 +1,11 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
-import com.example.healthy.logic.Items.Food;
 import com.example.healthy.logic.Items.Item;
-import com.example.healthy.logic.Items.Reward;
 import com.example.healthy.logic.Points.ActivityPoints;
 import com.example.healthy.logic.Points.NutritionPoints;
 import com.example.healthy.logic.Points.RewardPoints;
 import com.example.healthy.logic.Points.SocialPoints;
-
 import java.util.ArrayList;
 
 public class AppLogic {
@@ -35,6 +32,33 @@ public class AppLogic {
         rewardPoints.addPoints(activityPointsIncrease, nutritionPointIncrease);
     }
 
+    public void addFoodToItemList(ArrayList<Item> addedFoodItems) {
+        nutritionPoints.addToFoodItemList(addedFoodItems);
+    }
+
+    public void attachObserverToActivityPoints(Observer observer){
+        activityPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToRewardPoints(Observer observer) {
+        rewardPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToNutritionPoints(Observer observer) {
+        nutritionPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToUser(Observer observer) {
+        user.attachObserver(observer);
+    }
+
+    public Item buyPrize() {
+        return rewardPoints.buyPrize();
+    }
+
+    public void addToHighIntensity(int minutes) {
+        activityPoints.addToHighIntensity(minutes);
+    }
 
     public int getSteps(){
             return activityPoints.getSteps();
@@ -69,30 +93,9 @@ public class AppLogic {
     }
 
     public boolean canBuyPrize() {
-        if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice()) {
+        if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice() && getRewards().size() != 0) {
             return true;
         } else return false;
-    }
-
-    public void attachObserverToActivityPoints(Observer observer){
-        activityPoints.attachObserver(observer);
-    }
-
-    public void attachObserverToRewardPoints(Observer observer) {
-        rewardPoints.attachObserver(observer);
-    }
-
-    public void attachObserverToNutritionPoints(Observer observer) {
-        nutritionPoints.attachObserver(observer);
-    }
-
-    public void attachObserverToUser(Observer observer) {
-        user.attachObserver(observer);
-    }
-
-
-    public Item buyPrize() {
-        return rewardPoints.buyPrize();
     }
 
     public int getStepGoal() {
@@ -105,10 +108,6 @@ public class AppLogic {
 
     public int getFloorGoal() {
         return activityPoints.getFloorGoal();
-    }
-
-    public void addToHighIntensity(int minutes) {
-        activityPoints.addToHighIntensity(minutes);
     }
 
     public int getHighIntensity() { return activityPoints.getHighIntensity();}
@@ -147,10 +146,6 @@ public class AppLogic {
 
     public void setTotalPrizes(int totalPrizes) {
         this.totalPrizes = totalPrizes;
-    }
-
-    public void addFoodToItemList(ArrayList<Item> addedFoodItems) {
-        nutritionPoints.addToFoodItemList(addedFoodItems);
     }
 
     public ArrayList<Item> getFoodItemList() {

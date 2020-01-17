@@ -4,19 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -62,4 +57,3 @@ public class CustomHorizontalRewardAdapter extends RecyclerView.Adapter<CustomHo
         }
     }
 }
-

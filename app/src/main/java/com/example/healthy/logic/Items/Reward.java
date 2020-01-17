@@ -21,7 +21,6 @@ public class Reward extends Item {
         this.amount = amount;
     }
 
-
     public int getPrice() {
         return price;
     }
@@ -31,8 +30,6 @@ public class Reward extends Item {
     }
 
     public void collectImageRes(){
-
-
         if (getName().equalsIgnoreCase("æble")) {
             setResID(R.drawable.reward_page_prize_fruit);
         }
