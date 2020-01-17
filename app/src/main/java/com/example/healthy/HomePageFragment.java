@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.crashlytics.android.Crashlytics;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
