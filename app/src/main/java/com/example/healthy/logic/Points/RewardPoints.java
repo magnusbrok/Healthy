@@ -11,7 +11,7 @@ import java.util.Random;
 public class RewardPoints extends Subject {
 
     private int rewardPoints = 0;
-    private Reward prize;
+    private Item prize;
     private final int prizePrice = 150;
     private ArrayList<Item> rewards = new ArrayList<>();
 
@@ -20,9 +20,9 @@ public class RewardPoints extends Subject {
         setRewardPoints(totalPoints);
     }
 
-    public Reward buyPrize() {
+    public Item buyPrize() {
         setRewardPoints(rewardPoints-prizePrice);
-        prize = (Reward) rewards.get(new Random().nextInt(rewards.size()));
+        prize = rewards.get(new Random().nextInt(rewards.size()));
         return prize;
     }
 
@@ -41,7 +41,7 @@ public class RewardPoints extends Subject {
     }
 
 
-    public Reward getPrize() {
+    public Item getPrize() {
         return prize;
     }
 

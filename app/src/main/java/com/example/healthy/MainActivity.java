@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomMenu;
     AppLogic appLogic = AppLogic.getInstance();
-
-    public static final String SHARED_PREFS = "shared_prefs";
-
-
     FirebaseFirestore db;
 
     @Override
@@ -112,31 +108,5 @@ public class MainActivity extends AppCompatActivity {
         bottomMenu.setSelectedItemId(itemId);
 
 
-    }
-
-    public void updateDatabase() {
-        db = FirebaseFirestore.getInstance();
-
-        // Add new user with points
-        Map<String, Object> newUser = new HashMap<>();
-        newUser.put ("Name", "Magnus");
-        newUser.put ("ActivityPoints", appLogic.getActivityPoints());
-        newUser.put ("RewardPoints", appLogic.getRewardPoints());
-        newUser.put ("NutritionPoints", 100);
-
-        db.collection("Brugere med point").document("1") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
-                .set(newUser)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(MainActivity.this, "Ny bruger er tilføjet", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("FEJL - brugeren blev ikke tilføjet", e.getMessage());
-                    }
-                });
     }
 }

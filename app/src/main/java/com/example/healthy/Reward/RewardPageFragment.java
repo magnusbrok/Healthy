@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.Items.Item;
 import com.example.healthy.logic.Items.Reward;
@@ -49,6 +50,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     ArrayList<String> rewardsWon = new ArrayList<>();
     LottieAnimationView loading;
     RecyclerView rewardView;
+    AppDAO appDAO = AppDAO.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,12 +58,16 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
         appLogic.attachObserverToRewardPoints(this);
+        appLogic.attachObserverToNutritionPoints(this);
+        appLogic.attachObserverToRewardPoints(this);
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
         rewardPoints.setText("" + appLogic.getRewardPoints());
         loading = root.findViewById(R.id.loadingAnimation);
         loading.bringToFront();
         rewardView = root.findViewById(R.id.fragment_rewardpage_reward_list);
+        appDAO.loadRewardsWon();
+
 
 
         new AsyncTask() {
@@ -142,13 +148,21 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         if (v == buyPrize) {
 
             if (appLogic.canBuyPrize()) {
-                Reward prize = appLogic.buyPrize();
+                Item prize = appLogic.buyPrize();
 
                 User user = appLogic.getUser();
 
-                ArrayList<Item> addedRewards = user.getRewardsWon();
-                addedRewards.add(0, prize);
-                user.setRewardsWon(addedRewards);
+                ArrayList<Item> addedRewards = new ArrayList<>();
+                addedRewards.add(prize);
+
+
+                if (user.getRewardsWon() != null) {
+                    user.getRewardsWon().addAll(0,addedRewards);
+                } else {
+                    user.setRewardsWon((addedRewards));
+                }
+
+                appDAO.updateRewardsWon();
 
                 Toast.makeText(getActivity(), "Du vandt: "+   prize.getName(), Toast.LENGTH_LONG).show();
 
@@ -219,8 +233,11 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         ArrayList<Item> rewards = new ArrayList<>();
         for (int j = 1; j < rewardName.size(); j++) {
-            Reward reward = new Reward(rewardName.get(j));
+            Reward reward = new Reward();
+            reward.setName(rewardName.get(j));
             reward.setAmount(Integer.parseInt((rewardAmount.get(j))));
+            reward.collectImageRes();
+
             rewards.add(reward);
 
         }

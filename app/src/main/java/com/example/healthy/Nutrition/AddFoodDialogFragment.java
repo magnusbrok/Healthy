@@ -104,6 +104,7 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             //appLogic.addFoodToList(addFood);
             appLogic.addFoodToItemList(addedFoodItems);
             appDAO.addFoodToLog();
+            appLogic.computePoints();
             getDialog().dismiss();
         }
     }
