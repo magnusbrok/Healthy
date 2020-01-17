@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         loading.bringToFront();
         rewardView = root.findViewById(R.id.fragment_rewardpage_reward_list);
         appDAO.loadRewardsWon();
+        final Handler toastHandler = new Handler();
 
         new AsyncTask() {
 
@@ -61,9 +64,17 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
             protected Object doInBackground(Object[] objects) {
                 try {
                     appDAO.getAmountFromSheet("123456789101112131415161718192021222324252627282930");
+                    System.out.println("Data hentet");
                     return "Mængderne blev hentet korrekt";
                 } catch (Exception e) {
                     e.printStackTrace();
+                    System.out.println("Data ikke hentet");
+                    toastHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_SHORT).show();
+                        }
+                    }, 100);
                     return "Mængderne blev ikke hentet korrekt";
                 }
             }
@@ -80,7 +91,6 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
                     RecyclerView recyclerView = root.findViewById(R.id.fragment_rewardpage_reward_list);
                     recyclerView.setAdapter(adapter);
                 } catch (Exception e) {
-                    Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
 
