@@ -26,6 +26,7 @@
             android:inputType="textMultiLine"
             android:text="Dine kostmål"
             android:textAlignment="center"
+            android:textColor="#111010"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -42,6 +43,7 @@
             android:lineSpacingExtra="@dimen/default_gap"
             android:text="Det er vigtigt for dig at spise sundt! \n Her er de kostråd som anbefales: "
             android:textAlignment="center"
+            android:textColor="#111010"
             android:textSize="18sp" />
 
         <TextView
@@ -50,9 +52,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:lineSpacingExtra="@dimen/default_gap"
             android:text="1. Det anbefales at spise 6 frugter eller grøntsager om dagen. "
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -62,6 +65,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="2. Spis fisk mindst to gange om ugen."
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -71,6 +75,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="3. Spist mindst 75 gram fuldkorn om dagen. "
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -80,6 +85,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="4. Spist magert kød og kødpålæg. "
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -89,6 +95,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="5. Vælg magre mejeriprodukter"
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -98,6 +105,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="6. Spis mindre mættet fedt"
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -107,6 +115,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="7. Spis mad med mindre salt. "
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -116,6 +125,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="8. Spis mindre sukker."
+            android:textColor="#111010"
             android:textSize="16dp" />
 
         <TextView
@@ -125,6 +135,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="@dimen/default_gap"
             android:text="9. Drik vand. "
+            android:textColor="#111010"
             android:textSize="16dp" />
     </LinearLayout>
 
