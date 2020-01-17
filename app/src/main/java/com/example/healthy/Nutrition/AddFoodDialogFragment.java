@@ -94,11 +94,6 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
             addedFoodItems.add(0, new Food(itemName, R.drawable.water_nutrition));
             Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_SHORT).show();
         }
-        else if (v == beverages){
-            itemName ="Drikkevarer";
-            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_beverage));
-            Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_SHORT).show();
-        }
         else if (v == meat){
             itemName ="Magert kød";
             addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_magertkoed));
