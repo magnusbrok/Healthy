@@ -197,8 +197,6 @@ public class AppDAO {
         });
     }
 
-     */
-
     //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
     public static String getUrl(String url) throws IOException {
         System.out.println("Henter data fra " + url);

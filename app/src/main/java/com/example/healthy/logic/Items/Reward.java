@@ -7,6 +7,12 @@ public class Reward extends Item {
     private int price;
     private int amount;
 
+    public Reward(String name) {
+        setName(name);
+        collectImageRes();
+
+    }
+
     public int getAmount() {
         return amount;
     }
