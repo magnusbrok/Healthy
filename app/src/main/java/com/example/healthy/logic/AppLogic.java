@@ -17,8 +17,9 @@ public class AppLogic {
     private User user = new User();
     private int totalPrizes;
 
-
     private static AppLogic instance = new AppLogic();
+
+    private AppLogic(){}
 
     public static AppLogic getInstance(){
             return instance;
