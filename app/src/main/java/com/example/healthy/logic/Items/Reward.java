@@ -8,8 +8,8 @@ public class Reward extends Item {
     private int amount;
 
     public Reward(String name) {
-        setName(name);
-        collectImageRes();
+        super(name);
+        collectImageRes(name);
 
     }
 
@@ -29,26 +29,26 @@ public class Reward extends Item {
         this.price = price;
     }
 
-    public void collectImageRes(){
-        if (getName().equalsIgnoreCase("æble")) {
+    public void collectImageRes(String name){
+        if (name.equalsIgnoreCase("æble")) {
             setResID(R.drawable.reward_page_prize_fruit);
         }
-        if (getName().equalsIgnoreCase("telefon")) {
+        if (name.equalsIgnoreCase("telefon")) {
             setResID(R.drawable.reward_page_prize_phone);
         }
-        if (getName().equalsIgnoreCase("basketbold")) {
+        if (name.equalsIgnoreCase("basketbold")) {
             setResID(R.drawable.reward_page_your_prize_basketball);
         }
-        if (getName().equalsIgnoreCase("gavekort")) {
+        if (name.equalsIgnoreCase("gavekort")) {
             setResID(R.drawable.reward_page_your_prize_giftcard);
         }
-        if (getName().equalsIgnoreCase("peanut")) {
+        if (name.equalsIgnoreCase("peanut")) {
             setResID(R.drawable.reward_page_your_prize_peanut);
         }
-        if (getName().equalsIgnoreCase("blyant")) {
+        if (name.equalsIgnoreCase("blyant")) {
             setResID(R.drawable.reward_page_your_prize_pencil);
         }
-        if (getName().equalsIgnoreCase("fodbold")) {
+        if (name.equalsIgnoreCase("fodbold")) {
             setResID(R.drawable.reward_page_prize_football);
         }
     }

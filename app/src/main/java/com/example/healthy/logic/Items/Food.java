@@ -7,7 +7,7 @@ public class Food extends Item {
         setResID(resID);
     }
 
-    public Food(){
-        super();
-    }
+//    public Food(){
+//        super();
+//    }
 }
