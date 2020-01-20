@@ -17,15 +17,6 @@ public class NutritionPoints extends Points {
         return diff;
     }
 
-//    public int getPoints() {
-//        return  points;
-//    }
-
-//    public void setPoints(int points) {
-//        this.points = points;
-//        notifyChangeToObservers();
-//    }
-
     public void setFoodItemList(ArrayList<Item> foodItemList) {
         this.foodItemList = foodItemList;
     }

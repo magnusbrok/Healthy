@@ -17,7 +17,7 @@ public class PointsJUnitTest {
     public void computeStepPointTest(){
 
         ActivityPoints activityPoints = new ActivityPoints();
-        int milestone = activityPoints.getStepGoal();
+        int milestone = activityPoints.getStepMilestone();
         int incrementer = activityPoints.getStepPointIncrementer();
         int steps = 15;
 
@@ -36,7 +36,7 @@ public class PointsJUnitTest {
     @Test
     public void computeHIPointsTest(){
         ActivityPoints activityPoints = new ActivityPoints();
-        int milestone = activityPoints.getHighIntensityGoal();
+        int milestone = activityPoints.getHighIntensityMilestone();
         int incrementer = activityPoints.getHighIntensityIncrementer();
         int highIntensity = 15;
 
