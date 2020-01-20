@@ -14,11 +14,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Nutrition.GoalsNutrition"></activity>
-        <activity android:name=".LogInActivity">
+        <activity android:name=".LogInActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +30,14 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".SettingsPage" />
-        <activity android:name=".Nutrition.LogHistory" />
-        <activity android:name=".TopMenu" />
-        <activity android:name=".ProfilePage" />
+        <activity android:name=".SettingsPage"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Nutrition.LogHistory"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TopMenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProfilePage"
+            android:screenOrientation="portrait"/>
 
         <service android:name=".SensorService" />
 
