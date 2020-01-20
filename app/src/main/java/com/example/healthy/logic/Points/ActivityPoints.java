@@ -2,7 +2,6 @@ package com.example.healthy.logic.Points;
 
 public class ActivityPoints extends Points {
 
-    private int points;
     private int steps;
     private int highIntensity;
 
@@ -43,28 +42,23 @@ public class ActivityPoints extends Points {
     @Override
     public int computePoints(){
 
-        int currentPoints = points;
-
         int points = computeStepPoints() + computeHighIntensityPoints() + computeFloorPoints();
 
-        //Increments local points if steps taken are exceeds an milestone
-        setPoints(points);
-
-        int difference = points - currentPoints;
+        int difference = computeDifference(points);
 
         return (difference);
     }
 
     //getters and setters
+//
+//    public int getPoints() {
+//        return points;
+//    }
 
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-        notifyChangeToObservers();
-    }
+//    public void setPoints(int points) {
+//        this.points = points;
+//        notifyChangeToObservers();
+//    }
 
     public int getSteps() {
         return steps;

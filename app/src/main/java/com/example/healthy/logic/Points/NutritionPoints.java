@@ -5,27 +5,26 @@ import java.util.ArrayList;
 
 public class NutritionPoints extends Points {
 
-    private int points;
     private ArrayList<Item> foodItemList = new ArrayList<>();
     private int pointIncrementer = 5;
 
     @Override
     public int computePoints(){
-        int currentPoints = points;
-        points = foodItemList.size()*pointIncrementer;
-        setPoints(points);
-        int diff = points - currentPoints;
-        return (diff);
+        int points = foodItemList.size()*pointIncrementer;
+
+        int diff = computeDifference(points);
+
+        return diff;
     }
 
-    public int getPoints() {
-        return  points;
-    }
+//    public int getPoints() {
+//        return  points;
+//    }
 
-    public void setPoints(int points) {
-        this.points = points;
-        notifyChangeToObservers();
-    }
+//    public void setPoints(int points) {
+//        this.points = points;
+//        notifyChangeToObservers();
+//    }
 
     public void setFoodItemList(ArrayList<Item> foodItemList) {
         this.foodItemList = foodItemList;
