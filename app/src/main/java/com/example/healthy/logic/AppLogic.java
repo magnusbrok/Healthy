@@ -99,15 +99,15 @@ public class AppLogic {
     }
 
     public int getStepGoal() {
-        return activityPoints.getStepGoal();
+        return activityPoints.getStepMilestone();
     }
 
     public int getHighIntensityGoal() {
-        return activityPoints.getHighIntensityGoal();
+        return activityPoints.getHighIntensityMilestone();
     }
 
     public int getFloorGoal() {
-        return activityPoints.getFloorGoal();
+        return activityPoints.getFloorMilestone();
     }
 
     public int getHighIntensity() { return activityPoints.getHighIntensity();}
