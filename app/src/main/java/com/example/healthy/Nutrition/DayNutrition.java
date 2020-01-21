@@ -20,7 +20,6 @@ import lecho.lib.hellocharts.view.PieChartView;
 
 public class DayNutrition extends Fragment implements View.OnClickListener, Observer {
 
-    private PieChartView nutritionPie;
     private List<SliceValue> nutritionData = new ArrayList<>();
     private TextView goals, history, day_points;
     private FloatingActionButton addFood;
@@ -30,8 +29,8 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_day_nutrition, container, false);
-        // Snuppet fra activity
-        nutritionPie = root.findViewById(R.id.pieChartView_nutritionDay);
+        // Copied from activityPage
+        PieChartView nutritionPie = root.findViewById(R.id.pieChartView_nutritionDay);
         goals = root.findViewById(R.id.textView_nutritionDay_goals);
         history = root.findViewById(R.id.textView_nutritionDay_log);
         addFood = root.findViewById(R.id.floatingActionButton_nutritionDay_addFood);

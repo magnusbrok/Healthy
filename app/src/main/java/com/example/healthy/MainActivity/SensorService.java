@@ -23,7 +23,6 @@ import com.example.healthy.logic.AppLogic;
 import java.util.Calendar;
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;
 
-
 public class SensorService extends Service implements SensorEventListener {
 
     public static final String SHARED_PREFS = "shared_prefs";

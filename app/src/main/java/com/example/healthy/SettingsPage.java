@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 public class SettingsPage extends AppCompatActivity implements View.OnClickListener {
 
     ImageView profileTab;
@@ -29,7 +30,9 @@ public class SettingsPage extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, ProfilePage.class);
             startActivity(intent);
         } else if (v == backToMain) {
-            finish();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     }
 }

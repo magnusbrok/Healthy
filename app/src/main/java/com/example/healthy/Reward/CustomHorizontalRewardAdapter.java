@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class CustomHorizontalRewardAdapter extends RecyclerView.Adapter<CustomHorizontalRewardAdapter.RewardViewHolder> {
     Context mContext;
-    ArrayList<Item> mRewards;
+    private ArrayList<Item> mRewards;
 
     public CustomHorizontalRewardAdapter(Context context, ArrayList<Item> rewards) {
         mContext = context;
@@ -28,8 +28,7 @@ public class CustomHorizontalRewardAdapter extends RecyclerView.Adapter<CustomHo
     @Override
     public RewardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_custom_list_item, parent, false);
-        RewardViewHolder viewHolder = new RewardViewHolder(view);
-        return viewHolder;
+        return new RewardViewHolder(view);
     }
 
     @Override
@@ -47,13 +46,12 @@ public class CustomHorizontalRewardAdapter extends RecyclerView.Adapter<CustomHo
     public class RewardViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
-        private Context mContext;
 
         public RewardViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.custom_horizontal_image);
             textView = itemView.findViewById(R.id.custom_horizontal_list_tv);
-            mContext = itemView.getContext();
+            Context mContext = itemView.getContext();
         }
     }
 }

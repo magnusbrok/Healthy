@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 
@@ -15,11 +14,7 @@ import com.example.healthy.logic.AppLogic;
  * A simple {@link Fragment} subclass.
  */
 public class YourPrizePageFragment extends Fragment{
-    AppLogic appLogic =  AppLogic.getInstance();
-
-    public YourPrizePageFragment() {
-        // Required empty public constructor
-    }
+    private AppLogic appLogic =  AppLogic.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

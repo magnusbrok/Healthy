@@ -12,8 +12,8 @@ import com.example.healthy.Nutrition.*;
 
 public class TimeMenu extends Fragment implements View.OnClickListener {
 
-    TextView day, week, month;
-    String page;
+    private TextView day, week, month;
+    private String page;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

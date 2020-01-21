@@ -26,8 +26,8 @@ public class AppDAO {
 
     private static AppLogic appLogic = AppLogic.getInstance();
     private static AppDAO instance = new AppDAO();
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    Gson gson = new Gson();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private Gson gson = new Gson();
 
 
     public static AppDAO getInstance() {
@@ -63,7 +63,7 @@ public class AppDAO {
 
     public void addFoodToLog() {
         Map<String, Object> updateFoodLog = new HashMap<>();
-        // TODO use appLogic.getFoodItemList()
+        // this should use appLogic.getFoodItemList()
         ArrayList<Item> newFoodList = appLogic.getFoodItemList();
         String gsonString = gson.toJson(newFoodList);
         if (!gsonString.equals("")) {
@@ -143,7 +143,7 @@ public class AppDAO {
 
     public void updateRewardsWon() {
         Map<String, Object> updateRewardsWon = new HashMap<>();
-        // TODO use appLogic.getFoodItemList()
+        // this should use appLogic.getFoodItemList()
         ArrayList<Item> rewardsWon = appLogic.getUser().getRewardsWon();
         String gsonString = gson.toJson(rewardsWon);
         if (!gsonString.equals("")) {

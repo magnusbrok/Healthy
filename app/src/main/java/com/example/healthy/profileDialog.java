@@ -1,15 +1,14 @@
 package com.example.healthy;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 import com.example.healthy.logic.User;
@@ -17,10 +16,10 @@ import com.example.healthy.logic.User;
 public class profileDialog extends DialogFragment implements View.OnClickListener {
 
     private Button saveEdits;
-    EditText name, age, email, school, year;
-    AppLogic appLogic = AppLogic.getInstance();
-    AppDAO appDAO = AppDAO.getInstance();
-    User user;
+    private EditText name, age, email, school, year;
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
+    private User user;
 
     @Nullable
     @Override

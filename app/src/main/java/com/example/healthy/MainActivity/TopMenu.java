@@ -14,7 +14,7 @@ import com.example.healthy.SettingsPage;
 
 public class TopMenu extends Fragment implements View.OnClickListener {
 
-    ImageView profileTab, settingsTab;
+    private ImageView profileTab, settingsTab;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

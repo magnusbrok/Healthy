@@ -21,13 +21,13 @@ import lecho.lib.hellocharts.view.PieChartView;
 
 public class DayActivities extends Fragment implements Observer, View.OnClickListener, NumberPicker.OnValueChangeListener {
 
-    PieChartView activityPie;
+    private PieChartView activityPie;
     private SliceValue HISlice ,stepSlice, floorSlice;
-    TextView points, tvStepProgress, tvHIProgress, tvFloorProgress;
-    AppLogic appLogic = AppLogic.getInstance();
-    List<SliceValue> activityData = new ArrayList<>();
-    ProgressBar stepProgress, floorProgress, highIntensityProgress;
-    FloatingActionButton addHi;
+    private TextView points, tvStepProgress, tvHIProgress, tvFloorProgress;
+    private AppLogic appLogic = AppLogic.getInstance();
+    private List<SliceValue> activityData = new ArrayList<>();
+    private ProgressBar stepProgress, floorProgress, highIntensityProgress;
+    private FloatingActionButton addHi;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -143,7 +143,7 @@ public class DayActivities extends Fragment implements Observer, View.OnClickLis
 
     }
 
-    public void showNumberPicker(){
+    private void showNumberPicker(){
         NumberPickerDialog newFragment = new NumberPickerDialog();
         newFragment.setValueChangeListener(this);
         newFragment.show(getActivity().getSupportFragmentManager(), "time picker");

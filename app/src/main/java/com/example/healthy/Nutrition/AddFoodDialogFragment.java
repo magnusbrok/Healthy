@@ -19,10 +19,10 @@ import java.util.ArrayList;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water, meat, doneButton;
-    ArrayList<Item> addedFoodItems = new ArrayList<>();
-    AppLogic appLogic = AppLogic.getInstance();
-    AppDAO appDAO = AppDAO.getInstance();
+    private ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water, meat, doneButton;
+    private ArrayList<Item> addedFoodItems = new ArrayList<>();
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

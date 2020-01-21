@@ -14,6 +14,7 @@ import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.Reward.RewardPageFragment;
+import com.example.healthy.Social.SocialPageFragment;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
 
@@ -25,8 +26,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     private ImageButton activityButton, rewardButton, socialButton, nutritionButton;
     private TextView activityPoints, rewardPoints, nutritionPoints;
 
-    AppLogic appLogic = AppLogic.getInstance();
-    AppDAO appDAO = AppDAO.getInstance();
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,7 +65,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         MainActivity bottomMenu = (MainActivity) getActivity();
 
         if (v == rewardButton) {
-
             bottomMenu.changeMenu(R.id.rewardPage);
 
             final RewardPageFragment fragment = new RewardPageFragment();
@@ -95,7 +95,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         if (v == socialButton) {
             bottomMenu.changeMenu(R.id.socialPage);
 
-            final ActivityPageFragment fragment = new ActivityPageFragment();
+            final SocialPageFragment fragment = new SocialPageFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null);
             transaction.commit();

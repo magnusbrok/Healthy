@@ -14,8 +14,6 @@ import com.example.healthy.TimeMenu;
  */
 public class ActivityPageFragment extends Fragment{
 
-    FragmentTransaction fragmentTransaction;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,7 +21,7 @@ public class ActivityPageFragment extends Fragment{
         View root = inflater.inflate(R.layout.fragment_activity_page, container, false);
 
         if (savedInstanceState == null){
-            fragmentTransaction = getFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.day_activty_framelayout, new DayActivities())
                     .commit();
 

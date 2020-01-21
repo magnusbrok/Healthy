@@ -94,9 +94,7 @@ public class AppLogic {
     }
 
     public boolean canBuyPrize() {
-        if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice() && getRewards().size() != 0) {
-            return true;
-        } else return false;
+        return rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice() && getRewards().size() != 0;
     }
 
     public int getStepGoal() {

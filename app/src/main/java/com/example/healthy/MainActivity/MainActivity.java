@@ -14,8 +14,6 @@ import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomMenu;
