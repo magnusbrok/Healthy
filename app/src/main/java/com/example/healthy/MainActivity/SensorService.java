@@ -16,8 +16,6 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
-
-import com.example.healthy.MainActivity.MainActivity;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import java.util.Calendar;

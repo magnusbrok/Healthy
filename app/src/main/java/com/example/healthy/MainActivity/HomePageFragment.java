@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.healthy.Activity.ActivityPageFragment;
-import com.example.healthy.MainActivity.MainActivity;
 import com.example.healthy.Nutrition.NutritionPageFragment;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
