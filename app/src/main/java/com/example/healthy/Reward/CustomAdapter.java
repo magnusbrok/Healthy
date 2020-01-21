@@ -32,4 +32,3 @@ public class CustomAdapter extends ArrayAdapter<Item> {
         return customView;
     }
 }
-
