@@ -50,7 +50,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
     private boolean validate(String username, String password){
 
-        // TODO method for database communication?
+        //method for authentication using the database, this has not been implemented at this release.
 
         return true;
     }

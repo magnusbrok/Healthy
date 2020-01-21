@@ -30,15 +30,15 @@ import lecho.lib.hellocharts.view.PieChartView;
  * A simple {@link Fragment} subclass.
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
-    Button seGevinster, buyPrize;
-    TextView rewardPoints;
-    AppLogic appLogic = AppLogic.getInstance();
-    AppDAO appDAO = AppDAO.getInstance();
-    PieChartView rewardPie;
+    private Button seGevinster, buyPrize;
+    private TextView rewardPoints;
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
+    private PieChartView rewardPie;
 
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
-    List<SliceValue> rewardData = new ArrayList<>();
-    LottieAnimationView loading;
+    private List<SliceValue> rewardData = new ArrayList<>();
+    private LottieAnimationView loading;
     RecyclerView rewardView;
 
     @Override
@@ -109,7 +109,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
-        //TODO: change this to appLogic.getSocialPoints() when it's implemented.
+        //This should have used socialPoints, but it was discarded for this release
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
 
         rewardData.add(activitySlice);
@@ -159,7 +159,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardPoints.setText(""+ appLogic.getRewardPoints());
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
-        //TODO: change this to appLogic.getSocialPoints() when it's implemented.
+        //This should have used socialPoints, but it was discarded for this release
         soicalSlice.setValue(appLogic.getHighIntensityPoints()/2);
 
         if (appLogic.getRewardPoints() == 0) {

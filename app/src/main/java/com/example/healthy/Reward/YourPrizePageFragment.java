@@ -15,7 +15,7 @@ import com.example.healthy.logic.AppLogic;
  * A simple {@link Fragment} subclass.
  */
 public class YourPrizePageFragment extends Fragment{
-    AppLogic appLogic =  AppLogic.getInstance();
+    private AppLogic appLogic =  AppLogic.getInstance();
 
     public YourPrizePageFragment() {
         // Required empty public constructor

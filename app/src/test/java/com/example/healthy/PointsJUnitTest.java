@@ -4,11 +4,8 @@ package com.example.healthy;
         import com.example.healthy.logic.Items.Item;
         import com.example.healthy.logic.Points.ActivityPoints;
         import com.example.healthy.logic.Points.NutritionPoints;
-
         import org.junit.Test;
-
         import java.util.ArrayList;
-
         import static org.junit.Assert.*;
 
 public class PointsJUnitTest {

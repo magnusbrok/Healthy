@@ -23,8 +23,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     private ImageButton activityButton, rewardButton, socialButton, nutritionButton;
     private TextView activityPoints, rewardPoints, nutritionPoints;
 
-    AppLogic appLogic = AppLogic.getInstance();
-    AppDAO appDAO = AppDAO.getInstance();
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
