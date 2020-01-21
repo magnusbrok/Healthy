@@ -73,5 +73,8 @@ public class Reward extends Item {
         if (name.equalsIgnoreCase("smoothie")) {
             setResID(R.drawable.smoothie);
         }
+        if (name.equalsIgnoreCase("telefon")) {
+            setResID(R.drawable.reward_page_prize_phone);
+        }
     }
 }
