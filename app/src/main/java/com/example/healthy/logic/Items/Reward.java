@@ -30,13 +30,31 @@ public class Reward extends Item {
     }
 
     private void collectImageRes(String name){
-
+        if (name.equalsIgnoreCase("æble")) {
+            setResID(R.drawable.reward_page_prize_fruit);
+        }
+        if (name.equalsIgnoreCase("telefon")) {
+            setResID(R.drawable.reward_page_prize_phone);
+        }
         if (name.equalsIgnoreCase("basketbold")) {
             setResID(R.drawable.basketball);
+        }
+        if (name.equalsIgnoreCase("gavekort")) {
+            setResID(R.drawable.reward_page_your_prize_giftcard);
+        }
+        if (name.equalsIgnoreCase("peanut")) {
+            setResID(R.drawable.reward_page_your_prize_peanut);
+        }
+        if (name.equalsIgnoreCase("blyant")) {
+            setResID(R.drawable.reward_page_your_prize_pencil);
         }
         if (name.equalsIgnoreCase("fodbold")) {
             setResID(R.drawable.fodbold);
         }
+
+        /*
+
+        // Opdateret præmie-liste
         if (name.equalsIgnoreCase("drikkedunk")) {
             setResID(R.drawable.drikkedunk);
         }
@@ -73,8 +91,13 @@ public class Reward extends Item {
         if (name.equalsIgnoreCase("smoothie")) {
             setResID(R.drawable.smoothie);
         }
+<<<<<<< HEAD
         if (name.equalsIgnoreCase("telefon")) {
             setResID(R.drawable.reward_page_prize_phone);
         }
+=======
+
+         */
+>>>>>>> parent of 9df19ca... Update Reward.java
     }
 }
