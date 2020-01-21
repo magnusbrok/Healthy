@@ -1,4 +1,4 @@
-package com.example.healthy;
+package com.example.healthy.MainActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.example.healthy.Activity.ActivityPageFragment;
 import com.example.healthy.Nutrition.NutritionPageFragment;
+import com.example.healthy.R;
 import com.example.healthy.Reward.RewardPageFragment;
 import com.example.healthy.Social.SocialPageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

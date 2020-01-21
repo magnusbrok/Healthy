@@ -1,4 +1,4 @@
-package com.example.healthy;
+package com.example.healthy.MainActivity;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -16,6 +16,9 @@ import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
+
+import com.example.healthy.MainActivity.MainActivity;
+import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
 import java.util.Calendar;
 import static android.hardware.Sensor.TYPE_STEP_COUNTER;

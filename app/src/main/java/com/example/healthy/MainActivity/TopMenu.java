@@ -1,4 +1,4 @@
-package com.example.healthy;
+package com.example.healthy.MainActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.healthy.ProfilePage;
+import com.example.healthy.R;
+import com.example.healthy.SettingsPage;
 
 public class TopMenu extends Fragment implements View.OnClickListener {
 
