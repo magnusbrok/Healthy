@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.healthy.MainActivity.MainActivity;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
