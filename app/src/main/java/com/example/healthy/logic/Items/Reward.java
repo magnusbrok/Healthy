@@ -52,13 +52,8 @@ public class Reward extends Item {
             setResID(R.drawable.fodbold);
         }
 
+        /*
 
-
-
-
-
-
-        
         // Opdateret præmie-liste
         if (name.equalsIgnoreCase("drikkedunk")) {
             setResID(R.drawable.drikkedunk);
@@ -96,5 +91,7 @@ public class Reward extends Item {
         if (name.equalsIgnoreCase("smoothie")) {
             setResID(R.drawable.smoothie);
         }
+
+         */
     }
 }
