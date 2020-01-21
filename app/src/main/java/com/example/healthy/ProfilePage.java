@@ -59,7 +59,9 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
             Intent intent = new Intent(this, SettingsPage.class);
             startActivity(intent);
         } else if (v == backToMain) {
-            finish();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     }
 
