@@ -71,8 +71,8 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
         user = appLogic.getUser();
         name.setText("Navn: " + user.getName());
         age.setText("Alder: "+user.getAge());
-        email.setText("Email: "+user.getMail());
-        year.setText("År: "+user.getYear());
+        email.setText("E-mail: "+user.getMail());
+        year.setText("Årgang: "+user.getYear());
         school.setText("Skole: "+user.getSchool());
     }
 }
