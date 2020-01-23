@@ -23,25 +23,27 @@
         android:layout_width="345dp"
         android:layout_height="53dp"
         android:layout_marginTop="76dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="28dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:text="Historik "
+        android:textColor="#070707"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/doneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Button"
+        android:layout_width="108dp"
+        android:layout_height="91dp"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addedFoodList" />
+        app:layout_constraintTop_toBottomOf="@+id/addedFoodList"
+        app:srcCompat="@drawable/check_mark_history" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

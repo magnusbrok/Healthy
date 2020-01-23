@@ -3,32 +3,26 @@ package com.example.healthy.Nutrition;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-
 import com.example.healthy.R;
+import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.healthy.logic.Items.Food;
+import com.example.healthy.logic.Items.Item;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AddFoodDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water,beverages, meat, doneButton;
-    ArrayList<String> addFood = new ArrayList<>();
-    AppLogic appLogic = AppLogic.getInstance();
-    FirebaseFirestore db;
+    private ImageButton fruitsAndVeggies, fish, wholemeal, dairy, water, meat, doneButton;
+    private ArrayList<Item> addedFoodItems = new ArrayList<>();
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,74 +49,51 @@ public class AddFoodDialogFragment extends DialogFragment implements View.OnClic
         doneButton = v.findViewById(R.id.doneButton);
         doneButton.setOnClickListener(this);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        
         return v;
     }
 
     @Override
     public void onClick(View v) {
+        String itemName;
+
         if (v == fruitsAndVeggies) {
-            String fruitsAndVeggies = "Frugt og grønt";
-            addFood.add(fruitsAndVeggies);
+            itemName = "Frugt og grønt";
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_fruitsandveggies));
             Toast.makeText(getActivity(), "Der er nu tilføjet Frugt og Grønt!", Toast.LENGTH_SHORT).show();
         }
         else if (v == fish){
-            String fish = "Fisk" ;
-            addFood.add(fish);
+            itemName = "Fisk" ;
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutritionpage_fish));
             Toast.makeText(getActivity(), "Der er nu tilføjet Fisk!", Toast.LENGTH_SHORT).show();
 
         }
         else if (v == wholemeal){
-            String wholemeal = "Fuldkorn" ;
-            addFood.add(wholemeal);
+            itemName = "Fuldkorn" ;
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_fuldkorn));
             Toast.makeText(getActivity(), "Der er nu tilføjet Fuldkorn!", Toast.LENGTH_SHORT).show();
         }
         else if (v== dairy){
-            String dairy = "Mejeri";
-            addFood.add(dairy);
+            itemName = "Mejeri";
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_mejeri));
             Toast.makeText(getActivity(), "Der er nu tilføjet Mejeri!", Toast.LENGTH_SHORT).show();
         }
         else if (v == water){
-            String water ="Vand";
-            addFood.add(water);
+            itemName ="Vand";
+            addedFoodItems.add(0, new Food(itemName, R.drawable.water_nutrition));
             Toast.makeText(getActivity(), "Der er nu tilføjet Vand!", Toast.LENGTH_SHORT).show();
         }
-        else if (v == beverages){
-            String drikkevarer ="Drikkevarer";
-            addFood.add(drikkevarer);
-            Toast.makeText(getActivity(), "Der er nu tilføjet Drikkevarer!", Toast.LENGTH_SHORT).show();
-        }
         else if (v == meat){
-            String meat ="Magert kød";
-            addFood.add(meat);
+            itemName ="Magert kød";
+            addedFoodItems.add(0, new Food(itemName, R.drawable.nutrition_page_magertkoed));
             Toast.makeText(getActivity(), "Der er nu tilføjet Magert kød!", Toast.LENGTH_SHORT).show();
         }
 
         else if (v == doneButton){
-            appLogic.addFoodToList(addFood);
-            updateDatabase();
+            //appLogic.addFoodToList(addFood);
+            appLogic.addFoodToItemList(addedFoodItems);
+            appDAO.addFoodToLog();
+            appLogic.computePoints();
             getDialog().dismiss();
         }
     }
-
-    public void updateDatabase() {
-        db = FirebaseFirestore.getInstance();
-
-        Map<String, Object> updateUser = new HashMap<>();
-        updateUser.put("Food added", appLogic.getFoodList());
-
-        db.collection("Brugere med point").document("1").collection("FoodLog").document("2") // This is the ID of the document in the db. (Could be nothing - then it generates a random and unique ID)
-                .set(updateUser)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("FEJL - redigeringerne blev ikke gemt", e.getMessage());
-                    }
-                });
-    }
-    }
+}

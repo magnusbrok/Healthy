@@ -1,35 +1,35 @@
 package com.example.healthy;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.healthy.MainActivity.MainActivity;
+import com.example.healthy.ObserverPattern.Observer;
+import com.example.healthy.logic.AppDAO;
+import com.example.healthy.logic.AppLogic;
+import com.example.healthy.logic.User;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+public class ProfilePage extends AppCompatActivity implements View.OnClickListener, Observer {
 
-public class ProfilePage extends AppCompatActivity implements View.OnClickListener {
-
+    AppLogic appLogic = AppLogic.getInstance();
+    AppDAO appDAO = AppDAO.getInstance();
     ImageView settingsTab;
     Button editProfile, backToMain, addEmail;
     public TextView name, age, school, email, year;
+    User user = appLogic.getUser();
 
-    FirebaseFirestore db;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
+        appLogic.attachObserverToUser(this);
 
-        readUser();
+        appDAO.getUser();
+
 
         settingsTab = findViewById(R.id.settingsTab);
         settingsTab.setOnClickListener(this);
@@ -50,6 +50,8 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
                 dialog.show(getSupportFragmentManager(), "profileDialog");
             }
         });
+
+        updateView();
     }
 
     @Override
@@ -58,36 +60,19 @@ public class ProfilePage extends AppCompatActivity implements View.OnClickListen
             Intent intent = new Intent(this, SettingsPage.class);
             startActivity(intent);
         } else if (v == backToMain) {
-            finish();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     }
 
-    private void readUser () {
-        db = FirebaseFirestore.getInstance();
-        DocumentReference user = db.collection("Brugere med point").document("1").collection("Rediger profil").document("1");
-        user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful())
-                {
-                    DocumentSnapshot doc = task.getResult();
-                    StringBuilder navn = new StringBuilder();
-                    StringBuilder alder = new StringBuilder();
-                    StringBuilder mail = new StringBuilder();
-                    StringBuilder årgang = new StringBuilder();
-                    StringBuilder skole = new StringBuilder();
-                    navn.append("Navn: ").append(doc.getString("Name"));
-                    alder.append("Alder: ").append(doc.get("Age"));
-                    mail.append("Email: ").append(doc.get("Email"));
-                    årgang.append("Årgang: ").append(doc.get("Year"));
-                    skole.append("Skole: ").append(doc.get("School"));
-                    name.setText(navn.toString());
-                    age.setText(alder.toString());
-                    email.setText(mail.toString());
-                    year.setText(årgang.toString());
-                    school.setText(skole.toString());
-                }
-            }
-        });
+    @Override
+    public void updateView() {
+        user = appLogic.getUser();
+        name.setText("Navn: " + user.getName());
+        age.setText("Alder: "+user.getAge());
+        email.setText("E-mail: "+user.getMail());
+        year.setText("Årgang: "+user.getYear());
+        school.setText("Skole: "+user.getSchool());
     }
 }

@@ -1,7 +1,11 @@
 package com.example.healthy.logic;
 
 import com.example.healthy.ObserverPattern.Observer;
-
+import com.example.healthy.logic.Items.Item;
+import com.example.healthy.logic.Points.ActivityPoints;
+import com.example.healthy.logic.Points.NutritionPoints;
+import com.example.healthy.logic.Points.RewardPoints;
+import com.example.healthy.logic.Points.SocialPoints;
 import java.util.ArrayList;
 
 public class AppLogic {
@@ -10,10 +14,12 @@ public class AppLogic {
     private NutritionPoints nutritionPoints = new NutritionPoints();
     private SocialPoints socialPoints = new SocialPoints();
     private RewardPoints rewardPoints = new RewardPoints();
-
-    private double altitude;
+    private User user = new User();
+    private int totalPrizes;
 
     private static AppLogic instance = new AppLogic();
+
+    private AppLogic(){}
 
     public static AppLogic getInstance(){
             return instance;
@@ -27,6 +33,33 @@ public class AppLogic {
         rewardPoints.addPoints(activityPointsIncrease, nutritionPointIncrease);
     }
 
+    public void addFoodToItemList(ArrayList<Item> addedFoodItems) {
+        nutritionPoints.addToFoodItemList(addedFoodItems);
+    }
+
+    public void attachObserverToActivityPoints(Observer observer){
+        activityPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToRewardPoints(Observer observer) {
+        rewardPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToNutritionPoints(Observer observer) {
+        nutritionPoints.attachObserver(observer);
+    }
+
+    public void attachObserverToUser(Observer observer) {
+        user.attachObserver(observer);
+    }
+
+    public Item buyPrize() {
+        return rewardPoints.buyPrize();
+    }
+
+    public void addToHighIntensity(int minutes) {
+        activityPoints.addToHighIntensity(minutes);
+    }
 
     public int getSteps(){
             return activityPoints.getSteps();
@@ -48,11 +81,6 @@ public class AppLogic {
 
     }
 
-    public void addFoodToList(ArrayList<String> addedFood) {
-        nutritionPoints.addToFoodLogHistory(addedFood);
-        computePoints();
-    }
-
     public int getStepPoints() {
         return activityPoints.computeStepPoints();
     }
@@ -66,61 +94,22 @@ public class AppLogic {
     }
 
     public boolean canBuyPrize() {
-        if (rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice()) {
-            return true;
-        } else return false;
-    }
-
-    public void attachObserverToActivityPoints(Observer observer){
-        activityPoints.attachObserver(observer);
-    }
-
-    public void attachObserverToRewardPoints(Observer observer) {
-        rewardPoints.attachObserver(observer);
-    }
-
-    public void attachObserverToNutritionPoints(Observer observer) {
-        nutritionPoints.attachObserver(observer);
-    }
-
-
-    public Reward buyPrize() {
-        return rewardPoints.buyPrize();
+        return rewardPoints.getRewardPoints() >= rewardPoints.getPrizePrice() && getRewards().size() != 0;
     }
 
     public int getStepGoal() {
-        return activityPoints.getStepGoal();
+        return activityPoints.getStepMilestone();
     }
 
     public int getHighIntensityGoal() {
-        return activityPoints.getHighIntensityGoal();
+        return activityPoints.getHighIntensityMilestone();
     }
 
     public int getFloorGoal() {
-        return activityPoints.getFloorGoal();
-    }
-
-    public double getAltitude() {
-        return altitude;
-    }
-
-    public void setAltitude(double altitude) {
-        this.altitude = altitude;
-    }
-
-    public void addToHighIntensity(int minutes) {
-        activityPoints.addToHighIntensity(minutes);
+        return activityPoints.getFloorMilestone();
     }
 
     public int getHighIntensity() { return activityPoints.getHighIntensity();}
-
-    public void setFoodList(ArrayList<String> addFood) {
-        nutritionPoints.setFoodList(addFood);
-    }
-
-    public ArrayList<String> getFoodList() {
-        return nutritionPoints.getFoodList();
-    }
 
     public int getEndStepGoal() {
         return activityPoints.getEndStepGoal();
@@ -134,5 +123,35 @@ public class AppLogic {
         return activityPoints.getEndHighIntensityGoal();
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setRewards(ArrayList<Item> rewards) {
+        rewardPoints.setRewards(rewards);
+    }
+
+    public ArrayList<Item> getRewards() {
+        return rewardPoints.getRewards();
+    }
+
+    public int getTotalPrizes() {
+        return totalPrizes;
+    }
+
+    public void setTotalPrizes(int totalPrizes) {
+        this.totalPrizes = totalPrizes;
+    }
+
+    public ArrayList<Item> getFoodItemList() {
+        return nutritionPoints.getFoodItemList();
+    }
+
+    public void setFoodItemList(ArrayList<Item> newFoodList) {
+        nutritionPoints.setFoodItemList(newFoodList);
+    }
 }

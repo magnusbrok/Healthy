@@ -5,31 +5,31 @@
     <item
         android:id="@+id/activityPage"
         android:enabled="true"
-        android:title="activity"
+        android:title="Aktivitet"
         android:icon="@drawable/activity_guy_final"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/nutriotionPage"
         android:enabled="true"
-        android:title="nutrition"
+        android:title="Ernæring"
         android:icon="@drawable/nutrition_page"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/homePage"
         android:enabled="true"
-        android:title="home"
+        android:title="Hjem"
         android:icon="@drawable/baseline_home_white_18dp"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/socialPage"
         android:enabled="true"
-        android:title="social"
+        android:title="Social"
         android:icon="@drawable/socialvector"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/rewardPage"
         android:enabled="true"
-        android:title="reward"
+        android:title="Belønning"
         android:icon="@drawable/reward_page"
         app:showAsAction="ifRoom" />
 </menu>

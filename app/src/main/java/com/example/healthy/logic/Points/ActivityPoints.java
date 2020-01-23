@@ -1,21 +1,17 @@
-package com.example.healthy.logic;
+package com.example.healthy.logic.Points;
 
 public class ActivityPoints extends Points {
 
-    private int points;
     private int steps;
     private int highIntensity;
-
 
     private int stepPointIncrementer = 50;
     private int floorPointIncrementer = 200;
     private int highIntensityIncrementer = 75;
 
-
-
-    private int stepGoal = 25;
-    private int floorGoal = 1;
-    private int highIntensityGoal = 10;
+    private int stepMilestone = 25;
+    private int floorMilestone = 1;
+    private int highIntensityMilestone = 10;
 
     private int[] stepGoals = new int[100];
     private int[] floorGoals = new int[5];
@@ -25,54 +21,32 @@ public class ActivityPoints extends Points {
     private int endHighIntensityGoal;
     private int endFloorGoal;
 
-
-
-
     public ActivityPoints(){
         // Generate step milestones with intervals of 2500
         for (int i = 0; i < stepGoals.length; i++){
-            stepGoals[i] = stepGoal*(i+1);
+            stepGoals[i] = stepMilestone *(i+1);
         }
         endStepGoal = stepGoals[stepGoals.length-1];
 
         for (int i = 0; i < floorGoals.length; i++){
-            floorGoals[i] = floorGoal*(i+1);
+            floorGoals[i] = floorMilestone *(i+1);
         }
         endFloorGoal = floorGoals[floorGoals.length-1];
 
         for (int i = 0; i < highIntensityGoals.length; i++){
-            highIntensityGoals[i] = highIntensityGoal*(i+1);
+            highIntensityGoals[i] = highIntensityMilestone *(i+1);
         }
         endHighIntensityGoal = highIntensityGoals[highIntensityGoals.length-1];
     }
 
     @Override
     public int computePoints(){
-        //TODO implement code to compute points from steps taken
-
-        int currentPoints = points;
 
         int points = computeStepPoints() + computeHighIntensityPoints() + computeFloorPoints();
 
-        //Increments local points if steps taken are exceeds an milestone
-
-
-        setPoints(points);
-
-        int difference = points - currentPoints;
+        int difference = computeDifference(points);
 
         return (difference);
-    }
-
-    //getters and setters
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-        notifyChangeToObservers();
     }
 
     public int getSteps() {
@@ -96,21 +70,19 @@ public class ActivityPoints extends Points {
         int points = 0;
 
         for (int i = 0; i < stepGoals.length; i++){
-            if (stepGoals[i] < steps){
+            if (stepGoals[i] <= steps){
                 points += stepPointIncrementer;
             }
         }
-
         return points;
     }
 
     public int computeHighIntensityPoints() {
         int points = 0;
-
         int min = highIntensity;
 
         for (int i = 0; i < highIntensityGoals.length; i++){
-            if (highIntensityGoals[i] < min){
+            if (highIntensityGoals[i] <= min){
                 points += highIntensityIncrementer;
             }
         }
@@ -123,7 +95,7 @@ public class ActivityPoints extends Points {
         int floors = steps/100;
 
         for (int i = 0; i < floorGoals.length; i++){
-            if (floorGoals[i] < floors){
+            if (floorGoals[i] <= floors){
                 points += floorPointIncrementer;
             }
         }
@@ -131,12 +103,17 @@ public class ActivityPoints extends Points {
 
     }
 
-    public int getStepGoal() {
-        return stepGoal;
+    public void addToHighIntensity(int minutes) {
+        highIntensity += minutes;
+        notifyChangeToObservers();
     }
 
-    public void setStepGoal(int stepGoal) {
-        this.stepGoal = stepGoal;
+    public int getStepMilestone() {
+        return stepMilestone;
+    }
+
+    public void setStepMilestone(int stepMilestone) {
+        this.stepMilestone = stepMilestone;
     }
 
     public int getFloorPointIncrementer() {
@@ -155,32 +132,25 @@ public class ActivityPoints extends Points {
         this.highIntensityIncrementer = highIntensityIncrementer;
     }
 
-    public int getFloorGoal() {
-        return floorGoal;
+    public int getFloorMilestone() {
+        return floorMilestone;
     }
 
-    public void setFloorGoal(int floorGoal) {
-        this.floorGoal = floorGoal;
+    public void setFloorMilestone(int floorMilestone) {
+        this.floorMilestone = floorMilestone;
     }
 
-    public int getHighIntensityGoal() {
-        return highIntensityGoal;
+    public int getHighIntensityMilestone() {
+        return highIntensityMilestone;
     }
 
-    public void setHighIntensityGoal(int highIntensityGoal) {
-        this.highIntensityGoal = highIntensityGoal;
-    }
-
-
-    public void addToHighIntensity(int minutes) {
-        highIntensity += minutes;
-        notifyChangeToObservers();
+    public void setHighIntensityMilestone(int highIntensityMilestone) {
+        this.highIntensityMilestone = highIntensityMilestone;
     }
 
     public int getHighIntensity() {
         return highIntensity;
     }
-
 
     public int getEndStepGoal() {
         return endStepGoal;
@@ -205,5 +175,4 @@ public class ActivityPoints extends Points {
     public void setEndFloorGoal(int endFloorGoal) {
         this.endFloorGoal = endFloorGoal;
     }
-
 }

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nutrition.GoalsNutrition">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="405dp"
+        android:layout_height="429dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26">
+
+        <TextView
+            android:id="@+id/goalsText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:text="Dine kostmål"
+            android:textAlignment="center"
+            android:textColor="#111010"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/goalsText2"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="@dimen/default_gap"
+            android:text="Det er vigtigt for dig at spise sundt! \n Her er de kostråd som anbefales: "
+            android:textAlignment="center"
+            android:textColor="#111010"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/adviceNumberOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:lineSpacingExtra="@dimen/default_gap"
+            android:text="1. Det anbefales at spise 6 frugter eller grøntsager om dagen. "
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="2. Spis fisk mindst to gange om ugen."
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="3. Spist mindst 75 gram fuldkorn om dagen. "
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberFour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="4. Spist magert kød og kødpålæg. "
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberFive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="5. Vælg magre mejeriprodukter"
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberSix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="6. Spis mindre mættet fedt"
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberSeven"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="7. Spis mad med mindre salt. "
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberEight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="8. Spis mindre sukker."
+            android:textColor="#111010"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/adviceNumberNine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="9. Drik vand. "
+            android:textColor="#111010"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/goalsDoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/check_mark_history" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

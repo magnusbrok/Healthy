@@ -2,47 +2,35 @@ package com.example.healthy.Nutrition;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
 import com.example.healthy.logic.AppLogic;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
 public class DayNutrition extends Fragment implements View.OnClickListener, Observer {
 
-    PieChartView nutritionPie;
-    List<SliceValue> nutritionData = new ArrayList<>();
-    TextView goals, history, day_points;
-    FloatingActionButton addFood;
-    AppLogic appLogic = AppLogic.getInstance();
-    FirebaseFirestore db;
+    private List<SliceValue> nutritionData = new ArrayList<>();
+    private TextView goals, history, day_points;
+    private FloatingActionButton addFood;
+    private AppLogic appLogic = AppLogic.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_day_nutrition, container, false);
-        // Snuppet fra activity
-        nutritionPie = root.findViewById(R.id.pieChartView_nutritionDay);
+        // Copied from activityPage
+        PieChartView nutritionPie = root.findViewById(R.id.pieChartView_nutritionDay);
         goals = root.findViewById(R.id.textView_nutritionDay_goals);
         history = root.findViewById(R.id.textView_nutritionDay_log);
         addFood = root.findViewById(R.id.floatingActionButton_nutritionDay_addFood);
@@ -64,8 +52,6 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
 
         appLogic.attachObserverToNutritionPoints(this);
 
-        readLog();
-
         return root;
     }
 
@@ -79,27 +65,16 @@ public class DayNutrition extends Fragment implements View.OnClickListener, Obse
         if (v == history) {
             Intent i = new Intent(getActivity(), LogHistory.class);
             startActivity(i);
+        }
 
+        if (v==goals){
+            Intent i = new Intent(getActivity(), GoalsNutrition.class);
+            startActivity(i);
         }
     }
 
     @Override
     public void updateView() {
         day_points.setText("" + appLogic.getNutritionPoints());
-    }
-
-    private void readLog() {
-        db = FirebaseFirestore.getInstance();
-        DocumentReference userLog = db.collection("Brugere med point").document("1").collection("FoodLog").document("2");
-        userLog.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot doc = task.getResult();
-                    appLogic.setFoodList((ArrayList<String>) doc.get("Food added"));
-                    appLogic.computePoints();
-                }
-            }
-        });
     }
 }

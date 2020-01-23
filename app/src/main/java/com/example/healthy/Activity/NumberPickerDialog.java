@@ -5,16 +5,17 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.NumberPicker;
-
 import androidx.fragment.app.DialogFragment;
-
 import com.example.healthy.logic.AppLogic;
+
+import org.jetbrains.annotations.NotNull;
 
 public class NumberPickerDialog extends DialogFragment {
     private NumberPicker.OnValueChangeListener valueChangeListener;
-    AppLogic logic = AppLogic.getInstance();
+    private AppLogic logic = AppLogic.getInstance();
 
 
+    @NotNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final NumberPicker numberPicker = new NumberPicker(getActivity());
 
@@ -52,5 +53,4 @@ public class NumberPickerDialog extends DialogFragment {
     public void  setValueChangeListener(NumberPicker.OnValueChangeListener valueChangeListener) {
         this.valueChangeListener = valueChangeListener;
     }
-
 }

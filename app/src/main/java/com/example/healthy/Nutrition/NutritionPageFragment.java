@@ -1,6 +1,5 @@
 package com.example.healthy.Nutrition;
 
-
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -15,7 +14,6 @@ import com.example.healthy.R;
  */
 public class NutritionPageFragment extends Fragment{
 
-    FragmentTransaction fragmentTransaction;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,8 +21,8 @@ public class NutritionPageFragment extends Fragment{
         View root = inflater.inflate(R.layout.fragment_activity_page, container, false);
 
         if(savedInstanceState == null) {
-            fragmentTransaction = getFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.FrameLayout ,new DayNutrition());
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.day_activty_framelayout,new DayNutrition());
             fragmentTransaction.commit();
 
             Bundle bundle = new Bundle();

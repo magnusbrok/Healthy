@@ -8,57 +8,137 @@
     tools:context=".ProfilePage"
     android:background="@color/colorGrey">
 
-        <EditText
-            android:id="@+id/redigerNavn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/navn"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorBlack"
-            android:textStyle="italic"
-            android:textSize="15sp"
-            />
 
-        <EditText
-            android:id="@+id/redigerAlder"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Alder:"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorBlack"
-            android:textStyle="italic"
-            android:textSize="15sp"
-            />
-        <EditText
-            android:id="@+id/redigerSkole"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Navn: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/redigerNavn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Skole:"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorBlack"
-            android:textStyle="italic"
-            android:textSize="15sp"
-            />
-        <EditText
-            android:id="@+id/redigerArgang"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Age"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/alder"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/redigerAlder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Årgang:"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorBlack"
-            android:textStyle="italic"
-            android:textSize="15sp"
-            />
-        <EditText
-            android:id="@+id/redigerEmail"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/School"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Skole: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/redigerSkole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-mail:"
-            android:layout_marginTop="10dp"
-            android:textColorHint="@color/colorBlack"
-            android:textStyle="italic"
-            android:textSize="15sp"
-            />
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/rgang"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/redigerArgang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/mail"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="E-mail: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/redigerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/gemRedigering"
@@ -71,5 +151,6 @@
             android:background="@drawable/rounded_button_white"
             android:text="Gem og luk"
             android:textSize="20sp" />
+
 
 </LinearLayout>

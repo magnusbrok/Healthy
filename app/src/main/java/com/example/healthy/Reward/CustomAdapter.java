@@ -7,31 +7,28 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.example.healthy.R;
+import com.example.healthy.logic.Items.Item;
+import java.util.ArrayList;
+
+public class CustomAdapter extends ArrayAdapter<Item> {
 
 
-public class CustomAdapter extends ArrayAdapter<String> {
-
-
-    public CustomAdapter(@NonNull Context context, String[] namesOfPrizes) {
-        super(context, R.layout.fragment_your_prize_page, namesOfPrizes);
+    public CustomAdapter(@NonNull Context context, ArrayList<Item> items) {
+        super(context, R.layout.fragment_your_prize_page, items);
     }
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater lf = LayoutInflater.from(getContext());
-        View customPrize = lf.inflate(R.layout.activity_your_prize_elements, parent,false);
+        View customView = lf.inflate(R.layout.custom_list_item, parent,false);
 
-        String prizeText = getItem(position);
-        TextView singlePrizeText =customPrize.findViewById(R.id.prizeText);
-        ImageView singleImage = customPrize.findViewById(R.id.prizeImage);
+        String prizeText = getItem(position).getName();
+        TextView singlePrizeText =customView.findViewById(R.id.List_prizeText);
+        ImageView singleImage = customView.findViewById(R.id.list_image);
         singlePrizeText.setText(prizeText);
-        singleImage.setImageResource(R.drawable.activity_guy_final);
-        return customPrize;
+        singleImage.setImageResource(getItem(position).getResID());
+        return customView;
     }
 }
-

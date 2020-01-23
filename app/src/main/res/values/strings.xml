@@ -9,8 +9,6 @@
     <string name="settings"> Settings</string>
     <string name="profile"> Profile</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rediger_profil">Rediger profil</string>
     <string name="tilfoj_foraldre_e_mail">Tilfoj foraldre E-mail</string>
     <string name="din_profil">Din profil</string>

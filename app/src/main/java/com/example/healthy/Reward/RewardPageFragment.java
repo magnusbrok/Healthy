@@ -2,31 +2,25 @@ package com.example.healthy.Reward;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
+import androidx.recyclerview.widget.RecyclerView;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.healthy.ObserverPattern.Observer;
 import com.example.healthy.R;
+import com.example.healthy.logic.AppDAO;
 import com.example.healthy.logic.AppLogic;
-import com.example.healthy.logic.Reward;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+import com.example.healthy.logic.Items.Item;
+import com.example.healthy.logic.User;
 import java.util.ArrayList;
 import java.util.List;
-
 import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
@@ -35,75 +29,69 @@ import lecho.lib.hellocharts.view.PieChartView;
  * A simple {@link Fragment} subclass.
  */
 public class RewardPageFragment extends Fragment implements View.OnClickListener, Observer {
-    private static final String POINTS = "rewardPoints";
-    Button seGevinster, buyPrize;
-    TextView rewardPoints;
-    AppLogic appLogic = AppLogic.getInstance();
-    PieChartView rewardPie;
+    private Button seGevinster, buyPrize;
+    private TextView rewardPoints;
+    private AppLogic appLogic = AppLogic.getInstance();
+    private AppDAO appDAO = AppDAO.getInstance();
+    private PieChartView rewardPie;
+
     private SliceValue activitySlice, nutritionSlice, soicalSlice;
-    List<SliceValue> rewardData = new ArrayList<>();
-    ArrayList<String> rewardAmount = new ArrayList<>();
-    TextView amountTV1, amountTV2, amountTV3, amountTV4, amountTV5, amountTV6, amountTV7, amountTV8, amountTV9, amountTV10;
-   LottieAnimationView loading;
-
-
-    public RewardPageFragment() {
-        // Required empty public constructor
-    }
-
+    private List<SliceValue> rewardData = new ArrayList<>();
+    private LottieAnimationView loading;
+    RecyclerView rewardView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
-
+        final View root = inflater.inflate(R.layout.fragment_reward_page, container, false);
         appLogic.attachObserverToRewardPoints(this);
-        //loadPoints();
+        appLogic.attachObserverToNutritionPoints(this);
+        appLogic.attachObserverToRewardPoints(this);
         rewardPie = root.findViewById(R.id.rewardPagePie);
         rewardPoints = root.findViewById(R.id.rewardPoints);
-        rewardPoints.setText("" + appLogic.getRewardPoints());
-        amountTV1 = root.findViewById(R.id.amountTV1);
-        amountTV2 = root.findViewById(R.id.amountTV2);
-        amountTV3 = root.findViewById(R.id.amountTV3);
-        amountTV4 = root.findViewById(R.id.amountTV4);
-        amountTV5 = root.findViewById(R.id.amountTV5);
-        amountTV6 = root.findViewById(R.id.amountTV6);
-        amountTV7 = root.findViewById(R.id.amountTV7);
-        amountTV8 = root.findViewById(R.id.amountTV8);
-        amountTV9 = root.findViewById(R.id.amountTV9);
-        amountTV10 = root.findViewById(R.id.amountTV10);
-        //loading = root.findViewById(R.id.loadingAnimation);
-        //loading.bringToFront();
+        rewardPoints.setText(""+appLogic.getRewardPoints());
+        loading = root.findViewById(R.id.loadingAnimation);
+        loading.bringToFront();
+        rewardView = root.findViewById(R.id.fragment_rewardpage_reward_list);
+        appDAO.loadRewardsWon();
+        final Handler toastHandler = new Handler();
 
-        //TODO håndter hvis der ikke er netforbindelse;
         new AsyncTask() {
 
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
-                    getAmountFromSheet("12345678910");
+                    appDAO.getAmountFromSheet("123456789101112131415161718192021222324252627282930");
+                    System.out.println("Data hentet");
                     return "Mængderne blev hentet korrekt";
                 } catch (Exception e) {
                     e.printStackTrace();
+                    System.out.println("Data ikke hentet");
+                    toastHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getActivity(), "Opret forbindelse til internettet", Toast.LENGTH_SHORT).show();
+                        }
+                    }, 100);
                     return "Mængderne blev ikke hentet korrekt";
                 }
             }
 
             @Override
             protected void onPostExecute(Object o) {
-                amountTV1.setText(rewardAmount.get(1) + "/" + rewardAmount.get(0));
-                amountTV2.setText(rewardAmount.get(2) + "/" + rewardAmount.get(0));
-                amountTV3.setText(rewardAmount.get(3) + "/" + rewardAmount.get(0));
-                amountTV4.setText(rewardAmount.get(4) + "/" + rewardAmount.get(0));
-                amountTV5.setText(rewardAmount.get(5) + "/" + rewardAmount.get(0));
-                amountTV6.setText(rewardAmount.get(6) + "/" + rewardAmount.get(0));
-                amountTV7.setText(rewardAmount.get(7) + "/" + rewardAmount.get(0));
-                amountTV8.setText(rewardAmount.get(8) + "/" + rewardAmount.get(0));
-                amountTV9.setText(rewardAmount.get(9) + "/" + rewardAmount.get(0));
-                amountTV10.setText(rewardAmount.get(10) + "/" + rewardAmount.get(0));
-                //loading.cancelAnimation();
-                //loading.setVisibility(View.GONE);
+                try {
+                    loading.cancelAnimation();
+                    loading.setVisibility(View.GONE);
+
+
+                    CustomHorizontalRewardAdapter adapter = new CustomHorizontalRewardAdapter(getActivity(),appLogic.getRewards());
+
+                    RecyclerView recyclerView = root.findViewById(R.id.fragment_rewardpage_reward_list);
+                    recyclerView.setAdapter(adapter);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
         }.execute(100);
@@ -114,15 +102,14 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         buyPrize = root.findViewById(R.id.buyRewardButton);
         buyPrize.setOnClickListener(this);
 
-        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.socialPrimary));
+        activitySlice = new SliceValue(1, ContextCompat.getColor(getContext(),R.color.colorStep));
         nutritionSlice = new SliceValue(1,ContextCompat.getColor(getContext(), R.color.nutritionPrimary));
-        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.colorStep));
+        soicalSlice = new SliceValue(1, ContextCompat.getColor(getContext(), R.color.socialPrimary));
 
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
-        //TODO: change this to appLogic.getSocialPoints() when it's implemented.
+        //This should have used socialPoints, but it was discarded for this release
         soicalSlice.setValue(appLogic.getHighIntensityPoints());
-
 
         rewardData.add(activitySlice);
         rewardData.add(nutritionSlice);
@@ -140,19 +127,28 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == seGevinster) {
-            getFragmentManager().popBackStack();
-            Fragment yourPrizes = new YourPrizePageFragment();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction().addToBackStack(null);
-            transaction.replace(R.id.fragmentView, yourPrizes);
-            transaction.commit();
+            final YourPrizePageFragment yourPrizes = new YourPrizePageFragment();
+            getFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, yourPrizes).addToBackStack(null).commit();
             }
-
 
         if (v == buyPrize) {
 
             if (appLogic.canBuyPrize()) {
-                Reward prize = appLogic.buyPrize();
+                Item prize = appLogic.buyPrize();
+                User user = appLogic.getUser();
+                ArrayList<Item> addedRewards = new ArrayList<>();
+                addedRewards.add(prize);
+
+                if (user.getRewardsWon() != null) {
+                    user.getRewardsWon().addAll(0,addedRewards);
+                } else {
+                    user.setRewardsWon((addedRewards));
+                }
+
+                appDAO.updateRewardsWon();
+
                 Toast.makeText(getActivity(), "Du vandt: "+   prize.getName(), Toast.LENGTH_LONG).show();
+
             } else Toast.makeText(getActivity(), "Du har ikke nok point", Toast.LENGTH_LONG).show();
         }
     }
@@ -160,11 +156,10 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
     @Override
     public void updateView() {
         rewardPoints.setText(""+ appLogic.getRewardPoints());
-
         activitySlice.setValue(appLogic.getActivityPoints());
         nutritionSlice.setValue(appLogic.getNutritionPoints());
-        //TODO: change this to appLogic.getSocialPoints() when it's implemented.
-        soicalSlice.setValue(appLogic.getHighIntensityPoints());
+        //This should have used socialPoints, but it was discarded for this release
+        soicalSlice.setValue(appLogic.getHighIntensityPoints()/2);
 
         if (appLogic.getRewardPoints() == 0) {
             activitySlice.setValue(1);
@@ -178,56 +173,7 @@ public class RewardPageFragment extends Fragment implements View.OnClickListener
         rewardData.add(soicalSlice);
 
         PieChartData rewardPieData = new PieChartData(rewardData);
-        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.9f);
+        rewardPieData.setHasCenterCircle(true).setCenterCircleScale(0.8f);
         rewardPie.setPieChartData(rewardPieData);
-
-        //savePoints();
-
     }
-    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit our project)
-    public static String getUrl(String url) throws IOException {
-        System.out.println("Henter data fra " + url);
-        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
-        StringBuilder sb = new StringBuilder();
-        String linje = br.readLine();
-        while (linje != null) {
-            sb.append(linje + "\n");
-            linje = br.readLine();
-        }
-        return sb.toString();
-    }
-
-    //From Galgelogik made by Jacob Nordfalk (It has been altered to fit  our project)
-    public void getAmountFromSheet (String i) throws Exception {
-        String data = getUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5GKSK4AqGux2T6lpeLHB9YvY1QY_YY5Xqy6rDjOfBlsdrveUgZqljFOVxSab6WOvGZnwj6camSvz/pub?output=csv");
-        int lineNr = 0;
-
-        for (String line : data.split("\n")) {
-            if (lineNr < 30) System.out.println("line: " + line);
-            if (lineNr++ <1) continue;
-            String[] spaces = line.split(",", -1);
-            String index = spaces[0].trim();
-            String amount = spaces[1].trim();
-            if (amount.isEmpty()) continue;
-            if (!i.contains(index)) continue;
-            rewardAmount.add(amount);
-            System.out.println(rewardAmount);
-
-        }
-    }
-/**
-    public void savePoints() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(POINTS, appLogic.getRewardPoints());
-        editor.apply();
-    }
-
-    public int loadPoints() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        int loadedPoints = sharedPreferences.getInt(POINTS, 0);
-
-        return loadedPoints;
-    }
- **/
 }

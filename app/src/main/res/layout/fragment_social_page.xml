@@ -13,6 +13,7 @@
         android:text="Andre venner"
         android:layout_marginBottom="5dp"
         android:textSize="25sp"
+        android:layout_marginLeft="15dp"
         android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toTopOf="@+id/vennerScrollView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,10 +39,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/socialPointsTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Social points"
+        android:text="0"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/socialPie"
         app:layout_constraintEnd_toEndOf="@+id/socialPie"
         app:layout_constraintStart_toStartOf="@+id/socialPie"
@@ -54,6 +56,7 @@
         android:text="Klasse"
         android:textColor="@color/colorBlack"
         android:textSize="25sp"
+        android:layout_marginLeft="15dp"
         android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toTopOf="@+id/klasseScrollView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -206,6 +209,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
             <ImageButton

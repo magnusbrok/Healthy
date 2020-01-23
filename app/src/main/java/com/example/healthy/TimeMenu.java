@@ -2,25 +2,18 @@ package com.example.healthy;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.healthy.Activity.DayActivities;
-import com.example.healthy.Activity.MonthActivities;
-import com.example.healthy.Activity.WeekActivities;
 import com.example.healthy.Nutrition.*;
-import com.example.healthy.Nutrition.WeekNutrition;
-import com.example.healthy.R;
 
 public class TimeMenu extends Fragment implements View.OnClickListener {
 
-    TextView day, week, month;
-    String page;
+    private TextView day, week, month;
+    private String page;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,12 +41,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         if (v == day){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayActivities())
+                        .replace(R.id.day_activty_framelayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new DayNutrition())
+                        .replace(R.id.day_activty_framelayout, new DayNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.BOLD);
@@ -63,12 +56,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         }else if (v == week){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new WeekActivities())
+                        .replace(R.id.day_activty_framelayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new WeekNutrition())
+                        .replace(R.id.day_activty_framelayout, new DayNutrition())
                         .commit();
             }
             day.setTypeface(null,Typeface.NORMAL);
@@ -78,12 +71,12 @@ public class TimeMenu extends Fragment implements View.OnClickListener {
         }else if (v == month){
             if (page == "AP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new MonthActivities())
+                        .replace(R.id.day_activty_framelayout, new DayActivities())
                         .commit();
 
             } else if (page == "NP"){
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout, new MonthNutrition())
+                        .replace(R.id.day_activty_framelayout, new DayNutrition())
                         .commit();
             }
 
