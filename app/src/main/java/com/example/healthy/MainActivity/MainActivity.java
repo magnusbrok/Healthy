@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             final HomePageFragment fragment = new HomePageFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.bottom_menu_fragment_View, fragment).commit();
         }
 
         if (savedInstanceState ==  null) {
@@ -46,31 +46,31 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.activityPage:
                         if (savedInstanceState == null) {
                             final ActivityPageFragment fragment = new ActivityPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).commit();
                         }
                         break;
                     case R.id.nutriotionPage:
                         if (savedInstanceState == null) {
                             final NutritionPageFragment fragment = new NutritionPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).commit();
                         }
                         break;
                     case R.id.homePage:
                         if (savedInstanceState == null) {
                             final HomePageFragment fragment = new HomePageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).commit();
                         }
                         break;
                     case R.id.socialPage:
                         if (savedInstanceState == null) {
                             final SocialPageFragment fragment = new SocialPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).commit();
                         }
                         break;
                     case R.id.rewardPage:
                         if (savedInstanceState == null) {
                             final RewardPageFragment fragment = new RewardPageFragment();
-                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).addToBackStack(null).commit();
+                            getSupportFragmentManager().beginTransaction().replace(R.id.bottom_menu_fragment_View, fragment).commit();
                         }
                         break;
                 }

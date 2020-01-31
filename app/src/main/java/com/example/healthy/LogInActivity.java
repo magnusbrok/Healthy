@@ -43,6 +43,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         if(validate(username, password)){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+
+            // Luk denne aktivitet - ellers er den i tilbagebunken
+            finish();
         }
     }
 

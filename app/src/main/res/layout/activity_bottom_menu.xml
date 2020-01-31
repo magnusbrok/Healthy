@@ -5,15 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Jacob: Man kan ikke se hvad man trykker på.
+    I stedet for at give faste farver som baggrunde bør I bruge en baggrund
+    som skifter farve afhængig af knappernes tilstand (en Selector).
+    Se f.eks.  https://github.com/nordfalk/AndroidElementer/blob/master/app/src/main/res/drawable-v21/knapbg_blaa.xml
+    -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_navigation_main"
+        app:labelVisibilityMode="labeled"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white" >
+<!-- Vis tekster på alle punkterne
+https://stackoverflow.com/questions/41718633/bottomnavigationview-with-more-than-3-items-tab-title-is-hiding
+-->
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
